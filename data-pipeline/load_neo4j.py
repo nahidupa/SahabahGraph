@@ -29,14 +29,14 @@ def load_data():
                     MERGE (s:Sahabi {id: toInteger($id)})
                     SET s.name = $name,
                         s.title = $title,
-                        s.birth_year = toInteger($birth_year),
-                        s.death_year = toInteger($death_year)
+                        s.gender = $gender,
+                        s.is_prophet = ($is_prophet = 'True')
                     """,
                     id=row['id'],
                     name=row['name'],
                     title=row['title'],
-                    birth_year=row['birth_year'],
-                    death_year=row['death_year']
+                    gender=row['gender'],
+                    is_prophet=row['is_prophet']
                 )
 
         # 4. Load Relationships
@@ -47,10 +47,9 @@ def load_data():
                 query = f"""
                     MATCH (source:Sahabi {{id: toInteger($source_id)}})
                     MATCH (target:Sahabi {{id: toInteger($target_id)}})
-                    MERGE (source)-[r:{row['type']}]->(target)
-                    SET r.description = $description
+                    MERGE (source)-[r:{row['type']} {{category: $category}}]->(target)
                 """
-                session.run(query, source_id=row['source_id'], target_id=row['target_id'], description=row['description'])
+                session.run(query, source_id=row['source_id'], target_id=row['target_id'], category=row['category'])
 
     driver.close()
     print("Data loaded into Neo4j successfully.")
