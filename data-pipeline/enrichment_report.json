@@ -1,0 +1,18 @@
+{
+  "seed_subjects": 24,
+  "subjects_found": 24,
+  "subjects_with_entity": 1,
+  "auto_qid_mapped_subjects": 3,
+  "new_relations": 0,
+  "new_by_type": {},
+  "inferred": {
+    "inferred_parent_from_child": 0,
+    "inferred_child_from_parent": 0,
+    "inferred_reverse_spouse": 0
+  },
+  "biographies_updated": 1,
+  "mappings_rejected": 9,
+  "skipped_unmapped_relatives": 3,
+  "skipped_subject_not_in_csv": 0,
+  "seed_not_found_in_csv": []
+}

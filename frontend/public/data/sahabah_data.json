@@ -10,7 +10,7 @@
       "is_prophet": "True",
       "node_type": "Sahabi",
       "prominence": "PROPHET",
-      "biography_short": "The last Prophet of Islam.",
+      "biography_short": "The last Prophet of Islam. Graph profile: 4 documented children, 13 documented spouses, 3 linked battles.",
       "biography_source": "Sirat Ibn Hisham",
       "tribe": "Quraish",
       "clan": "Banu Hashim",
@@ -20,7 +20,7 @@
       "has_children": true,
       "has_spouses": true,
       "has_siblings": false,
-      "has_uncles": true,
+      "has_uncles": false,
       "has_cousins": true,
       "has_companions": true,
       "has_teachers": false,
@@ -38,7 +38,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "ASHARA_MUBASHSHARA",
-      "biography_short": "The first Caliph of Islam.",
+      "biography_short": "The first Caliph of Islam. Graph profile: 4 documented children, 2 documented spouses, 3 linked battles.",
       "biography_source": "Al-Isabah",
       "tribe": "Quraish",
       "clan": "Banu Taym",
@@ -46,7 +46,7 @@
       "death_year_hijri": 13,
       "has_parents": false,
       "has_children": true,
-      "has_spouses": false,
+      "has_spouses": true,
       "has_siblings": false,
       "has_uncles": false,
       "has_cousins": false,
@@ -66,7 +66,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "ASHARA_MUBASHSHARA",
-      "biography_short": "The second Caliph of Islam.",
+      "biography_short": "The second Caliph of Islam. Graph profile: 2 documented children, 1 documented spouse, 3 linked battles.",
       "biography_source": "Al-Isabah",
       "tribe": "Quraish",
       "clan": "Banu Adi",
@@ -74,7 +74,7 @@
       "death_year_hijri": 23,
       "has_parents": false,
       "has_children": true,
-      "has_spouses": false,
+      "has_spouses": true,
       "has_siblings": true,
       "has_uncles": false,
       "has_cousins": false,
@@ -94,8 +94,8 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "ASHARA_MUBASHSHARA",
-      "biography_short": "The third Caliph of Islam.",
-      "biography_source": "Al-Isabah",
+      "biography_short": "The third Caliph of Islam. Graph profile: 2 documented spouses.",
+      "biography_source": "Al-Isabah; Wikidata structured data",
       "tribe": "Quraish",
       "clan": "Banu Umayya",
       "birth_year_hijri": -47,
@@ -122,7 +122,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "ASHARA_MUBASHSHARA",
-      "biography_short": "The fourth Caliph of Islam.",
+      "biography_short": "The fourth Caliph of Islam. Graph profile: 2 documented children, 2 documented spouses, 3 linked battles.",
       "biography_source": "Al-Isabah",
       "tribe": "Quraish",
       "clan": "Banu Hashim",
@@ -130,7 +130,7 @@
       "death_year_hijri": 40,
       "has_parents": false,
       "has_children": true,
-      "has_spouses": false,
+      "has_spouses": true,
       "has_siblings": true,
       "has_uncles": false,
       "has_cousins": true,
@@ -178,7 +178,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "ASHARA_MUBASHSHARA",
-      "biography_short": "One of the ten promised paradise.",
+      "biography_short": "One of the ten promised paradise. Graph profile: 1 documented child, 1 documented spouse.",
       "biography_source": "Al-Isabah",
       "tribe": "Quraish",
       "clan": "Banu Asad",
@@ -186,7 +186,7 @@
       "death_year_hijri": 36,
       "has_parents": false,
       "has_children": true,
-      "has_spouses": false,
+      "has_spouses": true,
       "has_siblings": false,
       "has_uncles": false,
       "has_cousins": false,
@@ -234,7 +234,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "ASHARA_MUBASHSHARA",
-      "biography_short": "One of the ten promised paradise.",
+      "biography_short": "One of the ten promised paradise. Graph profile: 1 linked battle.",
       "biography_source": "Al-Isabah",
       "tribe": "Quraish",
       "clan": "Banu Zuhra",
@@ -262,8 +262,8 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "ASHARA_MUBASHSHARA",
-      "biography_short": "One of the ten promised paradise.",
-      "biography_source": "Al-Isabah",
+      "biography_short": "One of the ten promised paradise. Companion of Muhammad.",
+      "biography_source": "Al-Isabah; Wikidata structured data",
       "tribe": "Quraish",
       "clan": "Banu Adi",
       "birth_year_hijri": -22,
@@ -290,7 +290,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "ASHARA_MUBASHSHARA",
-      "biography_short": "One of the ten promised paradise.",
+      "biography_short": "One of the ten promised paradise. Graph profile: 1 linked battle.",
       "biography_source": "Al-Isabah",
       "tribe": "Quraish",
       "clan": "Banu al-Harith",
@@ -318,14 +318,14 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "SAHABI",
-      "biography_short": "The first wife of the Prophet.",
-      "biography_source": "Al-Isabah",
+      "biography_short": "The first wife of the Prophet. Hypothetical split of the country into Wallonia and Flanders. Graph profile: 1 documented child, 1 documented spouse.",
+      "biography_source": "Al-Isabah; Wikidata structured data",
       "tribe": "Quraish",
       "clan": "Banu Asad",
       "birth_year_hijri": -68,
       "death_year_hijri": -3,
       "has_parents": false,
-      "has_children": false,
+      "has_children": true,
       "has_spouses": true,
       "has_siblings": false,
       "has_uncles": false,
@@ -346,7 +346,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "SAHABI",
-      "biography_short": "The wife of the Prophet and daughter of Abu Bakr.",
+      "biography_short": "The wife of the Prophet and daughter of Abu Bakr. Graph profile: 1 documented spouse, 2 linked parents.",
       "biography_source": "Al-Isabah",
       "tribe": "Quraish",
       "clan": "Banu Taym",
@@ -374,7 +374,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "SAHABI",
-      "biography_short": "The daughter of the Prophet and wife of Ali.",
+      "biography_short": "The daughter of the Prophet and wife of Ali. Graph profile: 2 documented children, 1 documented spouse, 1 linked parent.",
       "biography_source": "Al-Isabah",
       "tribe": "Quraish",
       "clan": "Banu Hashim",
@@ -382,7 +382,7 @@
       "death_year_hijri": 11,
       "has_parents": true,
       "has_children": true,
-      "has_spouses": false,
+      "has_spouses": true,
       "has_siblings": false,
       "has_uncles": false,
       "has_cousins": false,
@@ -402,7 +402,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "SAHABI",
-      "biography_short": "Grandson of the Prophet.",
+      "biography_short": "Grandson of the Prophet. Graph profile: 2 linked parents.",
       "biography_source": "Al-Isabah",
       "tribe": "Quraish",
       "clan": "Banu Hashim",
@@ -430,8 +430,8 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "SAHABI",
-      "biography_short": "Grandson of the Prophet.",
-      "biography_source": "Al-Isabah",
+      "biography_short": "Grandson of the Prophet. Italian comune. Graph profile: 2 linked parents.",
+      "biography_source": "Al-Isabah; Wikidata structured data",
       "tribe": "Quraish",
       "clan": "Banu Hashim",
       "birth_year_hijri": 4,
@@ -458,8 +458,8 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "BADRI",
-      "biography_short": "Uncle of the Prophet.",
-      "biography_source": "Al-Isabah",
+      "biography_short": "Uncle of the Prophet. Muhammad's companion and uncle (c. 568–625). Graph profile: 1 documented child, 2 linked battles. Graph profile: 1 documented child, 2 linked battles.",
+      "biography_source": "Al-Isabah; Wikidata structured data",
       "tribe": "Quraish",
       "clan": "Banu Hashim",
       "birth_year_hijri": -54,
@@ -468,7 +468,7 @@
       "has_children": true,
       "has_spouses": false,
       "has_siblings": false,
-      "has_uncles": false,
+      "has_uncles": true,
       "has_cousins": false,
       "has_companions": false,
       "has_teachers": false,
@@ -486,7 +486,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "SAHABI",
-      "biography_short": "Uncle of the Prophet.",
+      "biography_short": "Uncle of the Prophet. Graph profile: 2 documented children, 1 documented spouse.",
       "biography_source": "Al-Isabah",
       "tribe": "Quraish",
       "clan": "Banu Hashim",
@@ -494,9 +494,9 @@
       "death_year_hijri": 32,
       "has_parents": false,
       "has_children": true,
-      "has_spouses": false,
+      "has_spouses": true,
       "has_siblings": false,
-      "has_uncles": false,
+      "has_uncles": true,
       "has_cousins": false,
       "has_companions": false,
       "has_teachers": false,
@@ -514,7 +514,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "BADRI",
-      "biography_short": "The first muadhin of Islam.",
+      "biography_short": "The first muadhin of Islam. Graph profile: 1 linked battle.",
       "biography_source": "Al-Isabah",
       "tribe": "Habesha",
       "clan": "",
@@ -542,7 +542,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "SAHABI",
-      "biography_short": "The Sword of Allah.",
+      "biography_short": "The Sword of Allah. Graph profile: 1 linked battle.",
       "biography_source": "Al-Isabah",
       "tribe": "Quraish",
       "clan": "Banu Makhzum",
@@ -570,7 +570,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "SAHABI",
-      "biography_short": "Daughter of the Prophet.",
+      "biography_short": "Daughter of the Prophet. Graph profile: 1 linked parent.",
       "biography_source": "Al-Isabah",
       "tribe": "Quraish",
       "clan": "Banu Hashim",
@@ -598,8 +598,8 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "SAHABI",
-      "biography_short": "Daughter of the Prophet.",
-      "biography_source": "Al-Isabah",
+      "biography_short": "Daughter of the Prophet. Daughter of Muhammad. Graph profile: 1 documented spouse, 2 linked parents.",
+      "biography_source": "Al-Isabah; Wikidata structured data",
       "tribe": "Quraish",
       "clan": "Banu Hashim",
       "birth_year_hijri": -20,
@@ -626,7 +626,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "SAHABI",
-      "biography_short": "Daughter of the Prophet.",
+      "biography_short": "Daughter of the Prophet. Graph profile: 1 documented spouse, 1 linked parent.",
       "biography_source": "Al-Isabah",
       "tribe": "Quraish",
       "clan": "Banu Hashim",
@@ -654,7 +654,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "SAHABI",
-      "biography_short": "Cousin of the Prophet and martyr of Mu'tah.",
+      "biography_short": "Cousin of the Prophet and martyr of Mu'tah. Graph profile: 1 documented child, 1 documented spouse.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
@@ -662,7 +662,7 @@
       "death_year_hijri": 60,
       "has_parents": false,
       "has_children": true,
-      "has_spouses": false,
+      "has_spouses": true,
       "has_siblings": true,
       "has_uncles": false,
       "has_cousins": false,
@@ -682,7 +682,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "BADRI",
-      "biography_short": "The only Sahabi mentioned by name in the Quran.",
+      "biography_short": "The only Sahabi mentioned by name in the Quran. Graph profile: 1 documented child, 1 documented spouse, 1 linked battle.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
@@ -690,7 +690,7 @@
       "death_year_hijri": 60,
       "has_parents": false,
       "has_children": true,
-      "has_spouses": false,
+      "has_spouses": true,
       "has_siblings": false,
       "has_uncles": false,
       "has_cousins": false,
@@ -710,7 +710,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "SAHABI",
-      "biography_short": "The beloved of the Messenger of Allah.",
+      "biography_short": "The beloved of the Messenger of Allah. Graph profile: 2 linked parents.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
@@ -738,7 +738,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "SAHABI",
-      "biography_short": "Son of Umar and a great scholar of hadith.",
+      "biography_short": "Son of Umar and a great scholar of hadith. Graph profile: 1 linked parent.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
@@ -766,7 +766,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "SAHABI",
-      "biography_short": "The interpreter of the Quran.",
+      "biography_short": "The interpreter of the Quran. Graph profile: 2 linked parents.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
@@ -794,7 +794,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "BADRI",
-      "biography_short": "One of the earliest converts and a great scholar.",
+      "biography_short": "One of the earliest converts and a great scholar. Graph profile: 1 linked battle.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
@@ -850,8 +850,8 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "SAHABI",
-      "biography_short": "The servant of the Prophet for ten years.",
-      "biography_source": "General History",
+      "biography_short": "The servant of the Prophet for ten years. German field hockey player (born 1950). Graph profile: 1 linked parent.",
+      "biography_source": "General History; Wikidata structured data",
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
@@ -860,7 +860,7 @@
       "has_children": false,
       "has_spouses": false,
       "has_siblings": false,
-      "has_uncles": true,
+      "has_uncles": false,
       "has_cousins": false,
       "has_companions": false,
       "has_teachers": false,
@@ -878,7 +878,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "SAHABI",
-      "biography_short": "A narrator of many hadiths.",
+      "biography_short": "A narrator of many hadiths. Graph profile: 1 linked parent.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
@@ -1074,7 +1074,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "BADRI",
-      "biography_short": "One of the early converts and martyrs.",
+      "biography_short": "One of the early converts and martyrs. Graph profile: 1 linked battle.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
@@ -1102,7 +1102,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "BADRI",
-      "biography_short": "One of the first to fight on horseback.",
+      "biography_short": "One of the first to fight on horseback. Graph profile: 1 linked battle.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
@@ -1158,7 +1158,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "SAHABI",
-      "biography_short": "The conqueror of Egypt.",
+      "biography_short": "The conqueror of Egypt. Graph profile: 1 linked battle.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
@@ -1186,19 +1186,19 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "SAHABI",
-      "biography_short": "The founder of the Umayyad dynasty.",
-      "biography_source": "General History",
+      "biography_short": "The founder of the Umayyad dynasty. Graph profile: 1 documented child, 2 linked parents.",
+      "biography_source": "General History; Wikidata structured data",
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
       "death_year_hijri": 60,
       "has_parents": true,
-      "has_children": false,
+      "has_children": true,
       "has_spouses": false,
       "has_siblings": false,
       "has_uncles": false,
       "has_cousins": false,
-      "has_companions": false,
+      "has_companions": true,
       "has_teachers": false,
       "has_students": false,
       "has_battles": false,
@@ -1214,7 +1214,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "BADRI",
-      "biography_short": "The first ambassador of Islam to Medina.",
+      "biography_short": "The first ambassador of Islam to Medina. Graph profile: 2 linked battles.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
@@ -1242,7 +1242,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "BADRI",
-      "biography_short": "The host of the Prophet in Medina.",
+      "biography_short": "The host of the Prophet in Medina. Graph profile: 1 linked battle.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
@@ -1270,7 +1270,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "BADRI",
-      "biography_short": "The leader of the Aws tribe.",
+      "biography_short": "The leader of the Aws tribe. Graph profile: 1 linked battle.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
@@ -1326,7 +1326,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "BADRI",
-      "biography_short": "A prominent leader of the Ansar.",
+      "biography_short": "A prominent leader of the Ansar. Graph profile: 1 linked battle.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
@@ -1438,7 +1438,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "BADRI",
-      "biography_short": "The poet of the Prophet and martyr of Mu'tah.",
+      "biography_short": "The poet of the Prophet and martyr of Mu'tah. Graph profile: 1 linked battle.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
@@ -1494,15 +1494,15 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "SAHABI",
-      "biography_short": "The one with two waistbands (Dhat an-Nitaqayn).",
-      "biography_source": "General History",
+      "biography_short": "The one with two waistbands (Dhat an-Nitaqayn). Queen Consort of Württemberg. Graph profile: 1 documented child, 1 documented spouse, 1 linked parent.",
+      "biography_source": "General History; Wikidata structured data",
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
       "death_year_hijri": 60,
       "has_parents": true,
       "has_children": true,
-      "has_spouses": false,
+      "has_spouses": true,
       "has_siblings": false,
       "has_uncles": false,
       "has_cousins": false,
@@ -1550,8 +1550,8 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "SAHABI",
-      "biography_short": "The wife of the Prophet and wise counselor.",
-      "biography_source": "General History",
+      "biography_short": "The wife of the Prophet and wise counselor. Wikimedia disambiguation page. Graph profile: 1 documented spouse.",
+      "biography_source": "General History; Wikidata structured data",
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
@@ -1578,8 +1578,8 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "SAHABI",
-      "biography_short": "The wife of the Prophet and keeper of the first Mushaf.",
-      "biography_source": "General History",
+      "biography_short": "The wife of the Prophet and keeper of the first Mushaf. United States general. Graph profile: 1 documented spouse, 1 linked parent.",
+      "biography_source": "General History; Wikidata structured data",
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
@@ -1606,15 +1606,15 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "SAHABI",
-      "biography_short": "The nursemaid of the Prophet.",
+      "biography_short": "The nursemaid of the Prophet. Graph profile: 1 documented child, 1 documented spouse.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
       "death_year_hijri": 60,
       "has_parents": false,
-      "has_children": false,
-      "has_spouses": false,
+      "has_children": true,
+      "has_spouses": true,
       "has_siblings": false,
       "has_uncles": false,
       "has_cousins": false,
@@ -1634,7 +1634,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "SAHABI",
-      "biography_short": "The first woman the Prophet married after Khadija.",
+      "biography_short": "The first woman the Prophet married after Khadija. Graph profile: 1 documented spouse.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
@@ -1662,8 +1662,8 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "SAHABI",
-      "biography_short": "The wife of the Prophet known for her charity.",
-      "biography_source": "General History",
+      "biography_short": "The wife of the Prophet known for her charity. Male given name. Graph profile: 1 documented spouse.",
+      "biography_source": "General History; Wikidata structured data",
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
@@ -1690,7 +1690,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "SAHABI",
-      "biography_short": "The wife of the Prophet who brought blessings to her tribe.",
+      "biography_short": "The wife of the Prophet who brought blessings to her tribe. Graph profile: 1 documented spouse.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
@@ -1718,7 +1718,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "SAHABI",
-      "biography_short": "The wife of the Prophet from the lineage of Aaron.",
+      "biography_short": "The wife of the Prophet from the lineage of Aaron. Graph profile: 1 documented spouse.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
@@ -1746,7 +1746,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "SAHABI",
-      "biography_short": "The last woman the Prophet married.",
+      "biography_short": "The last woman the Prophet married. Graph profile: 1 documented spouse.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
@@ -1774,7 +1774,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "SAHABI",
-      "biography_short": "The mother of the poor (Umm al-Masakin).",
+      "biography_short": "The mother of the poor (Umm al-Masakin). Graph profile: 1 documented spouse.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
@@ -1802,7 +1802,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "SAHABI",
-      "biography_short": "The wife of the Prophet and daughter of Abu Sufyan.",
+      "biography_short": "The wife of the Prophet and daughter of Abu Sufyan. Graph profile: 1 documented spouse, 1 linked parent.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
@@ -1886,7 +1886,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "SAHABI",
-      "biography_short": "The mother of Anas ibn Malik.",
+      "biography_short": "The mother of Anas ibn Malik. Graph profile: 1 documented child, 1 documented spouse.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
@@ -1894,7 +1894,7 @@
       "death_year_hijri": 60,
       "has_parents": false,
       "has_children": true,
-      "has_spouses": false,
+      "has_spouses": true,
       "has_siblings": true,
       "has_uncles": false,
       "has_cousins": false,
@@ -1998,7 +1998,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "SAHABI",
-      "biography_short": "The poetess and wife of several martyrs.",
+      "biography_short": "The poetess and wife of several martyrs. Graph profile: 1 documented spouse.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
@@ -2006,7 +2006,7 @@
       "death_year_hijri": 60,
       "has_parents": false,
       "has_children": false,
-      "has_spouses": false,
+      "has_spouses": true,
       "has_siblings": false,
       "has_uncles": false,
       "has_cousins": false,
@@ -2082,7 +2082,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "SAHABI",
-      "biography_short": "The daughter of the Lion of Allah.",
+      "biography_short": "The daughter of the Lion of Allah. Graph profile: 1 linked parent.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
@@ -2110,13 +2110,13 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "SAHABI",
-      "biography_short": "The daughter of Abu Bakr.",
+      "biography_short": "The daughter of Abu Bakr. Graph profile: 2 linked parents.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
       "death_year_hijri": 60,
-      "has_parents": false,
+      "has_parents": true,
       "has_children": false,
       "has_spouses": false,
       "has_siblings": false,
@@ -2306,7 +2306,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "SAHABI",
-      "biography_short": "The mother of the Prophet's son Ibrahim.",
+      "biography_short": "The mother of the Prophet's son Ibrahim. Graph profile: 1 documented spouse.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
@@ -2314,7 +2314,7 @@
       "death_year_hijri": 60,
       "has_parents": false,
       "has_children": false,
-      "has_spouses": false,
+      "has_spouses": true,
       "has_siblings": false,
       "has_uncles": false,
       "has_cousins": false,
@@ -2334,7 +2334,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "SAHABI",
-      "biography_short": "A woman of the Banu Nadir.",
+      "biography_short": "A woman of the Banu Nadir. Graph profile: 1 documented spouse.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
@@ -2342,7 +2342,7 @@
       "death_year_hijri": 60,
       "has_parents": false,
       "has_children": false,
-      "has_spouses": false,
+      "has_spouses": true,
       "has_siblings": false,
       "has_uncles": false,
       "has_cousins": false,
@@ -2362,15 +2362,15 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "SAHABI",
-      "biography_short": "The wife of al-Abbas.",
+      "biography_short": "The wife of al-Abbas. Graph profile: 2 documented children, 1 documented spouse.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
       "death_year_hijri": 60,
       "has_parents": false,
-      "has_children": false,
-      "has_spouses": false,
+      "has_children": true,
+      "has_spouses": true,
       "has_siblings": false,
       "has_uncles": false,
       "has_cousins": false,
@@ -2390,15 +2390,15 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "SAHABI",
-      "biography_short": "The wife of Jafar, then Abu Bakr, then Ali.",
+      "biography_short": "The wife of Jafar, then Abu Bakr, then Ali. Graph profile: 2 documented children, 3 documented spouses.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
       "death_year_hijri": 60,
       "has_parents": false,
-      "has_children": false,
-      "has_spouses": false,
+      "has_children": true,
+      "has_spouses": true,
       "has_siblings": false,
       "has_uncles": false,
       "has_cousins": false,
@@ -2446,15 +2446,15 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "SAHABI",
-      "biography_short": "The mother of Muawiyah who later accepted Islam.",
+      "biography_short": "The mother of Muawiyah who later accepted Islam. Graph profile: 1 documented child, 1 documented spouse.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
       "death_year_hijri": 60,
       "has_parents": false,
-      "has_children": false,
-      "has_spouses": false,
+      "has_children": true,
+      "has_spouses": true,
       "has_siblings": false,
       "has_uncles": false,
       "has_cousins": false,
@@ -2614,16 +2614,16 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "SAHABI",
-      "biography_short": "The leader of Quraish who accepted Islam at the Conquest of Mecca.",
-      "biography_source": "General History",
+      "biography_short": "The leader of Quraish who accepted Islam at the Conquest of Mecca. Graph profile: 4 documented children, 1 documented spouse.",
+      "biography_source": "General History; Wikidata structured data",
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
       "death_year_hijri": 60,
       "has_parents": false,
       "has_children": true,
-      "has_spouses": false,
-      "has_siblings": false,
+      "has_spouses": true,
+      "has_siblings": true,
       "has_uncles": false,
       "has_cousins": false,
       "has_companions": false,
@@ -2698,7 +2698,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "BADRI",
-      "biography_short": "The first to be called Commander of the Believers.",
+      "biography_short": "The first to be called Commander of the Believers. Graph profile: 1 linked battle.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
@@ -2726,7 +2726,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "BADRI",
-      "biography_short": "One of those who will enter Paradise without reckoning.",
+      "biography_short": "One of those who will enter Paradise without reckoning. Graph profile: 1 linked battle.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
@@ -2782,7 +2782,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "BADRI",
-      "biography_short": "The one whose eye was restored by the Prophet.",
+      "biography_short": "The one whose eye was restored by the Prophet. Graph profile: 1 linked battle.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
@@ -2810,7 +2810,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "BADRI",
-      "biography_short": "The first of the Ansar to give bay'ah to Abu Bakr.",
+      "biography_short": "The first of the Ansar to give bay'ah to Abu Bakr. Graph profile: 1 linked battle.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
@@ -2838,7 +2838,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "BADRI",
-      "biography_short": "The older brother of Umar and martyr of Yamama.",
+      "biography_short": "The older brother of Umar and martyr of Yamama. Graph profile: 1 linked battle.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
@@ -2866,7 +2866,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "SAHABI",
-      "biography_short": "The warrior whose voice was worth a thousand men.",
+      "biography_short": "The warrior whose voice was worth a thousand men. Graph profile: 1 linked battle.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
@@ -2950,7 +2950,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "SAHABI",
-      "biography_short": "One of the first commanders sent to the Levant.",
+      "biography_short": "One of the first commanders sent to the Levant. Graph profile: 1 linked parent.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
@@ -2978,7 +2978,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "BADRI",
-      "biography_short": "The seventh person to accept Islam and founder of Basra.",
+      "biography_short": "The seventh person to accept Islam and founder of Basra. Graph profile: 1 linked battle.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
@@ -3118,7 +3118,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "BADRI",
-      "biography_short": "The lame elder who insisted on fighting at Uhud.",
+      "biography_short": "The lame elder who insisted on fighting at Uhud. Graph profile: 1 linked battle.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
@@ -3146,7 +3146,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "BADRI",
-      "biography_short": "The father of Jabir and martyr of Uhud.",
+      "biography_short": "The father of Jabir and martyr of Uhud. Graph profile: 1 documented child, 1 linked battle.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
@@ -3174,7 +3174,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "BADRI",
-      "biography_short": "The blacksmith who was tortured for his faith.",
+      "biography_short": "The blacksmith who was tortured for his faith. Graph profile: 1 linked battle.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
@@ -3230,14 +3230,14 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "SAHABI",
-      "biography_short": "A member of the Umayyad clan.",
+      "biography_short": "A member of the Umayyad clan. Graph profile: 1 documented child.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
       "death_year_hijri": 60,
       "has_parents": false,
-      "has_children": false,
+      "has_children": true,
       "has_spouses": false,
       "has_siblings": false,
       "has_uncles": false,
@@ -3258,16 +3258,100 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "SAHABI",
-      "biography_short": "A younger Sahabi who later became a caliph.",
+      "biography_short": "A younger Sahabi who later became a caliph. Graph profile: 1 linked parent, 1 linked battle.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
       "death_year_hijri": 60,
-      "has_parents": false,
+      "has_parents": true,
       "has_children": false,
       "has_spouses": false,
       "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": true,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": true,
+      "has_participants": false
+    },
+    {
+      "id": 206,
+      "name_ar": "العاص بن وائل",
+      "name_en": "Al-As ibn Wa'il",
+      "kunyah": "",
+      "laqab": "",
+      "gender": "male",
+      "is_prophet": "False",
+      "node_type": "Sahabi",
+      "prominence": "SAHABI",
+      "biography_short": "Father of Said ibn al-As and noted for his political influence. Graph profile: 1 documented child.",
+      "biography_source": "General History",
+      "tribe": "Quraish",
+      "clan": "Banu Sahm",
+      "birth_year_hijri": 0,
+      "death_year_hijri": 50,
+      "has_parents": false,
+      "has_children": true,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
+    },
+    {
+      "id": 207,
+      "name_ar": "عتبة بن أبي سفيان",
+      "name_en": "Utba ibn Abi Sufyan",
+      "kunyah": "",
+      "laqab": "",
+      "gender": "male",
+      "is_prophet": "False",
+      "node_type": "Sahabi",
+      "prominence": "SAHABI",
+      "biography_short": "Brother of Abu Sufyan and father of al-Walid ibn Utba. Graph profile: 1 documented child.",
+      "biography_source": "General History",
+      "tribe": "Quraish",
+      "clan": "Banu Umayya",
+      "birth_year_hijri": 0,
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": true,
+      "has_spouses": false,
+      "has_siblings": true,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
+    },
+    {
+      "id": 208,
+      "name_ar": "محمد بن أبي سفيان",
+      "name_en": "Muhammad ibn Abi Sufyan",
+      "kunyah": "",
+      "laqab": "",
+      "gender": "male",
+      "is_prophet": "False",
+      "node_type": "Sahabi",
+      "prominence": "SAHABI",
+      "biography_short": "Son of Abu Sufyan and father of Uthman ibn Muhammad. Graph profile: 1 documented child, 1 linked parent.",
+      "biography_source": "General History",
+      "tribe": "Quraish",
+      "clan": "Banu Umayya",
+      "birth_year_hijri": 0,
+      "death_year_hijri": 60,
+      "has_parents": true,
+      "has_children": true,
+      "has_spouses": false,
+      "has_siblings": true,
       "has_uncles": false,
       "has_cousins": false,
       "has_companions": false,
@@ -3286,7 +3370,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "SAHABI",
-      "biography_short": "The first child born to the Muhajirun in Medina.",
+      "biography_short": "The first child born to the Muhajirun in Medina. Graph profile: 2 linked parents.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
@@ -3314,7 +3398,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "SAHABI",
-      "biography_short": "The son of Abu Bakr raised by Ali.",
+      "biography_short": "The son of Abu Bakr raised by Ali. Graph profile: 2 linked parents.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
@@ -3342,7 +3426,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "SAHABI",
-      "biography_short": "The son of Jafar and famous for his generosity.",
+      "biography_short": "The son of Jafar and famous for his generosity. Graph profile: 2 linked parents.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
@@ -3370,7 +3454,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "BADRI",
-      "biography_short": "The leader of the reciters at Bi'r Ma'una.",
+      "biography_short": "The leader of the reciters at Bi'r Ma'una. Graph profile: 1 linked battle.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
@@ -3398,7 +3482,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "BADRI",
-      "biography_short": "The one protected by a swarm of hornets.",
+      "biography_short": "The one protected by a swarm of hornets. Graph profile: 1 linked battle.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
@@ -3426,7 +3510,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "BADRI",
-      "biography_short": "The one who prayed two rak'ahs before execution.",
+      "biography_short": "The one who prayed two rak'ahs before execution. Graph profile: 1 linked battle.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
@@ -3482,7 +3566,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "BADRI",
-      "biography_short": "The speaker of the Ansar.",
+      "biography_short": "The speaker of the Ansar. Graph profile: 1 linked battle.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
@@ -3510,7 +3594,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "BADRI",
-      "biography_short": "The knight of the Prophet who stayed neutral in Fitna.",
+      "biography_short": "The knight of the Prophet who stayed neutral in Fitna. Graph profile: 1 linked battle.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
@@ -3566,7 +3650,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "BADRI",
-      "biography_short": "The elite archer of the Ansar.",
+      "biography_short": "The elite archer of the Ansar. Graph profile: 1 documented spouse, 1 linked battle.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
@@ -3574,7 +3658,7 @@
       "death_year_hijri": 60,
       "has_parents": false,
       "has_children": false,
-      "has_spouses": false,
+      "has_spouses": true,
       "has_siblings": false,
       "has_uncles": false,
       "has_cousins": false,
@@ -3594,7 +3678,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "BADRI",
-      "biography_short": "One of the early converts and brave warriors.",
+      "biography_short": "One of the early converts and brave warriors. Graph profile: 1 linked battle.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
@@ -4098,7 +4182,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "BADRI",
-      "biography_short": "The companion during the Hijrah and martyr of Bi'r Ma'una.",
+      "biography_short": "The companion during the Hijrah and martyr of Bi'r Ma'una. Graph profile: 1 linked battle.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
@@ -4126,7 +4210,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "BADRI",
-      "biography_short": "A prominent early convert and martyr of Yamama.",
+      "biography_short": "A prominent early convert and martyr of Yamama. Graph profile: 1 linked battle.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
@@ -4154,7 +4238,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "BADRI",
-      "biography_short": "One of the best reciters of the Quran.",
+      "biography_short": "One of the best reciters of the Quran. Graph profile: 1 linked battle.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
@@ -4182,7 +4266,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "BADRI",
-      "biography_short": "The first to migrate to Abyssinia and Medina.",
+      "biography_short": "The first to migrate to Abyssinia and Medina. Graph profile: 1 linked battle.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
@@ -4378,7 +4462,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "BADRI",
-      "biography_short": "The Ansar leader whose mosque the Prophet prayed in.",
+      "biography_short": "The Ansar leader whose mosque the Prophet prayed in. Graph profile: 1 linked battle.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
@@ -4434,7 +4518,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "BADRI",
-      "biography_short": "The first of the Muhajirun to be buried in al-Baqi.",
+      "biography_short": "The first of the Muhajirun to be buried in al-Baqi. Graph profile: 1 linked battle.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
@@ -4546,7 +4630,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "BADRI",
-      "biography_short": "The one who was accompanied by light.",
+      "biography_short": "The one who was accompanied by light. Graph profile: 1 linked battle.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
@@ -4714,7 +4798,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "BADRI",
-      "biography_short": "The uncle of Anas ibn Malik who was martyred at Uhud.",
+      "biography_short": "The uncle of Anas ibn Malik who was martyred at Uhud. Graph profile: 1 linked battle.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
@@ -4724,7 +4808,7 @@
       "has_children": false,
       "has_spouses": false,
       "has_siblings": false,
-      "has_uncles": false,
+      "has_uncles": true,
       "has_cousins": false,
       "has_companions": false,
       "has_teachers": false,
@@ -4798,7 +4882,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "BADRI",
-      "biography_short": "One of the early converts and martyrs of Badr.",
+      "biography_short": "One of the early converts and martyrs of Badr. Graph profile: 1 linked battle.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
@@ -4854,13 +4938,13 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "SAHABI",
-      "biography_short": "The cousin of the Prophet who was with him at Arafat.",
+      "biography_short": "The cousin of the Prophet who was with him at Arafat. Graph profile: 2 linked parents.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
       "death_year_hijri": 60,
-      "has_parents": false,
+      "has_parents": true,
       "has_children": false,
       "has_spouses": false,
       "has_siblings": false,
@@ -4882,7 +4966,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "BADRI",
-      "biography_short": "The one washed by the angels (Ghasil al-Mala'ikah).",
+      "biography_short": "The one washed by the angels (Ghasil al-Mala'ikah). Graph profile: 1 linked battle.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
@@ -5134,7 +5218,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "BADRI",
-      "biography_short": "One of the young men who killed Abu Jahl at Badr.",
+      "biography_short": "One of the young men who killed Abu Jahl at Badr. Graph profile: 1 linked battle.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
@@ -5162,7 +5246,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "BADRI",
-      "biography_short": "One of the young men who killed Abu Jahl at Badr.",
+      "biography_short": "One of the young men who killed Abu Jahl at Badr. Graph profile: 1 linked battle.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
@@ -5274,7 +5358,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "BADRI",
-      "biography_short": "One of the early converts and migrants to Abyssinia.",
+      "biography_short": "One of the early converts and migrants to Abyssinia. Graph profile: 1 linked battle.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
@@ -5554,7 +5638,7 @@
       "is_prophet": "False",
       "node_type": "Sahabi",
       "prominence": "BADRI",
-      "biography_short": "A companion martyred at Uhud.",
+      "biography_short": "A companion martyred at Uhud. Graph profile: 1 linked battle.",
       "biography_source": "General History",
       "tribe": "Various",
       "clan": "Various",
@@ -5601,6 +5685,286 @@
       "has_participants": false
     },
     {
+      "id": 200,
+      "name_ar": "أم رومان بنت عامر",
+      "name_en": "Umm Ruman bint Amir",
+      "kunyah": "",
+      "laqab": "",
+      "gender": "female",
+      "is_prophet": "False",
+      "node_type": "Sahabi",
+      "prominence": "SAHABI",
+      "biography_short": "The wife of Abu Bakr and mother of Aisha. Graph profile: 2 documented children, 1 documented spouse.",
+      "biography_source": "General History",
+      "tribe": "Quraish",
+      "clan": "Banu Kinana",
+      "birth_year_hijri": 0,
+      "death_year_hijri": 6,
+      "has_parents": false,
+      "has_children": true,
+      "has_spouses": true,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
+    },
+    {
+      "id": 201,
+      "name_ar": "سعيد بن العاص",
+      "name_en": "Said ibn al-As",
+      "kunyah": "",
+      "laqab": "",
+      "gender": "male",
+      "is_prophet": "False",
+      "node_type": "PoliticalFigure",
+      "prominence": "UMAYYAD",
+      "biography_short": "Umayyad-era governor of Medina under Muawiya. Graph profile: 1 documented child, 1 linked parent, 1 linked battle.",
+      "biography_source": "General History",
+      "tribe": "Quraish",
+      "clan": "Banu Umayya",
+      "birth_year_hijri": 0,
+      "death_year_hijri": 58,
+      "has_parents": true,
+      "has_children": true,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": true,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": true,
+      "has_participants": false
+    },
+    {
+      "id": 202,
+      "name_ar": "الوليد بن عتبة بن أبي سفيان",
+      "name_en": "al-Walid ibn Utba ibn Abi Sufyan",
+      "kunyah": "",
+      "laqab": "",
+      "gender": "male",
+      "is_prophet": "False",
+      "node_type": "PoliticalFigure",
+      "prominence": "UMAYYAD",
+      "biography_short": "Umayyad governor linked to Medina during Muawiya and Yazid transitions. Graph profile: 1 linked parent.",
+      "biography_source": "General History",
+      "tribe": "Quraish",
+      "clan": "Banu Umayya",
+      "birth_year_hijri": 0,
+      "death_year_hijri": 65,
+      "has_parents": true,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": true,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
+    },
+    {
+      "id": 203,
+      "name_ar": "عمرو بن سعيد بن العاص",
+      "name_en": "Amr ibn Said ibn al-As",
+      "kunyah": "",
+      "laqab": "",
+      "gender": "male",
+      "is_prophet": "False",
+      "node_type": "PoliticalFigure",
+      "prominence": "UMAYYAD",
+      "biography_short": "Umayyad governor of Medina with multiple terms. Graph profile: 1 linked parent.",
+      "biography_source": "General History",
+      "tribe": "Quraish",
+      "clan": "Banu Umayya",
+      "birth_year_hijri": 0,
+      "death_year_hijri": 70,
+      "has_parents": true,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": true,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
+    },
+    {
+      "id": 204,
+      "name_ar": "عثمان بن محمد بن أبي سفيان",
+      "name_en": "Uthman ibn Muhammad ibn Abi Sufyan",
+      "kunyah": "",
+      "laqab": "",
+      "gender": "male",
+      "is_prophet": "False",
+      "node_type": "PoliticalFigure",
+      "prominence": "UMAYYAD",
+      "biography_short": "Umayyad governor of Medina during late Yazid period. Graph profile: 1 linked parent.",
+      "biography_source": "General History",
+      "tribe": "Quraish",
+      "clan": "Banu Umayya",
+      "birth_year_hijri": 0,
+      "death_year_hijri": 70,
+      "has_parents": true,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": true,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
+    },
+    {
+      "id": 205,
+      "name_ar": "يزيد بن معاوية",
+      "name_en": "Yazid ibn Muawiya",
+      "kunyah": "",
+      "laqab": "",
+      "gender": "male",
+      "is_prophet": "False",
+      "node_type": "PoliticalFigure",
+      "prominence": "UMAYYAD",
+      "biography_short": "Second Umayyad caliph and appointing authority in this timeline slice. Graph profile: 1 linked parent.",
+      "biography_source": "General History",
+      "tribe": "Quraish",
+      "clan": "Banu Umayya",
+      "birth_year_hijri": 0,
+      "death_year_hijri": 64,
+      "has_parents": true,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": true,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
+    },
+    {
+      "id": 209,
+      "name_ar": "خالد بن أسيد بن العاص",
+      "name_en": "Khalid ibn Asid ibn al-As",
+      "kunyah": "",
+      "laqab": "",
+      "gender": "male",
+      "is_prophet": "False",
+      "node_type": "PoliticalFigure",
+      "prominence": "UMAYYAD",
+      "biography_short": "Umayyad governor of Mecca during Muawiya era.",
+      "biography_source": "General History",
+      "tribe": "Quraish",
+      "clan": "Banu Umayya",
+      "birth_year_hijri": 0,
+      "death_year_hijri": 70,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": true,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": true,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
+    },
+    {
+      "id": 210,
+      "name_ar": "المغيرة بن شعبة",
+      "name_en": "Al-Mughira ibn Shu'ba",
+      "kunyah": "",
+      "laqab": "",
+      "gender": "male",
+      "is_prophet": "False",
+      "node_type": "PoliticalFigure",
+      "prominence": "UMAYYAD",
+      "biography_short": "Famous governor of Kufa under Muawiya.",
+      "biography_source": "General History",
+      "tribe": "Thaqif",
+      "clan": "Thaqif",
+      "birth_year_hijri": 0,
+      "death_year_hijri": 75,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": true,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
+    },
+    {
+      "id": 211,
+      "name_ar": "زياد بن أبيه",
+      "name_en": "Ziyad ibn Abih",
+      "kunyah": "",
+      "laqab": "",
+      "gender": "male",
+      "is_prophet": "False",
+      "node_type": "PoliticalFigure",
+      "prominence": "UMAYYAD",
+      "biography_short": "Powerful governor of Kufa and Basra.",
+      "biography_source": "General History",
+      "tribe": "Thaqif",
+      "clan": "Thaqif",
+      "birth_year_hijri": 0,
+      "death_year_hijri": 73,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": true,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
+    },
+    {
+      "id": 212,
+      "name_ar": "مسلمة بن مخلد",
+      "name_en": "Maslama ibn Mukhallad",
+      "kunyah": "",
+      "laqab": "",
+      "gender": "male",
+      "is_prophet": "False",
+      "node_type": "PoliticalFigure",
+      "prominence": "UMAYYAD",
+      "biography_short": "Governor of Egypt under Muawiya.",
+      "biography_source": "General History",
+      "tribe": "Quraysh",
+      "clan": "Banu Umayya",
+      "birth_year_hijri": 0,
+      "death_year_hijri": 70,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": true,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
+    },
+    {
       "id": 1000,
       "name_ar": "غزوة بدر",
       "name_en": "Battle of Badr",
@@ -5616,7 +5980,6 @@
       "clan": "",
       "birth_year_hijri": 2,
       "death_year_hijri": 2,
-      "has_participants": true,
       "has_parents": false,
       "has_children": false,
       "has_spouses": false,
@@ -5626,7 +5989,8 @@
       "has_companions": false,
       "has_teachers": false,
       "has_students": false,
-      "has_battles": false
+      "has_battles": false,
+      "has_participants": true
     },
     {
       "id": 1001,
@@ -5644,7 +6008,6 @@
       "clan": "",
       "birth_year_hijri": 3,
       "death_year_hijri": 3,
-      "has_participants": true,
       "has_parents": false,
       "has_children": false,
       "has_spouses": false,
@@ -5654,7 +6017,8 @@
       "has_companions": false,
       "has_teachers": false,
       "has_students": false,
-      "has_battles": false
+      "has_battles": false,
+      "has_participants": true
     },
     {
       "id": 1002,
@@ -5672,7 +6036,6 @@
       "clan": "",
       "birth_year_hijri": 5,
       "death_year_hijri": 5,
-      "has_participants": false,
       "has_parents": false,
       "has_children": false,
       "has_spouses": false,
@@ -5682,7 +6045,8 @@
       "has_companions": false,
       "has_teachers": false,
       "has_students": false,
-      "has_battles": false
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 1003,
@@ -5700,7 +6064,6 @@
       "clan": "",
       "birth_year_hijri": 7,
       "death_year_hijri": 7,
-      "has_participants": true,
       "has_parents": false,
       "has_children": false,
       "has_spouses": false,
@@ -5710,7 +6073,8 @@
       "has_companions": false,
       "has_teachers": false,
       "has_students": false,
-      "has_battles": false
+      "has_battles": false,
+      "has_participants": true
     },
     {
       "id": 1004,
@@ -5728,7 +6092,6 @@
       "clan": "",
       "birth_year_hijri": 8,
       "death_year_hijri": 8,
-      "has_participants": false,
       "has_parents": false,
       "has_children": false,
       "has_spouses": false,
@@ -5738,7 +6101,8 @@
       "has_companions": false,
       "has_teachers": false,
       "has_students": false,
-      "has_battles": false
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 1005,
@@ -5756,7 +6120,6 @@
       "clan": "",
       "birth_year_hijri": 8,
       "death_year_hijri": 8,
-      "has_participants": false,
       "has_parents": false,
       "has_children": false,
       "has_spouses": false,
@@ -5766,7 +6129,8 @@
       "has_companions": false,
       "has_teachers": false,
       "has_students": false,
-      "has_battles": false
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 1006,
@@ -5784,7 +6148,6 @@
       "clan": "",
       "birth_year_hijri": 13,
       "death_year_hijri": 13,
-      "has_participants": true,
       "has_parents": false,
       "has_children": false,
       "has_spouses": false,
@@ -5794,7 +6157,8 @@
       "has_companions": false,
       "has_teachers": false,
       "has_students": false,
-      "has_battles": false
+      "has_battles": false,
+      "has_participants": true
     },
     {
       "id": 1007,
@@ -5812,7 +6176,6 @@
       "clan": "",
       "birth_year_hijri": 15,
       "death_year_hijri": 15,
-      "has_participants": true,
       "has_parents": false,
       "has_children": false,
       "has_spouses": false,
@@ -5822,10 +6185,233 @@
       "has_companions": false,
       "has_teachers": false,
       "has_students": false,
-      "has_battles": false
+      "has_battles": false,
+      "has_participants": true
     }
   ],
   "links": [
+    {
+      "source_id": 0,
+      "target_id": 13,
+      "type": "PARENT_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 0,
+      "target_id": 20,
+      "type": "PARENT_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 0,
+      "target_id": 21,
+      "type": "PARENT_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 0,
+      "target_id": 22,
+      "type": "PARENT_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 0,
+      "target_id": 27,
+      "type": "TEACHER_OF",
+      "category": "mentorship"
+    },
+    {
+      "source_id": 0,
+      "target_id": 82,
+      "type": "SPOUSE_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 0,
+      "target_id": 83,
+      "type": "SPOUSE_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 0,
+      "target_id": 1000,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 0,
+      "target_id": 1001,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 0,
+      "target_id": 1003,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 1,
+      "target_id": 0,
+      "type": "COMPANION_OF",
+      "category": "others"
+    },
+    {
+      "source_id": 1,
+      "target_id": 12,
+      "type": "PARENT_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 1,
+      "target_id": 53,
+      "type": "PARENT_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 1,
+      "target_id": 75,
+      "type": "PARENT_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 1,
+      "target_id": 118,
+      "type": "PARENT_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 1,
+      "target_id": 1000,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 1,
+      "target_id": 1001,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 1,
+      "target_id": 1003,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 2,
+      "target_id": 0,
+      "type": "COMPANION_OF",
+      "category": "others"
+    },
+    {
+      "source_id": 2,
+      "target_id": 26,
+      "type": "PARENT_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 2,
+      "target_id": 56,
+      "type": "PARENT_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 2,
+      "target_id": 72,
+      "type": "SIBLING_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 2,
+      "target_id": 101,
+      "type": "SIBLING_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 2,
+      "target_id": 1000,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 2,
+      "target_id": 1001,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 2,
+      "target_id": 1003,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 3,
+      "target_id": 0,
+      "type": "COMPANION_OF",
+      "category": "others"
+    },
+    {
+      "source_id": 4,
+      "target_id": 0,
+      "type": "COUSIN_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 4,
+      "target_id": 14,
+      "type": "PARENT_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 4,
+      "target_id": 15,
+      "type": "PARENT_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 4,
+      "target_id": 23,
+      "type": "SIBLING_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 4,
+      "target_id": 1000,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 4,
+      "target_id": 1001,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 4,
+      "target_id": 1003,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 6,
+      "target_id": 117,
+      "type": "PARENT_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 8,
+      "target_id": 1007,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 10,
+      "target_id": 1006,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
     {
       "source_id": 11,
       "target_id": 0,
@@ -5833,9 +6419,351 @@
       "category": "family"
     },
     {
+      "source_id": 11,
+      "target_id": 21,
+      "type": "PARENT_OF",
+      "category": "family"
+    },
+    {
       "source_id": 12,
       "target_id": 0,
       "type": "SPOUSE_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 12,
+      "target_id": 1,
+      "type": "DAUGHTER_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 12,
+      "target_id": 200,
+      "type": "DAUGHTER_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 13,
+      "target_id": 0,
+      "type": "DAUGHTER_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 13,
+      "target_id": 4,
+      "type": "SPOUSE_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 13,
+      "target_id": 14,
+      "type": "PARENT_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 13,
+      "target_id": 15,
+      "type": "PARENT_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 14,
+      "target_id": 4,
+      "type": "SON_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 14,
+      "target_id": 13,
+      "type": "SON_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 14,
+      "target_id": 15,
+      "type": "SIBLING_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 15,
+      "target_id": 4,
+      "type": "SON_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 15,
+      "target_id": 13,
+      "type": "SON_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 16,
+      "target_id": 0,
+      "type": "UNCLE_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 16,
+      "target_id": 74,
+      "type": "PARENT_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 16,
+      "target_id": 1000,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 16,
+      "target_id": 1001,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 17,
+      "target_id": 0,
+      "type": "UNCLE_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 17,
+      "target_id": 27,
+      "type": "PARENT_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 17,
+      "target_id": 173,
+      "type": "PARENT_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 18,
+      "target_id": 1000,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 19,
+      "target_id": 1006,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 20,
+      "target_id": 0,
+      "type": "DAUGHTER_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 21,
+      "target_id": 0,
+      "type": "DAUGHTER_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 21,
+      "target_id": 3,
+      "type": "SPOUSE_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 21,
+      "target_id": 11,
+      "type": "DAUGHTER_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 22,
+      "target_id": 0,
+      "type": "DAUGHTER_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 22,
+      "target_id": 3,
+      "type": "SPOUSE_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 23,
+      "target_id": 119,
+      "type": "PARENT_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 24,
+      "target_id": 25,
+      "type": "PARENT_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 24,
+      "target_id": 1000,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 25,
+      "target_id": 24,
+      "type": "SON_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 25,
+      "target_id": 57,
+      "type": "SON_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 26,
+      "target_id": 2,
+      "type": "SON_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 27,
+      "target_id": 17,
+      "type": "SON_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 27,
+      "target_id": 84,
+      "type": "SON_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 28,
+      "target_id": 1000,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 30,
+      "target_id": 67,
+      "type": "SON_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 31,
+      "target_id": 112,
+      "type": "SON_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 38,
+      "target_id": 1000,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 39,
+      "target_id": 1000,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 41,
+      "target_id": 1006,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 42,
+      "target_id": 87,
+      "type": "SON_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 42,
+      "target_id": 93,
+      "type": "SON_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 42,
+      "target_id": 116,
+      "type": "APPOINTED_GOVERNOR_OF",
+      "category": "governance"
+    },
+    {
+      "source_id": 42,
+      "target_id": 201,
+      "type": "APPOINTED_GOVERNOR_OF",
+      "category": "governance"
+    },
+    {
+      "source_id": 42,
+      "target_id": 202,
+      "type": "APPOINTED_GOVERNOR_OF",
+      "category": "governance"
+    },
+    {
+      "source_id": 42,
+      "target_id": 203,
+      "type": "APPOINTED_GOVERNOR_OF",
+      "category": "governance"
+    },
+    {
+      "source_id": 42,
+      "target_id": 205,
+      "type": "PARENT_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 43,
+      "target_id": 1000,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 43,
+      "target_id": 1001,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 44,
+      "target_id": 1000,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 45,
+      "target_id": 1000,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 47,
+      "target_id": 1000,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 51,
+      "target_id": 1000,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 53,
+      "target_id": 1,
+      "type": "DAUGHTER_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 53,
+      "target_id": 6,
+      "type": "SPOUSE_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 53,
+      "target_id": 117,
+      "type": "PARENT_OF",
       "category": "family"
     },
     {
@@ -5848,6 +6776,24 @@
       "source_id": 56,
       "target_id": 0,
       "type": "SPOUSE_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 56,
+      "target_id": 2,
+      "type": "DAUGHTER_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 57,
+      "target_id": 24,
+      "type": "SPOUSE_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 57,
+      "target_id": 25,
+      "type": "PARENT_OF",
       "category": "family"
     },
     {
@@ -5893,153 +6839,9 @@
       "category": "family"
     },
     {
-      "source_id": 0,
-      "target_id": 13,
-      "type": "PARENT_OF",
-      "category": "family"
-    },
-    {
-      "source_id": 0,
-      "target_id": 20,
-      "type": "PARENT_OF",
-      "category": "family"
-    },
-    {
-      "source_id": 0,
-      "target_id": 21,
-      "type": "PARENT_OF",
-      "category": "family"
-    },
-    {
-      "source_id": 0,
-      "target_id": 22,
-      "type": "PARENT_OF",
-      "category": "family"
-    },
-    {
-      "source_id": 1,
-      "target_id": 0,
-      "type": "COMPANION_OF",
-      "category": "others"
-    },
-    {
-      "source_id": 2,
-      "target_id": 0,
-      "type": "COMPANION_OF",
-      "category": "others"
-    },
-    {
-      "source_id": 3,
-      "target_id": 0,
-      "type": "COMPANION_OF",
-      "category": "others"
-    },
-    {
-      "source_id": 4,
-      "target_id": 0,
-      "type": "COUSIN_OF",
-      "category": "family"
-    },
-    {
-      "source_id": 16,
-      "target_id": 0,
-      "type": "UNCLE_OF",
-      "category": "family"
-    },
-    {
-      "source_id": 17,
-      "target_id": 0,
-      "type": "UNCLE_OF",
-      "category": "family"
-    },
-    {
-      "source_id": 4,
-      "target_id": 14,
-      "type": "PARENT_OF",
-      "category": "family"
-    },
-    {
-      "source_id": 4,
-      "target_id": 15,
-      "type": "PARENT_OF",
-      "category": "family"
-    },
-    {
-      "source_id": 13,
-      "target_id": 14,
-      "type": "PARENT_OF",
-      "category": "family"
-    },
-    {
-      "source_id": 13,
-      "target_id": 15,
-      "type": "PARENT_OF",
-      "category": "family"
-    },
-    {
-      "source_id": 1,
-      "target_id": 12,
-      "type": "PARENT_OF",
-      "category": "family"
-    },
-    {
-      "source_id": 21,
-      "target_id": 3,
-      "type": "SPOUSE_OF",
-      "category": "family"
-    },
-    {
-      "source_id": 22,
-      "target_id": 3,
-      "type": "SPOUSE_OF",
-      "category": "family"
-    },
-    {
-      "source_id": 14,
-      "target_id": 15,
-      "type": "SIBLING_OF",
-      "category": "family"
-    },
-    {
-      "source_id": 0,
-      "target_id": 27,
-      "type": "TEACHER_OF",
-      "category": "mentorship"
-    },
-    {
-      "source_id": 24,
-      "target_id": 25,
-      "type": "PARENT_OF",
-      "category": "family"
-    },
-    {
-      "source_id": 2,
-      "target_id": 26,
-      "type": "PARENT_OF",
-      "category": "family"
-    },
-    {
-      "source_id": 2,
-      "target_id": 56,
-      "type": "PARENT_OF",
-      "category": "family"
-    },
-    {
-      "source_id": 2,
-      "target_id": 72,
-      "type": "SIBLING_OF",
-      "category": "family"
-    },
-    {
-      "source_id": 2,
-      "target_id": 101,
-      "type": "SIBLING_OF",
-      "category": "family"
-    },
-    {
-      "source_id": 17,
-      "target_id": 27,
-      "type": "PARENT_OF",
+      "source_id": 64,
+      "target_id": 93,
+      "type": "DAUGHTER_OF",
       "category": "family"
     },
     {
@@ -6055,57 +6857,93 @@
       "category": "family"
     },
     {
-      "source_id": 112,
-      "target_id": 31,
+      "source_id": 67,
+      "target_id": 127,
+      "type": "SPOUSE_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 71,
+      "target_id": 2,
+      "type": "SPOUSE_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 74,
+      "target_id": 16,
+      "type": "DAUGHTER_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 75,
+      "target_id": 1,
+      "type": "DAUGHTER_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 75,
+      "target_id": 200,
+      "type": "DAUGHTER_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 84,
+      "target_id": 17,
+      "type": "SPOUSE_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 84,
+      "target_id": 27,
       "type": "PARENT_OF",
       "category": "family"
     },
     {
-      "source_id": 1,
-      "target_id": 53,
+      "source_id": 84,
+      "target_id": 173,
       "type": "PARENT_OF",
       "category": "family"
     },
     {
-      "source_id": 1,
+      "source_id": 85,
+      "target_id": 1,
+      "type": "SPOUSE_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 85,
+      "target_id": 4,
+      "type": "SPOUSE_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 85,
+      "target_id": 23,
+      "type": "SPOUSE_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 85,
       "target_id": 118,
       "type": "PARENT_OF",
       "category": "family"
     },
     {
-      "source_id": 4,
-      "target_id": 23,
-      "type": "SIBLING_OF",
-      "category": "family"
-    },
-    {
-      "source_id": 168,
-      "target_id": 30,
-      "type": "UNCLE_OF",
-      "category": "family"
-    },
-    {
-      "source_id": 6,
-      "target_id": 117,
-      "type": "PARENT_OF",
-      "category": "family"
-    },
-    {
-      "source_id": 53,
-      "target_id": 117,
-      "type": "PARENT_OF",
-      "category": "family"
-    },
-    {
-      "source_id": 23,
+      "source_id": 85,
       "target_id": 119,
       "type": "PARENT_OF",
       "category": "family"
     },
     {
-      "source_id": 16,
-      "target_id": 74,
+      "source_id": 87,
+      "target_id": 42,
       "type": "PARENT_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 87,
+      "target_id": 93,
+      "type": "SPOUSE_OF",
       "category": "family"
     },
     {
@@ -6127,70 +6965,10 @@
       "category": "family"
     },
     {
-      "source_id": 16,
-      "target_id": 1000,
-      "type": "PARTICIPATED_IN",
-      "category": "battles"
-    },
-    {
-      "source_id": 18,
-      "target_id": 1000,
-      "type": "PARTICIPATED_IN",
-      "category": "battles"
-    },
-    {
-      "source_id": 24,
-      "target_id": 1000,
-      "type": "PARTICIPATED_IN",
-      "category": "battles"
-    },
-    {
-      "source_id": 28,
-      "target_id": 1000,
-      "type": "PARTICIPATED_IN",
-      "category": "battles"
-    },
-    {
-      "source_id": 38,
-      "target_id": 1000,
-      "type": "PARTICIPATED_IN",
-      "category": "battles"
-    },
-    {
-      "source_id": 39,
-      "target_id": 1000,
-      "type": "PARTICIPATED_IN",
-      "category": "battles"
-    },
-    {
-      "source_id": 43,
-      "target_id": 1000,
-      "type": "PARTICIPATED_IN",
-      "category": "battles"
-    },
-    {
-      "source_id": 44,
-      "target_id": 1000,
-      "type": "PARTICIPATED_IN",
-      "category": "battles"
-    },
-    {
-      "source_id": 45,
-      "target_id": 1000,
-      "type": "PARTICIPATED_IN",
-      "category": "battles"
-    },
-    {
-      "source_id": 47,
-      "target_id": 1000,
-      "type": "PARTICIPATED_IN",
-      "category": "battles"
-    },
-    {
-      "source_id": 51,
-      "target_id": 1000,
-      "type": "PARTICIPATED_IN",
-      "category": "battles"
+      "source_id": 93,
+      "target_id": 208,
+      "type": "PARENT_OF",
+      "category": "family"
     },
     {
       "source_id": 96,
@@ -6223,6 +7001,18 @@
       "category": "battles"
     },
     {
+      "source_id": 102,
+      "target_id": 1007,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 105,
+      "target_id": 93,
+      "type": "SON_OF",
+      "category": "family"
+    },
+    {
       "source_id": 106,
       "target_id": 1000,
       "type": "PARTICIPATED_IN",
@@ -6236,6 +7026,12 @@
     },
     {
       "source_id": 112,
+      "target_id": 31,
+      "type": "PARENT_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 112,
       "target_id": 1000,
       "type": "PARTICIPATED_IN",
       "category": "battles"
@@ -6245,6 +7041,78 @@
       "target_id": 1000,
       "type": "PARTICIPATED_IN",
       "category": "battles"
+    },
+    {
+      "source_id": 115,
+      "target_id": 116,
+      "type": "PARENT_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 116,
+      "target_id": 0,
+      "type": "COMPANION_OF",
+      "category": "others"
+    },
+    {
+      "source_id": 116,
+      "target_id": 42,
+      "type": "COMPANION_OF",
+      "category": "others"
+    },
+    {
+      "source_id": 116,
+      "target_id": 42,
+      "type": "GOVERNOR_UNDER",
+      "category": "governance"
+    },
+    {
+      "source_id": 116,
+      "target_id": 115,
+      "type": "SON_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 116,
+      "target_id": 1000,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 117,
+      "target_id": 6,
+      "type": "SON_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 117,
+      "target_id": 53,
+      "type": "SON_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 118,
+      "target_id": 1,
+      "type": "SON_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 118,
+      "target_id": 85,
+      "type": "SON_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 119,
+      "target_id": 23,
+      "type": "SON_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 119,
+      "target_id": 85,
+      "type": "SON_OF",
+      "category": "family"
     },
     {
       "source_id": 120,
@@ -6332,6 +7200,12 @@
     },
     {
       "source_id": 168,
+      "target_id": 30,
+      "type": "UNCLE_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 168,
       "target_id": 1000,
       "type": "PARTICIPATED_IN",
       "category": "battles"
@@ -6341,6 +7215,18 @@
       "target_id": 1000,
       "type": "PARTICIPATED_IN",
       "category": "battles"
+    },
+    {
+      "source_id": 173,
+      "target_id": 17,
+      "type": "SON_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 173,
+      "target_id": 84,
+      "type": "SON_OF",
+      "category": "family"
     },
     {
       "source_id": 174,
@@ -6373,118 +7259,256 @@
       "category": "battles"
     },
     {
-      "source_id": 0,
-      "target_id": 1000,
-      "type": "PARTICIPATED_IN",
-      "category": "battles"
+      "source_id": 200,
+      "target_id": 1,
+      "type": "SPOUSE_OF",
+      "category": "family"
     },
     {
-      "source_id": 1,
-      "target_id": 1000,
-      "type": "PARTICIPATED_IN",
-      "category": "battles"
+      "source_id": 200,
+      "target_id": 12,
+      "type": "PARENT_OF",
+      "category": "family"
     },
     {
-      "source_id": 2,
-      "target_id": 1000,
-      "type": "PARTICIPATED_IN",
-      "category": "battles"
+      "source_id": 200,
+      "target_id": 75,
+      "type": "PARENT_OF",
+      "category": "family"
     },
     {
-      "source_id": 4,
-      "target_id": 1000,
-      "type": "PARTICIPATED_IN",
-      "category": "battles"
+      "source_id": 201,
+      "target_id": 0,
+      "type": "COMPANION_OF",
+      "category": "others"
     },
     {
-      "source_id": 0,
-      "target_id": 1001,
-      "type": "PARTICIPATED_IN",
-      "category": "battles"
+      "source_id": 201,
+      "target_id": 42,
+      "type": "COMPANION_OF",
+      "category": "others"
     },
     {
-      "source_id": 1,
-      "target_id": 1001,
-      "type": "PARTICIPATED_IN",
-      "category": "battles"
+      "source_id": 201,
+      "target_id": 42,
+      "type": "GOVERNOR_UNDER",
+      "category": "governance"
     },
     {
-      "source_id": 2,
-      "target_id": 1001,
-      "type": "PARTICIPATED_IN",
-      "category": "battles"
+      "source_id": 201,
+      "target_id": 203,
+      "type": "PARENT_OF",
+      "category": "family"
     },
     {
-      "source_id": 4,
-      "target_id": 1001,
-      "type": "PARTICIPATED_IN",
-      "category": "battles"
+      "source_id": 201,
+      "target_id": 206,
+      "type": "SON_OF",
+      "category": "family"
     },
     {
-      "source_id": 16,
-      "target_id": 1001,
-      "type": "PARTICIPATED_IN",
-      "category": "battles"
-    },
-    {
-      "source_id": 43,
-      "target_id": 1001,
-      "type": "PARTICIPATED_IN",
-      "category": "battles"
-    },
-    {
-      "source_id": 0,
-      "target_id": 1003,
-      "type": "PARTICIPATED_IN",
-      "category": "battles"
-    },
-    {
-      "source_id": 1,
-      "target_id": 1003,
-      "type": "PARTICIPATED_IN",
-      "category": "battles"
-    },
-    {
-      "source_id": 2,
-      "target_id": 1003,
-      "type": "PARTICIPATED_IN",
-      "category": "battles"
-    },
-    {
-      "source_id": 4,
-      "target_id": 1003,
-      "type": "PARTICIPATED_IN",
-      "category": "battles"
-    },
-    {
-      "source_id": 19,
+      "source_id": 201,
       "target_id": 1006,
       "type": "PARTICIPATED_IN",
       "category": "battles"
     },
     {
-      "source_id": 10,
-      "target_id": 1006,
-      "type": "PARTICIPATED_IN",
-      "category": "battles"
+      "source_id": 202,
+      "target_id": 0,
+      "type": "COMPANION_OF",
+      "category": "others"
     },
     {
-      "source_id": 41,
-      "target_id": 1006,
-      "type": "PARTICIPATED_IN",
-      "category": "battles"
+      "source_id": 202,
+      "target_id": 42,
+      "type": "COMPANION_OF",
+      "category": "others"
     },
     {
-      "source_id": 8,
-      "target_id": 1007,
-      "type": "PARTICIPATED_IN",
-      "category": "battles"
+      "source_id": 202,
+      "target_id": 42,
+      "type": "GOVERNOR_UNDER",
+      "category": "governance"
     },
     {
-      "source_id": 102,
-      "target_id": 1007,
-      "type": "PARTICIPATED_IN",
-      "category": "battles"
+      "source_id": 202,
+      "target_id": 205,
+      "type": "GOVERNOR_UNDER",
+      "category": "governance"
+    },
+    {
+      "source_id": 202,
+      "target_id": 207,
+      "type": "SON_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 203,
+      "target_id": 0,
+      "type": "COMPANION_OF",
+      "category": "others"
+    },
+    {
+      "source_id": 203,
+      "target_id": 42,
+      "type": "COMPANION_OF",
+      "category": "others"
+    },
+    {
+      "source_id": 203,
+      "target_id": 42,
+      "type": "GOVERNOR_UNDER",
+      "category": "governance"
+    },
+    {
+      "source_id": 203,
+      "target_id": 201,
+      "type": "SON_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 203,
+      "target_id": 205,
+      "type": "GOVERNOR_UNDER",
+      "category": "governance"
+    },
+    {
+      "source_id": 204,
+      "target_id": 0,
+      "type": "COMPANION_OF",
+      "category": "others"
+    },
+    {
+      "source_id": 204,
+      "target_id": 42,
+      "type": "COMPANION_OF",
+      "category": "others"
+    },
+    {
+      "source_id": 204,
+      "target_id": 205,
+      "type": "GOVERNOR_UNDER",
+      "category": "governance"
+    },
+    {
+      "source_id": 204,
+      "target_id": 208,
+      "type": "SON_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 205,
+      "target_id": 0,
+      "type": "COMPANION_OF",
+      "category": "others"
+    },
+    {
+      "source_id": 205,
+      "target_id": 42,
+      "type": "SON_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 205,
+      "target_id": 202,
+      "type": "APPOINTED_GOVERNOR_OF",
+      "category": "governance"
+    },
+    {
+      "source_id": 205,
+      "target_id": 203,
+      "type": "APPOINTED_GOVERNOR_OF",
+      "category": "governance"
+    },
+    {
+      "source_id": 205,
+      "target_id": 204,
+      "type": "APPOINTED_GOVERNOR_OF",
+      "category": "governance"
+    },
+    {
+      "source_id": 206,
+      "target_id": 201,
+      "type": "PARENT_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 207,
+      "target_id": 93,
+      "type": "SIBLING_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 207,
+      "target_id": 202,
+      "type": "PARENT_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 208,
+      "target_id": 93,
+      "type": "SON_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 208,
+      "target_id": 204,
+      "type": "PARENT_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 208,
+      "target_id": 209,
+      "type": "SIBLING_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 209,
+      "target_id": 0,
+      "type": "COMPANION_OF",
+      "category": "others"
+    },
+    {
+      "source_id": 209,
+      "target_id": 42,
+      "type": "COMPANION_OF",
+      "category": "others"
+    },
+    {
+      "source_id": 210,
+      "target_id": 0,
+      "type": "COMPANION_OF",
+      "category": "others"
+    },
+    {
+      "source_id": 210,
+      "target_id": 42,
+      "type": "COMPANION_OF",
+      "category": "others"
+    },
+    {
+      "source_id": 211,
+      "target_id": 0,
+      "type": "COMPANION_OF",
+      "category": "others"
+    },
+    {
+      "source_id": 211,
+      "target_id": 42,
+      "type": "COMPANION_OF",
+      "category": "others"
+    },
+    {
+      "source_id": 212,
+      "target_id": 0,
+      "type": "COMPANION_OF",
+      "category": "others"
+    },
+    {
+      "source_id": 212,
+      "target_id": 42,
+      "type": "COMPANION_OF",
+      "category": "others"
     }
   ]
 }
