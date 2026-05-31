@@ -396,6 +396,11 @@ const App: React.FC = () => {
           terms={politicalData.terms}
           nodes={data?.nodes || []}
           onSelectGovernor={setSelectedNode}
+          onLinkGovernor={(node) => {
+            addNodeToGraph(node);
+            setSelectedNode(node);
+            setViewMode('graph');
+          }}
         />
       )}
       {allPaths.length > 0 && (

@@ -21,9 +21,16 @@ interface PoliticalViewProps {
   terms: GovernorTerm[];
   nodes: Sahabi[];
   onSelectGovernor: (node: Sahabi) => void;
+  onLinkGovernor: (node: Sahabi) => void;
 }
 
-const PoliticalView: React.FC<PoliticalViewProps> = ({ cities, terms, nodes, onSelectGovernor }) => {
+const PoliticalView: React.FC<PoliticalViewProps> = ({
+  cities,
+  terms,
+  nodes,
+  onSelectGovernor,
+  onLinkGovernor,
+}) => {
   const { t, i18n } = useTranslation();
   const [selectedCityId, setSelectedCityId] = useState<string>(cities[0]?.id ?? '');
   const [selectedCaliph, setSelectedCaliph] = useState<string>('all');
@@ -50,7 +57,15 @@ const PoliticalView: React.FC<PoliticalViewProps> = ({ cities, terms, nodes, onS
 
   const findGovernorNode = (term: GovernorTerm): Sahabi | null => {
     if (!term.governor_id) return null;
-    return nodes.find((node) => node.id === term.governor_id) ?? null;
+
+    const byId = nodes.find((node) => String(node.id) === String(term.governor_id));
+    if (byId) return byId;
+
+    if (!term.governor_name) return null;
+    const normalizedGovernorName = term.governor_name.trim().toLowerCase();
+    return (
+      nodes.find((node) => node.name_en.trim().toLowerCase() === normalizedGovernorName) ?? null
+    );
   };
 
   return (
@@ -180,7 +195,16 @@ const PoliticalView: React.FC<PoliticalViewProps> = ({ cities, terms, nodes, onS
               {filteredTerms.map((term) => {
                 const governorNode = findGovernorNode(term);
                 return (
-                  <Paper key={term.id} variant="outlined" sx={{ p: 1.25 }}>
+                  <Paper
+                    key={term.id}
+                    variant="outlined"
+                    sx={{ p: 1.25, cursor: governorNode ? 'pointer' : 'default' }}
+                    onClick={() => {
+                      if (governorNode) {
+                        onSelectGovernor(governorNode);
+                      }
+                    }}
+                  >
                     <Stack direction="row" spacing={1} sx={{ alignItems: 'center', justifyContent: 'space-between' }}>
                       <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
                         {term.vacancy ? 'Vacancy / No Governor' : (term.governor_name ?? 'Unknown')}
@@ -208,13 +232,40 @@ const PoliticalView: React.FC<PoliticalViewProps> = ({ cities, terms, nodes, onS
                     )}
 
                     <Stack direction="row" spacing={1} sx={{ mt: 1 }}>
-                      {governorNode && (
-                        <Button size="small" variant="outlined" onClick={() => onSelectGovernor(governorNode)}>
-                          {t('show_in_details', { defaultValue: 'Show In Details' })}
-                        </Button>
+                      {!term.vacancy && (
+                        <>
+                          <Button
+                            size="small"
+                            variant="outlined"
+                            disabled={!governorNode}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              if (governorNode) onSelectGovernor(governorNode);
+                            }}
+                          >
+                            {t('show_in_details', { defaultValue: 'Show In Details' })}
+                          </Button>
+                          <Button
+                            size="small"
+                            variant="contained"
+                            disabled={!governorNode}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              if (governorNode) onLinkGovernor(governorNode);
+                            }}
+                          >
+                            {t('show_in_graph', { defaultValue: 'Show In Graph' })}
+                          </Button>
+                        </>
                       )}
                       {term.source_ref && (
-                        <Button size="small" href={term.source_ref} target="_blank" rel="noreferrer">
+                        <Button
+                          size="small"
+                          href={term.source_ref}
+                          target="_blank"
+                          rel="noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                        >
                           Source
                         </Button>
                       )}
