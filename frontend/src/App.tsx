@@ -7,8 +7,8 @@ import SahabahSidebar from './components/Sidebar/SahabahSidebar';
 import GraphCanvas from './components/Graph/GraphCanvas';
 import SahabahDetail from './components/DetailPanel/SahabahDetail';
 import PathSummary from './components/Graph/PathSummary';
+import i18n from './i18n/config';
 import { useTranslation } from 'react-i18next';
-import './i18n/config';
 
 const GET_SAHABAH = gql`
   query GetSahabah {

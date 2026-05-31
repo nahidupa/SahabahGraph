@@ -7,7 +7,11 @@ import {
   IconButton,
   Avatar,
   Chip,
-  Paper
+  Paper,
+  List,
+  ListItem,
+  ListItemText,
+  ListItemIcon
 } from '@mui/material';
 import {
   Star as StarIcon,
@@ -15,7 +19,9 @@ import {
   Female as FemaleIcon,
   Add as AddIcon,
   ChevronLeft as ChevronLeftIcon,
-  ChevronRight as ChevronRightIcon
+  ChevronRight as ChevronRightIcon,
+  Security as BattleIcon,
+  HistoryEdu as BioIcon
 } from '@mui/icons-material';
 import { useTranslation } from 'react-i18next';
 import type { Sahabi, Relationship } from '../../types';
@@ -80,19 +86,19 @@ const SahabahDetail: React.FC<SahabahDetailProps> = ({
         </Typography>
       </Box>
 
-      <Box sx={{ p: 3, pt: 0 }}>
+      <Box sx={{ p: 3, pt: 0, overflowY: 'auto' }}>
         {selectedNode ? (
           <>
-            <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', mb: 2, mt: 2 }}>
               <Avatar
                 sx={{
-                  bgcolor: selectedNode.is_prophet === "True" ? '#ffd700' : (selectedNode.gender === 'male' ? '#2196f3' : '#e91e63'),
+                  bgcolor: selectedNode.node_type === 'Battle' ? '#795548' : (selectedNode.is_prophet === "True" ? '#ffd700' : (selectedNode.gender === 'male' ? '#2196f3' : '#e91e63')),
                   marginInlineEnd: 2,
                   width: 56,
                   height: 56
                 }}
               >
-                {selectedNode.is_prophet === "True" ? <StarIcon fontSize="large" /> : (selectedNode.gender === 'male' ? <PersonIcon fontSize="large" /> : <FemaleIcon fontSize="large" />)}
+                {selectedNode.node_type === 'Battle' ? <BattleIcon fontSize="large" /> : (selectedNode.is_prophet === "True" ? <StarIcon fontSize="large" /> : (selectedNode.gender === 'male' ? <PersonIcon fontSize="large" /> : <FemaleIcon fontSize="large" />))}
               </Avatar>
               <Box>
                 <Typography variant="h5">{selectedNode.name}</Typography>
@@ -124,14 +130,32 @@ const SahabahDetail: React.FC<SahabahDetailProps> = ({
               )}
             </Box>
 
-            <Paper variant="outlined" sx={{ p: 2, bgcolor: 'background.default' }}>
-              <Typography variant="subtitle2" gutterBottom color="primary">
-                {t('biography')}
-              </Typography>
+            <Paper variant="outlined" sx={{ p: 2, bgcolor: 'background.default', mb: 3 }}>
+              <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
+                <BioIcon color="primary" sx={{ mr: 1, fontSize: 20 }} />
+                <Typography variant="subtitle2" color="primary">
+                  {t('biography')}
+                </Typography>
+              </Box>
               <Typography variant="body2">
                 {selectedNode.bio || t('bio_placeholder', { name: selectedNode.name })}
               </Typography>
             </Paper>
+
+            {selectedNode.node_type === 'Battle' && (
+              <>
+                 <Typography variant="subtitle1" gutterBottom color="primary">
+                   {t('participants', { defaultValue: 'Participants' })}
+                 </Typography>
+                 <Typography variant="body2" color="text.secondary">
+                    {t('participants_desc', { defaultValue: 'Sahabah who participated in this battle.' })}
+                 </Typography>
+                 {/* Links are already handled by the "Expand Relationships" section chips,
+                     but we could also list the ones already on the graph if we wanted to.
+                     The user specifically asked to "display these participation links".
+                 */}
+              </>
+            )}
           </>
         ) : (
           <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%', mt: 20 }}>

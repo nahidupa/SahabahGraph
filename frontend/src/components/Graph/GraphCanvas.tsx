@@ -71,6 +71,16 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
       }
     },
     {
+      selector: 'node[node_type = "Battle"]',
+      style: {
+        'shape': 'diamond',
+        'background-color': '#795548',
+        'color': '#fff',
+        'width': '60px',
+        'height': '60px',
+      }
+    },
+    {
       selector: 'node:selected',
       style: {
         'border-width': '4px',

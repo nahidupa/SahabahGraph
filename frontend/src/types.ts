@@ -5,13 +5,14 @@ export interface Sahabi {
   is_prophet: string; // "True" or "False" from JSON
   title: string;
   bio: string;
+  node_type?: 'Sahabi' | 'Battle';
 }
 
 export interface Relationship {
   source_id: number;
   target_id: number;
   type: string;
-  category: 'sons' | 'daughters' | 'uncles' | 'others';
+  category: 'sons' | 'daughters' | 'uncles' | 'others' | 'battles';
 }
 
 export interface GraphData {
