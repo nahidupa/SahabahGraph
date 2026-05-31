@@ -65,8 +65,8 @@ const TimelineView: React.FC<TimelineViewProps> = ({ nodes, onSelectNode, select
         {/* Lifespan Bars */}
         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
           {filteredNodes.map((node) => {
-            const left = ((node.birth_year! - minYear) / range) * 100;
-            const width = ((node.death_year! - node.birth_year!) / range) * 100;
+            const left = ((node.birth_year_hijri! - minYear) / range) * 100;
+            const width = ((node.death_year_hijri! - node.birth_year_hijri!) / range) * 100;
             const isSelected = selectedNode?.id === node.id;
             const isBattle = node.node_type === 'Battle';
 
