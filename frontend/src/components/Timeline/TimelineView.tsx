@@ -10,7 +10,7 @@ interface TimelineViewProps {
 }
 
 const TimelineView: React.FC<TimelineViewProps> = ({ nodes, onSelectNode, selectedNode }) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const timelineData = useMemo(() => {
     const validNodes = nodes.filter(n => n.birth_year_hijri !== undefined && n.death_year_hijri !== undefined);

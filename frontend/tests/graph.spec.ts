@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 test.describe('SahabahGraph E2E Tests', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('http://localhost:5173');
+    await page.goto('/');
     // Wait for the initial node to be loaded in the graph
     await page.waitForFunction(() => window.cy && window.cy.nodes().length > 0);
   });
@@ -32,9 +32,12 @@ test.describe('SahabahGraph E2E Tests', () => {
     let nodeCount = await page.evaluate(() => window.cy.nodes().length);
     expect(nodeCount).toBe(1);
 
-    // Click "Add to Graph" for Abu Bakr
-    const row = page.locator('div').filter({ hasText: /^Abu Bakr as-Siddiq/ }).first();
-    await row.getByRole('button', { name: 'Add to Graph' }).click();
+    // Click "Add to Graph" in the Abu Bakr list item.
+    const abuBakrItem = page
+      .getByRole('listitem')
+      .filter({ has: page.getByRole('button', { name: /Abu Bakr as-Siddiq/i }) })
+      .first();
+    await abuBakrItem.getByRole('button', { name: 'Add to Graph' }).click();
 
     // Verify graph now has 2 nodes
     await page.waitForFunction(() => window.cy.nodes().length === 2);
@@ -61,6 +64,49 @@ test.describe('SahabahGraph E2E Tests', () => {
     await page.waitForFunction(() => window.cy.edges().length > 0);
     const edgeCount = await page.evaluate(() => window.cy.edges().length);
     expect(edgeCount).toBeGreaterThan(0);
+  });
+
+  test('Right-click on graph node opens relationship context menu', async ({ page, browserName }) => {
+    const clickPoint = await page.evaluate(() => {
+      const node = window.cy.nodes()[0];
+      const rendered = node.renderedPosition();
+      const rect = window.cy.container().getBoundingClientRect();
+      return { x: rect.left + rendered.x, y: rect.top + rendered.y };
+    });
+
+    if (browserName === 'webkit') {
+      await page.evaluate(() => {
+        window.cy.nodes()[0].emit('cxttap');
+      });
+    } else {
+      await page.mouse.click(clickPoint.x, clickPoint.y, { button: 'right' });
+    }
+
+    const relationshipMenu = page.getByRole('menu').last();
+    await expect(relationshipMenu).toBeVisible();
+    await expect(relationshipMenu.getByText('Expand Relationships')).toBeVisible();
+    await expect(relationshipMenu.getByText('No relationships found in data.')).not.toBeVisible();
+    await expect(relationshipMenu.getByRole('menuitem').first()).toBeVisible();
+  });
+
+  test('Abu Bakr shows relationship categories in detail panel', async ({ page }) => {
+    await page.getByText('Abu Bakr as-Siddiq').first().click();
+
+    await expect(page.getByText('Expand Relationships')).toBeVisible();
+    await expect(page.getByText('No relationships found in data.')).not.toBeVisible();
+    await expect(page.getByRole('button', { name: 'Family' })).toBeVisible();
+  });
+
+  test('Abu Bakr Family expansion does not blank the page', async ({ page }) => {
+    await page.getByText('Abu Bakr as-Siddiq').first().click();
+
+    const familyChip = page.getByRole('button', { name: 'Family' });
+    await expect(familyChip).toBeVisible();
+    await familyChip.click();
+
+    await page.waitForFunction(() => window.cy && window.cy.nodes().length > 1);
+    await expect(page.getByText('SahabahGraph')).toBeVisible();
+    await expect(page.getByText('Expand Relationships')).toBeVisible();
   });
 
   test('Graph controls (Zoom and Reset)', async ({ page }) => {

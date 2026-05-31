@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { findShortestPathsDijkstra } from './pathfinder';
-import { GraphData } from '../types';
+import type { GraphData } from '../types';
 
 describe('pathfinder logic', () => {
   const mockData: GraphData = {

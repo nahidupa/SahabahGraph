@@ -44,7 +44,10 @@ const SahabahDetail: React.FC<SahabahDetailProps> = ({
   // Dynamically determine available relationship categories for the selected node
   const availableCategories = useMemo(() => {
     if (!selectedNode) return [];
-    const nodeRels = links.filter(l => l.source_id === selectedNode.id || l.target_id === selectedNode.id);
+    const selectedId = String(selectedNode.id);
+    const nodeRels = links.filter(
+      (l) => String(l.source_id) === selectedId || String(l.target_id) === selectedId
+    );
     const categories = new Set<string>();
     nodeRels.forEach(r => categories.add(r.category));
     return Array.from(categories);

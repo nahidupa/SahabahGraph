@@ -24,7 +24,7 @@ interface GraphCanvasProps {
   onShowConnections?: () => void;
   showConnectionsActive?: boolean;
   links?: Relationship[];
-  onExpand?: (nodeId: number, categoryOrType: string) => void;
+  onExpand?: (nodeId: number | string, categoryOrType: string) => void;
 }
 
 if (typeof cytoscape('core', 'svg') !== 'function') {
@@ -56,18 +56,32 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
   }, [contextMenu, links]);
 
   const handleContextMenu = (event: cytoscape.EventObject) => {
-    // @ts-expect-error - originalEvent might exist
-    const originalEvent = event.originalEvent as MouseEvent | undefined;
-    if (!originalEvent) return;
-
-    originalEvent.preventDefault();
     const node = event.target;
-    const nodeId = parseInt(node.id());
+    const nodeId = parseInt(node.id(), 10);
+
+    // `originalEvent` may be missing on some browsers/devices, so fall back to rendered position.
+    const originalEvent = (event as cytoscape.EventObject & { originalEvent?: MouseEvent }).originalEvent;
+
+    let mouseX = 0;
+    let mouseY = 0;
+
+    if (originalEvent) {
+      originalEvent.preventDefault();
+      mouseX = originalEvent.clientX;
+      mouseY = originalEvent.clientY;
+    } else {
+      const rendered = event.renderedPosition ?? node.renderedPosition?.();
+      const containerRect = cyRef.current?.container()?.getBoundingClientRect();
+      if (!rendered || !containerRect) return;
+
+      mouseX = containerRect.left + rendered.x;
+      mouseY = containerRect.top + rendered.y;
+    }
 
     setContextMenu({
-      mouseX: originalEvent.clientX,
-      mouseY: originalEvent.clientY,
-      nodeId: nodeId,
+      mouseX,
+      mouseY,
+      nodeId,
     });
   };
 
@@ -229,11 +243,20 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
         cy={(cy: Core) => {
           cyRef.current = cy;
           window.cy = cy;
+
+          // Suppress browser context menu so graph right-click can be handled consistently.
+          const container = cy.container();
+          if (container && !container.dataset.contextMenuBound) {
+            container.addEventListener('contextmenu', (e) => e.preventDefault());
+            container.dataset.contextMenuBound = 'true';
+          }
+
           cy.on('tap', 'node', (evt: cytoscape.EventObject) => {
             const nodeData = evt.target.data();
             onNodeClick(nodeData as unknown as Sahabi);
           });
           cy.on('cxttap', 'node', handleContextMenu);
+          cy.on('cxttapstart', 'node', handleContextMenu);
         }}
         layout={{ name: 'cose' }}
       />

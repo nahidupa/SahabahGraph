@@ -35,6 +35,42 @@ const GET_SAHABAH = gql`
   }
 `;
 
+const DATA_FILE = 'data/sahabah_data.json';
+
+const normalizeNodeId = (value: unknown): number => {
+  if (typeof value === 'number' && Number.isFinite(value)) return value;
+  const parsed = Number.parseInt(String(value), 10);
+  return Number.isFinite(parsed) ? parsed : -1;
+};
+
+const loadGraphData = async (): Promise<GraphData> => {
+  const baseUrl = import.meta.env.BASE_URL || '/';
+  const normalizedBase = baseUrl.endsWith('/') ? baseUrl : `${baseUrl}/`;
+  const candidateUrls = Array.from(new Set([
+    `./${DATA_FILE}`,
+    `/${DATA_FILE}`,
+    `${normalizedBase}${DATA_FILE}`,
+  ]));
+
+  for (const url of candidateUrls) {
+    try {
+      const response = await fetch(url, { cache: 'no-store' });
+      if (!response.ok) {
+        continue;
+      }
+
+      const json = (await response.json()) as GraphData;
+      if (Array.isArray(json.nodes) && Array.isArray(json.links)) {
+        return json;
+      }
+    } catch {
+      // Try next candidate URL.
+    }
+  }
+
+  throw new Error('Unable to load sahabah graph data');
+};
+
 const App: React.FC = () => {
   const { t } = useTranslation();
   const { data: apolloData } = useQuery(GET_SAHABAH);
@@ -48,47 +84,58 @@ const App: React.FC = () => {
   const cyRef = useRef<Core | null>(null);
 
   useEffect(() => {
-    if (apolloData && apolloData.sahabis) {
-      const nodes: Sahabi[] = apolloData.sahabis.map((s: any) => ({
-        ...s,
-        is_prophet: s.is_prophet ? "True" : "False"
-      }));
+    let isMounted = true;
 
-      fetch('./data/sahabah_data.json')
-        .then((res) => res.json())
-        .then((json: GraphData) => {
-          const combinedData = {
-            nodes: nodes,
-            links: json.links
-          };
-          setData(combinedData);
-          const prophet = nodes.find(n => n.id === 0);
-          if (prophet) {
-            setElements([{ data: { ...prophet, id: prophet.id.toString(), label: '★', fullName: prophet.name_en, originalId: prophet.id } }]);
-          }
-        })
-        .catch(() => {
-          fetch('./data/sahabah_data.json')
-            .then((res) => res.json())
-            .then((json: GraphData) => {
-              setData(json);
-              const prophet = json.nodes.find(n => n.id === 0);
-              if (prophet) {
-                setElements([{ data: { ...prophet, id: prophet.id.toString(), label: '★', fullName: prophet.name_en, originalId: prophet.id } }]);
-              }
-            });
-        });
-    } else {
-      fetch('./data/sahabah_data.json')
-        .then((res) => res.json())
-        .then((json: GraphData) => {
-          setData(json);
-          const prophet = json.nodes.find(n => n.id === 0);
-          if (prophet) {
-            setElements([{ data: { ...prophet, id: prophet.id.toString(), label: '★', fullName: prophet.name_en, originalId: prophet.id } }]);
-          }
-        });
-    }
+    const initializeData = async () => {
+      try {
+        const graphData = await loadGraphData();
+        if (!isMounted) return;
+
+        const apolloNodes: Sahabi[] = Array.isArray(apolloData?.sahabis)
+          ? apolloData.sahabis.map((s: any) => ({
+              ...s,
+              id: normalizeNodeId(s.id),
+              is_prophet: s.is_prophet ? 'True' : 'False',
+            }))
+          : [];
+
+        const nodes = apolloNodes.length > 0
+          ? apolloNodes.map((apolloNode) => {
+              const jsonNode = graphData.nodes.find((n) => n.id === apolloNode.id);
+              return jsonNode ? { ...jsonNode, ...apolloNode } : apolloNode;
+            })
+          : graphData.nodes;
+        const combinedData: GraphData = {
+          nodes,
+          links: graphData.links,
+        };
+
+        setData(combinedData);
+
+        const prophet = nodes.find((n) => n.id === 0);
+        if (prophet) {
+          setElements([
+            {
+              data: {
+                ...prophet,
+                id: prophet.id.toString(),
+                label: '★',
+                fullName: prophet.name_en,
+                originalId: prophet.id,
+              },
+            },
+          ]);
+        }
+      } catch (error) {
+        console.error('Failed to initialize graph data', error);
+      }
+    };
+
+    initializeData();
+
+    return () => {
+      isMounted = false;
+    };
   }, [apolloData]);
 
   const filteredNodes = useMemo(() => {
@@ -108,17 +155,30 @@ const App: React.FC = () => {
     });
   };
 
-  const expandRelationships = (nodeId: number, categoryOrType: string) => {
+  const expandRelationships = (nodeId: number | string, categoryOrType: string) => {
     if (!data) return;
     const rels = data.links.filter(l =>
-      (l.source_id === nodeId || l.target_id === nodeId) &&
+      (String(l.source_id) === String(nodeId) || String(l.target_id) === String(nodeId)) &&
       (l.category === categoryOrType || l.type === categoryOrType)
     );
 
     const newElements: cytoscape.ElementDefinition[] = [];
+
+    const selectedGraphNode = data.nodes.find((n) => String(n.id) === String(nodeId));
+    if (selectedGraphNode) {
+      newElements.push({
+        data: {
+          ...selectedGraphNode,
+          id: selectedGraphNode.id.toString(),
+          label: selectedGraphNode.name_en,
+          originalId: selectedGraphNode.id,
+        },
+      });
+    }
+
     rels.forEach(rel => {
-      const otherId = rel.source_id === nodeId ? rel.target_id : rel.source_id;
-      const otherNode = data.nodes.find(n => n.id === otherId);
+      const otherId = String(rel.source_id) === String(nodeId) ? rel.target_id : rel.source_id;
+      const otherNode = data.nodes.find(n => String(n.id) === String(otherId));
       if (otherNode) {
         newElements.push({ data: { ...otherNode, id: otherNode.id.toString(), label: otherNode.name_en, originalId: otherNode.id } });
         newElements.push({

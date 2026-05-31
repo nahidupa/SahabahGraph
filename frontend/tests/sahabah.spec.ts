@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 test('SahabahGraph loads and displays elements', async ({ page }) => {
-  await page.goto('http://localhost:5173');
+  await page.goto('/');
 
   // Check title in drawer
   await expect(page.getByText('SahabahGraph')).toBeVisible();
