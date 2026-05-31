@@ -8,5 +8,19 @@
   "show_connections": "Show Connections",
   "language": "Language",
   "biography": "Biography",
-  "bio_placeholder": "This section could contain a brief biography or historical notes about {{name}}."
+  "bio_placeholder": "This section could contain a brief biography or historical notes about {{name}}.",
+  "expand_sidebar": "Expand Sidebar",
+  "expand_details": "Expand Details",
+  "collapse_details": "Collapse Details",
+  "details_title": "Details",
+  "no_rels_found": "No relationships found in data.",
+  "select_two_nodes": "Please select exactly two nodes on the graph (use Ctrl+click or similar).",
+  "no_path_found": "No path found between selected nodes.",
+  "categories": {
+    "family": "Family",
+    "student": "Student",
+    "teacher": "Teacher",
+    "companion": "Companion",
+    "peer": "Peer"
+  }
 }

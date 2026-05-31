@@ -45,8 +45,8 @@ const SahabahDetail: React.FC<SahabahDetailProps> = ({
 
   if (collapsed) {
     return (
-      <Box sx={{ width: 40, height: '100vh', borderLeft: 1, borderColor: 'divider', display: 'flex', flexDirection: 'column', alignItems: 'center', pt: 2 }}>
-        <IconButton onClick={() => setCollapsed(false)}>
+      <Box sx={{ width: 40, height: '100vh', borderInlineStart: 1, borderColor: 'divider', display: 'flex', flexDirection: 'column', alignItems: 'center', pt: 2, bgcolor: 'background.paper' }}>
+        <IconButton onClick={() => setCollapsed(false)} title={t('expand_details')}>
            {i18n.dir() === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
         </IconButton>
       </Box>
@@ -56,17 +56,28 @@ const SahabahDetail: React.FC<SahabahDetailProps> = ({
   return (
     <Drawer
       variant="permanent"
-      anchor="right"
+      anchor={i18n.dir() === 'rtl' ? 'left' : 'right'}
       sx={{
         width: 350,
         flexShrink: 0,
-        '& .MuiDrawer-paper': { width: 350, boxSizing: 'border-box', position: 'relative' },
+        '& .MuiDrawer-paper': {
+          width: 350,
+          boxSizing: 'border-box',
+          position: 'relative',
+          borderInlineStart: 1,
+          borderInlineEnd: 0,
+          borderLeft: i18n.dir() === 'rtl' ? 'none' : undefined,
+          borderRight: i18n.dir() === 'ltr' ? 'none' : undefined,
+        },
       }}
     >
-      <Box sx={{ p: 1, display: 'flex', alignItems: 'center' }}>
-        <IconButton onClick={() => setCollapsed(true)}>
+      <Box sx={{ p: 1, display: 'flex', alignItems: 'center', bgcolor: 'background.paper', borderBottom: 1, borderColor: 'divider' }}>
+        <IconButton onClick={() => setCollapsed(true)} title={t('collapse_details')}>
            {i18n.dir() === 'rtl' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
         </IconButton>
+        <Typography variant="subtitle1" sx={{ ml: 1, fontWeight: 'medium' }}>
+          {selectedNode ? selectedNode.name : t('details_title', { defaultValue: 'Details' })}
+        </Typography>
       </Box>
 
       <Box sx={{ p: 3, pt: 0 }}>
@@ -76,7 +87,7 @@ const SahabahDetail: React.FC<SahabahDetailProps> = ({
               <Avatar
                 sx={{
                   bgcolor: selectedNode.is_prophet === "True" ? '#ffd700' : (selectedNode.gender === 'male' ? '#2196f3' : '#e91e63'),
-                  mr: 2,
+                  marginInlineEnd: 2,
                   width: 56,
                   height: 56
                 }}
@@ -100,7 +111,7 @@ const SahabahDetail: React.FC<SahabahDetailProps> = ({
                 availableCategories.map((cat) => (
                   <Chip
                     key={cat}
-                    label={cat.charAt(0).toUpperCase() + cat.slice(1)}
+                    label={t(`categories.${cat.toLowerCase()}`, { defaultValue: cat.charAt(0).toUpperCase() + cat.slice(1) })}
                     onClick={() => onExpand(selectedNode.id, cat)}
                     icon={<AddIcon />}
                     color="primary"
@@ -109,7 +120,7 @@ const SahabahDetail: React.FC<SahabahDetailProps> = ({
                   />
                 ))
               ) : (
-                <Typography variant="body2" color="text.disabled">No relationships found in data.</Typography>
+                <Typography variant="body2" color="text.disabled">{t('no_rels_found')}</Typography>
               )}
             </Box>
 

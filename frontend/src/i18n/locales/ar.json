@@ -8,5 +8,19 @@
   "show_connections": "إظهار الاتصالات",
   "language": "اللغة",
   "biography": "السيرة الذاتية",
-  "bio_placeholder": "هذا القسم قد يحتوي على سيرة ذاتية موجزة أو ملاحظات تاريخية عن {{name}}."
+  "bio_placeholder": "هذا القسم قد يحتوي على سيرة ذاتية موجزة أو ملاحظات تاريخية عن {{name}}.",
+  "expand_sidebar": "توسيع الشريط الجانبي",
+  "expand_details": "توسيع التفاصيل",
+  "collapse_details": "طوي التفاصيل",
+  "details_title": "التفاصيل",
+  "no_rels_found": "لم يتم العثور على علاقات في البيانات.",
+  "select_two_nodes": "يرجى اختيار عقدتين بالضبط على الرسم البياني.",
+  "no_path_found": "لم يتم العثور على مسار بين العقد المختارة.",
+  "categories": {
+    "family": "عائلة",
+    "student": "طالب",
+    "teacher": "معلم",
+    "companion": "رفيق",
+    "peer": "زميل"
+  }
 }

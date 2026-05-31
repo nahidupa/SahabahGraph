@@ -82,9 +82,10 @@ const App: React.FC = () => {
   };
 
   const handleShowConnections = () => {
+    const { t } = i18n;
     const selectedNodes = cyRef.current?.$(':selected');
     if (selectedNodes?.length !== 2) {
-      alert('Please select exactly two nodes on the graph (use Ctrl+click or similar).');
+      alert(t('select_two_nodes'));
       return;
     }
 
@@ -128,50 +129,10 @@ const App: React.FC = () => {
             }
           }
         }
-
-        setElements((prev) => {
-          const existingIds = new Set(prev.map(el => el.data.id));
-          const filteredNew = newElements.filter(el => !existingIds.has(el.data.id));
-          return [...prev, ...filteredNew];
-        });
-
-        // Highlight path with animation
-        setTimeout(() => {
-          if (cyRef.current) {
-            const cy = cyRef.current;
-            cy.elements().removeClass('highlighted');
-
-            let i = 0;
-            const highlightNext = () => {
-              if (i >= path.length) {
-                cy.layout({ name: 'cose', animate: true }).run();
-                return;
-              }
-
-              const u = path[i];
-              cy.$(`#${u}`).addClass('highlighted');
-
-              if (i < path.length - 1) {
-                const v = path[i + 1];
-                setTimeout(() => {
-                  cy.$(`edge[source="${u}"][target="${v}"], edge[source="${v}"][target="${u}"]`).addClass('highlighted');
-                  i++;
-                  setTimeout(highlightNext, 300);
-                }, 150);
-              } else {
-                i++;
-                highlightNext();
-              }
-            };
-
-            highlightNext();
-          }
-        }, 200);
-      } else {
-        alert('No path found between selected nodes.');
-      }
-      worker.terminate();
-    };
+      }, 200);
+    } else {
+      alert(t('no_path_found'));
+    }
   };
 
   return (
