@@ -1,11 +1,19 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client'
+import { ApolloClient, InMemoryCache, ApolloProvider, ApolloLink, HttpLink, Observable } from '@apollo/client'
 import App from './App.tsx'
 import './index.css'
 
+const graphqlUri = import.meta.env.VITE_GRAPHQL_URI;
+
+// Keep the app deployable as pure static hosting when no backend URL is configured.
+const staticFallbackLink = new ApolloLink(() => new Observable((observer) => {
+  observer.next({ data: { sahabis: [] } });
+  observer.complete();
+}));
+
 const client = new ApolloClient({
-  uri: 'http://localhost:4000/graphql',
+  link: graphqlUri ? new HttpLink({ uri: graphqlUri }) : staticFallbackLink,
   cache: new InMemoryCache(),
 });
 
