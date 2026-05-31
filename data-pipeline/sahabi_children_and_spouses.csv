@@ -1,0 +1,24 @@
+child_id,child_name_en,child_name_ar,parents,wives_or_husbands
+12,Aisha bint Abi Bakr,عائشة بنت أبي بكر,Abu Bakr as-Siddiq | Umm Ruman bint Amir,Muhammad (PBUH)
+13,Fatima bint Muhammad,فاطمة بنت محمد,Muhammad (PBUH),Ali ibn Abi Talib
+14,Hasan ibn Ali,الحسن بن علي,Ali ibn Abi Talib | Fatima bint Muhammad,
+15,Husayn ibn Ali,الحسين بن علي,Ali ibn Abi Talib | Fatima bint Muhammad,
+20,Zaynab bint Muhammad,زينب بنت محمد,Muhammad (PBUH),
+21,Ruqayya bint Muhammad,رقية بنت محمد,Muhammad (PBUH),Uthman ibn Affan
+22,Umm Kulthum bint Muhammad,أم كلثوم بنت محمد,Muhammad (PBUH),Uthman ibn Affan
+25,Usama ibn Zayd,أسامة بن زيد,Zayd ibn Harithah | Umm Ayman,
+26,Abdullah ibn Umar,عبد الله بن عمر,Umar ibn al-Khattab,
+27,Abdullah ibn Abbas,عبد الله بن عباس,Abbas ibn Abd al-Muttalib | Umm al-Fadl,
+30,Anas ibn Malik,أنس بن مالك,Umm Sulaym bint Milhan,
+31,Jabir ibn Abdullah,جابر بن عبد الله,Abdullah ibn Amr ibn Haram,
+42,Muawiyah ibn Abi Sufyan,معاوية بن أبي سفيان,Hind bint Utba | Abu Sufyan ibn Harb,
+53,Asma bint Abi Bakr,أسماء بنت أبي بكر,Abu Bakr as-Siddiq,Zubayr ibn al-Awwam
+56,Hafsa bint Umar,حفصة بنت عمر,Umar ibn al-Khattab,Muhammad (PBUH)
+64,Umm Habiba,أم حبيبة,Abu Sufyan ibn Harb,Muhammad (PBUH)
+74,Umamah bint Hamza,أمامة بنت حمزة,Hamza ibn Abd al-Muttalib,
+75,Umm Kulthum bint Abi Bakr,أم كلثوم بنت أبي بكر,Abu Bakr as-Siddiq | Umm Ruman bint Amir,
+105,Yazid ibn Abi Sufyan,يزيد بن أبي سفيان,Abu Sufyan ibn Harb,
+117,Abdullah ibn al-Zubayr,عبد الله بن الزبير,Zubayr ibn al-Awwam | Asma bint Abi Bakr,
+118,Muhammad ibn Abi Bakr,محمد بن أبي بكر,Abu Bakr as-Siddiq | Asma bint Umays,
+119,Abdullah ibn Ja'far,عبد الله بن جعفر,Ja'far ibn Abi Talib | Asma bint Umays,
+173,Fadl ibn Abbas,الفضل بن عباس,Abbas ibn Abd al-Muttalib | Umm al-Fadl,

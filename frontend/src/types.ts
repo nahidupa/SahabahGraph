@@ -6,7 +6,7 @@ export interface Sahabi {
   laqab?: string;
   gender: 'male' | 'female';
   is_prophet: string; // "True" or "False" from JSON
-  node_type?: 'Sahabi' | 'Battle';
+  node_type?: 'Sahabi' | 'Battle' | 'PoliticalFigure';
   prominence?: string;
   biography_short?: string;
   biography_source?: string;
@@ -31,12 +31,44 @@ export interface Relationship {
   source_id: number;
   target_id: number;
   type: string;
-  category: 'family' | 'mentorship' | 'battles' | 'others';
+  category: 'family' | 'mentorship' | 'battles' | 'others' | 'governance';
 }
 
 export interface GraphData {
   nodes: Sahabi[];
   links: Relationship[];
+}
+
+export interface PoliticalCity {
+  id: string;
+  name_ar: string;
+  name_en: string;
+  lat: number;
+  lng: number;
+  x: number;
+  y: number;
+}
+
+export interface GovernorTerm {
+  id: string;
+  city_id: string;
+  governor_name?: string;
+  governor_id?: number;
+  caliph_name: string;
+  caliph_id?: number;
+  start_year_ce: number;
+  end_year_ce: number;
+  start_year_hijri: number;
+  end_year_hijri: number;
+  termination: string;
+  notes?: string;
+  source_ref?: string;
+  vacancy?: boolean;
+}
+
+export interface PoliticalData {
+  cities: PoliticalCity[];
+  terms: GovernorTerm[];
 }
 
 declare global {

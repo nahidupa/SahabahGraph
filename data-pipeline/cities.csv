@@ -1,0 +1,7 @@
+city_id,city_name_ar,city_name_en,lat,lng,map_x,map_y,region,notes
+madina,المدينة,Medina,24.4709,39.6122,43,38,Hijaz,Core city for Hijaz governance timeline
+makkah,مكة,Mecca,21.3891,39.8579,44,47,Hijaz,Important pilgrimage and political center
+damascus,دمشق,Damascus,33.5138,36.2765,40,18,Levant,Umayyad imperial capital
+kufa,الكوفة,Kufa,32.0259,44.4018,55,24,Iraq,Early political and military center
+basra,البصرة,Basra,30.5085,47.7804,60,30,Iraq,Major garrison and trade city
+fustat,الفسطاط,Fustat,30.0060,31.2360,30,30,Egypt,Administrative seat in Egypt

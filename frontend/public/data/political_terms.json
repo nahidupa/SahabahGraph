@@ -1,0 +1,180 @@
+{
+  "cities": [
+    {
+      "id": "madina",
+      "name_ar": "المدينة",
+      "name_en": "Medina",
+      "lat": 24.4709,
+      "lng": 39.6122,
+      "x": 43,
+      "y": 38
+    },
+    {
+      "id": "makkah",
+      "name_ar": "مكة",
+      "name_en": "Mecca",
+      "lat": 21.3891,
+      "lng": 39.8579,
+      "x": 44,
+      "y": 47
+    },
+    {
+      "id": "damascus",
+      "name_ar": "دمشق",
+      "name_en": "Damascus",
+      "lat": 33.5138,
+      "lng": 36.2765,
+      "x": 40,
+      "y": 18
+    },
+    {
+      "id": "kufa",
+      "name_ar": "الكوفة",
+      "name_en": "Kufa",
+      "lat": 32.0259,
+      "lng": 44.4018,
+      "x": 55,
+      "y": 24
+    },
+    {
+      "id": "basra",
+      "name_ar": "البصرة",
+      "name_en": "Basra",
+      "lat": 30.5085,
+      "lng": 47.7804,
+      "x": 60,
+      "y": 30
+    },
+    {
+      "id": "fustat",
+      "name_ar": "الفسطاط",
+      "name_en": "Fustat",
+      "lat": 30.006,
+      "lng": 31.236,
+      "x": 30,
+      "y": 30
+    }
+  ],
+  "terms": [
+    {
+      "id": "madina-1",
+      "city_id": "madina",
+      "governor_name": "Marwan ibn al-Hakam",
+      "governor_id": 116,
+      "caliph_name": "Muawiya I",
+      "caliph_id": 42,
+      "start_year_ce": 662,
+      "end_year_ce": 669,
+      "start_year_hijri": 42,
+      "end_year_hijri": 49,
+      "termination": "Dismissed under pressure from local opposition",
+      "notes": "First Umayyad governor term in this dataset.",
+      "source_ref": "https://en.wikipedia.org/wiki/Governors_of_Medina"
+    },
+    {
+      "id": "madina-2",
+      "city_id": "madina",
+      "governor_name": "Said ibn al-As",
+      "governor_id": 201,
+      "caliph_name": "Muawiya I",
+      "caliph_id": 42,
+      "start_year_ce": 669,
+      "end_year_ce": 674,
+      "start_year_hijri": 49,
+      "end_year_hijri": 54,
+      "termination": "Replaced by caliphal appointment",
+      "notes": "Son of Uthman-era notable from Banu Umayya.",
+      "source_ref": "https://en.wikipedia.org/wiki/Governors_of_Medina"
+    },
+    {
+      "id": "madina-3",
+      "city_id": "madina",
+      "governor_name": "al-Walid ibn Utba ibn Abi Sufyan",
+      "governor_id": 202,
+      "caliph_name": "Muawiya I",
+      "caliph_id": 42,
+      "start_year_ce": 674,
+      "end_year_ce": 678,
+      "start_year_hijri": 54,
+      "end_year_hijri": 58,
+      "termination": "End of term",
+      "notes": "Continued Umayyad consolidation in Hijaz.",
+      "source_ref": "https://en.wikipedia.org/wiki/Governors_of_Medina"
+    },
+    {
+      "id": "madina-4",
+      "city_id": "madina",
+      "governor_name": "Amr ibn Said ibn al-As",
+      "governor_id": 203,
+      "caliph_name": "Muawiya I",
+      "caliph_id": 42,
+      "start_year_ce": 678,
+      "end_year_ce": 680,
+      "start_year_hijri": 58,
+      "end_year_hijri": 60,
+      "termination": "Transition at caliphal succession",
+      "notes": "Served until Muawiya's death.",
+      "source_ref": "https://en.wikipedia.org/wiki/Governors_of_Medina"
+    },
+    {
+      "id": "madina-5",
+      "city_id": "madina",
+      "governor_name": "al-Walid ibn Utba ibn Abi Sufyan",
+      "governor_id": 202,
+      "caliph_name": "Yazid I",
+      "caliph_id": 205,
+      "start_year_ce": 680,
+      "end_year_ce": 681,
+      "start_year_hijri": 60,
+      "end_year_hijri": 61,
+      "termination": "Removed after Medina unrest",
+      "notes": "In office during the beginning of Yazid's rule.",
+      "source_ref": "https://en.wikipedia.org/wiki/Governors_of_Medina"
+    },
+    {
+      "id": "madina-6",
+      "city_id": "madina",
+      "governor_name": "Amr ibn Said ibn al-As",
+      "governor_id": 203,
+      "caliph_name": "Yazid I",
+      "caliph_id": 205,
+      "start_year_ce": 681,
+      "end_year_ce": 682,
+      "start_year_hijri": 61,
+      "end_year_hijri": 62,
+      "termination": "Reassigned",
+      "notes": "Short second term.",
+      "source_ref": "https://en.wikipedia.org/wiki/Governors_of_Medina"
+    },
+    {
+      "id": "madina-7",
+      "city_id": "madina",
+      "governor_name": "Uthman ibn Muhammad ibn Abi Sufyan",
+      "governor_id": 204,
+      "caliph_name": "Yazid I",
+      "caliph_id": 205,
+      "start_year_ce": 682,
+      "end_year_ce": 683,
+      "start_year_hijri": 62,
+      "end_year_hijri": 63,
+      "termination": "Fled during revolt",
+      "notes": "Governorship collapsed with anti-Umayyad uprising.",
+      "source_ref": "https://en.wikipedia.org/wiki/Governors_of_Medina"
+    },
+    {
+      "id": "madina-8",
+      "city_id": "madina",
+      "governor_name": "",
+      "caliph_name": "Yazid I",
+      "caliph_id": 205,
+      "start_year_ce": 683,
+      "end_year_ce": 683,
+      "start_year_hijri": 63,
+      "end_year_hijri": 63,
+      "termination": "Vacancy after revolt",
+      "notes": "Medina briefly outside stable Umayyad control.",
+      "source_ref": "https://en.wikipedia.org/wiki/Battle_of_al-Harra",
+      "vacancy": true
+    }
+  ]
+}

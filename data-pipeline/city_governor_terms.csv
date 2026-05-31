@@ -1,0 +1,9 @@
+term_id,city_id,city_name_ar,city_name_en,lat,lng,governor_id,governor_name,caliph_id,caliph_name,start_year_ce,end_year_ce,start_year_hijri,end_year_hijri,termination_type,notes,source_ref
+madina-1,madina,المدينة,Medina,24.4709,39.6122,116,Marwan ibn al-Hakam,42,Muawiya I,662,669,42,49,Dismissed,First Umayyad governor term in this dataset,https://en.wikipedia.org/wiki/Governors_of_Medina
+madina-2,madina,المدينة,Medina,24.4709,39.6122,201,Said ibn al-As,42,Muawiya I,669,674,49,54,Replaced,Son of Uthman-era notable from Banu Umayya,https://en.wikipedia.org/wiki/Governors_of_Medina
+madina-3,madina,المدينة,Medina,24.4709,39.6122,202,al-Walid ibn Utba ibn Abi Sufyan,42,Muawiya I,674,678,54,58,EndOfTerm,Continued Umayyad consolidation in Hijaz,https://en.wikipedia.org/wiki/Governors_of_Medina
+madina-4,madina,المدينة,Medina,24.4709,39.6122,203,Amr ibn Said ibn al-As,42,Muawiya I,678,680,58,60,SuccessionTransition,Served until Muawiya death,https://en.wikipedia.org/wiki/Governors_of_Medina
+madina-5,madina,المدينة,Medina,24.4709,39.6122,202,al-Walid ibn Utba ibn Abi Sufyan,205,Yazid I,680,681,60,61,RemovedAfterUnrest,In office at start of Yazid reign,https://en.wikipedia.org/wiki/Governors_of_Medina
+madina-6,madina,المدينة,Medina,24.4709,39.6122,203,Amr ibn Said ibn al-As,205,Yazid I,681,682,61,62,Reassigned,Short second term,https://en.wikipedia.org/wiki/Governors_of_Medina
+madina-7,madina,المدينة,Medina,24.4709,39.6122,204,Uthman ibn Muhammad ibn Abi Sufyan,205,Yazid I,682,683,62,63,Fled,Governorship collapsed with anti-Umayyad uprising,https://en.wikipedia.org/wiki/Governors_of_Medina
+madina-8,madina,المدينة,Medina,24.4709,39.6122,,,205,Yazid I,683,683,63,63,VacancyAfterRevolt,Medina briefly outside stable Umayyad control,https://en.wikipedia.org/wiki/Battle_of_al-Harra

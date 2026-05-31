@@ -21,6 +21,15 @@
   "details_title": "Details",
   "graph_view": "Graph View",
   "timeline_view": "Timeline View",
+  "political_view": "Political View",
+  "city": "City",
+  "city_map": "City Map",
+  "governor_terms": "Governor Terms",
+  "caliph_filter": "Caliph",
+  "all_caliphs": "All Caliphs",
+  "termination": "Termination",
+  "show_in_details": "Show In Details",
+  "no_governor_terms": "No governor terms found for this filter.",
   "no_temporal_data": "No temporal data available for the current selection.",
   "tribe": "Tribe",
   "clan": "Clan",
@@ -39,7 +48,8 @@
     "teacher": "Teacher",
     "companion": "Companion",
     "peer": "Peer",
-    "battles": "Battles"
+    "battles": "Battles",
+    "governance": "Governance"
   },
   "relationships": {
     "SON_OF": "is the son of",
@@ -51,6 +61,9 @@
     "COUSIN_OF": "is the cousin of",
     "TEACHER_OF": "is the teacher of",
     "COMPANION_OF": "is the companion of",
-    "PARTICIPATED_IN": "participated in"
+    "PARTICIPATED_IN": "participated in",
+    "APPOINTED_GOVERNOR_OF": "appointed governor of",
+    "GOVERNOR_OF": "served as governor of",
+    "GOVERNOR_UNDER": "served under"
   }
 }

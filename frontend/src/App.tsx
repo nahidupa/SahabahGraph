@@ -2,17 +2,18 @@ import React, { useEffect, useState, useRef, useMemo } from 'react';
 import { useQuery, gql } from '@apollo/client';
 // i18n import for side-effects
 import type { Core } from 'cytoscape';
-import type { GraphData, Sahabi } from './types';
+import type { GraphData, PoliticalData, Sahabi } from './types';
 import MainLayout from './components/Layout/MainLayout';
 import SahabahSidebar from './components/Sidebar/SahabahSidebar';
 import GraphCanvas from './components/Graph/GraphCanvas';
 import TimelineView from './components/Timeline/TimelineView';
+import PoliticalView from './components/Political/PoliticalView';
 import SahabahDetail from './components/DetailPanel/SahabahDetail';
 import PathSummary from './components/Graph/PathSummary';
 import './i18n/config';
 import { useTranslation } from 'react-i18next';
 import { ToggleButton, ToggleButtonGroup, Box as MuiBox } from '@mui/material';
-import { AccountTree as GraphIcon, ViewTimeline as TimelineIcon } from '@mui/icons-material';
+import { AccountTree as GraphIcon, ViewTimeline as TimelineIcon, Public as PublicIcon } from '@mui/icons-material';
 
 const GET_SAHABAH = gql`
   query GetSahabah {
@@ -36,6 +37,7 @@ const GET_SAHABAH = gql`
 `;
 
 const DATA_FILE = 'data/sahabah_data.json';
+const POLITICAL_DATA_FILE = 'data/political_terms.json';
 
 const normalizeNodeId = (value: unknown): number => {
   if (typeof value === 'number' && Number.isFinite(value)) return value;
@@ -71,13 +73,42 @@ const loadGraphData = async (): Promise<GraphData> => {
   throw new Error('Unable to load sahabah graph data');
 };
 
+const loadPoliticalData = async (): Promise<PoliticalData> => {
+  const baseUrl = import.meta.env.BASE_URL || '/';
+  const normalizedBase = baseUrl.endsWith('/') ? baseUrl : `${baseUrl}/`;
+  const candidateUrls = Array.from(new Set([
+    `./${POLITICAL_DATA_FILE}`,
+    `/${POLITICAL_DATA_FILE}`,
+    `${normalizedBase}${POLITICAL_DATA_FILE}`,
+  ]));
+
+  for (const url of candidateUrls) {
+    try {
+      const response = await fetch(url, { cache: 'no-store' });
+      if (!response.ok) {
+        continue;
+      }
+
+      const json = (await response.json()) as PoliticalData;
+      if (Array.isArray(json.cities) && Array.isArray(json.terms)) {
+        return json;
+      }
+    } catch {
+      // Try next candidate URL.
+    }
+  }
+
+  return { cities: [], terms: [] };
+};
+
 const App: React.FC = () => {
   const { t } = useTranslation();
   const { data: apolloData } = useQuery(GET_SAHABAH);
   const [data, setData] = useState<GraphData | null>(null);
+  const [politicalData, setPoliticalData] = useState<PoliticalData>({ cities: [], terms: [] });
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedNode, setSelectedNode] = useState<Sahabi | null>(null);
-  const [viewMode, setViewMode] = useState<'graph' | 'timeline'>('graph');
+  const [viewMode, setViewMode] = useState<'graph' | 'timeline' | 'political'>('graph');
   const [elements, setElements] = useState<cytoscape.ElementDefinition[]>([]);
   const [allPaths, setAllPaths] = useState<string[][]>([]);
   const [currentPathIndex, setCurrentPathIndex] = useState(0);
@@ -88,7 +119,7 @@ const App: React.FC = () => {
 
     const initializeData = async () => {
       try {
-        const graphData = await loadGraphData();
+        const [graphData, loadedPoliticalData] = await Promise.all([loadGraphData(), loadPoliticalData()]);
         if (!isMounted) return;
 
         const apolloNodes: Sahabi[] = Array.isArray(apolloData?.sahabis)
@@ -111,6 +142,7 @@ const App: React.FC = () => {
         };
 
         setData(combinedData);
+        setPoliticalData(loadedPoliticalData);
 
         const prophet = nodes.find((n) => n.id === 0);
         if (prophet) {
@@ -318,6 +350,10 @@ const App: React.FC = () => {
             <TimelineIcon sx={{ mr: 1 }} />
             {t('timeline_view')}
           </ToggleButton>
+          <ToggleButton value="political">
+            <PublicIcon sx={{ mr: 1 }} />
+            {t('political_view', { defaultValue: 'Political View' })}
+          </ToggleButton>
         </ToggleButtonGroup>
       </MuiBox>
 
@@ -328,11 +364,18 @@ const App: React.FC = () => {
           cyRef={cyRef}
           onShowConnections={handleShowConnections}
         />
-      ) : (
+      ) : viewMode === 'timeline' ? (
         <TimelineView
           nodes={data?.nodes || []}
           onSelectNode={setSelectedNode}
           selectedNode={selectedNode}
+        />
+      ) : (
+        <PoliticalView
+          cities={politicalData.cities}
+          terms={politicalData.terms}
+          nodes={data?.nodes || []}
+          onSelectGovernor={setSelectedNode}
         />
       )}
       {allPaths.length > 0 && (
