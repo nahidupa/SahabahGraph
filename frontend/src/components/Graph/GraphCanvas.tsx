@@ -1,17 +1,16 @@
 import React from 'react';
 import { Box, Paper, IconButton, Tooltip, Divider } from '@mui/material';
 import { Route as RouteIcon, ZoomIn as ZoomInIcon, ZoomOut as ZoomOutIcon, RestartAlt as ResetIcon, Download as DownloadIcon, Image as ImageIcon } from '@mui/icons-material';
-// @ts-ignore
 import CytoscapeComponent from 'react-cytoscapejs';
 import cytoscape from 'cytoscape';
-// @ts-ignore
+// @ts-expect-error - cytoscape-svg lacks official type definitions
 import svg from 'cytoscape-svg';
 import type { Core } from 'cytoscape';
 import type { Sahabi } from '../../types';
 import { useTranslation } from 'react-i18next';
 
 interface GraphCanvasProps {
-  elements: any[];
+  elements: cytoscape.ElementDefinition[];
   onNodeClick: (node: Sahabi) => void;
   cyRef: React.MutableRefObject<Core | null>;
   onShowConnections?: () => void;
@@ -31,6 +30,7 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
 }) => {
   const { t } = useTranslation();
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const stylesheet: any[] = [
     {
       selector: 'node',
@@ -147,8 +147,8 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
 
   const handleExportSVG = () => {
     if (!cyRef.current) return;
-    // @ts-ignore
-    const svgContent = cyRef.current.svg({ full: true, bg: '#ffffff' });
+    // @ts-expect-error - cytoscape-svg extension adds .svg() to cy
+    const svgContent = (cyRef.current as { svg: (options: Record<string, unknown>) => string }).svg({ full: true, bg: '#ffffff' });
     const blob = new Blob([svgContent], { type: 'image/svg+xml;charset=utf-8' });
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
@@ -168,7 +168,7 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
           cyRef.current = cy;
           // @ts-ignore
           window.cy = cy;
-          cy.on('tap', 'node', (evt: any) => {
+          cy.on('tap', 'node', (evt: cytoscape.EventObject) => {
             const nodeData = evt.target.data();
             onNodeClick(nodeData as unknown as Sahabi);
           });
