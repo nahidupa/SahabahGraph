@@ -159,12 +159,94 @@ def validate_political_csv() -> tuple[list[str], list[str]]:
     return errors, warnings
 
 
+def validate_parent_relationships() -> tuple[list[str], list[str]]:
+    """Validate that all required parent-child relationships exist.
+    
+    This ensures data integrity by verifying that documented family relationships
+    (defined in PARENT_RELATIONSHIPS_SPEC.md) are maintained in the database.
+    """
+    errors: list[str] = []
+    warnings: list[str] = []
+    
+    # Required parent-child relationships: (parent_id, child_id)
+    required_relationships = {
+        (0, 13), (0, 20), (0, 21), (0, 22),  # Muhammad's daughters
+        (1, 12), (1, 75),                     # Abu Bakr's daughters
+        (1024, 12), (1024, 75),               # Umm Ruman's daughters
+        (4, 14), (4, 15),                     # Ali's sons (Hasan, Husayn)
+        (1023, 4),                            # Abu Talib -> Ali
+        (6, 117),                             # Zubayr -> Abdullah ibn al-Zubayr
+        (17, 173),                            # Abbas -> Fadl
+        (24, 25), (57, 25),                   # Zayd & Umm Ayman -> Usama
+        (2, 26),                              # Umar -> Abdullah ibn Umar
+        (17, 27), (84, 27),                   # Abbas & Umm al-Fadl -> Abdullah ibn Abbas
+        (87, 42), (93, 42),                   # Hind & Abu Sufyan -> Muawiyah
+        (16, 74),                             # Hamza -> Umamah
+        (85, 118), (1, 118),                  # Asma & Abu Bakr -> Muhammad ibn Abi Bakr
+        (23, 119), (85, 119),                 # Ja'far & Asma -> Abdullah ibn Ja'far
+        (84, 173),                            # Umm al-Fadl -> Fadl
+    }
+    
+    # Load relationships from CSV
+    existing_relationships = set()
+    try:
+        with open('relationships.csv', 'r', encoding='utf-8') as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                try:
+                    source_id = int(row['source_id'])
+                    target_id = int(row['target_id'])
+                    rel_type = row.get('type', '').strip()
+                    
+                    if rel_type == 'PARENT_OF':
+                        existing_relationships.add((source_id, target_id))
+                except (ValueError, TypeError):
+                    pass
+    except FileNotFoundError:
+        warnings.append("Warning: relationships.csv not found. Skipping parent relationship validation.")
+        return errors, warnings
+    
+    # Check for missing relationships
+    missing_relationships = required_relationships - existing_relationships
+    if missing_relationships:
+        for parent_id, child_id in sorted(missing_relationships):
+            errors.append(
+                f"Missing parent relationship: {parent_id} (parent) -> {child_id} (child). "
+                f"See PARENT_RELATIONSHIPS_SPEC.md for details."
+            )
+    
+    # Load sahabah data to verify has_parents flag
+    person_data = {}
+    try:
+        with open('sahabah.csv', 'r', encoding='utf-8') as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                person_data[int(row['id'])] = row
+    except FileNotFoundError:
+        warnings.append("Warning: sahabah.csv not found. Skipping has_parents flag validation.")
+        return errors, warnings
+    
+    # Check has_parents flag for all children with parents
+    for parent_id, child_id in existing_relationships:
+        if child_id in person_data:
+            has_parents = person_data[child_id].get('has_parents', '').lower() == 'true'
+            if not has_parents:
+                person_name = person_data[child_id].get('name_en', f'ID {child_id}')
+                errors.append(
+                    f"Flag mismatch: {person_name} (ID {child_id}) has parent relationships "
+                    f"but has_parents=False. Should be True."
+                )
+    
+    return errors, warnings
+
+
 def validate_data():
     graph_errors, graph_warnings = validate_graph_json()
     political_errors, political_warnings = validate_political_csv()
+    parent_errors, parent_warnings = validate_parent_relationships()
 
-    errors = graph_errors + political_errors
-    warnings = graph_warnings + political_warnings
+    errors = graph_errors + political_errors + parent_errors
+    warnings = graph_warnings + political_warnings + parent_warnings
 
     for warning in warnings:
         print(warning)

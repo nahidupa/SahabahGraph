@@ -216,14 +216,14 @@ id,name_ar,name_en,kunyah,laqab,gender,is_prophet,node_type,prominence,biography
 210,المغيرة بن شعبة,Al-Mughira ibn Shu'ba,,,male,False,PoliticalFigure,UMAYYAD,Famous governor of Kufa under Muawiya.,General History,Thaqif,Thaqif,,75,,,,,,,,,,,
 211,زياد بن أبيه,Ziyad ibn Abih,,,male,False,PoliticalFigure,UMAYYAD,Powerful governor of Kufa and Basra.,General History,Thaqif,Thaqif,,73,,,,,,,,,,,
 212,مسلمة بن مخلد,Maslama ibn Mukhallad,,,male,False,PoliticalFigure,UMAYYAD,Governor of Egypt under Muawiya.,General History,Quraysh,Banu Umayya,,70,,,,,,,,,,,
-213,عبيدة بن الزبير,Ubayda ibn al-Zubayr,,,male,False,PoliticalFigure,ZUBAYRID,"Brother of Abdallah ibn al-Zubayr, served as governor of Medina.",Wikipedia,Quraish,Banu Asad,,,,,,,,,,,,,
-214,مصعب بن الزبير,Mus'ab ibn al-Zubayr,,,male,False,PoliticalFigure,ZUBAYRID,"Brother of Abdallah ibn al-Zubayr, governor of Medina and later Iraq.",Wikipedia,Quraish,Banu Asad,,72,,,,,,,,,,,
+213,عبيدة بن الزبير,Ubayda ibn al-Zubayr,,,male,False,PoliticalFigure,ZUBAYRID,"Brother of Abdallah ibn al-Zubayr, served as governor of Medina.",Wikipedia,Quraish,Banu Asad,,,True,,,,,,,,,,
+214,مصعب بن الزبير,Mus'ab ibn al-Zubayr,,,male,False,PoliticalFigure,ZUBAYRID,"Brother of Abdallah ibn al-Zubayr, governor of Medina and later Iraq.",Wikipedia,Quraish,Banu Asad,,72,True,,,,,,,,,,
 215,جابر بن الأسود بن عوف,Jabir ibn al-Aswad ibn Awf,,,male,False,PoliticalFigure,ZUBAYRID,Zubayrid governor of Medina.,Wikipedia,Quraish,Banu Zuhra,,,,,,,,,,,,,
 216,طلحة بن عبد الله بن عوف,Talha ibn Abdallah ibn Awf,,,male,False,PoliticalFigure,ZUBAYRID,"Zubayrid governor of Medina, nephew of Abdur Rahman ibn Awf.",Wikipedia,Quraish,Banu Zuhra,,,,,,,,,,,,,
 217,طارق بن عمرو,Tariq ibn Amr,,,male,False,PoliticalFigure,UMAYYAD,Umayyad general who re-established control over Medina.,Wikipedia,,,,,,,,,,,,,,,
 218,الحجاج بن يوسف,al-Hajjaj ibn Yusuf,,,male,False,PoliticalFigure,UMAYYAD,"Famous Umayyad governor, served in Medina before Iraq.",Wikipedia,Thaqif,,,95,,,,,,,,,,,
 219,يحيى بن الحكم,Yahya ibn al-Hakam,,,male,False,PoliticalFigure,UMAYYAD,"Uncle of Abd al-Malik ibn Marwan, governor of Medina.",Wikipedia,Quraish,Banu Umayya,,,,,,,,,,,,,
-220,أبان بن عثمان,Aban ibn Uthman,,,male,False,PoliticalFigure,UMAYYAD,"Son of Caliph Uthman ibn Affan, governor of Medina and scholar.",Wikipedia,Quraish,Banu Umayya,,105,,,,,,,,,,,
+220,أبان بن عثمان,Aban ibn Uthman,,,male,False,PoliticalFigure,UMAYYAD,"Son of Caliph Uthman ibn Affan, governor of Medina and scholar.",Wikipedia,Quraish,Banu Umayya,,105,True,,,,,,,,,,
 221,هشام بن إسماعيل المخزومي,Hisham ibn Isma'il al-Makhzumi,,,male,False,PoliticalFigure,UMAYYAD,"Father-in-law of Abd al-Malik, governor of Medina.",Wikipedia,Quraish,Banu Makhzum,,,,,,,,,,,,,
 222,عمر بن عبد العزيز,Umar ibn Abd al-Aziz,,,male,False,PoliticalFigure,UMAYYAD,"Known as the fifth Rashidun Caliph, served as governor of Medina.",Wikipedia,Quraish,Banu Umayya,,101,,,,,,,,,,,
 223,عثمان بن حيان المري,Uthman ibn Hayyan al-Murri,,,male,False,PoliticalFigure,UMAYYAD,Umayyad governor of Medina.,Wikipedia,Banu Murra,,,,,,,,,,,,,,
@@ -249,7 +249,7 @@ id,name_ar,name_en,kunyah,laqab,gender,is_prophet,node_type,prominence,biography
 243,جعفر بن سليمان بن علي,Ja'far ibn Sulayman ibn Ali,,,male,False,PoliticalFigure,ABBASID,"Cousin of Caliph al-Mansur, governor of Medina.",Wikipedia,Abbasid,Banu Hashim,,,,,,,,,,,,,
 244,الحسن بن زيد بن الحسن,al-Hasan ibn Zayd,,,male,False,PoliticalFigure,ABBASID,"Great-grandson of Ali ibn Abi Talib, appointed governor by al-Mansur.",Wikipedia,Alid,Banu Hashim,,168,,,,,,,,,,,
 245,عبد الصمد بن علي,Abd al-Samad ibn Ali,,,male,False,PoliticalFigure,ABBASID,"Uncle of Caliph al-Mansur, governor of Medina.",Wikipedia,Abbasid,Banu Hashim,,185,,,,,,,,,,,
-246,تمام بن العباس,Tammam ibn Abbas,,,male,False,PoliticalFigure,RASHIDUN,Governor of Medina for Ali ibn Abi Talib.,Wikipedia,Quraish,Banu Hashim,,,,,,,,,,,,,
+246,تمام بن العباس,Tammam ibn Abbas,,,male,False,PoliticalFigure,RASHIDUN,Governor of Medina for Ali ibn Abi Talib.,Wikipedia,Quraish,Banu Hashim,,,True,,,,,,,,,,
 1008,,Sawda bint Zamʿa,,,female,False,Sahabi,SAHABI,Wife of Muhammad (PBUH).,Fact-Check Report,,,,,False,False,False,False,False,False,False,False,False,False,False
 1009,,Ramla bint Abi Sufyan,,,female,False,Sahabi,SAHABI,Wife of Muhammad (PBUH).,Fact-Check Report,,,,,False,False,False,False,False,False,False,False,False,False,False
 1010,,Juwayriyyah bint al-Harith,,,female,False,Sahabi,SAHABI,Wife of Muhammad (PBUH).,Fact-Check Report,,,,,False,False,False,False,False,False,False,False,False,False,False
