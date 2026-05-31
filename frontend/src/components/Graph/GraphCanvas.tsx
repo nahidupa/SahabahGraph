@@ -1,8 +1,11 @@
 import React from 'react';
 import { Box, Paper, IconButton, Tooltip, Divider } from '@mui/material';
-import { Route as RouteIcon, ZoomIn as ZoomInIcon, ZoomOut as ZoomOutIcon, RestartAlt as ResetIcon } from '@mui/icons-material';
+import { Route as RouteIcon, ZoomIn as ZoomInIcon, ZoomOut as ZoomOutIcon, RestartAlt as ResetIcon, Download as DownloadIcon, Image as ImageIcon } from '@mui/icons-material';
 // @ts-ignore
 import CytoscapeComponent from 'react-cytoscapejs';
+import cytoscape from 'cytoscape';
+// @ts-ignore
+import svg from 'cytoscape-svg';
 import type { Core } from 'cytoscape';
 import type { Sahabi } from '../../types';
 import { useTranslation } from 'react-i18next';
@@ -13,6 +16,10 @@ interface GraphCanvasProps {
   cyRef: React.MutableRefObject<Core | null>;
   onShowConnections?: () => void;
   showConnectionsActive?: boolean;
+}
+
+if (typeof cytoscape('core', 'svg') !== 'function') {
+  cytoscape.use(svg);
 }
 
 const GraphCanvas: React.FC<GraphCanvasProps> = ({
@@ -119,6 +126,28 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
     cyRef.current?.layout({ name: 'cose', animate: true }).run();
   };
 
+  const handleExportPNG = () => {
+    if (!cyRef.current) return;
+    const png64 = cyRef.current.png({ full: true, bg: '#ffffff' });
+    const link = document.createElement('a');
+    link.href = png64;
+    link.download = 'sahabah-graph.png';
+    link.click();
+  };
+
+  const handleExportSVG = () => {
+    if (!cyRef.current) return;
+    // @ts-ignore
+    const svgContent = cyRef.current.svg({ full: true, bg: '#ffffff' });
+    const blob = new Blob([svgContent], { type: 'image/svg+xml;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'sahabah-graph.svg';
+    link.click();
+    setTimeout(() => URL.revokeObjectURL(url), 100);
+  };
+
   return (
     <Box sx={{ width: '100%', height: '100%', position: 'relative' }}>
       <CytoscapeComponent
@@ -164,6 +193,13 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
         </Tooltip>
         <Tooltip title="Reset Layout">
           <IconButton onClick={handleReset}><ResetIcon /></IconButton>
+        </Tooltip>
+        <Divider orientation="vertical" flexItem />
+        <Tooltip title={t('export_png')}>
+          <IconButton onClick={handleExportPNG}><ImageIcon /></IconButton>
+        </Tooltip>
+        <Tooltip title={t('export_svg')}>
+          <IconButton onClick={handleExportSVG}><DownloadIcon /></IconButton>
         </Tooltip>
       </Paper>
     </Box>
