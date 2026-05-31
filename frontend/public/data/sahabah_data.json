@@ -15,7 +15,18 @@
       "tribe": "Quraish",
       "clan": "Banu Hashim",
       "birth_year_hijri": -53,
-      "death_year_hijri": 11
+      "death_year_hijri": 11,
+      "has_parents": false,
+      "has_children": true,
+      "has_spouses": true,
+      "has_siblings": false,
+      "has_uncles": true,
+      "has_cousins": true,
+      "has_companions": true,
+      "has_teachers": false,
+      "has_students": true,
+      "has_battles": true,
+      "has_participants": false
     },
     {
       "id": 1,
@@ -32,7 +43,18 @@
       "tribe": "Quraish",
       "clan": "Banu Taym",
       "birth_year_hijri": -51,
-      "death_year_hijri": 13
+      "death_year_hijri": 13,
+      "has_parents": false,
+      "has_children": true,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": true,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": true,
+      "has_participants": false
     },
     {
       "id": 2,
@@ -49,7 +71,18 @@
       "tribe": "Quraish",
       "clan": "Banu Adi",
       "birth_year_hijri": -40,
-      "death_year_hijri": 23
+      "death_year_hijri": 23,
+      "has_parents": false,
+      "has_children": true,
+      "has_spouses": false,
+      "has_siblings": true,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": true,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": true,
+      "has_participants": false
     },
     {
       "id": 3,
@@ -66,7 +99,18 @@
       "tribe": "Quraish",
       "clan": "Banu Umayya",
       "birth_year_hijri": -47,
-      "death_year_hijri": 35
+      "death_year_hijri": 35,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": true,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": true,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 4,
@@ -83,7 +127,18 @@
       "tribe": "Quraish",
       "clan": "Banu Hashim",
       "birth_year_hijri": -23,
-      "death_year_hijri": 40
+      "death_year_hijri": 40,
+      "has_parents": false,
+      "has_children": true,
+      "has_spouses": false,
+      "has_siblings": true,
+      "has_uncles": false,
+      "has_cousins": true,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": true,
+      "has_participants": false
     },
     {
       "id": 5,
@@ -100,7 +155,18 @@
       "tribe": "Quraish",
       "clan": "Banu Taym",
       "birth_year_hijri": -28,
-      "death_year_hijri": 36
+      "death_year_hijri": 36,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 6,
@@ -117,7 +183,18 @@
       "tribe": "Quraish",
       "clan": "Banu Asad",
       "birth_year_hijri": -28,
-      "death_year_hijri": 36
+      "death_year_hijri": 36,
+      "has_parents": false,
+      "has_children": true,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 7,
@@ -134,7 +211,18 @@
       "tribe": "Quraish",
       "clan": "Banu Zuhra",
       "birth_year_hijri": -44,
-      "death_year_hijri": 32
+      "death_year_hijri": 32,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 8,
@@ -151,7 +239,18 @@
       "tribe": "Quraish",
       "clan": "Banu Zuhra",
       "birth_year_hijri": -23,
-      "death_year_hijri": 55
+      "death_year_hijri": 55,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": true,
+      "has_participants": false
     },
     {
       "id": 9,
@@ -168,7 +267,18 @@
       "tribe": "Quraish",
       "clan": "Banu Adi",
       "birth_year_hijri": -22,
-      "death_year_hijri": 51
+      "death_year_hijri": 51,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 10,
@@ -185,7 +295,18 @@
       "tribe": "Quraish",
       "clan": "Banu al-Harith",
       "birth_year_hijri": -40,
-      "death_year_hijri": 18
+      "death_year_hijri": 18,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": true,
+      "has_participants": false
     },
     {
       "id": 11,
@@ -202,7 +323,18 @@
       "tribe": "Quraish",
       "clan": "Banu Asad",
       "birth_year_hijri": -68,
-      "death_year_hijri": -3
+      "death_year_hijri": -3,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": true,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 12,
@@ -219,7 +351,18 @@
       "tribe": "Quraish",
       "clan": "Banu Taym",
       "birth_year_hijri": 9,
-      "death_year_hijri": 58
+      "death_year_hijri": 58,
+      "has_parents": true,
+      "has_children": false,
+      "has_spouses": true,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 13,
@@ -236,7 +379,18 @@
       "tribe": "Quraish",
       "clan": "Banu Hashim",
       "birth_year_hijri": -18,
-      "death_year_hijri": 11
+      "death_year_hijri": 11,
+      "has_parents": true,
+      "has_children": true,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 14,
@@ -253,7 +407,18 @@
       "tribe": "Quraish",
       "clan": "Banu Hashim",
       "birth_year_hijri": 3,
-      "death_year_hijri": 50
+      "death_year_hijri": 50,
+      "has_parents": true,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": true,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 15,
@@ -270,7 +435,18 @@
       "tribe": "Quraish",
       "clan": "Banu Hashim",
       "birth_year_hijri": 4,
-      "death_year_hijri": 61
+      "death_year_hijri": 61,
+      "has_parents": true,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": true,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 16,
@@ -287,7 +463,18 @@
       "tribe": "Quraish",
       "clan": "Banu Hashim",
       "birth_year_hijri": -54,
-      "death_year_hijri": 3
+      "death_year_hijri": 3,
+      "has_parents": false,
+      "has_children": true,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": true,
+      "has_participants": false
     },
     {
       "id": 17,
@@ -304,7 +491,18 @@
       "tribe": "Quraish",
       "clan": "Banu Hashim",
       "birth_year_hijri": -56,
-      "death_year_hijri": 32
+      "death_year_hijri": 32,
+      "has_parents": false,
+      "has_children": true,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 18,
@@ -321,7 +519,18 @@
       "tribe": "Habesha",
       "clan": "",
       "birth_year_hijri": -42,
-      "death_year_hijri": 20
+      "death_year_hijri": 20,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": true,
+      "has_participants": false
     },
     {
       "id": 19,
@@ -338,7 +547,18 @@
       "tribe": "Quraish",
       "clan": "Banu Makhzum",
       "birth_year_hijri": -30,
-      "death_year_hijri": 21
+      "death_year_hijri": 21,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": true,
+      "has_participants": false
     },
     {
       "id": 20,
@@ -355,7 +575,18 @@
       "tribe": "Quraish",
       "clan": "Banu Hashim",
       "birth_year_hijri": -23,
-      "death_year_hijri": 8
+      "death_year_hijri": 8,
+      "has_parents": true,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 21,
@@ -372,7 +603,18 @@
       "tribe": "Quraish",
       "clan": "Banu Hashim",
       "birth_year_hijri": -20,
-      "death_year_hijri": 2
+      "death_year_hijri": 2,
+      "has_parents": true,
+      "has_children": false,
+      "has_spouses": true,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 22,
@@ -389,7 +631,18 @@
       "tribe": "Quraish",
       "clan": "Banu Hashim",
       "birth_year_hijri": -19,
-      "death_year_hijri": 9
+      "death_year_hijri": 9,
+      "has_parents": true,
+      "has_children": false,
+      "has_spouses": true,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 23,
@@ -406,7 +659,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": true,
+      "has_spouses": false,
+      "has_siblings": true,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 24,
@@ -423,7 +687,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": true,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": true,
+      "has_participants": false
     },
     {
       "id": 25,
@@ -440,7 +715,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": true,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 26,
@@ -457,7 +743,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": true,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 27,
@@ -474,7 +771,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": true,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": true,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 28,
@@ -491,7 +799,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": true,
+      "has_participants": false
     },
     {
       "id": 29,
@@ -508,7 +827,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 30,
@@ -525,7 +855,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": true,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": true,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 31,
@@ -542,7 +883,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": true,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 32,
@@ -559,7 +911,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 33,
@@ -576,7 +939,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 34,
@@ -593,7 +967,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 35,
@@ -610,7 +995,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 36,
@@ -627,7 +1023,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 37,
@@ -644,7 +1051,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 38,
@@ -661,7 +1079,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": true,
+      "has_participants": false
     },
     {
       "id": 39,
@@ -678,7 +1107,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": true,
+      "has_participants": false
     },
     {
       "id": 40,
@@ -695,7 +1135,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 41,
@@ -712,7 +1163,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": true,
+      "has_participants": false
     },
     {
       "id": 42,
@@ -729,7 +1191,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": true,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 43,
@@ -746,7 +1219,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": true,
+      "has_participants": false
     },
     {
       "id": 44,
@@ -763,7 +1247,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": true,
+      "has_participants": false
     },
     {
       "id": 45,
@@ -780,7 +1275,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": true,
+      "has_participants": false
     },
     {
       "id": 46,
@@ -797,7 +1303,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 47,
@@ -814,7 +1331,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": true,
+      "has_participants": false
     },
     {
       "id": 48,
@@ -831,7 +1359,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 49,
@@ -848,7 +1387,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 50,
@@ -865,7 +1415,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 51,
@@ -882,7 +1443,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": true,
+      "has_participants": false
     },
     {
       "id": 52,
@@ -899,7 +1471,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 53,
@@ -916,7 +1499,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": true,
+      "has_children": true,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 54,
@@ -933,7 +1527,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 55,
@@ -950,7 +1555,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": true,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 56,
@@ -967,7 +1583,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": true,
+      "has_children": false,
+      "has_spouses": true,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 57,
@@ -984,7 +1611,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 58,
@@ -1001,7 +1639,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": true,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 59,
@@ -1018,7 +1667,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": true,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 60,
@@ -1035,7 +1695,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": true,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 61,
@@ -1052,7 +1723,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": true,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 62,
@@ -1069,7 +1751,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": true,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 63,
@@ -1086,7 +1779,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": true,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 64,
@@ -1103,7 +1807,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": true,
+      "has_children": false,
+      "has_spouses": true,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 65,
@@ -1120,7 +1835,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 66,
@@ -1137,7 +1863,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": true,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 67,
@@ -1154,7 +1891,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": true,
+      "has_spouses": false,
+      "has_siblings": true,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 68,
@@ -1171,7 +1919,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 69,
@@ -1188,7 +1947,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 70,
@@ -1205,7 +1975,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 71,
@@ -1222,7 +2003,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 72,
@@ -1239,7 +2031,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": true,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 73,
@@ -1256,7 +2059,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 74,
@@ -1273,7 +2087,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": true,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 75,
@@ -1290,7 +2115,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 76,
@@ -1307,7 +2143,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 77,
@@ -1324,7 +2171,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 78,
@@ -1341,7 +2199,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 79,
@@ -1358,7 +2227,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 80,
@@ -1375,7 +2255,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 81,
@@ -1392,7 +2283,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 82,
@@ -1409,7 +2311,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 83,
@@ -1426,7 +2339,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 84,
@@ -1443,7 +2367,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 85,
@@ -1460,7 +2395,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 86,
@@ -1477,7 +2423,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 87,
@@ -1494,7 +2451,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 88,
@@ -1511,7 +2479,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 89,
@@ -1528,7 +2507,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 90,
@@ -1545,7 +2535,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 91,
@@ -1562,7 +2563,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 92,
@@ -1579,7 +2591,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 93,
@@ -1596,7 +2619,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": true,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 94,
@@ -1613,7 +2647,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 95,
@@ -1630,7 +2675,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 96,
@@ -1647,7 +2703,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": true,
+      "has_participants": false
     },
     {
       "id": 97,
@@ -1664,7 +2731,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": true,
+      "has_participants": false
     },
     {
       "id": 98,
@@ -1681,7 +2759,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 99,
@@ -1698,7 +2787,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": true,
+      "has_participants": false
     },
     {
       "id": 100,
@@ -1715,7 +2815,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": true,
+      "has_participants": false
     },
     {
       "id": 101,
@@ -1732,7 +2843,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": true,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": true,
+      "has_participants": false
     },
     {
       "id": 102,
@@ -1749,7 +2871,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": true,
+      "has_participants": false
     },
     {
       "id": 103,
@@ -1766,7 +2899,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 104,
@@ -1783,7 +2927,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 105,
@@ -1800,7 +2955,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": true,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 106,
@@ -1817,7 +2983,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": true,
+      "has_participants": false
     },
     {
       "id": 107,
@@ -1834,7 +3011,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 108,
@@ -1851,7 +3039,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 109,
@@ -1868,7 +3067,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 110,
@@ -1885,7 +3095,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 111,
@@ -1902,7 +3123,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": true,
+      "has_participants": false
     },
     {
       "id": 112,
@@ -1919,7 +3151,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": true,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": true,
+      "has_participants": false
     },
     {
       "id": 113,
@@ -1936,7 +3179,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": true,
+      "has_participants": false
     },
     {
       "id": 114,
@@ -1953,7 +3207,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 115,
@@ -1970,7 +3235,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 116,
@@ -1987,7 +3263,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 117,
@@ -2004,7 +3291,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": true,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 118,
@@ -2021,7 +3319,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": true,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 119,
@@ -2038,7 +3347,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": true,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 120,
@@ -2055,7 +3375,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": true,
+      "has_participants": false
     },
     {
       "id": 121,
@@ -2072,7 +3403,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": true,
+      "has_participants": false
     },
     {
       "id": 122,
@@ -2089,7 +3431,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": true,
+      "has_participants": false
     },
     {
       "id": 123,
@@ -2106,7 +3459,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 124,
@@ -2123,7 +3487,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": true,
+      "has_participants": false
     },
     {
       "id": 125,
@@ -2140,7 +3515,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": true,
+      "has_participants": false
     },
     {
       "id": 126,
@@ -2157,7 +3543,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 127,
@@ -2174,7 +3571,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": true,
+      "has_participants": false
     },
     {
       "id": 128,
@@ -2191,7 +3599,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": true,
+      "has_participants": false
     },
     {
       "id": 129,
@@ -2208,7 +3627,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 130,
@@ -2225,7 +3655,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 131,
@@ -2242,7 +3683,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 132,
@@ -2259,7 +3711,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 133,
@@ -2276,7 +3739,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 134,
@@ -2293,7 +3767,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 135,
@@ -2310,7 +3795,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 136,
@@ -2327,7 +3823,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 137,
@@ -2344,7 +3851,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 138,
@@ -2361,7 +3879,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 139,
@@ -2378,7 +3907,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 140,
@@ -2395,7 +3935,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 141,
@@ -2412,7 +3963,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 142,
@@ -2429,7 +3991,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 143,
@@ -2446,7 +4019,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 144,
@@ -2463,7 +4047,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 145,
@@ -2480,7 +4075,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 146,
@@ -2497,7 +4103,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": true,
+      "has_participants": false
     },
     {
       "id": 147,
@@ -2514,7 +4131,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": true,
+      "has_participants": false
     },
     {
       "id": 148,
@@ -2531,7 +4159,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": true,
+      "has_participants": false
     },
     {
       "id": 149,
@@ -2548,7 +4187,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": true,
+      "has_participants": false
     },
     {
       "id": 150,
@@ -2565,7 +4215,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 151,
@@ -2582,7 +4243,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 152,
@@ -2599,7 +4271,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 153,
@@ -2616,7 +4299,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 154,
@@ -2633,7 +4327,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 155,
@@ -2650,7 +4355,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 156,
@@ -2667,7 +4383,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": true,
+      "has_participants": false
     },
     {
       "id": 157,
@@ -2684,7 +4411,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 158,
@@ -2701,7 +4439,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": true,
+      "has_participants": false
     },
     {
       "id": 159,
@@ -2718,7 +4467,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 160,
@@ -2735,7 +4495,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 161,
@@ -2752,7 +4523,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 162,
@@ -2769,7 +4551,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": true,
+      "has_participants": false
     },
     {
       "id": 163,
@@ -2786,7 +4579,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 164,
@@ -2803,7 +4607,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 165,
@@ -2820,7 +4635,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 166,
@@ -2837,7 +4663,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 167,
@@ -2854,7 +4691,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 168,
@@ -2871,7 +4719,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": true,
+      "has_participants": false
     },
     {
       "id": 169,
@@ -2888,7 +4747,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 170,
@@ -2905,7 +4775,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 171,
@@ -2922,7 +4803,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": true,
+      "has_participants": false
     },
     {
       "id": 172,
@@ -2939,7 +4831,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 173,
@@ -2956,7 +4859,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 174,
@@ -2973,7 +4887,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": true,
+      "has_participants": false
     },
     {
       "id": 175,
@@ -2990,7 +4915,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 176,
@@ -3007,7 +4943,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 177,
@@ -3024,7 +4971,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 178,
@@ -3041,7 +4999,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 179,
@@ -3058,7 +5027,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 180,
@@ -3075,7 +5055,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 181,
@@ -3092,7 +5083,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 182,
@@ -3109,7 +5111,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 183,
@@ -3126,7 +5139,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": true,
+      "has_participants": false
     },
     {
       "id": 184,
@@ -3143,7 +5167,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": true,
+      "has_participants": false
     },
     {
       "id": 185,
@@ -3160,7 +5195,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 186,
@@ -3177,7 +5223,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 187,
@@ -3194,7 +5251,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 188,
@@ -3211,7 +5279,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": true,
+      "has_participants": false
     },
     {
       "id": 189,
@@ -3228,7 +5307,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 190,
@@ -3245,7 +5335,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 191,
@@ -3262,7 +5363,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 192,
@@ -3279,7 +5391,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 193,
@@ -3296,7 +5419,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 194,
@@ -3313,7 +5447,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 195,
@@ -3330,7 +5475,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 196,
@@ -3347,7 +5503,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 197,
@@ -3364,7 +5531,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 198,
@@ -3381,7 +5559,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": true,
+      "has_participants": false
     },
     {
       "id": 199,
@@ -3398,7 +5587,18 @@
       "tribe": "Various",
       "clan": "Various",
       "birth_year_hijri": 0,
-      "death_year_hijri": 60
+      "death_year_hijri": 60,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false,
+      "has_participants": false
     },
     {
       "id": 1000,
@@ -3415,7 +5615,18 @@
       "tribe": "",
       "clan": "",
       "birth_year_hijri": 2,
-      "death_year_hijri": 2
+      "death_year_hijri": 2,
+      "has_participants": true,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false
     },
     {
       "id": 1001,
@@ -3432,7 +5643,18 @@
       "tribe": "",
       "clan": "",
       "birth_year_hijri": 3,
-      "death_year_hijri": 3
+      "death_year_hijri": 3,
+      "has_participants": true,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false
     },
     {
       "id": 1002,
@@ -3449,7 +5671,18 @@
       "tribe": "",
       "clan": "",
       "birth_year_hijri": 5,
-      "death_year_hijri": 5
+      "death_year_hijri": 5,
+      "has_participants": false,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false
     },
     {
       "id": 1003,
@@ -3466,7 +5699,18 @@
       "tribe": "",
       "clan": "",
       "birth_year_hijri": 7,
-      "death_year_hijri": 7
+      "death_year_hijri": 7,
+      "has_participants": true,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false
     },
     {
       "id": 1004,
@@ -3483,7 +5727,18 @@
       "tribe": "",
       "clan": "",
       "birth_year_hijri": 8,
-      "death_year_hijri": 8
+      "death_year_hijri": 8,
+      "has_participants": false,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false
     },
     {
       "id": 1005,
@@ -3500,7 +5755,18 @@
       "tribe": "",
       "clan": "",
       "birth_year_hijri": 8,
-      "death_year_hijri": 8
+      "death_year_hijri": 8,
+      "has_participants": false,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false
     },
     {
       "id": 1006,
@@ -3517,7 +5783,18 @@
       "tribe": "",
       "clan": "",
       "birth_year_hijri": 13,
-      "death_year_hijri": 13
+      "death_year_hijri": 13,
+      "has_participants": true,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false
     },
     {
       "id": 1007,
@@ -3534,7 +5811,18 @@
       "tribe": "",
       "clan": "",
       "birth_year_hijri": 15,
-      "death_year_hijri": 15
+      "death_year_hijri": 15,
+      "has_participants": true,
+      "has_parents": false,
+      "has_children": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false
     }
   ],
   "links": [

@@ -31,6 +31,18 @@ const typeDefs = `#graphql
     birth_year_hijri: Int
     death_year_hijri: Int
 
+    # Flags
+    has_parents: Boolean
+    has_children: Boolean
+    has_spouses: Boolean
+    has_siblings: Boolean
+    has_uncles: Boolean
+    has_cousins: Boolean
+    has_companions: Boolean
+    has_teachers: Boolean
+    has_students: Boolean
+    has_battles: Boolean
+
     # Relationships
     parents: [Sahabi!]! @relationship(type: "PARENT_OF", direction: IN)
     children: [Sahabi!]! @relationship(type: "PARENT_OF", direction: OUT)
@@ -52,6 +64,7 @@ const typeDefs = `#graphql
     biography_short: String
     biography_source: String
     birth_year_hijri: Int # Used for the year
+    has_participants: Boolean
     participants: [Sahabi!]! @relationship(type: "PARTICIPATED_IN", direction: IN)
   }
 `;
