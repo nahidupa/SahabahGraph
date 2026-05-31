@@ -23,3 +23,10 @@ export interface GraphData {
   nodes: Sahabi[];
   links: Relationship[];
 }
+
+declare global {
+  interface Window {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    cy: any;
+  }
+}

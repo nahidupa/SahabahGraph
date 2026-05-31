@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef, useMemo } from 'react';
 import { useQuery, gql } from '@apollo/client';
-// @ts-expect-error - i18n import for side-effects
+// i18n import for side-effects
 import type { Core } from 'cytoscape';
 import type { GraphData, Sahabi } from './types';
 import MainLayout from './components/Layout/MainLayout';
@@ -35,7 +35,8 @@ const App: React.FC = () => {
   const [selectedNode, setSelectedNode] = useState<Sahabi | null>(null);
   const [viewMode, setViewMode] = useState<'graph' | 'timeline'>('graph');
   const [elements, setElements] = useState<cytoscape.ElementDefinition[]>([]);
-  const [currentPath, setCurrentPath] = useState<string[] | null>(null);
+  const [allPaths, setAllPaths] = useState<string[][]>([]);
+  const [currentPathIndex, setCurrentPathIndex] = useState(0);
   const cyRef = useRef<Core | null>(null);
 
   useEffect(() => {
@@ -45,10 +46,6 @@ const App: React.FC = () => {
         is_prophet: s.is_prophet ? "True" : "False"
       }));
 
-      // For links, we still need to fetch from the JSON for now,
-      // or we could expand the GraphQL query to include relationships.
-      // Given the current architecture, let's keep the JSON fetch for links
-      // but prefer GraphQL for nodes if available.
       fetch('./data/sahabah_data.json')
         .then((res) => res.json())
         .then((json: GraphData) => {
@@ -63,7 +60,6 @@ const App: React.FC = () => {
           }
         })
         .catch(() => {
-          // Fallback to purely JSON if GraphQL fails or during transition
           fetch('./data/sahabah_data.json')
             .then((res) => res.json())
             .then((json: GraphData) => {
@@ -75,7 +71,6 @@ const App: React.FC = () => {
             });
         });
     } else {
-      // Original fetch for initial load or if Apollo fails
       fetch('./data/sahabah_data.json')
         .then((res) => res.json())
         .then((json: GraphData) => {
@@ -92,7 +87,7 @@ const App: React.FC = () => {
     if (!data) return [];
     return data.nodes.filter(n =>
       n.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      n.title.toLowerCase().includes(searchTerm.toLowerCase())
+      (n.title && n.title.toLowerCase().includes(searchTerm.toLowerCase()))
     );
   }, [data, searchTerm]);
 
@@ -141,6 +136,19 @@ const App: React.FC = () => {
     }, 100);
   };
 
+  const highlightPath = (path: string[]) => {
+    if (cyRef.current) {
+      cyRef.current.elements().removeClass('highlighted');
+      for (let i = 0; i < path.length - 1; i++) {
+        const u = path[i];
+        const v = path[i + 1];
+        cyRef.current.$(`#${u}, #${v}`).addClass('highlighted');
+        cyRef.current.$(`edge[source="${u}"][target="${v}"], edge[source="${v}"][target="${u}"]`).addClass('highlighted');
+      }
+      cyRef.current.fit(cyRef.current.elements('.highlighted'), 50);
+    }
+  };
+
   const handleShowConnections = () => {
     const selectedNodes = cyRef.current?.$(':selected');
     if (selectedNodes?.length !== 2) {
@@ -156,38 +164,42 @@ const App: React.FC = () => {
     const worker = new Worker(new URL('./workers/pathfinder.ts', import.meta.url), { type: 'module' });
     worker.postMessage({ data, startId, endId });
 
-    worker.onmessage = (e: MessageEvent<string[] | null>) => {
-      const path = e.data;
-      if (path) {
-        setCurrentPath(path);
-        // Add missing nodes and edges to elements
-        const newElements: cytoscape.ElementDefinition[] = [];
-        for (let i = 0; i < path.length; i++) {
-          const nodeId = path[i];
-          const node = data?.nodes.find(n => n.id.toString() === nodeId);
-          if (node) {
-            newElements.push({ data: { ...node, id: node.id.toString(), label: node.name, originalId: node.id } });
-          }
+    worker.onmessage = (e: MessageEvent<string[][]>) => {
+      const paths = e.data;
+      if (paths && paths.length > 0) {
+        setAllPaths(paths);
+        setCurrentPathIndex(0);
 
-          if (i < path.length - 1) {
-            const u = path[i];
-            const v = path[i + 1];
-            const rel = data?.links.find(l =>
-              (l.source_id.toString() === u && l.target_id.toString() === v) ||
-              (l.source_id.toString() === v && l.target_id.toString() === u)
-            );
-            if (rel) {
-              newElements.push({
-                data: {
-                  id: `e${rel.source_id}-${rel.target_id}`,
-                  source: rel.source_id.toString(),
-                  target: rel.target_id.toString(),
-                  label: rel.type
-                }
-              });
+        const path = paths[0];
+        const newElements: cytoscape.ElementDefinition[] = [];
+        paths.forEach(p => {
+          for (let i = 0; i < p.length; i++) {
+            const nodeId = p[i];
+            const node = data?.nodes.find(n => n.id.toString() === nodeId);
+            if (node) {
+              newElements.push({ data: { ...node, id: node.id.toString(), label: node.name, originalId: node.id } });
+            }
+
+            if (i < p.length - 1) {
+              const u = p[i];
+              const v = p[i + 1];
+              const rel = data?.links.find(l =>
+                (l.source_id.toString() === u && l.target_id.toString() === v) ||
+                (l.source_id.toString() === v && l.target_id.toString() === u)
+              );
+              if (rel) {
+                newElements.push({
+                  data: {
+                    id: `e${rel.source_id}-${rel.target_id}`,
+                    source: rel.source_id.toString(),
+                    target: rel.target_id.toString(),
+                    label: rel.type
+                  }
+                });
+              }
             }
           }
-        }
+        });
 
         setElements((prev) => {
           const existingIds = new Set(prev.map(el => el.data.id));
@@ -195,19 +207,7 @@ const App: React.FC = () => {
           return [...prev, ...filteredNew];
         });
 
-        // Highlight path
-        setTimeout(() => {
-          if (cyRef.current) {
-            cyRef.current.elements().removeClass('highlighted');
-            for (let i = 0; i < path.length - 1; i++) {
-              const u = path[i];
-              const v = path[i + 1];
-              cyRef.current.$(`#${u}, #${v}`).addClass('highlighted');
-              cyRef.current.$(`edge[source="${u}"][target="${v}"], edge[source="${v}"][target="${u}"]`).addClass('highlighted');
-            }
-            cyRef.current.fit(cyRef.current.elements('.highlighted'), 50);
-          }
-        }, 200);
+        setTimeout(() => highlightPath(path), 200);
       } else {
         alert(t('no_path_found'));
       }
@@ -266,13 +266,25 @@ const App: React.FC = () => {
           selectedNode={selectedNode}
         />
       )}
-      {currentPath && (
+      {allPaths.length > 0 && (
         <PathSummary
-          path={currentPath}
+          path={allPaths[currentPathIndex]}
           data={data}
           onClose={() => {
-            setCurrentPath(null);
+            setAllPaths([]);
             cyRef.current?.elements().removeClass('highlighted');
+          }}
+          totalPaths={allPaths.length}
+          currentPathIndex={currentPathIndex}
+          onNext={() => {
+            const next = (currentPathIndex + 1) % allPaths.length;
+            setCurrentPathIndex(next);
+            highlightPath(allPaths[next]);
+          }}
+          onPrev={() => {
+            const prev = (currentPathIndex - 1 + allPaths.length) % allPaths.length;
+            setCurrentPathIndex(prev);
+            highlightPath(allPaths[prev]);
           }}
         />
       )}

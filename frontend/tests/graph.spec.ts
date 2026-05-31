@@ -4,7 +4,7 @@ test.describe('SahabahGraph E2E Tests', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('http://localhost:5173');
     // Wait for the initial node to be loaded in the graph
-    await page.waitForFunction(() => (window as any).cy && (window as any).cy.nodes().length > 0);
+    await page.waitForFunction(() => window.cy && window.cy.nodes().length > 0);
   });
 
   test('Search functionality filters the sidebar list', async ({ page }) => {
@@ -29,7 +29,7 @@ test.describe('SahabahGraph E2E Tests', () => {
 
   test('Adding a node from sidebar to graph', async ({ page }) => {
     // Initially only 1 node (Muhammad PBUH)
-    let nodeCount = await page.evaluate(() => (window as any).cy.nodes().length);
+    let nodeCount = await page.evaluate(() => window.cy.nodes().length);
     expect(nodeCount).toBe(1);
 
     // Click "Add to Graph" for Abu Bakr
@@ -37,8 +37,8 @@ test.describe('SahabahGraph E2E Tests', () => {
     await row.getByRole('button', { name: 'Add to Graph' }).click();
 
     // Verify graph now has 2 nodes
-    await page.waitForFunction(() => (window as any).cy.nodes().length === 2);
-    nodeCount = await page.evaluate(() => (window as any).cy.nodes().length);
+    await page.waitForFunction(() => window.cy.nodes().length === 2);
+    nodeCount = await page.evaluate(() => window.cy.nodes().length);
     expect(nodeCount).toBe(2);
   });
 
@@ -53,34 +53,31 @@ test.describe('SahabahGraph E2E Tests', () => {
     await othersChip.first().click();
 
     // Verify graph has more nodes now
-    await page.waitForFunction(() => (window as any).cy.nodes().length > 1);
-    const nodeCount = await page.evaluate(() => (window as any).cy.nodes().length);
+    await page.waitForFunction(() => window.cy.nodes().length > 1);
+    const nodeCount = await page.evaluate(() => window.cy.nodes().length);
     expect(nodeCount).toBeGreaterThan(1);
 
     // Verify edges are created
-    await page.waitForFunction(() => (window as any).cy.edges().length > 0);
-    const edgeCount = await page.evaluate(() => (window as any).cy.edges().length);
+    await page.waitForFunction(() => window.cy.edges().length > 0);
+    const edgeCount = await page.evaluate(() => window.cy.edges().length);
     expect(edgeCount).toBeGreaterThan(0);
   });
 
   test('Graph controls (Zoom and Reset)', async ({ page }) => {
     // Zoom buttons are in a Paper at the bottom
-    await page.evaluate(() => (window as any).cy.zoom());
+    await page.evaluate(() => window.cy.zoom());
     // Click Zoom In multiple times if needed to ensure change
     await page.getByLabel('Zoom In').click();
     await page.getByLabel('Zoom In').click();
 
-    const zoomedIn = await page.evaluate(() => (window as any).cy.zoom());
-    // Sometimes zoom doesn't change immediately or needs more clicks
-    // Let's just verify it works without being too strict on the value if it's tricky,
-    // but here we expect it to be different at least.
+    const zoomedIn = await page.evaluate(() => window.cy.zoom());
 
     await page.getByLabel('Zoom Out').click();
     await page.getByLabel('Zoom Out').click();
     await page.getByLabel('Zoom Out').click();
     await page.getByLabel('Zoom Out').click();
 
-    const zoomedOut = await page.evaluate(() => (window as any).cy.zoom());
+    const zoomedOut = await page.evaluate(() => window.cy.zoom());
     expect(zoomedOut).not.toBe(zoomedIn);
 
     await page.getByLabel('Reset Layout').click();

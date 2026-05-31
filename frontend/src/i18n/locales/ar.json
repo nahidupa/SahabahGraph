@@ -21,6 +21,7 @@
   "no_rels_found": "لم يتم العثور على علاقات في البيانات.",
   "select_two_nodes": "يرجى اختيار عقدتين بالضبط على الرسم البياني.",
   "no_path_found": "لم يتم العثور على مسار بين العقد المختارة.",
+  "path_summary": "ملخص المسار",
   "categories": {
     "family": "عائلة",
     "student": "طالب",
@@ -28,5 +29,17 @@
     "companion": "رفيق",
     "peer": "زميل",
     "battles": "الغزوات"
+  },
+  "relationships": {
+    "SON_OF": "ابن لـ",
+    "DAUGHTER_OF": "ابنة لـ",
+    "SIBLING_OF": "أخ لـ",
+    "SPOUSE_OF": "زوج لـ",
+    "PARENT_OF": "والد لـ",
+    "UNCLE_OF": "عم لـ",
+    "COUSIN_OF": "ابن عم لـ",
+    "TEACHER_OF": "معلم لـ",
+    "COMPANION_OF": "صاحب لـ",
+    "PARTICIPATED_IN": "شارك في"
   }
 }

@@ -26,6 +26,7 @@
   "no_rels_found": "No relationships found in data.",
   "select_two_nodes": "Please select exactly two nodes on the graph (use Ctrl+click or similar).",
   "no_path_found": "No path found between selected nodes.",
+  "path_summary": "Path Summary",
   "categories": {
     "family": "Family",
     "student": "Student",
@@ -33,5 +34,17 @@
     "companion": "Companion",
     "peer": "Peer",
     "battles": "Battles"
+  },
+  "relationships": {
+    "SON_OF": "is the son of",
+    "DAUGHTER_OF": "is the daughter of",
+    "SIBLING_OF": "is the sibling of",
+    "SPOUSE_OF": "is the spouse of",
+    "PARENT_OF": "is the parent of",
+    "UNCLE_OF": "is the uncle of",
+    "COUSIN_OF": "is the cousin of",
+    "TEACHER_OF": "is the teacher of",
+    "COMPANION_OF": "is the companion of",
+    "PARTICIPATED_IN": "participated in"
   }
 }
