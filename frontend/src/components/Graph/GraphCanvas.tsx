@@ -90,13 +90,24 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
       }
     },
     {
-      selector: '.highlighted',
+      selector: 'node.highlighted',
       style: {
-        'line-color': '#2e7d32',
-        'target-arrow-color': '#2e7d32',
-        'width': 4,
+        'border-width': '6px',
+        'border-color': '#ff9800',
+        'width': '50px',
+        'height': '50px',
+        'transition-property': 'border-width, border-color, width, height',
+        'transition-duration': '0.3s'
+      }
+    },
+    {
+      selector: 'edge.highlighted',
+      style: {
+        'line-color': '#ff9800',
+        'target-arrow-color': '#ff9800',
+        'width': 6,
         'transition-property': 'line-color, width',
-        'transition-duration': '0.5s'
+        'transition-duration': '0.3s'
       }
     }
   ];
