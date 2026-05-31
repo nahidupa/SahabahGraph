@@ -11,3 +11,13 @@
 9:01:16 PM [vite] (client) page reload playwright-report/index.html
 9:01:16 PM [vite] (client) page reload playwright-report/index.html
 9:06:13 PM [vite] (client) page reload playwright-report/index.html
+2:17:01 AM [vite] (client) hmr update /src/App.tsx
+2:18:24 AM [vite] (client) hmr update /src/App.tsx
+2:20:27 AM [vite] (client) [optimizer] bundling dependencies...
+2:20:33 AM [vite] (client) ✨ new dependencies optimized: fuse.js
+2:20:33 AM [vite] (client) ✨ optimized dependencies changed. reloading
+2:20:39 AM [vite] (client) page reload playwright-report/index.html
+2:20:39 AM [vite] (client) page reload playwright-report/index.html
+2:22:19 AM [vite] (client) hmr update /src/App.tsx
+2:24:48 AM [vite] (client) hmr update /src/App.tsx
+2:26:18 AM [vite] (client) page reload playwright-report/index.html

@@ -83,3 +83,20 @@ This project will utilize:
 - Data visualization frameworks for network representation
 - Web technologies for user interface and accessibility
 - Historical sources and Islamic texts for data verification
+## Static Model & Data Updates
+
+This project uses a static architecture to ensure zero hosting costs.
+
+### How it works
+1.  **Data Generation**: The source data is defined in `data-pipeline/sahabah.csv` and `relationships.csv`.
+2.  **JSON Export**: The script `data-pipeline/generate_mock_data.py` processes these CSVs and generates `frontend/public/data/sahabah_data.json`.
+3.  **Frontend**: The React application loads this JSON at runtime and performs all search and graph computations in the browser.
+
+### Updating Data
+To update the graph data:
+1.  Modify `data-pipeline/sahabah.csv` or `data-pipeline/relationships.csv`.
+2.  Run the generator script:
+    ```bash
+    python3 data-pipeline/generate_mock_data.py
+    ```
+3.  Rebuild and deploy the frontend.

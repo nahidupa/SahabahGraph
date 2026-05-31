@@ -11,7 +11,9 @@ import {
   IconButton,
   Button,
   Avatar,
-  Chip
+  Chip,
+  Tooltip,
+  Paper
 } from '@mui/material';
 import {
   Search as SearchIcon,
@@ -19,17 +21,23 @@ import {
   Person as PersonIcon,
   Female as FemaleIcon,
   Add as AddIcon,
+  Route as PathIcon,
+  Clear as ClearIcon,
+  Event as EventIcon
 } from '@mui/icons-material';
 // @ts-ignore
 import CytoscapeComponent from 'react-cytoscapejs';
 import type { Core } from 'cytoscape';
-import type { GraphData, Sahabi } from './types';
+import Fuse from 'fuse.js';
+import type { GraphData } from './types';
 
 const App: React.FC = () => {
   const [data, setData] = useState<GraphData | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedNode, setSelectedNode] = useState<Sahabi | null>(null);
+  const [selectedNode, setSelectedNode] = useState<any | null>(null);
   const [elements, setElements] = useState<any[]>([]);
+  const [pathSource, setPathSource] = useState<any | null>(null);
+  const [pathTarget, setPathTarget] = useState<any | null>(null);
   const cyRef = useRef<Core | null>(null);
 
   useEffect(() => {
@@ -37,7 +45,6 @@ const App: React.FC = () => {
       .then((res) => res.json())
       .then((json: GraphData) => {
         setData(json);
-        // Initial element: The Prophet (PBUH)
         const prophet = json.nodes.find(n => n.id === 0);
         if (prophet) {
           setElements([{ data: { ...prophet, id: prophet.id.toString(), label: '★', fullName: prophet.name, originalId: prophet.id } }]);
@@ -45,15 +52,22 @@ const App: React.FC = () => {
       });
   }, []);
 
+  const fuse = useMemo(() => {
+    if (!data) return null;
+    return new Fuse(data.nodes, {
+      keys: ['name', 'title'],
+      threshold: 0.3
+    });
+  }, [data]);
+
   const filteredNodes = useMemo(() => {
     if (!data) return [];
-    return data.nodes.filter(n =>
-      n.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      n.title.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-  }, [data, searchTerm]);
+    if (!searchTerm) return data.nodes.slice(0, 50);
+    if (!fuse) return data.nodes.filter(n => n.name.toLowerCase().includes(searchTerm.toLowerCase()));
+    return fuse.search(searchTerm).map(result => result.item);
+  }, [data, searchTerm, fuse]);
 
-  const addNodeToGraph = (node: Sahabi) => {
+  const addNodeToGraph = (node: any) => {
     setElements((prev) => {
       const exists = prev.find(el => el.data.id === node.id.toString());
       if (exists) return prev;
@@ -73,9 +87,7 @@ const App: React.FC = () => {
       const otherId = rel.source_id === nodeId ? rel.target_id : rel.source_id;
       const otherNode = data.nodes.find(n => n.id === otherId);
       if (otherNode) {
-        // Add node
         newElements.push({ data: { ...otherNode, id: otherNode.id.toString(), label: otherNode.name, originalId: otherNode.id } });
-        // Add edge
         newElements.push({
           data: {
             id: `e${rel.source_id}-${rel.target_id}`,
@@ -93,12 +105,85 @@ const App: React.FC = () => {
       return [...prev, ...filteredNew];
     });
 
-    // Trigger layout after adding elements
     setTimeout(() => {
       if (cyRef.current) {
         cyRef.current.layout({ name: 'cose', animate: true }).run();
       }
     }, 100);
+  };
+
+  const findPath = () => {
+    if (!pathSource || !pathTarget || !data) return;
+
+    const queue: [number, number[]][] = [[pathSource.id, []]];
+    const visited = new Set<number>();
+    visited.add(pathSource.id);
+
+    let foundPath: number[] | null = null;
+
+    while (queue.length > 0) {
+      const [currId, path] = queue.shift()!;
+      if (currId === pathTarget.id) {
+        foundPath = [...path, currId];
+        break;
+      }
+
+      const neighbors = data.links
+        .filter(l => l.source_id === currId || l.target_id === currId)
+        .map(l => l.source_id === currId ? l.target_id : l.source_id);
+
+      for (const neighbor of neighbors) {
+        if (!visited.has(neighbor)) {
+          visited.add(neighbor);
+          queue.push([neighbor, [...path, currId]]);
+        }
+      }
+    }
+
+    if (foundPath) {
+      const pathElements: any[] = [];
+      for (let i = 0; i < foundPath.length; i++) {
+        const node = data.nodes.find(n => n.id === foundPath![i])!;
+        pathElements.push({ data: { ...node, id: node.id.toString(), label: node.name, originalId: node.id } });
+
+        if (i < foundPath.length - 1) {
+          const s = foundPath[i];
+          const t = foundPath[i+1];
+          const rel = data.links.find(l => (l.source_id === s && l.target_id === t) || (l.source_id === t && l.target_id === s))!;
+          pathElements.push({
+            data: {
+              id: `e${rel.source_id}-${rel.target_id}`,
+              source: rel.source_id.toString(),
+              target: rel.target_id.toString(),
+              label: rel.type
+            }
+          });
+        }
+      }
+
+      setElements((prev) => {
+        const existingIds = new Set(prev.map(el => el.data.id));
+        const filteredNew = pathElements.filter(el => !existingIds.has(el.data.id));
+        return [...prev, ...filteredNew];
+      });
+
+      setTimeout(() => {
+        if (cyRef.current) {
+          cyRef.current.elements().removeClass('highlighted');
+          foundPath!.forEach((id, i) => {
+            cyRef.current?.$(`#${id}`).addClass('highlighted');
+            if (i < foundPath!.length - 1) {
+              const s = foundPath![i];
+              const t = foundPath![i+1];
+              cyRef.current?.$(`edge[source="${s}"][target="${t}"], edge[source="${t}"][target="${s}"]`).addClass('highlighted');
+            }
+          });
+          cyRef.current.layout({ name: 'cose', animate: true }).run();
+        }
+      }, 200);
+    } else {
+      alert("No path found between these two entities.");
+    }
   };
 
   const stylesheet: any[] = [
@@ -113,6 +198,17 @@ const App: React.FC = () => {
         'font-size': '10px',
         'width': '40px',
         'height': '40px',
+        'transition-property': 'background-color, line-color, target-arrow-color',
+        'transition-duration': '0.5s'
+      }
+    },
+    {
+      selector: 'node[type = "event"]',
+      style: {
+        'shape': 'hexagon',
+        'background-color': '#795548',
+        'width': '50px',
+        'height': '50px',
       }
     },
     {
@@ -158,6 +254,15 @@ const App: React.FC = () => {
         'text-background-padding': '2px',
         'text-background-shape': 'roundrectangle'
       }
+    },
+    {
+      selector: '.highlighted',
+      style: {
+        'background-color': '#ff9800',
+        'line-color': '#ff9800',
+        'target-arrow-color': '#ff9800',
+        'width': 4
+      }
     }
   ];
 
@@ -188,7 +293,7 @@ const App: React.FC = () => {
         </Box>
         <Divider />
         <List sx={{ overflowY: 'auto' }}>
-          {filteredNodes.map((node) => (
+          {filteredNodes.map((node: any) => (
             <ListItem
               key={node.id}
               component="div"
@@ -204,6 +309,9 @@ const App: React.FC = () => {
                 sx={{ textAlign: 'left', justifyContent: 'flex-start', color: 'inherit', textTransform: 'none' }}
                 onClick={() => setSelectedNode(node)}
               >
+                <Avatar sx={{ width: 24, height: 24, mr: 1, bgcolor: node.type === 'event' ? '#795548' : (node.gender === 'male' ? '#2196f3' : '#e91e63'), fontSize: 12 }}>
+                   {node.type === 'event' ? <EventIcon sx={{ fontSize: 16 }} /> : (node.gender === 'male' ? 'M' : 'F')}
+                </Avatar>
                 <ListItemText primary={node.name} secondary={node.title} />
               </Button>
             </ListItem>
@@ -220,11 +328,43 @@ const App: React.FC = () => {
             cyRef.current = cy;
             cy.on('tap', 'node', (evt: any) => {
               const nodeData = evt.target.data();
-              setSelectedNode(nodeData as unknown as Sahabi);
+              setSelectedNode(nodeData);
             });
           }}
           layout={{ name: 'cose' }}
         />
+
+        <Paper elevation={3} sx={{ position: 'absolute', top: 16, left: 16, p: 2, display: 'flex', gap: 1, alignItems: 'center', zIndex: 1000 }}>
+          <Tooltip title="Source Node">
+            <Chip
+              label={pathSource?.name || "Select Source"}
+              color={pathSource ? "primary" : "default"}
+              onClick={() => selectedNode && setPathSource(selectedNode)}
+              onDelete={pathSource ? () => setPathSource(null) : undefined}
+            />
+          </Tooltip>
+          <PathIcon color="action" />
+          <Tooltip title="Target Node">
+            <Chip
+              label={pathTarget?.name || "Select Target"}
+              color={pathTarget ? "secondary" : "default"}
+              onClick={() => selectedNode && setPathTarget(selectedNode)}
+              onDelete={pathTarget ? () => setPathTarget(null) : undefined}
+            />
+          </Tooltip>
+          <Button
+            variant="contained"
+            size="small"
+            onClick={findPath}
+            disabled={!pathSource || !pathTarget}
+            startIcon={<PathIcon />}
+          >
+            Find Path
+          </Button>
+          <IconButton size="small" onClick={() => { setPathSource(null); setPathTarget(null); cyRef.current?.elements().removeClass('highlighted'); }}>
+            <ClearIcon />
+          </IconButton>
+        </Paper>
       </Box>
 
       <Drawer
@@ -240,8 +380,8 @@ const App: React.FC = () => {
           {selectedNode ? (
             <>
               <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-                <Avatar sx={{ bgcolor: selectedNode.is_prophet === "True" ? '#ffd700' : (selectedNode.gender === 'male' ? '#2196f3' : '#e91e63'), mr: 2 }}>
-                  {selectedNode.is_prophet === "True" ? <StarIcon /> : (selectedNode.gender === 'male' ? <PersonIcon /> : <FemaleIcon />)}
+                <Avatar sx={{ bgcolor: selectedNode.is_prophet === "True" ? '#ffd700' : (selectedNode.type === 'event' ? '#795548' : (selectedNode.gender === 'male' ? '#2196f3' : '#e91e63')), mr: 2 }}>
+                  {selectedNode.is_prophet === "True" ? <StarIcon /> : (selectedNode.type === 'event' ? <EventIcon /> : (selectedNode.gender === 'male' ? <PersonIcon /> : <FemaleIcon />))}
                 </Avatar>
                 <Box>
                   <Typography variant="h5">{selectedNode.name}</Typography>
@@ -249,14 +389,16 @@ const App: React.FC = () => {
                 </Box>
               </Box>
 
+              <Box sx={{ mb: 2, display: 'flex', gap: 1 }}>
+                <Button size="small" variant="outlined" onClick={() => setPathSource(selectedNode)}>Set as Source</Button>
+                <Button size="small" variant="outlined" onClick={() => setPathTarget(selectedNode)}>Set as Target</Button>
+              </Box>
+
               <Divider sx={{ my: 2 }} />
 
               <Typography variant="h6" gutterBottom>Expand Relationships</Typography>
-              <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
-                Click to reveal connections:
-              </Typography>
               <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
-                {['sons', 'daughters', 'uncles', 'others'].map((cat) => (
+                {['sons', 'daughters', 'uncles', 'others', 'events'].map((cat) => (
                   <Chip
                     key={cat}
                     label={cat.charAt(0).toUpperCase() + cat.slice(1)}
@@ -271,13 +413,16 @@ const App: React.FC = () => {
 
               <Box sx={{ mt: 4 }}>
                 <Typography variant="body1">
-                  This section could contain a brief biography or historical notes about {selectedNode.name}.
+                  Historical details for {selectedNode.name}.
+                </Typography>
+                <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
+                  Type: {selectedNode.type} | ID: {selectedNode.id}
                 </Typography>
               </Box>
             </>
           ) : (
             <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
-              <Typography color="text.secondary">Select a node to view details</Typography>
+              <Typography color="text.secondary">Select an entity to view details</Typography>
             </Box>
           )}
         </Box>
