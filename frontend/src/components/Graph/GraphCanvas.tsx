@@ -37,6 +37,30 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
 }) => {
   const { t } = useTranslation();
 
+  const isMultiSelectGesture = (evt: cytoscape.EventObject): boolean => {
+    const originalEvent = evt.originalEvent as MouseEvent | KeyboardEvent | undefined;
+    return Boolean(
+      originalEvent && (originalEvent.ctrlKey || originalEvent.metaKey || originalEvent.shiftKey)
+    );
+  };
+
+  const selectNode = (cy: Core, evt: cytoscape.EventObject) => {
+    const node = evt.target;
+    if (isMultiSelectGesture(evt)) {
+      if (node.selected()) {
+        node.unselect();
+      } else {
+        node.select();
+      }
+    } else {
+      cy.$(':selected').not(node).unselect();
+      node.select();
+    }
+
+    const nodeData = node.data();
+    onNodeClick(nodeData as unknown as Sahabi);
+  };
+
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const stylesheet: any[] = [
     {
@@ -186,8 +210,13 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
           window.cy = cy;
 
           cy.on('tap', 'node', (evt: cytoscape.EventObject) => {
-            const nodeData = evt.target.data();
-            onNodeClick(nodeData as unknown as Sahabi);
+            selectNode(cy, evt);
+          });
+
+          // On macOS, Ctrl+click can be emitted as context-tap. Handle it as multi-select.
+          cy.on('cxttap', 'node', (evt: cytoscape.EventObject) => {
+            evt.originalEvent?.preventDefault?.();
+            selectNode(cy, evt);
           });
         }}
         layout={{ name: 'cose' }}
