@@ -21,6 +21,11 @@ export default defineConfig([
     rules: {
       '@typescript-eslint/no-explicit-any': 'warn',
       '@typescript-eslint/ban-ts-comment': 'warn',
-    }
+    },
+    settings: {
+      react: {
+        version: 'detect',
+      },
+    },
   },
 ])

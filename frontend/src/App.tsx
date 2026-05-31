@@ -29,13 +29,13 @@ const App: React.FC = () => {
   const [data, setData] = useState<GraphData | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedNode, setSelectedNode] = useState<Sahabi | null>(null);
-  const [elements, setElements] = useState<any[]>([]);
+  const [elements, setElements] = useState<cytoscape.ElementDefinition[]>([]);
   const [currentPath, setCurrentPath] = useState<string[] | null>(null);
   const cyRef = useRef<Core | null>(null);
 
   useEffect(() => {
     if (apolloData && apolloData.sahabis) {
-      const nodes: Sahabi[] = apolloData.sahabis.map((s: any) => ({
+      const nodes: Sahabi[] = apolloData.sahabis.map((s: Sahabi) => ({
         ...s,
         is_prophet: s.is_prophet ? "True" : "False"
       }));
@@ -106,7 +106,7 @@ const App: React.FC = () => {
       l.category === category
     );
 
-    const newElements: any[] = [];
+    const newElements: cytoscape.ElementDefinition[] = [];
     rels.forEach(rel => {
       const otherId = rel.source_id === nodeId ? rel.target_id : rel.source_id;
       const otherNode = data.nodes.find(n => n.id === otherId);
@@ -156,7 +156,7 @@ const App: React.FC = () => {
       if (path) {
         setCurrentPath(path);
         // Add missing nodes and edges to elements
-        const newElements: any[] = [];
+        const newElements: cytoscape.ElementDefinition[] = [];
         for (let i = 0; i < path.length; i++) {
           const nodeId = path[i];
           const node = data?.nodes.find(n => n.id.toString() === nodeId);
