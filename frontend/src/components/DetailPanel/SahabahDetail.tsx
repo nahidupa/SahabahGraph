@@ -64,6 +64,84 @@ const SahabahDetail: React.FC<SahabahDetailProps> = ({
     return Array.from(types);
   }, [selectedNode, links]);
 
+  const relationshipAvailability = useMemo(() => {
+    if (!selectedNode) return [];
+
+    if (selectedNode.node_type === 'Battle') {
+      return [
+        {
+          key: 'participants',
+          label: t('relation_flags.participants', { defaultValue: 'Participants' }),
+          enabled: selectedNode.has_participants === true,
+          relationType: 'PARTICIPATED_IN',
+        },
+      ];
+    }
+
+    return [
+      {
+        key: 'parents',
+        label: t('relation_flags.parents', { defaultValue: 'Parents' }),
+        enabled: selectedNode.has_parents === true,
+        relationType: 'PARENT_OF',
+      },
+      {
+        key: 'children',
+        label: t('relation_flags.children', { defaultValue: 'Children' }),
+        enabled: selectedNode.has_children === true,
+        relationType: 'PARENT_OF',
+      },
+      {
+        key: 'spouses',
+        label: t('relation_flags.spouses', { defaultValue: 'Spouses' }),
+        enabled: selectedNode.has_spouses === true,
+        relationType: 'SPOUSE_OF',
+      },
+      {
+        key: 'siblings',
+        label: t('relation_flags.siblings', { defaultValue: 'Siblings' }),
+        enabled: selectedNode.has_siblings === true,
+        relationType: 'SIBLING_OF',
+      },
+      {
+        key: 'uncles',
+        label: t('relation_flags.uncles', { defaultValue: 'Uncles' }),
+        enabled: selectedNode.has_uncles === true,
+        relationType: 'UNCLE_OF',
+      },
+      {
+        key: 'cousins',
+        label: t('relation_flags.cousins', { defaultValue: 'Cousins' }),
+        enabled: selectedNode.has_cousins === true,
+        relationType: 'COUSIN_OF',
+      },
+      {
+        key: 'companions',
+        label: t('relation_flags.companions', { defaultValue: 'Companions' }),
+        enabled: selectedNode.has_companions === true,
+        relationType: 'COMPANION_OF',
+      },
+      {
+        key: 'teachers',
+        label: t('relation_flags.teachers', { defaultValue: 'Teachers' }),
+        enabled: selectedNode.has_teachers === true,
+        relationType: 'TEACHER_OF',
+      },
+      {
+        key: 'students',
+        label: t('relation_flags.students', { defaultValue: 'Students' }),
+        enabled: selectedNode.has_students === true,
+        relationType: 'TEACHER_OF',
+      },
+      {
+        key: 'battles',
+        label: t('relation_flags.battles', { defaultValue: 'Battles' }),
+        enabled: selectedNode.has_battles === true,
+        relationType: 'PARTICIPATED_IN',
+      },
+    ];
+  }, [selectedNode, t]);
+
   if (collapsed) {
     return (
       <Box sx={{ width: 40, height: '100vh', borderInlineStart: 1, borderColor: 'divider', display: 'flex', flexDirection: 'column', alignItems: 'center', pt: 2, bgcolor: 'background.paper' }}>
@@ -205,6 +283,32 @@ const SahabahDetail: React.FC<SahabahDetailProps> = ({
                     clickable
                   />
                 ))
+              ) : (
+                <Typography variant="body2" color="text.disabled">{t('no_rels_found')}</Typography>
+              )}
+            </Box>
+
+            <Typography variant="subtitle2" color="text.secondary" sx={{ mb: 1 }}>
+              {t('relationship_availability', { defaultValue: 'Available Expansions' })}
+            </Typography>
+            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mb: 3 }}>
+              {relationshipAvailability.some((item) => item.enabled) ? (
+                relationshipAvailability
+                  .filter((item) => item.enabled)
+                  .map((item) => (
+                    <Chip
+                      key={item.key}
+                      label={t('expand_relation_flag', {
+                        label: item.label,
+                        defaultValue: 'Expand {{label}}',
+                      })}
+                      onClick={() => onExpand(selectedNode.id, item.relationType)}
+                      icon={<AddIcon />}
+                      color="success"
+                      variant="outlined"
+                      clickable
+                    />
+                  ))
               ) : (
                 <Typography variant="body2" color="text.disabled">{t('no_rels_found')}</Typography>
               )}

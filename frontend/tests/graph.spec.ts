@@ -83,6 +83,8 @@ test.describe('SahabahGraph E2E Tests', () => {
     await expect(page.getByText('Expand Relationships')).toBeVisible();
     await expect(page.getByText('No relationships found in data.')).not.toBeVisible();
     await expect(page.getByRole('button', { name: 'Family' })).toBeVisible();
+    await expect(page.getByText('Available Expansions')).toBeVisible();
+    await expect(page.getByRole('button', { name: 'Expand Children' })).toBeVisible();
   });
 
   test('Abu Bakr Family expansion does not blank the page', async ({ page }) => {
