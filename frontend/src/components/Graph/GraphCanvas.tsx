@@ -170,7 +170,8 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
         'width': '50px',
         'height': '50px',
         'transition-property': 'border-width, border-color, width, height',
-        'transition-duration': '0.3s'
+        'transition-duration': '0.3s',
+        'z-index': 9999
       }
     },
     {
@@ -203,15 +204,24 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
 
   const handleExportSVG = () => {
     if (!cyRef.current) return;
-    // @ts-expect-error - cytoscape-svg extension adds .svg() to cy
-    const svgContent = (cyRef.current as { svg: (options: Record<string, unknown>) => string }).svg({ full: true, bg: '#ffffff' });
-    const blob = new Blob([svgContent], { type: 'image/svg+xml;charset=utf-8' });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = 'sahabah-graph.svg';
-    link.click();
-    setTimeout(() => URL.revokeObjectURL(url), 100);
+    try {
+      // @ts-expect-error - cytoscape-svg extension adds .svg() to cy
+      const svgContent = (cyRef.current as { svg: (options: Record<string, unknown>) => string }).svg({
+        full: true,
+        bg: '#ffffff',
+        drawSelection: false
+      });
+      const blob = new Blob([svgContent], { type: 'image/svg+xml;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `sahabah-graph-${new Date().toISOString().split('T')[0]}.svg`;
+      link.click();
+      setTimeout(() => URL.revokeObjectURL(url), 100);
+    } catch (error) {
+      console.error('Failed to export SVG:', error);
+      alert(t('export_failed'));
+    }
   };
 
   return (
@@ -253,13 +263,13 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
           </IconButton>
         </Tooltip>
         <Divider orientation="vertical" flexItem />
-        <Tooltip title="Zoom In">
+        <Tooltip title={t('zoom_in')}>
           <IconButton onClick={handleZoomIn}><ZoomInIcon /></IconButton>
         </Tooltip>
-        <Tooltip title="Zoom Out">
+        <Tooltip title={t('zoom_out')}>
           <IconButton onClick={handleZoomOut}><ZoomOutIcon /></IconButton>
         </Tooltip>
-        <Tooltip title="Reset Layout">
+        <Tooltip title={t('reset_layout')}>
           <IconButton onClick={handleReset}><ResetIcon /></IconButton>
         </Tooltip>
         <Divider orientation="vertical" flexItem />

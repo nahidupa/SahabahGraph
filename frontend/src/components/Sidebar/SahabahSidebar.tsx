@@ -102,7 +102,7 @@ const SahabahSidebar: React.FC<SahabahSidebarProps> = ({
         </IconButton>
       </Box>
 
-      <Box sx={{ p: 2, bgcolor: 'background.paper' }}>
+      <Box sx={{ p: 2, bgcolor: 'background.paper', borderBottom: '1px solid', borderColor: 'divider' }}>
         <FormControl fullWidth size="small" sx={{ mb: 2 }}>
           <InputLabel id="language-select-label">{t('language')}</InputLabel>
           <Select
@@ -166,12 +166,21 @@ const SahabahSidebar: React.FC<SahabahSidebarProps> = ({
                 px: 2,
                 py: 1,
                 display: 'flex',
-                justifyContent: 'space-between'
+                justifyContent: 'space-between',
+                transition: 'all 0.2s ease-in-out',
+                '&:hover': {
+                  bgcolor: 'rgba(46, 125, 50, 0.08)',
+                  transform: 'translateX(4px)',
+                },
               }}
               onClick={() => onSelectNode(node)}
             >
               <ListItemText
-                primary={node.name_en}
+                primary={
+                  <Typography variant="body1" sx={{ fontWeight: 600 }}>
+                    {i18n.language.startsWith('ar') && node.name_ar ? node.name_ar : node.name_en}
+                  </Typography>
+                }
                 secondary={
                   <React.Fragment>
                     {node.name_ar && <Typography component="span" variant="body2" color="primary" sx={{ display: 'block' }}>{node.name_ar}</Typography>}
