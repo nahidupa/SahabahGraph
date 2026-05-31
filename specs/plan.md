@@ -22,10 +22,11 @@ SahabahGraph is a knowledge graph project designed to map and visualize the rela
 - Implement **Fuse.js** for fuzzy search.
 - Implement **Client-side Path Finding** between nodes.
 - UI for multi-selection and path highlighting.
+- Addition of **Event nodes (Battles)**.
 
 ### Phase 3: Data Enrichment & Scale
 - Expand dataset to 3000+ Sahabah.
-- Add historical events (Battles).
+- Deeper historical event mapping.
 - Performance optimization for larger graphs.
 
 ### Phase 4: Polish & Launch
