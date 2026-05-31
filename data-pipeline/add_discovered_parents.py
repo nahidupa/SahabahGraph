@@ -216,7 +216,7 @@ def main():
     # Update sahabah.csv
     with open(script_dir / 'sahabah.csv', 'r') as f:
         reader = csv.DictReader(f)
-        fieldnames = reader.fieldnames
+        sahabah_fieldnames = reader.fieldnames
         rows = list(reader)
     
     # Add new nodes
@@ -224,14 +224,14 @@ def main():
         rows.append(node_data)
     
     with open(script_dir / 'sahabah.csv', 'w', newline='') as f:
-        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer = csv.DictWriter(f, fieldnames=sahabah_fieldnames)
         writer.writeheader()
         writer.writerows(rows)
     
     # Update relationships.csv
     with open(script_dir / 'relationships.csv', 'r') as f:
         reader = csv.DictReader(f)
-        fieldnames = reader.fieldnames
+        rel_fieldnames = reader.fieldnames
         rel_rows = list(reader)
     
     # Add new relationships
@@ -244,13 +244,14 @@ def main():
         })
     
     with open(script_dir / 'relationships.csv', 'w', newline='') as f:
-        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer = csv.DictWriter(f, fieldnames=rel_fieldnames)
         writer.writeheader()
         writer.writerows(rel_rows)
     
     # Update has_parents flags
     with open(script_dir / 'sahabah.csv', 'r') as f:
         reader = csv.DictReader(f)
+        sahabah_fieldnames_2 = reader.fieldnames
         rows = list(reader)
     
     for row in rows:
@@ -259,7 +260,7 @@ def main():
             row['has_parents'] = 'True'
     
     with open(script_dir / 'sahabah.csv', 'w', newline='') as f:
-        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer = csv.DictWriter(f, fieldnames=sahabah_fieldnames_2)
         writer.writeheader()
         writer.writerows(rows)
     
