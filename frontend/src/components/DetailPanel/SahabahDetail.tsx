@@ -20,7 +20,9 @@ import {
   HistoryEdu as BioIcon,
   Groups as TribeIcon,
   AccountTree as ClanIcon,
-  EventNote as DateIcon
+  EventNote as DateIcon,
+  Source as SourceIcon,
+  Label as LabelIcon
 } from '@mui/icons-material';
 import { useTranslation } from 'react-i18next';
 import type { Sahabi, Relationship } from '../../types';
@@ -81,7 +83,7 @@ const SahabahDetail: React.FC<SahabahDetailProps> = ({
            {i18n.dir() === 'rtl' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
         </IconButton>
         <Typography variant="subtitle1" sx={{ ml: 1, fontWeight: 'medium' }}>
-          {selectedNode ? selectedNode.name : t('details_title', { defaultValue: 'Details' })}
+          {selectedNode ? selectedNode.name_en : t('details_title', { defaultValue: 'Details' })}
         </Typography>
       </Box>
 
@@ -100,8 +102,10 @@ const SahabahDetail: React.FC<SahabahDetailProps> = ({
                 {selectedNode.node_type === 'Battle' ? <BattleIcon fontSize="large" /> : (selectedNode.is_prophet === "True" ? <StarIcon fontSize="large" /> : (selectedNode.gender === 'male' ? <PersonIcon fontSize="large" /> : <FemaleIcon fontSize="large" />))}
               </Avatar>
               <Box>
-                <Typography variant="h5">{selectedNode.name}</Typography>
-                <Typography variant="subtitle1" color="text.secondary">{selectedNode.title}</Typography>
+                <Typography variant="h5" sx={{ fontWeight: 'bold' }}>{selectedNode.name_en}</Typography>
+                {selectedNode.name_ar && <Typography variant="h6" color="primary" sx={{ fontStyle: 'italic' }}>{selectedNode.name_ar}</Typography>}
+                {selectedNode.kunyah && <Typography variant="subtitle2" color="text.secondary">{t('kunyah')}: {selectedNode.kunyah}</Typography>}
+                <Typography variant="subtitle1" color="text.secondary">{selectedNode.laqab}</Typography>
               </Box>
             </Box>
 
@@ -110,6 +114,12 @@ const SahabahDetail: React.FC<SahabahDetailProps> = ({
             {selectedNode.node_type === 'Sahabi' && (
               <Box sx={{ mb: 3 }}>
                 <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
+                  {selectedNode.prominence && (
+                    <Box sx={{ display: 'flex', alignItems: 'center', width: '100%', mb: 1 }}>
+                      <LabelIcon fontSize="small" color="primary" sx={{ mr: 1 }} />
+                      <Chip label={selectedNode.prominence} size="small" color="primary" variant="outlined" />
+                    </Box>
+                  )}
                   {selectedNode.tribe && (
                     <Box sx={{ display: 'flex', alignItems: 'center' }}>
                       <TribeIcon fontSize="small" color="action" sx={{ mr: 1 }} />
@@ -128,13 +138,13 @@ const SahabahDetail: React.FC<SahabahDetailProps> = ({
                       </Box>
                     </Box>
                   )}
-                  {(selectedNode.birth_year || selectedNode.death_year) && (
+                  {(selectedNode.birth_year_hijri !== undefined || selectedNode.death_year_hijri !== undefined) && (
                     <Box sx={{ display: 'flex', alignItems: 'center' }}>
                       <DateIcon fontSize="small" color="action" sx={{ mr: 1 }} />
                       <Box>
-                        <Typography variant="caption" color="text.secondary">{t('born')} / {t('died')}</Typography>
+                        <Typography variant="caption" color="text.secondary">{t('born')} / {t('died')} (AH)</Typography>
                         <Typography variant="body2">
-                          {selectedNode.birth_year || '?'} - {selectedNode.death_year || '?'}
+                          {selectedNode.birth_year_hijri !== 0 ? selectedNode.birth_year_hijri : '?'} - {selectedNode.death_year_hijri !== 0 ? selectedNode.death_year_hijri : '?'}
                         </Typography>
                       </Box>
                     </Box>
@@ -172,9 +182,17 @@ const SahabahDetail: React.FC<SahabahDetailProps> = ({
                   {t('biography')}
                 </Typography>
               </Box>
-              <Typography variant="body2">
-                {selectedNode.bio || t('bio_placeholder', { name: selectedNode.name })}
+              <Typography variant="body2" sx={{ mb: 2 }}>
+                {selectedNode.biography_short || t('bio_placeholder', { name: selectedNode.name_en })}
               </Typography>
+              {selectedNode.biography_source && (
+                <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                  <SourceIcon fontSize="inherit" sx={{ mr: 0.5, color: 'text.secondary' }} />
+                  <Typography variant="caption" color="text.secondary">
+                    {t('source')}: {selectedNode.biography_source}
+                  </Typography>
+                </Box>
+              )}
             </Paper>
 
             {selectedNode.node_type === 'Battle' && (
@@ -185,10 +203,6 @@ const SahabahDetail: React.FC<SahabahDetailProps> = ({
                  <Typography variant="body2" color="text.secondary">
                     {t('participants_desc', { defaultValue: 'Sahabah who participated in this battle.' })}
                  </Typography>
-                 {/* Links are already handled by the "Expand Relationships" section chips,
-                     but we could also list the ones already on the graph if we wanted to.
-                     The user specifically asked to "display these participation links".
-                 */}
               </>
             )}
           </>

@@ -18,11 +18,19 @@ const GET_SAHABAH = gql`
   query GetSahabah {
     sahabis {
       id
-      name
+      name_ar
+      name_en
+      kunyah
+      laqab
       gender
       is_prophet
-      title
-      bio
+      prominence
+      biography_short
+      biography_source
+      tribe
+      clan
+      birth_year_hijri
+      death_year_hijri
     }
   }
 `;
@@ -41,7 +49,7 @@ const App: React.FC = () => {
 
   useEffect(() => {
     if (apolloData && apolloData.sahabis) {
-      const nodes: Sahabi[] = apolloData.sahabis.map((s: Sahabi) => ({
+      const nodes: Sahabi[] = apolloData.sahabis.map((s: any) => ({
         ...s,
         is_prophet: s.is_prophet ? "True" : "False"
       }));
@@ -56,7 +64,7 @@ const App: React.FC = () => {
           setData(combinedData);
           const prophet = nodes.find(n => n.id === 0);
           if (prophet) {
-            setElements([{ data: { ...prophet, id: prophet.id.toString(), label: '★', fullName: prophet.name, originalId: prophet.id } }]);
+            setElements([{ data: { ...prophet, id: prophet.id.toString(), label: '★', fullName: prophet.name_en, originalId: prophet.id } }]);
           }
         })
         .catch(() => {
@@ -66,7 +74,7 @@ const App: React.FC = () => {
               setData(json);
               const prophet = json.nodes.find(n => n.id === 0);
               if (prophet) {
-                setElements([{ data: { ...prophet, id: prophet.id.toString(), label: '★', fullName: prophet.name, originalId: prophet.id } }]);
+                setElements([{ data: { ...prophet, id: prophet.id.toString(), label: '★', fullName: prophet.name_en, originalId: prophet.id } }]);
               }
             });
         });
@@ -77,7 +85,7 @@ const App: React.FC = () => {
           setData(json);
           const prophet = json.nodes.find(n => n.id === 0);
           if (prophet) {
-            setElements([{ data: { ...prophet, id: prophet.id.toString(), label: '★', fullName: prophet.name, originalId: prophet.id } }]);
+            setElements([{ data: { ...prophet, id: prophet.id.toString(), label: '★', fullName: prophet.name_en, originalId: prophet.id } }]);
           }
         });
     }
@@ -86,8 +94,9 @@ const App: React.FC = () => {
   const filteredNodes = useMemo(() => {
     if (!data) return [];
     return data.nodes.filter(n =>
-      n.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      (n.title && n.title.toLowerCase().includes(searchTerm.toLowerCase()))
+      n.name_en.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      (n.name_ar && n.name_ar.includes(searchTerm)) ||
+      (n.laqab && n.laqab.toLowerCase().includes(searchTerm.toLowerCase()))
     );
   }, [data, searchTerm]);
 
@@ -95,7 +104,7 @@ const App: React.FC = () => {
     setElements((prev) => {
       const exists = prev.find(el => el.data.id === node.id.toString());
       if (exists) return prev;
-      return [...prev, { data: { ...node, id: node.id.toString(), label: node.name, originalId: node.id } }];
+      return [...prev, { data: { ...node, id: node.id.toString(), label: node.name_en, originalId: node.id } }];
     });
   };
 
@@ -111,7 +120,7 @@ const App: React.FC = () => {
       const otherId = rel.source_id === nodeId ? rel.target_id : rel.source_id;
       const otherNode = data.nodes.find(n => n.id === otherId);
       if (otherNode) {
-        newElements.push({ data: { ...otherNode, id: otherNode.id.toString(), label: otherNode.name, originalId: otherNode.id } });
+        newElements.push({ data: { ...otherNode, id: otherNode.id.toString(), label: otherNode.name_en, originalId: otherNode.id } });
         newElements.push({
           data: {
             id: `e${rel.source_id}-${rel.target_id}`,
@@ -177,7 +186,7 @@ const App: React.FC = () => {
             const nodeId = p[i];
             const node = data?.nodes.find(n => n.id.toString() === nodeId);
             if (node) {
-              newElements.push({ data: { ...node, id: node.id.toString(), label: node.name, originalId: node.id } });
+              newElements.push({ data: { ...node, id: node.id.toString(), label: node.name_en, originalId: node.id } });
             }
 
             if (i < p.length - 1) {

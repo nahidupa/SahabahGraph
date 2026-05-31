@@ -17,15 +17,23 @@ const driver = neo4j.driver(
 const typeDefs = `#graphql
   type Sahabi @node {
     id: Int!
-    name: String!
-    title: String
+    name_ar: String
+    name_en: String!
+    kunyah: String
+    laqab: String
     gender: String
     is_prophet: Boolean
-    bio: String
-    birth_year: Int
-    death_year: Int
-    sons: [Sahabi!]! @relationship(type: "SON_OF", direction: IN)
-    daughters: [Sahabi!]! @relationship(type: "DAUGHTER_OF", direction: IN)
+    prominence: String
+    biography_short: String
+    biography_source: String
+    tribe: String
+    clan: String
+    birth_year_hijri: Int
+    death_year_hijri: Int
+
+    # Relationships
+    parents: [Sahabi!]! @relationship(type: "PARENT_OF", direction: IN)
+    children: [Sahabi!]! @relationship(type: "PARENT_OF", direction: OUT)
     uncles: [Sahabi!]! @relationship(type: "UNCLE_OF", direction: OUT)
     spouses: [Sahabi!]! @relationship(type: "SPOUSE_OF", direction: IN)
     companions: [Sahabi!]! @relationship(type: "COMPANION_OF", direction: OUT)
@@ -38,9 +46,12 @@ const typeDefs = `#graphql
 
   type Battle @node {
     id: Int!
-    name: String!
-    title: String # Used for the year (e.g., 2 AH)
-    bio: String
+    name_ar: String
+    name_en: String!
+    prominence: String
+    biography_short: String
+    biography_source: String
+    birth_year_hijri: Int # Used for the year
     participants: [Sahabi!]! @relationship(type: "PARTICIPATED_IN", direction: IN)
   }
 `;

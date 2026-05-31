@@ -55,8 +55,10 @@ const SahabahSidebar: React.FC<SahabahSidebarProps> = ({
 
   const filteredNodes = useMemo(() => {
     return nodes.filter(n => {
-      const matchesSearch = n.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                           (n.title && n.title.toLowerCase().includes(searchTerm.toLowerCase()));
+      const matchesSearch = n.name_en.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                           (n.name_ar && n.name_ar.includes(searchTerm)) ||
+                           (n.laqab && n.laqab.toLowerCase().includes(searchTerm.toLowerCase())) ||
+                           (n.kunyah && n.kunyah.toLowerCase().includes(searchTerm.toLowerCase()));
       const matchesTribe = selectedTribe === 'All' || n.tribe === selectedTribe;
       return matchesSearch && matchesTribe;
     });
@@ -169,8 +171,13 @@ const SahabahSidebar: React.FC<SahabahSidebarProps> = ({
               onClick={() => onSelectNode(node)}
             >
               <ListItemText
-                primary={node.name}
-                secondary={node.title}
+                primary={node.name_en}
+                secondary={
+                  <React.Fragment>
+                    {node.name_ar && <Typography component="span" variant="body2" color="primary" sx={{ display: 'block' }}>{node.name_ar}</Typography>}
+                    {node.laqab}
+                  </React.Fragment>
+                }
                 sx={{ textAlign: 'inherit' }}
               />
               <IconButton
