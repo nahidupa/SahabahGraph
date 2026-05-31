@@ -82,7 +82,7 @@ const SahabahDetail: React.FC<SahabahDetailProps> = ({
     if (!selectedNode) return [];
     const selectedId = String(selectedNode.id);
     const nodeRels = links.filter(
-      (l) => String(l.source_id) === selectedId || String(l.target_id) === selectedId
+      (l) => String(l.source) === selectedId || String(l.target) === selectedId
     );
     const categories = new Set<string>();
     nodeRels.forEach(r => categories.add(r.category));
@@ -93,7 +93,7 @@ const SahabahDetail: React.FC<SahabahDetailProps> = ({
     if (!selectedNode) return [];
     const selectedId = String(selectedNode.id);
     const nodeRels = links.filter(
-      (l) => String(l.source_id) === selectedId || String(l.target_id) === selectedId
+      (l) => String(l.source) === selectedId || String(l.target) === selectedId
     );
     const types = new Set<string>();
     nodeRels.forEach((r) => types.add(r.type));

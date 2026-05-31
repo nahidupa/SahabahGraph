@@ -35,8 +35,8 @@ export const findShortestPathsDijkstra = (data: GraphData, startId: string, endI
 
   // Ensure all nodes from links are present
   for (const link of data.links) {
-    const s = link.source_id.toString();
-    const t = link.target_id.toString();
+    const s = link.source.toString();
+    const t = link.target.toString();
     if (distances[s] === undefined) { distances[s] = Infinity; previous[s] = []; nodes.add(s); }
     if (distances[t] === undefined) { distances[t] = Infinity; previous[t] = []; nodes.add(t); }
   }
@@ -55,9 +55,9 @@ export const findShortestPathsDijkstra = (data: GraphData, startId: string, endI
     nodes.delete(closestNode);
 
     const neighbors = data.links
-      .filter(l => l.source_id.toString() === closestNode || l.target_id.toString() === closestNode)
+      .filter(l => l.source.toString() === closestNode || l.target.toString() === closestNode)
       .map(l => ({
-        id: l.source_id.toString() === closestNode ? l.target_id.toString() : l.source_id.toString(),
+        id: l.source.toString() === closestNode ? l.target.toString() : l.source.toString(),
         weight: RELATIONSHIP_WEIGHTS[l.type] || 2
       }));
 

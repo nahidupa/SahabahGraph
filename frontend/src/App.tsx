@@ -126,16 +126,19 @@ const App: React.FC = () => {
           ? apolloData.sahabis.map((s: any) => ({
               ...s,
               id: normalizeNodeId(s.id),
-              is_prophet: s.is_prophet ? 'True' : 'False',
+              is_prophet: s.is_prophet ? 'true' : 'false',
             }))
           : [];
 
-        const nodes = apolloNodes.length > 0
+        const nodes = (apolloNodes.length > 0
           ? apolloNodes.map((apolloNode) => {
               const jsonNode = graphData.nodes.find((n) => n.id === apolloNode.id);
               return jsonNode ? { ...jsonNode, ...apolloNode } : apolloNode;
             })
-          : graphData.nodes;
+          : graphData.nodes).map((node) => ({
+            ...node,
+            is_prophet: node.is_prophet ? 'true' : 'false',
+          }));
         const combinedData: GraphData = {
           nodes,
           links: graphData.links,
@@ -190,7 +193,7 @@ const App: React.FC = () => {
   const expandRelationships = (nodeId: number | string, categoryOrType: string) => {
     if (!data) return;
     const rels = data.links.filter(l =>
-      (String(l.source_id) === String(nodeId) || String(l.target_id) === String(nodeId)) &&
+      (String(l.source) === String(nodeId) || String(l.target) === String(nodeId)) &&
       (l.category === categoryOrType || l.type === categoryOrType)
     );
 
@@ -209,15 +212,15 @@ const App: React.FC = () => {
     }
 
     rels.forEach(rel => {
-      const otherId = String(rel.source_id) === String(nodeId) ? rel.target_id : rel.source_id;
+      const otherId = String(rel.source) === String(nodeId) ? rel.target : rel.source;
       const otherNode = data.nodes.find(n => String(n.id) === String(otherId));
       if (otherNode) {
         newElements.push({ data: { ...otherNode, id: otherNode.id.toString(), label: otherNode.name_en, originalId: otherNode.id } });
         newElements.push({
           data: {
-            id: `e${rel.source_id}-${rel.target_id}`,
-            source: rel.source_id.toString(),
-            target: rel.target_id.toString(),
+            id: `e${rel.source}-${rel.target}`,
+            source: rel.source.toString(),
+            target: rel.target.toString(),
             label: rel.type
           }
         });
@@ -285,15 +288,15 @@ const App: React.FC = () => {
               const u = p[i];
               const v = p[i + 1];
               const rel = data?.links.find(l =>
-                (l.source_id.toString() === u && l.target_id.toString() === v) ||
-                (l.source_id.toString() === v && l.target_id.toString() === u)
+                (l.source.toString() === u && l.target.toString() === v) ||
+                (l.source.toString() === v && l.target.toString() === u)
               );
               if (rel) {
                 newElements.push({
                   data: {
-                    id: `e${rel.source_id}-${rel.target_id}`,
-                    source: rel.source_id.toString(),
-                    target: rel.target_id.toString(),
+                    id: `e${rel.source}-${rel.target}`,
+                    source: rel.source.toString(),
+                    target: rel.target.toString(),
                     label: rel.type
                   }
                 });

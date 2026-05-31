@@ -39,8 +39,8 @@ const PathSummary: React.FC<PathSummaryProps> = ({
       const u = path[i];
       const v = path[i + 1];
       const rel = data.links.find(l =>
-        (l.source_id.toString() === u && l.target_id.toString() === v) ||
-        (l.source_id.toString() === v && l.target_id.toString() === u)
+        (l.source.toString() === u && l.target.toString() === v) ||
+        (l.source.toString() === v && l.target.toString() === u)
       );
       if (rel) {
         pathElements.push({ type: 'edge', label: rel.type });

@@ -28,8 +28,8 @@ export interface Sahabi {
 }
 
 export interface Relationship {
-  source_id: number;
-  target_id: number;
+  source: number;
+  target: number;
   type: string;
   category: 'family' | 'mentorship' | 'battles' | 'others' | 'governance';
 }
