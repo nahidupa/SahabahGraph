@@ -424,14 +424,44 @@ def main():
 
         {"source_id": 14, "target_id": 15, "type": "SIBLING_OF", "category": "family"}, # Hasan & Husayn
         {"source_id": 0, "target_id": find_id("Abdullah ibn Abbas"), "type": "TEACHER_OF", "category": "mentorship"},
+
+        # New Family Relationships
+        {"source_id": find_id("Zayd ibn Harithah"), "target_id": find_id("Usama ibn Zayd"), "type": "PARENT_OF", "category": "family"},
+        {"source_id": find_id("Umar ibn al-Khattab"), "target_id": find_id("Abdullah ibn Umar"), "type": "PARENT_OF", "category": "family"},
+        {"source_id": find_id("Umar ibn al-Khattab"), "target_id": find_id("Hafsa bint Umar"), "type": "PARENT_OF", "category": "family"},
+        {"source_id": find_id("Umar ibn al-Khattab"), "target_id": find_id("Fatimah bint al-Khattab"), "type": "SIBLING_OF", "category": "family"},
+        {"source_id": find_id("Umar ibn al-Khattab"), "target_id": find_id("Zayd ibn al-Khattab"), "type": "SIBLING_OF", "category": "family"},
+        {"source_id": find_id("Abbas ibn Abd al-Muttalib"), "target_id": find_id("Abdullah ibn Abbas"), "type": "PARENT_OF", "category": "family"},
+        {"source_id": find_id("Umm Sulaym bint Milhan"), "target_id": find_id("Anas ibn Malik"), "type": "PARENT_OF", "category": "family"},
+        {"source_id": find_id("Umm Sulaym bint Milhan"), "target_id": find_id("Umm Haram bint Milhan"), "type": "SIBLING_OF", "category": "family"},
+        {"source_id": find_id("Abdullah ibn Amr ibn Haram"), "target_id": find_id("Jabir ibn Abdullah"), "type": "PARENT_OF", "category": "family"},
+        {"source_id": find_id("Abu Bakr as-Siddiq"), "target_id": find_id("Asma bint Abi Bakr"), "type": "PARENT_OF", "category": "family"},
+        {"source_id": find_id("Abu Bakr as-Siddiq"), "target_id": find_id("Muhammad ibn Abi Bakr"), "type": "PARENT_OF", "category": "family"},
+        {"source_id": find_id("Ali ibn Abi Talib"), "target_id": find_id("Ja'far ibn Abi Talib"), "type": "SIBLING_OF", "category": "family"},
+        {"source_id": find_id("Anas ibn Nadhar"), "target_id": find_id("Anas ibn Malik"), "type": "UNCLE_OF", "category": "family"},
+        {"source_id": find_id("Zubayr ibn al-Awwam"), "target_id": find_id("Abdullah ibn al-Zubayr"), "type": "PARENT_OF", "category": "family"},
+        {"source_id": find_id("Asma bint Abi Bakr"), "target_id": find_id("Abdullah ibn al-Zubayr"), "type": "PARENT_OF", "category": "family"},
+        {"source_id": find_id("Ja'far ibn Abi Talib"), "target_id": find_id("Abdullah ibn Ja'far"), "type": "PARENT_OF", "category": "family"},
+        {"source_id": find_id("Hamza ibn Abd al-Muttalib"), "target_id": find_id("Umamah bint Hamza"), "type": "PARENT_OF", "category": "family"},
+        {"source_id": find_id("Abu Sufyan ibn Harb"), "target_id": find_id("Muawiyah ibn Abi Sufyan"), "type": "PARENT_OF", "category": "family"},
+        {"source_id": find_id("Abu Sufyan ibn Harb"), "target_id": find_id("Umm Habiba"), "type": "PARENT_OF", "category": "family"},
+        {"source_id": find_id("Abu Sufyan ibn Harb"), "target_id": find_id("Yazid ibn Abi Sufyan"), "type": "PARENT_OF", "category": "family"},
     ]
 
     # Add PARTICIPATED_IN relationships
     # Badr (1000)
-    for sid_name in ["Muhammad (PBUH)", "Abu Bakr as-Siddiq", "Umar ibn al-Khattab", "Ali ibn Abi Talib", "Hamza ibn Abd al-Muttalib", "Bilal ibn Rabah", "Zayd ibn Harithah", "Abdullah ibn Mas'ud", "Mus'ab ibn Umayr"]:
+    # Include all BADRI prominence Sahabah
+    for n in nodes:
+        if n.get('prominence') == 'BADRI' and n.get('node_type') == 'Sahabi':
+            relationships.append({"source_id": n['id'], "target_id": 1000, "type": "PARTICIPATED_IN", "category": "battles"})
+
+    # Existing prominent figures who might not have BADRI tag but were there (though most should have it)
+    for sid_name in ["Muhammad (PBUH)", "Abu Bakr as-Siddiq", "Umar ibn al-Khattab", "Ali ibn Abi Talib"]:
         sid = find_id(sid_name)
         if sid is not None:
-            relationships.append({"source_id": sid, "target_id": 1000, "type": "PARTICIPATED_IN", "category": "battles"})
+            # Avoid duplicates
+            if not any(r['source_id'] == sid and r['target_id'] == 1000 for r in relationships):
+                relationships.append({"source_id": sid, "target_id": 1000, "type": "PARTICIPATED_IN", "category": "battles"})
 
     # Uhud (1001)
     for sid_name in ["Muhammad (PBUH)", "Abu Bakr as-Siddiq", "Umar ibn al-Khattab", "Ali ibn Abi Talib", "Hamza ibn Abd al-Muttalib", "Mus'ab ibn Umayr"]:

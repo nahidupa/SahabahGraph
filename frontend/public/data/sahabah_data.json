@@ -3719,28 +3719,124 @@
       "category": "mentorship"
     },
     {
-      "source_id": 0,
-      "target_id": 1000,
-      "type": "PARTICIPATED_IN",
-      "category": "battles"
-    },
-    {
-      "source_id": 1,
-      "target_id": 1000,
-      "type": "PARTICIPATED_IN",
-      "category": "battles"
+      "source_id": 24,
+      "target_id": 25,
+      "type": "PARENT_OF",
+      "category": "family"
     },
     {
       "source_id": 2,
-      "target_id": 1000,
-      "type": "PARTICIPATED_IN",
-      "category": "battles"
+      "target_id": 26,
+      "type": "PARENT_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 2,
+      "target_id": 56,
+      "type": "PARENT_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 2,
+      "target_id": 72,
+      "type": "SIBLING_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 2,
+      "target_id": 101,
+      "type": "SIBLING_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 17,
+      "target_id": 27,
+      "type": "PARENT_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 67,
+      "target_id": 30,
+      "type": "PARENT_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 67,
+      "target_id": 66,
+      "type": "SIBLING_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 112,
+      "target_id": 31,
+      "type": "PARENT_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 1,
+      "target_id": 53,
+      "type": "PARENT_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 1,
+      "target_id": 118,
+      "type": "PARENT_OF",
+      "category": "family"
     },
     {
       "source_id": 4,
-      "target_id": 1000,
-      "type": "PARTICIPATED_IN",
-      "category": "battles"
+      "target_id": 23,
+      "type": "SIBLING_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 168,
+      "target_id": 30,
+      "type": "UNCLE_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 6,
+      "target_id": 117,
+      "type": "PARENT_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 53,
+      "target_id": 117,
+      "type": "PARENT_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 23,
+      "target_id": 119,
+      "type": "PARENT_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 16,
+      "target_id": 74,
+      "type": "PARENT_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 93,
+      "target_id": 42,
+      "type": "PARENT_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 93,
+      "target_id": 64,
+      "type": "PARENT_OF",
+      "category": "family"
+    },
+    {
+      "source_id": 93,
+      "target_id": 105,
+      "type": "PARENT_OF",
+      "category": "family"
     },
     {
       "source_id": 16,
@@ -3767,7 +3863,247 @@
       "category": "battles"
     },
     {
+      "source_id": 38,
+      "target_id": 1000,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 39,
+      "target_id": 1000,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
       "source_id": 43,
+      "target_id": 1000,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 44,
+      "target_id": 1000,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 45,
+      "target_id": 1000,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 47,
+      "target_id": 1000,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 51,
+      "target_id": 1000,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 96,
+      "target_id": 1000,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 97,
+      "target_id": 1000,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 99,
+      "target_id": 1000,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 100,
+      "target_id": 1000,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 101,
+      "target_id": 1000,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 106,
+      "target_id": 1000,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 111,
+      "target_id": 1000,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 112,
+      "target_id": 1000,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 113,
+      "target_id": 1000,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 120,
+      "target_id": 1000,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 121,
+      "target_id": 1000,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 122,
+      "target_id": 1000,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 124,
+      "target_id": 1000,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 125,
+      "target_id": 1000,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 127,
+      "target_id": 1000,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 128,
+      "target_id": 1000,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 146,
+      "target_id": 1000,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 147,
+      "target_id": 1000,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 148,
+      "target_id": 1000,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 149,
+      "target_id": 1000,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 156,
+      "target_id": 1000,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 158,
+      "target_id": 1000,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 162,
+      "target_id": 1000,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 168,
+      "target_id": 1000,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 171,
+      "target_id": 1000,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 174,
+      "target_id": 1000,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 183,
+      "target_id": 1000,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 184,
+      "target_id": 1000,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 188,
+      "target_id": 1000,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 198,
+      "target_id": 1000,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 0,
+      "target_id": 1000,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 1,
+      "target_id": 1000,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 2,
+      "target_id": 1000,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 4,
       "target_id": 1000,
       "type": "PARTICIPATED_IN",
       "category": "battles"
