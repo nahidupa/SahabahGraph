@@ -22,6 +22,16 @@ self.onmessage = (e: MessageEvent<{ data: GraphData, startId: string, endId: str
 export const findShortestPathsDijkstra = (data: GraphData, startId: string, endId: string) => {
   if (!data) return [];
 
+  const getEndpoints = (link: GraphData['links'][number]) => {
+    const source = (link as unknown as { source?: number; source_id?: number }).source
+      ?? (link as unknown as { source?: number; source_id?: number }).source_id;
+    const target = (link as unknown as { target?: number; target_id?: number }).target
+      ?? (link as unknown as { target?: number; target_id?: number }).target_id;
+
+    if (source === undefined || target === undefined) return null;
+    return { source: source.toString(), target: target.toString() };
+  };
+
   const distances: Record<string, number> = {};
   const previous: Record<string, string[]> = {};
   const nodes = new Set<string>();
@@ -35,8 +45,10 @@ export const findShortestPathsDijkstra = (data: GraphData, startId: string, endI
 
   // Ensure all nodes from links are present
   for (const link of data.links) {
-    const s = link.source.toString();
-    const t = link.target.toString();
+    const endpoints = getEndpoints(link);
+    if (!endpoints) continue;
+    const s = endpoints.source;
+    const t = endpoints.target;
     if (distances[s] === undefined) { distances[s] = Infinity; previous[s] = []; nodes.add(s); }
     if (distances[t] === undefined) { distances[t] = Infinity; previous[t] = []; nodes.add(t); }
   }
@@ -55,11 +67,16 @@ export const findShortestPathsDijkstra = (data: GraphData, startId: string, endI
     nodes.delete(closestNode);
 
     const neighbors = data.links
-      .filter(l => l.source.toString() === closestNode || l.target.toString() === closestNode)
-      .map(l => ({
-        id: l.source.toString() === closestNode ? l.target.toString() : l.source.toString(),
+      .map((l) => {
+        const endpoints = getEndpoints(l);
+        if (!endpoints) return null;
+        if (endpoints.source !== closestNode && endpoints.target !== closestNode) return null;
+        return {
+          id: endpoints.source === closestNode ? endpoints.target : endpoints.source,
         weight: RELATIONSHIP_WEIGHTS[l.type] || 2
-      }));
+        };
+      })
+      .filter((neighbor): neighbor is { id: string; weight: number } => neighbor !== null);
 
     for (const neighbor of neighbors) {
       const alt = distances[closestNode] + neighbor.weight;

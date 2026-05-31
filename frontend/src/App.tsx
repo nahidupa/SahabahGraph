@@ -182,11 +182,28 @@ const App: React.FC = () => {
     );
   }, [data, searchTerm]);
 
+  const getViewportCenter = () => {
+    const cy = cyRef.current;
+    if (!cy) return { x: 0, y: 0 };
+    const extent = cy.extent();
+    return {
+      x: (extent.x1 + extent.x2) / 2,
+      y: (extent.y1 + extent.y2) / 2,
+    };
+  };
+
   const addNodeToGraph = (node: Sahabi) => {
     setElements((prev) => {
       const exists = prev.find(el => el.data.id === node.id.toString());
       if (exists) return prev;
-      return [...prev, { data: { ...node, id: node.id.toString(), label: node.name_en, originalId: node.id } }];
+      const center = getViewportCenter();
+      return [
+        ...prev,
+        {
+          data: { ...node, id: node.id.toString(), label: node.name_en, originalId: node.id },
+          position: center,
+        },
+      ];
     });
   };
 
