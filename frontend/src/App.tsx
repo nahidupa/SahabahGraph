@@ -6,10 +6,13 @@ import type { GraphData, Sahabi } from './types';
 import MainLayout from './components/Layout/MainLayout';
 import SahabahSidebar from './components/Sidebar/SahabahSidebar';
 import GraphCanvas from './components/Graph/GraphCanvas';
+import TimelineView from './components/Timeline/TimelineView';
 import SahabahDetail from './components/DetailPanel/SahabahDetail';
 import PathSummary from './components/Graph/PathSummary';
 import './i18n/config';
 import { useTranslation } from 'react-i18next';
+import { ToggleButton, ToggleButtonGroup, Box as MuiBox } from '@mui/material';
+import { AccountTree as GraphIcon, ViewTimeline as TimelineIcon } from '@mui/icons-material';
 
 const GET_SAHABAH = gql`
   query GetSahabah {
@@ -30,6 +33,7 @@ const App: React.FC = () => {
   const [data, setData] = useState<GraphData | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedNode, setSelectedNode] = useState<Sahabi | null>(null);
+  const [viewMode, setViewMode] = useState<'graph' | 'timeline'>('graph');
   const [elements, setElements] = useState<cytoscape.ElementDefinition[]>([]);
   const [currentPath, setCurrentPath] = useState<string[] | null>(null);
   const cyRef = useRef<Core | null>(null);
@@ -229,12 +233,39 @@ const App: React.FC = () => {
         />
       }
     >
-      <GraphCanvas
-        elements={elements}
-        onNodeClick={setSelectedNode}
-        cyRef={cyRef}
-        onShowConnections={handleShowConnections}
-      />
+      <MuiBox sx={{ position: 'absolute', top: 10, left: '50%', transform: 'translateX(-50%)', zIndex: 1100 }}>
+        <ToggleButtonGroup
+          value={viewMode}
+          exclusive
+          onChange={(_, newMode) => newMode && setViewMode(newMode)}
+          size="small"
+          sx={{ bgcolor: 'background.paper' }}
+        >
+          <ToggleButton value="graph">
+            <GraphIcon sx={{ mr: 1 }} />
+            {t('graph_view')}
+          </ToggleButton>
+          <ToggleButton value="timeline">
+            <TimelineIcon sx={{ mr: 1 }} />
+            {t('timeline_view')}
+          </ToggleButton>
+        </ToggleButtonGroup>
+      </MuiBox>
+
+      {viewMode === 'graph' ? (
+        <GraphCanvas
+          elements={elements}
+          onNodeClick={setSelectedNode}
+          cyRef={cyRef}
+          onShowConnections={handleShowConnections}
+        />
+      ) : (
+        <TimelineView
+          nodes={data?.nodes || []}
+          onSelectNode={setSelectedNode}
+          selectedNode={selectedNode}
+        />
+      )}
       {currentPath && (
         <PathSummary
           path={currentPath}

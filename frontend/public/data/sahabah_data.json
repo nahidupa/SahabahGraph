@@ -10,8 +10,8 @@
       "bio": "The last Prophet of Islam.",
       "tribe": "Quraish",
       "clan": "Banu Hashim",
-      "birth_year": 570,
-      "death_year": 632
+      "birth_year": -53,
+      "death_year": 11
     },
     {
       "id": 1,
@@ -23,8 +23,8 @@
       "bio": "The first Caliph of Islam.",
       "tribe": "Quraish",
       "clan": "Banu Taym",
-      "birth_year": 573,
-      "death_year": 634
+      "birth_year": -51,
+      "death_year": 13
     },
     {
       "id": 2,
@@ -36,8 +36,8 @@
       "bio": "The second Caliph of Islam.",
       "tribe": "Quraish",
       "clan": "Banu Adi",
-      "birth_year": 584,
-      "death_year": 644
+      "birth_year": -40,
+      "death_year": 23
     },
     {
       "id": 3,
@@ -49,8 +49,8 @@
       "bio": "The third Caliph of Islam.",
       "tribe": "Quraish",
       "clan": "Banu Umayya",
-      "birth_year": 576,
-      "death_year": 656
+      "birth_year": -47,
+      "death_year": 35
     },
     {
       "id": 4,
@@ -62,8 +62,8 @@
       "bio": "The fourth Caliph of Islam.",
       "tribe": "Quraish",
       "clan": "Banu Hashim",
-      "birth_year": 601,
-      "death_year": 661
+      "birth_year": -23,
+      "death_year": 40
     },
     {
       "id": 5,
@@ -75,8 +75,8 @@
       "bio": "One of the ten promised paradise.",
       "tribe": "Quraish",
       "clan": "Banu Taym",
-      "birth_year": 594,
-      "death_year": 656
+      "birth_year": -28,
+      "death_year": 36
     },
     {
       "id": 6,
@@ -88,8 +88,8 @@
       "bio": "One of the ten promised paradise.",
       "tribe": "Quraish",
       "clan": "Banu Asad",
-      "birth_year": 594,
-      "death_year": 656
+      "birth_year": -28,
+      "death_year": 36
     },
     {
       "id": 7,
@@ -101,8 +101,8 @@
       "bio": "One of the ten promised paradise.",
       "tribe": "Quraish",
       "clan": "Banu Zuhra",
-      "birth_year": 580,
-      "death_year": 652
+      "birth_year": -44,
+      "death_year": 32
     },
     {
       "id": 8,
@@ -114,8 +114,8 @@
       "bio": "One of the ten promised paradise.",
       "tribe": "Quraish",
       "clan": "Banu Zuhra",
-      "birth_year": 595,
-      "death_year": 674
+      "birth_year": -23,
+      "death_year": 55
     },
     {
       "id": 9,
@@ -127,8 +127,8 @@
       "bio": "One of the ten promised paradise.",
       "tribe": "Quraish",
       "clan": "Banu Adi",
-      "birth_year": 593,
-      "death_year": 671
+      "birth_year": -22,
+      "death_year": 51
     },
     {
       "id": 10,
@@ -140,8 +140,8 @@
       "bio": "One of the ten promised paradise.",
       "tribe": "Quraish",
       "clan": "Banu al-Harith",
-      "birth_year": 583,
-      "death_year": 639
+      "birth_year": -40,
+      "death_year": 18
     },
     {
       "id": 11,
@@ -153,8 +153,8 @@
       "bio": "The first wife of the Prophet.",
       "tribe": "Quraish",
       "clan": "Banu Asad",
-      "birth_year": 555,
-      "death_year": 619
+      "birth_year": -68,
+      "death_year": -3
     },
     {
       "id": 12,
@@ -166,8 +166,8 @@
       "bio": "The wife of the Prophet and daughter of Abu Bakr.",
       "tribe": "Quraish",
       "clan": "Banu Taym",
-      "birth_year": 613,
-      "death_year": 678
+      "birth_year": 9,
+      "death_year": 58
     },
     {
       "id": 13,
@@ -179,8 +179,8 @@
       "bio": "The daughter of the Prophet and wife of Ali.",
       "tribe": "Quraish",
       "clan": "Banu Hashim",
-      "birth_year": 605,
-      "death_year": 632
+      "birth_year": -18,
+      "death_year": 11
     },
     {
       "id": 14,
@@ -192,8 +192,8 @@
       "bio": "Grandson of the Prophet.",
       "tribe": "Quraish",
       "clan": "Banu Hashim",
-      "birth_year": 624,
-      "death_year": 670
+      "birth_year": 3,
+      "death_year": 50
     },
     {
       "id": 15,
@@ -205,8 +205,8 @@
       "bio": "Grandson of the Prophet.",
       "tribe": "Quraish",
       "clan": "Banu Hashim",
-      "birth_year": 626,
-      "death_year": 680
+      "birth_year": 4,
+      "death_year": 61
     },
     {
       "id": 16,
@@ -218,8 +218,8 @@
       "bio": "Uncle of the Prophet.",
       "tribe": "Quraish",
       "clan": "Banu Hashim",
-      "birth_year": 568,
-      "death_year": 625
+      "birth_year": -54,
+      "death_year": 3
     },
     {
       "id": 17,
@@ -231,8 +231,8 @@
       "bio": "Uncle of the Prophet.",
       "tribe": "Quraish",
       "clan": "Banu Hashim",
-      "birth_year": 566,
-      "death_year": 653
+      "birth_year": -56,
+      "death_year": 32
     },
     {
       "id": 18,
@@ -244,8 +244,8 @@
       "bio": "The first muadhin of Islam.",
       "tribe": "Habesha",
       "clan": "",
-      "birth_year": 580,
-      "death_year": 640
+      "birth_year": -42,
+      "death_year": 20
     },
     {
       "id": 19,
@@ -257,8 +257,8 @@
       "bio": "The Sword of Allah.",
       "tribe": "Quraish",
       "clan": "Banu Makhzum",
-      "birth_year": 585,
-      "death_year": 642
+      "birth_year": -30,
+      "death_year": 21
     },
     {
       "id": 20,
@@ -270,8 +270,8 @@
       "bio": "Daughter of the Prophet.",
       "tribe": "Quraish",
       "clan": "Banu Hashim",
-      "birth_year": 599,
-      "death_year": 629
+      "birth_year": -23,
+      "death_year": 8
     },
     {
       "id": 21,
@@ -283,8 +283,8 @@
       "bio": "Daughter of the Prophet.",
       "tribe": "Quraish",
       "clan": "Banu Hashim",
-      "birth_year": 601,
-      "death_year": 624
+      "birth_year": -20,
+      "death_year": 2
     },
     {
       "id": 22,
@@ -296,8 +296,8 @@
       "bio": "Daughter of the Prophet.",
       "tribe": "Quraish",
       "clan": "Banu Hashim",
-      "birth_year": 603,
-      "death_year": 630
+      "birth_year": -19,
+      "death_year": 9
     },
     {
       "id": 23,
@@ -309,8 +309,8 @@
       "bio": "Biographical info for Ja'far ibn Abi Talib",
       "tribe": "Various",
       "clan": "Various",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 24,
@@ -322,8 +322,8 @@
       "bio": "Biographical info for Zayd ibn Harithah",
       "tribe": "Various",
       "clan": "Various",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 25,
@@ -335,8 +335,8 @@
       "bio": "Biographical info for Usama ibn Zayd",
       "tribe": "Various",
       "clan": "Various",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 26,
@@ -348,8 +348,8 @@
       "bio": "Biographical info for Abdullah ibn Umar",
       "tribe": "Various",
       "clan": "Various",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 27,
@@ -361,8 +361,8 @@
       "bio": "Biographical info for Abdullah ibn Abbas",
       "tribe": "Various",
       "clan": "Various",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 28,
@@ -374,8 +374,8 @@
       "bio": "Biographical info for Abdullah ibn Mas'ud",
       "tribe": "Various",
       "clan": "Various",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 29,
@@ -387,8 +387,8 @@
       "bio": "Biographical info for Abu Hurairah",
       "tribe": "Various",
       "clan": "Various",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 30,
@@ -400,8 +400,8 @@
       "bio": "Biographical info for Anas ibn Malik",
       "tribe": "Various",
       "clan": "Various",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 31,
@@ -413,8 +413,8 @@
       "bio": "Biographical info for Jabir ibn Abdullah",
       "tribe": "Various",
       "clan": "Various",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 32,
@@ -426,8 +426,8 @@
       "bio": "Biographical info for Abu Sa'id al-Khudri",
       "tribe": "Various",
       "clan": "Various",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 33,
@@ -439,8 +439,8 @@
       "bio": "Biographical info for Mu'adh ibn Jabal",
       "tribe": "Various",
       "clan": "Various",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 34,
@@ -452,8 +452,8 @@
       "bio": "Biographical info for Ubayy ibn Ka'b",
       "tribe": "Various",
       "clan": "Various",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 35,
@@ -465,8 +465,8 @@
       "bio": "Biographical info for Zayd ibn Thabit",
       "tribe": "Various",
       "clan": "Various",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 36,
@@ -478,8 +478,8 @@
       "bio": "Biographical info for Abu Dharr al-Ghifari",
       "tribe": "Various",
       "clan": "Various",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 37,
@@ -491,8 +491,8 @@
       "bio": "Biographical info for Salman al-Farsi",
       "tribe": "Various",
       "clan": "Various",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 38,
@@ -504,8 +504,8 @@
       "bio": "Biographical info for Ammar ibn Yasir",
       "tribe": "Various",
       "clan": "Various",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 39,
@@ -517,8 +517,8 @@
       "bio": "Biographical info for Miqdad ibn Aswad",
       "tribe": "Various",
       "clan": "Various",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 40,
@@ -530,8 +530,8 @@
       "bio": "Biographical info for Hudhayfa ibn al-Yaman",
       "tribe": "Various",
       "clan": "Various",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 41,
@@ -543,8 +543,8 @@
       "bio": "Biographical info for Amr ibn al-Aas",
       "tribe": "Various",
       "clan": "Various",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 42,
@@ -556,8 +556,8 @@
       "bio": "Biographical info for Muawiyah ibn Abi Sufyan",
       "tribe": "Various",
       "clan": "Various",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 43,
@@ -569,8 +569,8 @@
       "bio": "Biographical info for Sahabi 43",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 44,
@@ -582,8 +582,8 @@
       "bio": "Biographical info for Sahabi 44",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 45,
@@ -595,8 +595,8 @@
       "bio": "Biographical info for Sahabi 45",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 46,
@@ -608,8 +608,8 @@
       "bio": "Biographical info for Sahabi 46",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 47,
@@ -621,8 +621,8 @@
       "bio": "Biographical info for Sahabi 47",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 48,
@@ -634,8 +634,8 @@
       "bio": "Biographical info for Sahabi 48",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 49,
@@ -647,8 +647,8 @@
       "bio": "Biographical info for Sahabi 49",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 50,
@@ -660,8 +660,8 @@
       "bio": "Biographical info for Sahabi 50",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 51,
@@ -673,8 +673,8 @@
       "bio": "Biographical info for Sahabi 51",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 52,
@@ -686,8 +686,8 @@
       "bio": "Biographical info for Sahabi 52",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 53,
@@ -699,8 +699,8 @@
       "bio": "Biographical info for Sahabi 53",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 54,
@@ -712,8 +712,8 @@
       "bio": "Biographical info for Sahabi 54",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 55,
@@ -725,8 +725,8 @@
       "bio": "Biographical info for Sahabi 55",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 56,
@@ -738,8 +738,8 @@
       "bio": "Biographical info for Sahabi 56",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 57,
@@ -751,8 +751,8 @@
       "bio": "Biographical info for Sahabi 57",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 58,
@@ -764,8 +764,8 @@
       "bio": "Biographical info for Sahabi 58",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 59,
@@ -777,8 +777,8 @@
       "bio": "Biographical info for Sahabi 59",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 60,
@@ -790,8 +790,8 @@
       "bio": "Biographical info for Sahabi 60",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 61,
@@ -803,8 +803,8 @@
       "bio": "Biographical info for Sahabi 61",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 62,
@@ -816,8 +816,8 @@
       "bio": "Biographical info for Sahabi 62",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 63,
@@ -829,8 +829,8 @@
       "bio": "Biographical info for Sahabi 63",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 64,
@@ -842,8 +842,8 @@
       "bio": "Biographical info for Sahabi 64",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 65,
@@ -855,8 +855,8 @@
       "bio": "Biographical info for Sahabi 65",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 66,
@@ -868,8 +868,8 @@
       "bio": "Biographical info for Sahabi 66",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 67,
@@ -881,8 +881,8 @@
       "bio": "Biographical info for Sahabi 67",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 68,
@@ -894,8 +894,8 @@
       "bio": "Biographical info for Sahabi 68",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 69,
@@ -907,8 +907,8 @@
       "bio": "Biographical info for Sahabi 69",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 70,
@@ -920,8 +920,8 @@
       "bio": "Biographical info for Sahabi 70",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 71,
@@ -933,8 +933,8 @@
       "bio": "Biographical info for Sahabi 71",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 72,
@@ -946,8 +946,8 @@
       "bio": "Biographical info for Sahabi 72",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 73,
@@ -959,8 +959,8 @@
       "bio": "Biographical info for Sahabi 73",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 74,
@@ -972,8 +972,8 @@
       "bio": "Biographical info for Sahabi 74",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 75,
@@ -985,8 +985,8 @@
       "bio": "Biographical info for Sahabi 75",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 76,
@@ -998,8 +998,8 @@
       "bio": "Biographical info for Sahabi 76",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 77,
@@ -1011,8 +1011,8 @@
       "bio": "Biographical info for Sahabi 77",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 78,
@@ -1024,8 +1024,8 @@
       "bio": "Biographical info for Sahabi 78",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 79,
@@ -1037,8 +1037,8 @@
       "bio": "Biographical info for Sahabi 79",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 80,
@@ -1050,8 +1050,8 @@
       "bio": "Biographical info for Sahabi 80",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 81,
@@ -1063,8 +1063,8 @@
       "bio": "Biographical info for Sahabi 81",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 82,
@@ -1076,8 +1076,8 @@
       "bio": "Biographical info for Sahabi 82",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 83,
@@ -1089,8 +1089,8 @@
       "bio": "Biographical info for Sahabi 83",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 84,
@@ -1102,8 +1102,8 @@
       "bio": "Biographical info for Sahabi 84",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 85,
@@ -1115,8 +1115,8 @@
       "bio": "Biographical info for Sahabi 85",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 86,
@@ -1128,8 +1128,8 @@
       "bio": "Biographical info for Sahabi 86",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 87,
@@ -1141,8 +1141,8 @@
       "bio": "Biographical info for Sahabi 87",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 88,
@@ -1154,8 +1154,8 @@
       "bio": "Biographical info for Sahabi 88",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 89,
@@ -1167,8 +1167,8 @@
       "bio": "Biographical info for Sahabi 89",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 90,
@@ -1180,8 +1180,8 @@
       "bio": "Biographical info for Sahabi 90",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 91,
@@ -1193,8 +1193,8 @@
       "bio": "Biographical info for Sahabi 91",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 92,
@@ -1206,8 +1206,8 @@
       "bio": "Biographical info for Sahabi 92",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 93,
@@ -1219,8 +1219,8 @@
       "bio": "Biographical info for Sahabi 93",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 94,
@@ -1232,8 +1232,8 @@
       "bio": "Biographical info for Sahabi 94",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 95,
@@ -1245,8 +1245,8 @@
       "bio": "Biographical info for Sahabi 95",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 96,
@@ -1258,8 +1258,8 @@
       "bio": "Biographical info for Sahabi 96",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 97,
@@ -1271,8 +1271,8 @@
       "bio": "Biographical info for Sahabi 97",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 98,
@@ -1284,8 +1284,8 @@
       "bio": "Biographical info for Sahabi 98",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 99,
@@ -1297,8 +1297,8 @@
       "bio": "Biographical info for Sahabi 99",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 100,
@@ -1310,8 +1310,8 @@
       "bio": "Biographical info for Sahabi 100",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 101,
@@ -1323,8 +1323,8 @@
       "bio": "Biographical info for Sahabi 101",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 102,
@@ -1336,8 +1336,8 @@
       "bio": "Biographical info for Sahabi 102",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 103,
@@ -1349,8 +1349,8 @@
       "bio": "Biographical info for Sahabi 103",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 104,
@@ -1362,8 +1362,8 @@
       "bio": "Biographical info for Sahabi 104",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 105,
@@ -1375,8 +1375,8 @@
       "bio": "Biographical info for Sahabi 105",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 106,
@@ -1388,8 +1388,8 @@
       "bio": "Biographical info for Sahabi 106",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 107,
@@ -1401,8 +1401,8 @@
       "bio": "Biographical info for Sahabi 107",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 108,
@@ -1414,8 +1414,8 @@
       "bio": "Biographical info for Sahabi 108",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 109,
@@ -1427,8 +1427,8 @@
       "bio": "Biographical info for Sahabi 109",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 110,
@@ -1440,8 +1440,8 @@
       "bio": "Biographical info for Sahabi 110",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 111,
@@ -1453,8 +1453,8 @@
       "bio": "Biographical info for Sahabi 111",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 112,
@@ -1466,8 +1466,8 @@
       "bio": "Biographical info for Sahabi 112",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 113,
@@ -1479,8 +1479,8 @@
       "bio": "Biographical info for Sahabi 113",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 114,
@@ -1492,8 +1492,8 @@
       "bio": "Biographical info for Sahabi 114",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 115,
@@ -1505,8 +1505,8 @@
       "bio": "Biographical info for Sahabi 115",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 116,
@@ -1518,8 +1518,8 @@
       "bio": "Biographical info for Sahabi 116",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 117,
@@ -1531,8 +1531,8 @@
       "bio": "Biographical info for Sahabi 117",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 118,
@@ -1544,8 +1544,8 @@
       "bio": "Biographical info for Sahabi 118",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 119,
@@ -1557,8 +1557,8 @@
       "bio": "Biographical info for Sahabi 119",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 120,
@@ -1570,8 +1570,8 @@
       "bio": "Biographical info for Sahabi 120",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 121,
@@ -1583,8 +1583,8 @@
       "bio": "Biographical info for Sahabi 121",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 122,
@@ -1596,8 +1596,8 @@
       "bio": "Biographical info for Sahabi 122",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 123,
@@ -1609,8 +1609,8 @@
       "bio": "Biographical info for Sahabi 123",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 124,
@@ -1622,8 +1622,8 @@
       "bio": "Biographical info for Sahabi 124",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 125,
@@ -1635,8 +1635,8 @@
       "bio": "Biographical info for Sahabi 125",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 126,
@@ -1648,8 +1648,8 @@
       "bio": "Biographical info for Sahabi 126",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 127,
@@ -1661,8 +1661,8 @@
       "bio": "Biographical info for Sahabi 127",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 128,
@@ -1674,8 +1674,8 @@
       "bio": "Biographical info for Sahabi 128",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 129,
@@ -1687,8 +1687,8 @@
       "bio": "Biographical info for Sahabi 129",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 130,
@@ -1700,8 +1700,8 @@
       "bio": "Biographical info for Sahabi 130",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 131,
@@ -1713,8 +1713,8 @@
       "bio": "Biographical info for Sahabi 131",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 132,
@@ -1726,8 +1726,8 @@
       "bio": "Biographical info for Sahabi 132",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 133,
@@ -1739,8 +1739,8 @@
       "bio": "Biographical info for Sahabi 133",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 134,
@@ -1752,8 +1752,8 @@
       "bio": "Biographical info for Sahabi 134",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 135,
@@ -1765,8 +1765,8 @@
       "bio": "Biographical info for Sahabi 135",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 136,
@@ -1778,8 +1778,8 @@
       "bio": "Biographical info for Sahabi 136",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 137,
@@ -1791,8 +1791,8 @@
       "bio": "Biographical info for Sahabi 137",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 138,
@@ -1804,8 +1804,8 @@
       "bio": "Biographical info for Sahabi 138",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 139,
@@ -1817,8 +1817,8 @@
       "bio": "Biographical info for Sahabi 139",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 140,
@@ -1830,8 +1830,8 @@
       "bio": "Biographical info for Sahabi 140",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 141,
@@ -1843,8 +1843,8 @@
       "bio": "Biographical info for Sahabi 141",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 142,
@@ -1856,8 +1856,8 @@
       "bio": "Biographical info for Sahabi 142",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 143,
@@ -1869,8 +1869,8 @@
       "bio": "Biographical info for Sahabi 143",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 144,
@@ -1882,8 +1882,8 @@
       "bio": "Biographical info for Sahabi 144",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 145,
@@ -1895,8 +1895,8 @@
       "bio": "Biographical info for Sahabi 145",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 146,
@@ -1908,8 +1908,8 @@
       "bio": "Biographical info for Sahabi 146",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 147,
@@ -1921,8 +1921,8 @@
       "bio": "Biographical info for Sahabi 147",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 148,
@@ -1934,8 +1934,8 @@
       "bio": "Biographical info for Sahabi 148",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 149,
@@ -1947,8 +1947,8 @@
       "bio": "Biographical info for Sahabi 149",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 150,
@@ -1960,8 +1960,8 @@
       "bio": "Biographical info for Sahabi 150",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 151,
@@ -1973,8 +1973,8 @@
       "bio": "Biographical info for Sahabi 151",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 152,
@@ -1986,8 +1986,8 @@
       "bio": "Biographical info for Sahabi 152",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 153,
@@ -1999,8 +1999,8 @@
       "bio": "Biographical info for Sahabi 153",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 154,
@@ -2012,8 +2012,8 @@
       "bio": "Biographical info for Sahabi 154",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 155,
@@ -2025,8 +2025,8 @@
       "bio": "Biographical info for Sahabi 155",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 156,
@@ -2038,8 +2038,8 @@
       "bio": "Biographical info for Sahabi 156",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 157,
@@ -2051,8 +2051,8 @@
       "bio": "Biographical info for Sahabi 157",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 158,
@@ -2064,8 +2064,8 @@
       "bio": "Biographical info for Sahabi 158",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 159,
@@ -2077,8 +2077,8 @@
       "bio": "Biographical info for Sahabi 159",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 160,
@@ -2090,8 +2090,8 @@
       "bio": "Biographical info for Sahabi 160",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 161,
@@ -2103,8 +2103,8 @@
       "bio": "Biographical info for Sahabi 161",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 162,
@@ -2116,8 +2116,8 @@
       "bio": "Biographical info for Sahabi 162",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 163,
@@ -2129,8 +2129,8 @@
       "bio": "Biographical info for Sahabi 163",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 164,
@@ -2142,8 +2142,8 @@
       "bio": "Biographical info for Sahabi 164",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 165,
@@ -2155,8 +2155,8 @@
       "bio": "Biographical info for Sahabi 165",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 166,
@@ -2168,8 +2168,8 @@
       "bio": "Biographical info for Sahabi 166",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 167,
@@ -2181,8 +2181,8 @@
       "bio": "Biographical info for Sahabi 167",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 168,
@@ -2194,8 +2194,8 @@
       "bio": "Biographical info for Sahabi 168",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 169,
@@ -2207,8 +2207,8 @@
       "bio": "Biographical info for Sahabi 169",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 170,
@@ -2220,8 +2220,8 @@
       "bio": "Biographical info for Sahabi 170",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 171,
@@ -2233,8 +2233,8 @@
       "bio": "Biographical info for Sahabi 171",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 172,
@@ -2246,8 +2246,8 @@
       "bio": "Biographical info for Sahabi 172",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 173,
@@ -2259,8 +2259,8 @@
       "bio": "Biographical info for Sahabi 173",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 174,
@@ -2272,8 +2272,8 @@
       "bio": "Biographical info for Sahabi 174",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 175,
@@ -2285,8 +2285,8 @@
       "bio": "Biographical info for Sahabi 175",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 176,
@@ -2298,8 +2298,8 @@
       "bio": "Biographical info for Sahabi 176",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 177,
@@ -2311,8 +2311,8 @@
       "bio": "Biographical info for Sahabi 177",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 178,
@@ -2324,8 +2324,8 @@
       "bio": "Biographical info for Sahabi 178",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 179,
@@ -2337,8 +2337,8 @@
       "bio": "Biographical info for Sahabi 179",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 180,
@@ -2350,8 +2350,8 @@
       "bio": "Biographical info for Sahabi 180",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 181,
@@ -2363,8 +2363,8 @@
       "bio": "Biographical info for Sahabi 181",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 182,
@@ -2376,8 +2376,8 @@
       "bio": "Biographical info for Sahabi 182",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 183,
@@ -2389,8 +2389,8 @@
       "bio": "Biographical info for Sahabi 183",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 184,
@@ -2402,8 +2402,8 @@
       "bio": "Biographical info for Sahabi 184",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 185,
@@ -2415,8 +2415,8 @@
       "bio": "Biographical info for Sahabi 185",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 186,
@@ -2428,8 +2428,8 @@
       "bio": "Biographical info for Sahabi 186",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 187,
@@ -2441,8 +2441,8 @@
       "bio": "Biographical info for Sahabi 187",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 188,
@@ -2454,8 +2454,8 @@
       "bio": "Biographical info for Sahabi 188",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 189,
@@ -2467,8 +2467,8 @@
       "bio": "Biographical info for Sahabi 189",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 190,
@@ -2480,8 +2480,8 @@
       "bio": "Biographical info for Sahabi 190",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 191,
@@ -2493,8 +2493,8 @@
       "bio": "Biographical info for Sahabi 191",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 192,
@@ -2506,8 +2506,8 @@
       "bio": "Biographical info for Sahabi 192",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 193,
@@ -2519,8 +2519,8 @@
       "bio": "Biographical info for Sahabi 193",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 194,
@@ -2532,8 +2532,8 @@
       "bio": "Biographical info for Sahabi 194",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 195,
@@ -2545,8 +2545,8 @@
       "bio": "Biographical info for Sahabi 195",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 196,
@@ -2558,8 +2558,8 @@
       "bio": "Biographical info for Sahabi 196",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 197,
@@ -2571,8 +2571,8 @@
       "bio": "Biographical info for Sahabi 197",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 198,
@@ -2584,8 +2584,8 @@
       "bio": "Biographical info for Sahabi 198",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 199,
@@ -2597,8 +2597,8 @@
       "bio": "Biographical info for Sahabi 199",
       "tribe": "Unknown",
       "clan": "Unknown",
-      "birth_year": 600,
-      "death_year": 660
+      "birth_year": 0,
+      "death_year": 60
     },
     {
       "id": 1000,
@@ -2610,8 +2610,8 @@
       "bio": "First major battle of Islam.",
       "tribe": "",
       "clan": "",
-      "birth_year": 0,
-      "death_year": 624
+      "birth_year": 2,
+      "death_year": 2
     },
     {
       "id": 1001,
@@ -2623,8 +2623,8 @@
       "bio": "Second major battle of Islam.",
       "tribe": "",
       "clan": "",
-      "birth_year": 0,
-      "death_year": 625
+      "birth_year": 3,
+      "death_year": 3
     },
     {
       "id": 1002,
@@ -2636,8 +2636,8 @@
       "bio": "Defensive siege of Medina.",
       "tribe": "",
       "clan": "",
-      "birth_year": 0,
-      "death_year": 627
+      "birth_year": 5,
+      "death_year": 5
     },
     {
       "id": 1003,
@@ -2649,8 +2649,8 @@
       "bio": "Battle against the Jewish fortresses.",
       "tribe": "",
       "clan": "",
-      "birth_year": 0,
-      "death_year": 628
+      "birth_year": 7,
+      "death_year": 7
     },
     {
       "id": 1004,
@@ -2662,8 +2662,8 @@
       "bio": "First battle against the Byzantines.",
       "tribe": "",
       "clan": "",
-      "birth_year": 0,
-      "death_year": 629
+      "birth_year": 8,
+      "death_year": 8
     },
     {
       "id": 1005,
@@ -2675,8 +2675,8 @@
       "bio": "Battle against the Hawazin and Thaqif.",
       "tribe": "",
       "clan": "",
-      "birth_year": 0,
-      "death_year": 630
+      "birth_year": 8,
+      "death_year": 8
     },
     {
       "id": 1006,
@@ -2688,8 +2688,8 @@
       "bio": "Major battle between the Muslims and the Byzantines.",
       "tribe": "",
       "clan": "",
-      "birth_year": 0,
-      "death_year": 636
+      "birth_year": 13,
+      "death_year": 13
     },
     {
       "id": 1007,
@@ -2701,8 +2701,8 @@
       "bio": "Major battle between the Muslims and the Sassanids.",
       "tribe": "",
       "clan": "",
-      "birth_year": 0,
-      "death_year": 636
+      "birth_year": 15,
+      "death_year": 15
     }
   ],
   "links": [

@@ -6,29 +6,29 @@ def main():
     # 1. Nodes
     # We'll add a 'node_type' field to distinguish between Sahabi and Battle
     nodes = [
-        {"id": 0, "name": "Muhammad (PBUH)", "gender": "male", "is_prophet": "True", "title": "Rasulullah", "node_type": "Sahabi", "bio": "The last Prophet of Islam.", "tribe": "Quraish", "clan": "Banu Hashim", "birth_year": 570, "death_year": 632},
-        {"id": 1, "name": "Abu Bakr as-Siddiq", "gender": "male", "is_prophet": "False", "title": "As-Siddiq", "node_type": "Sahabi", "bio": "The first Caliph of Islam.", "tribe": "Quraish", "clan": "Banu Taym", "birth_year": 573, "death_year": 634},
-        {"id": 2, "name": "Umar ibn al-Khattab", "gender": "male", "is_prophet": "False", "title": "Al-Faruq", "node_type": "Sahabi", "bio": "The second Caliph of Islam.", "tribe": "Quraish", "clan": "Banu Adi", "birth_year": 584, "death_year": 644},
-        {"id": 3, "name": "Uthman ibn Affan", "gender": "male", "is_prophet": "False", "title": "Dhun-Nurayn", "node_type": "Sahabi", "bio": "The third Caliph of Islam.", "tribe": "Quraish", "clan": "Banu Umayya", "birth_year": 576, "death_year": 656},
-        {"id": 4, "name": "Ali ibn Abi Talib", "gender": "male", "is_prophet": "False", "title": "Asadullah", "node_type": "Sahabi", "bio": "The fourth Caliph of Islam.", "tribe": "Quraish", "clan": "Banu Hashim", "birth_year": 601, "death_year": 661},
-        {"id": 5, "name": "Talha ibn Ubaydullah", "gender": "male", "is_prophet": "False", "title": "Talhat al-Khayr", "node_type": "Sahabi", "bio": "One of the ten promised paradise.", "tribe": "Quraish", "clan": "Banu Taym", "birth_year": 594, "death_year": 656},
-        {"id": 6, "name": "Zubayr ibn al-Awwam", "gender": "male", "is_prophet": "False", "title": "Hawari Rasulillah", "node_type": "Sahabi", "bio": "One of the ten promised paradise.", "tribe": "Quraish", "clan": "Banu Asad", "birth_year": 594, "death_year": 656},
-        {"id": 7, "name": "Abdur Rahman ibn Awf", "gender": "male", "is_prophet": "False", "title": "", "node_type": "Sahabi", "bio": "One of the ten promised paradise.", "tribe": "Quraish", "clan": "Banu Zuhra", "birth_year": 580, "death_year": 652},
-        {"id": 8, "name": "Sa'd ibn Abi Waqqas", "gender": "male", "is_prophet": "False", "title": "", "node_type": "Sahabi", "bio": "One of the ten promised paradise.", "tribe": "Quraish", "clan": "Banu Zuhra", "birth_year": 595, "death_year": 674},
-        {"id": 9, "name": "Sa'id ibn Zayd", "gender": "male", "is_prophet": "False", "title": "", "node_type": "Sahabi", "bio": "One of the ten promised paradise.", "tribe": "Quraish", "clan": "Banu Adi", "birth_year": 593, "death_year": 671},
-        {"id": 10, "name": "Abu Ubaydah ibn al-Jarrah", "gender": "male", "is_prophet": "False", "title": "Amin al-Ummah", "node_type": "Sahabi", "bio": "One of the ten promised paradise.", "tribe": "Quraish", "clan": "Banu al-Harith", "birth_year": 583, "death_year": 639},
-        {"id": 11, "name": "Khadija bint Khuwaylid", "gender": "female", "is_prophet": "False", "title": "Tahira", "node_type": "Sahabi", "bio": "The first wife of the Prophet.", "tribe": "Quraish", "clan": "Banu Asad", "birth_year": 555, "death_year": 619},
-        {"id": 12, "name": "Aisha bint Abi Bakr", "gender": "female", "is_prophet": "False", "title": "Siddiqa", "node_type": "Sahabi", "bio": "The wife of the Prophet and daughter of Abu Bakr.", "tribe": "Quraish", "clan": "Banu Taym", "birth_year": 613, "death_year": 678},
-        {"id": 13, "name": "Fatima bint Muhammad", "gender": "female", "is_prophet": "False", "title": "Az-Zahra", "node_type": "Sahabi", "bio": "The daughter of the Prophet and wife of Ali.", "tribe": "Quraish", "clan": "Banu Hashim", "birth_year": 605, "death_year": 632},
-        {"id": 14, "name": "Hasan ibn Ali", "gender": "male", "is_prophet": "False", "title": "", "node_type": "Sahabi", "bio": "Grandson of the Prophet.", "tribe": "Quraish", "clan": "Banu Hashim", "birth_year": 624, "death_year": 670},
-        {"id": 15, "name": "Husayn ibn Ali", "gender": "male", "is_prophet": "False", "title": "", "node_type": "Sahabi", "bio": "Grandson of the Prophet.", "tribe": "Quraish", "clan": "Banu Hashim", "birth_year": 626, "death_year": 680},
-        {"id": 16, "name": "Hamza ibn Abd al-Muttalib", "gender": "male", "is_prophet": "False", "title": "Asadullah", "node_type": "Sahabi", "bio": "Uncle of the Prophet.", "tribe": "Quraish", "clan": "Banu Hashim", "birth_year": 568, "death_year": 625},
-        {"id": 17, "name": "Abbas ibn Abd al-Muttalib", "gender": "male", "is_prophet": "False", "title": "", "node_type": "Sahabi", "bio": "Uncle of the Prophet.", "tribe": "Quraish", "clan": "Banu Hashim", "birth_year": 566, "death_year": 653},
-        {"id": 18, "name": "Bilal ibn Rabah", "gender": "male", "is_prophet": "False", "title": "Muadhin", "node_type": "Sahabi", "bio": "The first muadhin of Islam.", "tribe": "Habesha", "clan": "", "birth_year": 580, "death_year": 640},
-        {"id": 19, "name": "Khalid ibn al-Walid", "gender": "male", "is_prophet": "False", "title": "Saifullah", "node_type": "Sahabi", "bio": "The Sword of Allah.", "tribe": "Quraish", "clan": "Banu Makhzum", "birth_year": 585, "death_year": 642},
-        {"id": 20, "name": "Zaynab bint Muhammad", "gender": "female", "is_prophet": "False", "title": "", "node_type": "Sahabi", "bio": "Daughter of the Prophet.", "tribe": "Quraish", "clan": "Banu Hashim", "birth_year": 599, "death_year": 629},
-        {"id": 21, "name": "Ruqayya bint Muhammad", "gender": "female", "is_prophet": "False", "title": "", "node_type": "Sahabi", "bio": "Daughter of the Prophet.", "tribe": "Quraish", "clan": "Banu Hashim", "birth_year": 601, "death_year": 624},
-        {"id": 22, "name": "Umm Kulthum bint Muhammad", "gender": "female", "is_prophet": "False", "title": "", "node_type": "Sahabi", "bio": "Daughter of the Prophet.", "tribe": "Quraish", "clan": "Banu Hashim", "birth_year": 603, "death_year": 630},
+        {"id": 0, "name": "Muhammad (PBUH)", "gender": "male", "is_prophet": "True", "title": "Rasulullah", "node_type": "Sahabi", "bio": "The last Prophet of Islam.", "tribe": "Quraish", "clan": "Banu Hashim", "birth_year": -53, "death_year": 11},
+        {"id": 1, "name": "Abu Bakr as-Siddiq", "gender": "male", "is_prophet": "False", "title": "As-Siddiq", "node_type": "Sahabi", "bio": "The first Caliph of Islam.", "tribe": "Quraish", "clan": "Banu Taym", "birth_year": -51, "death_year": 13},
+        {"id": 2, "name": "Umar ibn al-Khattab", "gender": "male", "is_prophet": "False", "title": "Al-Faruq", "node_type": "Sahabi", "bio": "The second Caliph of Islam.", "tribe": "Quraish", "clan": "Banu Adi", "birth_year": -40, "death_year": 23},
+        {"id": 3, "name": "Uthman ibn Affan", "gender": "male", "is_prophet": "False", "title": "Dhun-Nurayn", "node_type": "Sahabi", "bio": "The third Caliph of Islam.", "tribe": "Quraish", "clan": "Banu Umayya", "birth_year": -47, "death_year": 35},
+        {"id": 4, "name": "Ali ibn Abi Talib", "gender": "male", "is_prophet": "False", "title": "Asadullah", "node_type": "Sahabi", "bio": "The fourth Caliph of Islam.", "tribe": "Quraish", "clan": "Banu Hashim", "birth_year": -23, "death_year": 40},
+        {"id": 5, "name": "Talha ibn Ubaydullah", "gender": "male", "is_prophet": "False", "title": "Talhat al-Khayr", "node_type": "Sahabi", "bio": "One of the ten promised paradise.", "tribe": "Quraish", "clan": "Banu Taym", "birth_year": -28, "death_year": 36},
+        {"id": 6, "name": "Zubayr ibn al-Awwam", "gender": "male", "is_prophet": "False", "title": "Hawari Rasulillah", "node_type": "Sahabi", "bio": "One of the ten promised paradise.", "tribe": "Quraish", "clan": "Banu Asad", "birth_year": -28, "death_year": 36},
+        {"id": 7, "name": "Abdur Rahman ibn Awf", "gender": "male", "is_prophet": "False", "title": "", "node_type": "Sahabi", "bio": "One of the ten promised paradise.", "tribe": "Quraish", "clan": "Banu Zuhra", "birth_year": -44, "death_year": 32},
+        {"id": 8, "name": "Sa'd ibn Abi Waqqas", "gender": "male", "is_prophet": "False", "title": "", "node_type": "Sahabi", "bio": "One of the ten promised paradise.", "tribe": "Quraish", "clan": "Banu Zuhra", "birth_year": -23, "death_year": 55},
+        {"id": 9, "name": "Sa'id ibn Zayd", "gender": "male", "is_prophet": "False", "title": "", "node_type": "Sahabi", "bio": "One of the ten promised paradise.", "tribe": "Quraish", "clan": "Banu Adi", "birth_year": -22, "death_year": 51},
+        {"id": 10, "name": "Abu Ubaydah ibn al-Jarrah", "gender": "male", "is_prophet": "False", "title": "Amin al-Ummah", "node_type": "Sahabi", "bio": "One of the ten promised paradise.", "tribe": "Quraish", "clan": "Banu al-Harith", "birth_year": -40, "death_year": 18},
+        {"id": 11, "name": "Khadija bint Khuwaylid", "gender": "female", "is_prophet": "False", "title": "Tahira", "node_type": "Sahabi", "bio": "The first wife of the Prophet.", "tribe": "Quraish", "clan": "Banu Asad", "birth_year": -68, "death_year": -3},
+        {"id": 12, "name": "Aisha bint Abi Bakr", "gender": "female", "is_prophet": "False", "title": "Siddiqa", "node_type": "Sahabi", "bio": "The wife of the Prophet and daughter of Abu Bakr.", "tribe": "Quraish", "clan": "Banu Taym", "birth_year": 9, "death_year": 58},
+        {"id": 13, "name": "Fatima bint Muhammad", "gender": "female", "is_prophet": "False", "title": "Az-Zahra", "node_type": "Sahabi", "bio": "The daughter of the Prophet and wife of Ali.", "tribe": "Quraish", "clan": "Banu Hashim", "birth_year": -18, "death_year": 11},
+        {"id": 14, "name": "Hasan ibn Ali", "gender": "male", "is_prophet": "False", "title": "", "node_type": "Sahabi", "bio": "Grandson of the Prophet.", "tribe": "Quraish", "clan": "Banu Hashim", "birth_year": 3, "death_year": 50},
+        {"id": 15, "name": "Husayn ibn Ali", "gender": "male", "is_prophet": "False", "title": "", "node_type": "Sahabi", "bio": "Grandson of the Prophet.", "tribe": "Quraish", "clan": "Banu Hashim", "birth_year": 4, "death_year": 61},
+        {"id": 16, "name": "Hamza ibn Abd al-Muttalib", "gender": "male", "is_prophet": "False", "title": "Asadullah", "node_type": "Sahabi", "bio": "Uncle of the Prophet.", "tribe": "Quraish", "clan": "Banu Hashim", "birth_year": -54, "death_year": 3},
+        {"id": 17, "name": "Abbas ibn Abd al-Muttalib", "gender": "male", "is_prophet": "False", "title": "", "node_type": "Sahabi", "bio": "Uncle of the Prophet.", "tribe": "Quraish", "clan": "Banu Hashim", "birth_year": -56, "death_year": 32},
+        {"id": 18, "name": "Bilal ibn Rabah", "gender": "male", "is_prophet": "False", "title": "Muadhin", "node_type": "Sahabi", "bio": "The first muadhin of Islam.", "tribe": "Habesha", "clan": "", "birth_year": -42, "death_year": 20},
+        {"id": 19, "name": "Khalid ibn al-Walid", "gender": "male", "is_prophet": "False", "title": "Saifullah", "node_type": "Sahabi", "bio": "The Sword of Allah.", "tribe": "Quraish", "clan": "Banu Makhzum", "birth_year": -30, "death_year": 21},
+        {"id": 20, "name": "Zaynab bint Muhammad", "gender": "female", "is_prophet": "False", "title": "", "node_type": "Sahabi", "bio": "Daughter of the Prophet.", "tribe": "Quraish", "clan": "Banu Hashim", "birth_year": -23, "death_year": 8},
+        {"id": 21, "name": "Ruqayya bint Muhammad", "gender": "female", "is_prophet": "False", "title": "", "node_type": "Sahabi", "bio": "Daughter of the Prophet.", "tribe": "Quraish", "clan": "Banu Hashim", "birth_year": -20, "death_year": 2},
+        {"id": 22, "name": "Umm Kulthum bint Muhammad", "gender": "female", "is_prophet": "False", "title": "", "node_type": "Sahabi", "bio": "Daughter of the Prophet.", "tribe": "Quraish", "clan": "Banu Hashim", "birth_year": -19, "death_year": 9},
     ]
 
     real_names = [
@@ -52,8 +52,8 @@ def main():
             "bio": f"Biographical info for {name}",
             "tribe": "Various",
             "clan": "Various",
-            "birth_year": 600,
-            "death_year": 660
+            "birth_year": 0,
+            "death_year": 60
         })
 
     # Add extra Sahabah up to ID 199
@@ -68,20 +68,20 @@ def main():
             "bio": f"Biographical info for Sahabi {i}",
             "tribe": "Unknown",
             "clan": "Unknown",
-            "birth_year": 600,
-            "death_year": 660
+            "birth_year": 0,
+            "death_year": 60
         })
 
     # Add Battles starting from ID 1000
     battles = [
-        {"id": 1000, "name": "Battle of Badr", "gender": "male", "is_prophet": "False", "title": "2 AH", "node_type": "Battle", "bio": "First major battle of Islam.", "tribe": "", "clan": "", "birth_year": 0, "death_year": 624},
-        {"id": 1001, "name": "Battle of Uhud", "gender": "male", "is_prophet": "False", "title": "3 AH", "node_type": "Battle", "bio": "Second major battle of Islam.", "tribe": "", "clan": "", "birth_year": 0, "death_year": 625},
-        {"id": 1002, "name": "Battle of the Trench", "gender": "male", "is_prophet": "False", "title": "5 AH", "node_type": "Battle", "bio": "Defensive siege of Medina.", "tribe": "", "clan": "", "birth_year": 0, "death_year": 627},
-        {"id": 1003, "name": "Battle of Khaibar", "gender": "male", "is_prophet": "False", "title": "7 AH", "node_type": "Battle", "bio": "Battle against the Jewish fortresses.", "tribe": "", "clan": "", "birth_year": 0, "death_year": 628},
-        {"id": 1004, "name": "Battle of Mu'tah", "gender": "male", "is_prophet": "False", "title": "8 AH", "node_type": "Battle", "bio": "First battle against the Byzantines.", "tribe": "", "clan": "", "birth_year": 0, "death_year": 629},
-        {"id": 1005, "name": "Battle of Hunayn", "gender": "male", "is_prophet": "False", "title": "8 AH", "node_type": "Battle", "bio": "Battle against the Hawazin and Thaqif.", "tribe": "", "clan": "", "birth_year": 0, "death_year": 630},
-        {"id": 1006, "name": "Battle of Yarmouk", "gender": "male", "is_prophet": "False", "title": "13 AH", "node_type": "Battle", "bio": "Major battle between the Muslims and the Byzantines.", "tribe": "", "clan": "", "birth_year": 0, "death_year": 636},
-        {"id": 1007, "name": "Battle of Qadisiyyah", "gender": "male", "is_prophet": "False", "title": "15 AH", "node_type": "Battle", "bio": "Major battle between the Muslims and the Sassanids.", "tribe": "", "clan": "", "birth_year": 0, "death_year": 636},
+        {"id": 1000, "name": "Battle of Badr", "gender": "male", "is_prophet": "False", "title": "2 AH", "node_type": "Battle", "bio": "First major battle of Islam.", "tribe": "", "clan": "", "birth_year": 2, "death_year": 2},
+        {"id": 1001, "name": "Battle of Uhud", "gender": "male", "is_prophet": "False", "title": "3 AH", "node_type": "Battle", "bio": "Second major battle of Islam.", "tribe": "", "clan": "", "birth_year": 3, "death_year": 3},
+        {"id": 1002, "name": "Battle of the Trench", "gender": "male", "is_prophet": "False", "title": "5 AH", "node_type": "Battle", "bio": "Defensive siege of Medina.", "tribe": "", "clan": "", "birth_year": 5, "death_year": 5},
+        {"id": 1003, "name": "Battle of Khaibar", "gender": "male", "is_prophet": "False", "title": "7 AH", "node_type": "Battle", "bio": "Battle against the Jewish fortresses.", "tribe": "", "clan": "", "birth_year": 7, "death_year": 7},
+        {"id": 1004, "name": "Battle of Mu'tah", "gender": "male", "is_prophet": "False", "title": "8 AH", "node_type": "Battle", "bio": "First battle against the Byzantines.", "tribe": "", "clan": "", "birth_year": 8, "death_year": 8},
+        {"id": 1005, "name": "Battle of Hunayn", "gender": "male", "is_prophet": "False", "title": "8 AH", "node_type": "Battle", "bio": "Battle against the Hawazin and Thaqif.", "tribe": "", "clan": "", "birth_year": 8, "death_year": 8},
+        {"id": 1006, "name": "Battle of Yarmouk", "gender": "male", "is_prophet": "False", "title": "13 AH", "node_type": "Battle", "bio": "Major battle between the Muslims and the Byzantines.", "tribe": "", "clan": "", "birth_year": 13, "death_year": 13},
+        {"id": 1007, "name": "Battle of Qadisiyyah", "gender": "male", "is_prophet": "False", "title": "15 AH", "node_type": "Battle", "bio": "Major battle between the Muslims and the Sassanids.", "tribe": "", "clan": "", "birth_year": 15, "death_year": 15},
     ]
     nodes.extend(battles)
 
