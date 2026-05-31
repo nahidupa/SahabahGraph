@@ -6,7 +6,12 @@
       "gender": "male",
       "is_prophet": "True",
       "title": "Rasulullah",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "The last Prophet of Islam.",
+      "tribe": "Quraish",
+      "clan": "Banu Hashim",
+      "birth_year": 570,
+      "death_year": 632
     },
     {
       "id": 1,
@@ -14,7 +19,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "As-Siddiq",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "The first Caliph of Islam.",
+      "tribe": "Quraish",
+      "clan": "Banu Taym",
+      "birth_year": 573,
+      "death_year": 634
     },
     {
       "id": 2,
@@ -22,7 +32,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "Al-Faruq",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "The second Caliph of Islam.",
+      "tribe": "Quraish",
+      "clan": "Banu Adi",
+      "birth_year": 584,
+      "death_year": 644
     },
     {
       "id": 3,
@@ -30,7 +45,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "Dhun-Nurayn",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "The third Caliph of Islam.",
+      "tribe": "Quraish",
+      "clan": "Banu Umayya",
+      "birth_year": 576,
+      "death_year": 656
     },
     {
       "id": 4,
@@ -38,7 +58,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "Asadullah",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "The fourth Caliph of Islam.",
+      "tribe": "Quraish",
+      "clan": "Banu Hashim",
+      "birth_year": 601,
+      "death_year": 661
     },
     {
       "id": 5,
@@ -46,7 +71,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "Talhat al-Khayr",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "One of the ten promised paradise.",
+      "tribe": "Quraish",
+      "clan": "Banu Taym",
+      "birth_year": 594,
+      "death_year": 656
     },
     {
       "id": 6,
@@ -54,7 +84,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "Hawari Rasulillah",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "One of the ten promised paradise.",
+      "tribe": "Quraish",
+      "clan": "Banu Asad",
+      "birth_year": 594,
+      "death_year": 656
     },
     {
       "id": 7,
@@ -62,7 +97,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "One of the ten promised paradise.",
+      "tribe": "Quraish",
+      "clan": "Banu Zuhra",
+      "birth_year": 580,
+      "death_year": 652
     },
     {
       "id": 8,
@@ -70,7 +110,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "One of the ten promised paradise.",
+      "tribe": "Quraish",
+      "clan": "Banu Zuhra",
+      "birth_year": 595,
+      "death_year": 674
     },
     {
       "id": 9,
@@ -78,7 +123,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "One of the ten promised paradise.",
+      "tribe": "Quraish",
+      "clan": "Banu Adi",
+      "birth_year": 593,
+      "death_year": 671
     },
     {
       "id": 10,
@@ -86,7 +136,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "Amin al-Ummah",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "One of the ten promised paradise.",
+      "tribe": "Quraish",
+      "clan": "Banu al-Harith",
+      "birth_year": 583,
+      "death_year": 639
     },
     {
       "id": 11,
@@ -94,7 +149,12 @@
       "gender": "female",
       "is_prophet": "False",
       "title": "Tahira",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "The first wife of the Prophet.",
+      "tribe": "Quraish",
+      "clan": "Banu Asad",
+      "birth_year": 555,
+      "death_year": 619
     },
     {
       "id": 12,
@@ -102,7 +162,12 @@
       "gender": "female",
       "is_prophet": "False",
       "title": "Siddiqa",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "The wife of the Prophet and daughter of Abu Bakr.",
+      "tribe": "Quraish",
+      "clan": "Banu Taym",
+      "birth_year": 613,
+      "death_year": 678
     },
     {
       "id": 13,
@@ -110,7 +175,12 @@
       "gender": "female",
       "is_prophet": "False",
       "title": "Az-Zahra",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "The daughter of the Prophet and wife of Ali.",
+      "tribe": "Quraish",
+      "clan": "Banu Hashim",
+      "birth_year": 605,
+      "death_year": 632
     },
     {
       "id": 14,
@@ -118,7 +188,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Grandson of the Prophet.",
+      "tribe": "Quraish",
+      "clan": "Banu Hashim",
+      "birth_year": 624,
+      "death_year": 670
     },
     {
       "id": 15,
@@ -126,7 +201,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Grandson of the Prophet.",
+      "tribe": "Quraish",
+      "clan": "Banu Hashim",
+      "birth_year": 626,
+      "death_year": 680
     },
     {
       "id": 16,
@@ -134,7 +214,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "Asadullah",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Uncle of the Prophet.",
+      "tribe": "Quraish",
+      "clan": "Banu Hashim",
+      "birth_year": 568,
+      "death_year": 625
     },
     {
       "id": 17,
@@ -142,7 +227,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Uncle of the Prophet.",
+      "tribe": "Quraish",
+      "clan": "Banu Hashim",
+      "birth_year": 566,
+      "death_year": 653
     },
     {
       "id": 18,
@@ -150,7 +240,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "Muadhin",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "The first muadhin of Islam.",
+      "tribe": "Habesha",
+      "clan": "",
+      "birth_year": 580,
+      "death_year": 640
     },
     {
       "id": 19,
@@ -158,7 +253,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "Saifullah",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "The Sword of Allah.",
+      "tribe": "Quraish",
+      "clan": "Banu Makhzum",
+      "birth_year": 585,
+      "death_year": 642
     },
     {
       "id": 20,
@@ -166,7 +266,12 @@
       "gender": "female",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Daughter of the Prophet.",
+      "tribe": "Quraish",
+      "clan": "Banu Hashim",
+      "birth_year": 599,
+      "death_year": 629
     },
     {
       "id": 21,
@@ -174,7 +279,12 @@
       "gender": "female",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Daughter of the Prophet.",
+      "tribe": "Quraish",
+      "clan": "Banu Hashim",
+      "birth_year": 601,
+      "death_year": 624
     },
     {
       "id": 22,
@@ -182,7 +292,12 @@
       "gender": "female",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Daughter of the Prophet.",
+      "tribe": "Quraish",
+      "clan": "Banu Hashim",
+      "birth_year": 603,
+      "death_year": 630
     },
     {
       "id": 23,
@@ -190,7 +305,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Ja'far ibn Abi Talib",
+      "tribe": "Various",
+      "clan": "Various",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 24,
@@ -198,7 +318,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Zayd ibn Harithah",
+      "tribe": "Various",
+      "clan": "Various",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 25,
@@ -206,7 +331,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Usama ibn Zayd",
+      "tribe": "Various",
+      "clan": "Various",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 26,
@@ -214,7 +344,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Abdullah ibn Umar",
+      "tribe": "Various",
+      "clan": "Various",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 27,
@@ -222,7 +357,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Abdullah ibn Abbas",
+      "tribe": "Various",
+      "clan": "Various",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 28,
@@ -230,7 +370,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Abdullah ibn Mas'ud",
+      "tribe": "Various",
+      "clan": "Various",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 29,
@@ -238,7 +383,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Abu Hurairah",
+      "tribe": "Various",
+      "clan": "Various",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 30,
@@ -246,7 +396,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Anas ibn Malik",
+      "tribe": "Various",
+      "clan": "Various",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 31,
@@ -254,7 +409,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Jabir ibn Abdullah",
+      "tribe": "Various",
+      "clan": "Various",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 32,
@@ -262,7 +422,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Abu Sa'id al-Khudri",
+      "tribe": "Various",
+      "clan": "Various",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 33,
@@ -270,7 +435,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Mu'adh ibn Jabal",
+      "tribe": "Various",
+      "clan": "Various",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 34,
@@ -278,7 +448,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Ubayy ibn Ka'b",
+      "tribe": "Various",
+      "clan": "Various",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 35,
@@ -286,7 +461,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Zayd ibn Thabit",
+      "tribe": "Various",
+      "clan": "Various",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 36,
@@ -294,7 +474,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Abu Dharr al-Ghifari",
+      "tribe": "Various",
+      "clan": "Various",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 37,
@@ -302,7 +487,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Salman al-Farsi",
+      "tribe": "Various",
+      "clan": "Various",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 38,
@@ -310,7 +500,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Ammar ibn Yasir",
+      "tribe": "Various",
+      "clan": "Various",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 39,
@@ -318,7 +513,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Miqdad ibn Aswad",
+      "tribe": "Various",
+      "clan": "Various",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 40,
@@ -326,7 +526,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Hudhayfa ibn al-Yaman",
+      "tribe": "Various",
+      "clan": "Various",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 41,
@@ -334,7 +539,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Amr ibn al-Aas",
+      "tribe": "Various",
+      "clan": "Various",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 42,
@@ -342,7 +552,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Muawiyah ibn Abi Sufyan",
+      "tribe": "Various",
+      "clan": "Various",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 43,
@@ -350,7 +565,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 43",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 44,
@@ -358,7 +578,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 44",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 45,
@@ -366,7 +591,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 45",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 46,
@@ -374,7 +604,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 46",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 47,
@@ -382,7 +617,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 47",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 48,
@@ -390,7 +630,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 48",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 49,
@@ -398,7 +643,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 49",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 50,
@@ -406,7 +656,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 50",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 51,
@@ -414,7 +669,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 51",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 52,
@@ -422,7 +682,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 52",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 53,
@@ -430,7 +695,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 53",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 54,
@@ -438,7 +708,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 54",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 55,
@@ -446,7 +721,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 55",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 56,
@@ -454,7 +734,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 56",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 57,
@@ -462,7 +747,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 57",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 58,
@@ -470,7 +760,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 58",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 59,
@@ -478,7 +773,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 59",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 60,
@@ -486,7 +786,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 60",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 61,
@@ -494,7 +799,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 61",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 62,
@@ -502,7 +812,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 62",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 63,
@@ -510,7 +825,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 63",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 64,
@@ -518,7 +838,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 64",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 65,
@@ -526,7 +851,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 65",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 66,
@@ -534,7 +864,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 66",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 67,
@@ -542,7 +877,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 67",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 68,
@@ -550,7 +890,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 68",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 69,
@@ -558,7 +903,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 69",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 70,
@@ -566,7 +916,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 70",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 71,
@@ -574,7 +929,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 71",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 72,
@@ -582,7 +942,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 72",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 73,
@@ -590,7 +955,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 73",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 74,
@@ -598,7 +968,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 74",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 75,
@@ -606,7 +981,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 75",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 76,
@@ -614,7 +994,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 76",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 77,
@@ -622,7 +1007,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 77",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 78,
@@ -630,7 +1020,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 78",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 79,
@@ -638,7 +1033,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 79",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 80,
@@ -646,7 +1046,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 80",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 81,
@@ -654,7 +1059,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 81",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 82,
@@ -662,7 +1072,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 82",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 83,
@@ -670,7 +1085,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 83",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 84,
@@ -678,7 +1098,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 84",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 85,
@@ -686,7 +1111,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 85",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 86,
@@ -694,7 +1124,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 86",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 87,
@@ -702,7 +1137,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 87",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 88,
@@ -710,7 +1150,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 88",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 89,
@@ -718,7 +1163,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 89",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 90,
@@ -726,7 +1176,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 90",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 91,
@@ -734,7 +1189,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 91",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 92,
@@ -742,7 +1202,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 92",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 93,
@@ -750,7 +1215,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 93",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 94,
@@ -758,7 +1228,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 94",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 95,
@@ -766,7 +1241,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 95",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 96,
@@ -774,7 +1254,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 96",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 97,
@@ -782,7 +1267,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 97",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 98,
@@ -790,7 +1280,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 98",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 99,
@@ -798,7 +1293,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 99",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 100,
@@ -806,7 +1306,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 100",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 101,
@@ -814,7 +1319,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 101",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 102,
@@ -822,7 +1332,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 102",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 103,
@@ -830,7 +1345,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 103",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 104,
@@ -838,7 +1358,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 104",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 105,
@@ -846,7 +1371,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 105",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 106,
@@ -854,7 +1384,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 106",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 107,
@@ -862,7 +1397,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 107",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 108,
@@ -870,7 +1410,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 108",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 109,
@@ -878,7 +1423,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 109",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 110,
@@ -886,7 +1436,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 110",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 111,
@@ -894,7 +1449,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 111",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 112,
@@ -902,7 +1462,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 112",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 113,
@@ -910,7 +1475,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 113",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 114,
@@ -918,7 +1488,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 114",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 115,
@@ -926,7 +1501,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 115",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 116,
@@ -934,7 +1514,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 116",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 117,
@@ -942,7 +1527,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 117",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 118,
@@ -950,7 +1540,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 118",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 119,
@@ -958,7 +1553,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 119",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 120,
@@ -966,7 +1566,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 120",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 121,
@@ -974,7 +1579,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 121",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 122,
@@ -982,7 +1592,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 122",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 123,
@@ -990,7 +1605,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 123",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 124,
@@ -998,7 +1618,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 124",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 125,
@@ -1006,7 +1631,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 125",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 126,
@@ -1014,7 +1644,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 126",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 127,
@@ -1022,7 +1657,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 127",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 128,
@@ -1030,7 +1670,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 128",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 129,
@@ -1038,7 +1683,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 129",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 130,
@@ -1046,7 +1696,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 130",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 131,
@@ -1054,7 +1709,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 131",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 132,
@@ -1062,7 +1722,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 132",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 133,
@@ -1070,7 +1735,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 133",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 134,
@@ -1078,7 +1748,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 134",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 135,
@@ -1086,7 +1761,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 135",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 136,
@@ -1094,7 +1774,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 136",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 137,
@@ -1102,7 +1787,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 137",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 138,
@@ -1110,7 +1800,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 138",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 139,
@@ -1118,7 +1813,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 139",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 140,
@@ -1126,7 +1826,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 140",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 141,
@@ -1134,7 +1839,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 141",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 142,
@@ -1142,7 +1852,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 142",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 143,
@@ -1150,7 +1865,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 143",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 144,
@@ -1158,7 +1878,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 144",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 145,
@@ -1166,7 +1891,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 145",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 146,
@@ -1174,7 +1904,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 146",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 147,
@@ -1182,7 +1917,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 147",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 148,
@@ -1190,7 +1930,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 148",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 149,
@@ -1198,7 +1943,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 149",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 150,
@@ -1206,7 +1956,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 150",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 151,
@@ -1214,7 +1969,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 151",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 152,
@@ -1222,7 +1982,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 152",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 153,
@@ -1230,7 +1995,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 153",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 154,
@@ -1238,7 +2008,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 154",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 155,
@@ -1246,7 +2021,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 155",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 156,
@@ -1254,7 +2034,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 156",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 157,
@@ -1262,7 +2047,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 157",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 158,
@@ -1270,7 +2060,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 158",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 159,
@@ -1278,7 +2073,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 159",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 160,
@@ -1286,7 +2086,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 160",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 161,
@@ -1294,7 +2099,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 161",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 162,
@@ -1302,7 +2112,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 162",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 163,
@@ -1310,7 +2125,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 163",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 164,
@@ -1318,7 +2138,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 164",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 165,
@@ -1326,7 +2151,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 165",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 166,
@@ -1334,7 +2164,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 166",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 167,
@@ -1342,7 +2177,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 167",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 168,
@@ -1350,7 +2190,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 168",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 169,
@@ -1358,7 +2203,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 169",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 170,
@@ -1366,7 +2216,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 170",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 171,
@@ -1374,7 +2229,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 171",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 172,
@@ -1382,7 +2242,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 172",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 173,
@@ -1390,7 +2255,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 173",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 174,
@@ -1398,7 +2268,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 174",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 175,
@@ -1406,7 +2281,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 175",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 176,
@@ -1414,7 +2294,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 176",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 177,
@@ -1422,7 +2307,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 177",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 178,
@@ -1430,7 +2320,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 178",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 179,
@@ -1438,7 +2333,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 179",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 180,
@@ -1446,7 +2346,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 180",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 181,
@@ -1454,7 +2359,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 181",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 182,
@@ -1462,7 +2372,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 182",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 183,
@@ -1470,7 +2385,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 183",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 184,
@@ -1478,7 +2398,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 184",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 185,
@@ -1486,7 +2411,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 185",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 186,
@@ -1494,7 +2424,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 186",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 187,
@@ -1502,7 +2437,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 187",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 188,
@@ -1510,7 +2450,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 188",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 189,
@@ -1518,7 +2463,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 189",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 190,
@@ -1526,7 +2476,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 190",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 191,
@@ -1534,7 +2489,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 191",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 192,
@@ -1542,7 +2502,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 192",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 193,
@@ -1550,7 +2515,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 193",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 194,
@@ -1558,7 +2528,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 194",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 195,
@@ -1566,7 +2541,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 195",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 196,
@@ -1574,7 +2554,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 196",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 197,
@@ -1582,7 +2567,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 197",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 198,
@@ -1590,7 +2580,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 198",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 199,
@@ -1598,7 +2593,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 199",
+      "tribe": "Unknown",
+      "clan": "Unknown",
+      "birth_year": 600,
+      "death_year": 660
     },
     {
       "id": 1000,
@@ -1606,7 +2606,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "2 AH",
-      "node_type": "Battle"
+      "node_type": "Battle",
+      "bio": "First major battle of Islam.",
+      "tribe": "",
+      "clan": "",
+      "birth_year": 0,
+      "death_year": 624
     },
     {
       "id": 1001,
@@ -1614,7 +2619,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "3 AH",
-      "node_type": "Battle"
+      "node_type": "Battle",
+      "bio": "Second major battle of Islam.",
+      "tribe": "",
+      "clan": "",
+      "birth_year": 0,
+      "death_year": 625
     },
     {
       "id": 1002,
@@ -1622,7 +2632,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "5 AH",
-      "node_type": "Battle"
+      "node_type": "Battle",
+      "bio": "Defensive siege of Medina.",
+      "tribe": "",
+      "clan": "",
+      "birth_year": 0,
+      "death_year": 627
     },
     {
       "id": 1003,
@@ -1630,7 +2645,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "7 AH",
-      "node_type": "Battle"
+      "node_type": "Battle",
+      "bio": "Battle against the Jewish fortresses.",
+      "tribe": "",
+      "clan": "",
+      "birth_year": 0,
+      "death_year": 628
     },
     {
       "id": 1004,
@@ -1638,7 +2658,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "8 AH",
-      "node_type": "Battle"
+      "node_type": "Battle",
+      "bio": "First battle against the Byzantines.",
+      "tribe": "",
+      "clan": "",
+      "birth_year": 0,
+      "death_year": 629
     },
     {
       "id": 1005,
@@ -1646,7 +2671,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "8 AH",
-      "node_type": "Battle"
+      "node_type": "Battle",
+      "bio": "Battle against the Hawazin and Thaqif.",
+      "tribe": "",
+      "clan": "",
+      "birth_year": 0,
+      "death_year": 630
     },
     {
       "id": 1006,
@@ -1654,7 +2684,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "13 AH",
-      "node_type": "Battle"
+      "node_type": "Battle",
+      "bio": "Major battle between the Muslims and the Byzantines.",
+      "tribe": "",
+      "clan": "",
+      "birth_year": 0,
+      "death_year": 636
     },
     {
       "id": 1007,
@@ -1662,7 +2697,12 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "15 AH",
-      "node_type": "Battle"
+      "node_type": "Battle",
+      "bio": "Major battle between the Muslims and the Sassanids.",
+      "tribe": "",
+      "clan": "",
+      "birth_year": 0,
+      "death_year": 636
     }
   ],
   "links": [
@@ -1778,6 +2818,18 @@
       "source_id": 22,
       "target_id": 3,
       "type": "SPOUSE_OF",
+      "category": "others"
+    },
+    {
+      "source_id": 14,
+      "target_id": 15,
+      "type": "SIBLING_OF",
+      "category": "others"
+    },
+    {
+      "source_id": 27,
+      "target_id": 0,
+      "type": "TEACHER_OF",
       "category": "others"
     },
     {

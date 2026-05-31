@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef, useMemo } from 'react';
 import { useQuery, gql } from '@apollo/client';
+// @ts-expect-error - i18n import for side-effects
 import type { Core } from 'cytoscape';
 import type { GraphData, Sahabi } from './types';
 import MainLayout from './components/Layout/MainLayout';
@@ -7,7 +8,7 @@ import SahabahSidebar from './components/Sidebar/SahabahSidebar';
 import GraphCanvas from './components/Graph/GraphCanvas';
 import SahabahDetail from './components/DetailPanel/SahabahDetail';
 import PathSummary from './components/Graph/PathSummary';
-import i18n from './i18n/config';
+import './i18n/config';
 import { useTranslation } from 'react-i18next';
 
 const GET_SAHABAH = gql`

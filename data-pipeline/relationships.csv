@@ -18,6 +18,8 @@ source_id,target_id,type,category
 12,1,DAUGHTER_OF,daughters
 21,3,SPOUSE_OF,others
 22,3,SPOUSE_OF,others
+14,15,SIBLING_OF,others
+27,0,TEACHER_OF,others
 0,1000,PARTICIPATED_IN,battles
 1,1000,PARTICIPATED_IN,battles
 2,1000,PARTICIPATED_IN,battles
