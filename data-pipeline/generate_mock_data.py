@@ -1,8 +1,12 @@
 import csv
 import json
 import os
+from pathlib import Path
 
 def main():
+    # Ensure output files are written to the script's directory (data-pipeline/)
+    script_dir = Path(__file__).resolve().parent
+    os.chdir(script_dir)
     # 1. Nodes
     # Fields: id, name_ar, name_en, kunyah, laqab, gender, is_prophet, node_type, prominence, biography_short, biography_source, tribe, clan, birth_year_hijri, death_year_hijri
 
@@ -621,10 +625,10 @@ def main():
         "nodes": nodes,
         "links": relationships
     }
-    json_path = os.path.join('..', 'frontend', 'public', 'data', 'sahabah_data.json')
-    if os.path.exists(os.path.dirname(json_path)):
-        with open(json_path, 'w', encoding='utf-8') as f:
-            json.dump(graph_data, f, ensure_ascii=False, indent=2)
+    json_path = script_dir.parent / 'frontend' / 'public' / 'data' / 'sahabah_data.json'
+    json_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(json_path, 'w', encoding='utf-8') as f:
+        json.dump(graph_data, f, ensure_ascii=False, indent=2)
 
 if __name__ == "__main__":
     main()

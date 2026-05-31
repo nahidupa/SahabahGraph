@@ -6,14 +6,19 @@ Used after CSV updates to sync with frontend application
 
 import csv
 import json
+import os
 from pathlib import Path
+
+# Ensure we use the script's directory as the base for all relative paths
+script_dir = Path(__file__).resolve().parent
+os.chdir(script_dir)
 
 SAHABAH_CSV = "sahabah.csv"
 RELATIONSHIPS_CSV = "relationships.csv"
 CITIES_CSV = "cities.csv"
 GOVERNOR_TERMS_CSV = "city_governor_terms.csv"
-OUTPUT_JSON = "../frontend/public/data/sahabah_data.json"
-POLITICAL_JSON = "../frontend/public/data/political_terms.json"
+OUTPUT_JSON = str(script_dir.parent / "frontend" / "public" / "data" / "sahabah_data.json")
+POLITICAL_JSON = str(script_dir.parent / "frontend" / "public" / "data" / "political_terms.json")
 
 def load_data():
     """Load CSV files"""
