@@ -7,6 +7,7 @@ import SahabahSidebar from './components/Sidebar/SahabahSidebar';
 import GraphCanvas from './components/Graph/GraphCanvas';
 import SahabahDetail from './components/DetailPanel/SahabahDetail';
 import PathSummary from './components/Graph/PathSummary';
+import { useTranslation } from 'react-i18next';
 import './i18n/config';
 
 const GET_SAHABAH = gql`
@@ -23,6 +24,7 @@ const GET_SAHABAH = gql`
 `;
 
 const App: React.FC = () => {
+  const { t } = useTranslation();
   const { data: apolloData } = useQuery(GET_SAHABAH);
   const [data, setData] = useState<GraphData | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
@@ -135,7 +137,6 @@ const App: React.FC = () => {
   };
 
   const handleShowConnections = () => {
-    const { t } = i18n;
     const selectedNodes = cyRef.current?.$(':selected');
     if (selectedNodes?.length !== 2) {
       alert(t('select_two_nodes'));
@@ -199,7 +200,7 @@ const App: React.FC = () => {
               cyRef.current.$(`#${u}, #${v}`).addClass('highlighted');
               cyRef.current.$(`edge[source="${u}"][target="${v}"], edge[source="${v}"][target="${u}"]`).addClass('highlighted');
             }
-            cyRef.current.layout({ name: 'cose', animate: true }).run();
+            cyRef.current.fit(cyRef.current.elements('.highlighted'), 50);
           }
         }, 200);
       } else {

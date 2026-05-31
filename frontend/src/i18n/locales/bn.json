@@ -7,6 +7,8 @@
   "add_to_graph": "গ্রাফে যোগ করুন",
   "show_connections": "সংযোগ দেখান",
   "language": "ভাষা",
+  "export_png": "PNG এক্সপোর্ট করুন",
+  "export_svg": "SVG এক্সপোর্ট করুন",
   "biography": "জীবনী",
   "bio_placeholder": "এই বিভাগটি {{name}} সম্পর্কে একটি সংক্ষিপ্ত জীবনী বা ঐতিহাসিক তথ্য থাকতে পারে।",
   "expand_sidebar": "সাইডবার প্রসারিত করুন",
