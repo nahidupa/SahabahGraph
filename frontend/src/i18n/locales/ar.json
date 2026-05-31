@@ -1,0 +1,12 @@
+{
+  "app_name": "رسم بياني للصحابة",
+  "search_placeholder": "البحث عن الصحابة...",
+  "details_placeholder": "اختر عقدة لعرض التفاصيل",
+  "expand_relationships": "توسيع العلاقات",
+  "click_to_reveal": "انقر لإظهار الاتصالات:",
+  "add_to_graph": "إضافة إلى الرسم البياني",
+  "show_connections": "إظهار الاتصالات",
+  "language": "اللغة",
+  "biography": "السيرة الذاتية",
+  "bio_placeholder": "هذا القسم قد يحتوي على سيرة ذاتية موجزة أو ملاحظات تاريخية عن {{name}}."
+}

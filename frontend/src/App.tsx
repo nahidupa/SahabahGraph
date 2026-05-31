@@ -1,29 +1,11 @@
 import React, { useEffect, useState, useRef, useMemo } from 'react';
-import {
-  Box,
-  Drawer,
-  List,
-  ListItem,
-  ListItemText,
-  TextField,
-  Typography,
-  Divider,
-  IconButton,
-  Button,
-  Avatar,
-  Chip
-} from '@mui/material';
-import {
-  Search as SearchIcon,
-  Star as StarIcon,
-  Person as PersonIcon,
-  Female as FemaleIcon,
-  Add as AddIcon,
-} from '@mui/icons-material';
-// @ts-ignore
-import CytoscapeComponent from 'react-cytoscapejs';
 import type { Core } from 'cytoscape';
 import type { GraphData, Sahabi } from './types';
+import MainLayout from './components/Layout/MainLayout';
+import SahabahSidebar from './components/Sidebar/SahabahSidebar';
+import GraphCanvas from './components/Graph/GraphCanvas';
+import SahabahDetail from './components/DetailPanel/SahabahDetail';
+import './i18n/config';
 
 const App: React.FC = () => {
   const [data, setData] = useState<GraphData | null>(null);
@@ -37,7 +19,6 @@ const App: React.FC = () => {
       .then((res) => res.json())
       .then((json: GraphData) => {
         setData(json);
-        // Initial element: The Prophet (PBUH)
         const prophet = json.nodes.find(n => n.id === 0);
         if (prophet) {
           setElements([{ data: { ...prophet, id: prophet.id.toString(), label: '★', fullName: prophet.name, originalId: prophet.id } }]);
@@ -73,9 +54,7 @@ const App: React.FC = () => {
       const otherId = rel.source_id === nodeId ? rel.target_id : rel.source_id;
       const otherNode = data.nodes.find(n => n.id === otherId);
       if (otherNode) {
-        // Add node
         newElements.push({ data: { ...otherNode, id: otherNode.id.toString(), label: otherNode.name, originalId: otherNode.id } });
-        // Add edge
         newElements.push({
           data: {
             id: `e${rel.source_id}-${rel.target_id}`,
@@ -93,7 +72,6 @@ const App: React.FC = () => {
       return [...prev, ...filteredNew];
     });
 
-    // Trigger layout after adding elements
     setTimeout(() => {
       if (cyRef.current) {
         cyRef.current.layout({ name: 'cose', animate: true }).run();
@@ -101,188 +79,124 @@ const App: React.FC = () => {
     }, 100);
   };
 
-  const stylesheet: any[] = [
-    {
-      selector: 'node',
-      style: {
-        'label': 'data(label)',
-        'background-color': '#666',
-        'color': '#fff',
-        'text-valign': 'center',
-        'text-halign': 'center',
-        'font-size': '10px',
-        'width': '40px',
-        'height': '40px',
-      }
-    },
-    {
-      selector: 'node[is_prophet = "True"]',
-      style: {
-        'shape': 'star',
-        'background-color': '#ffd700',
-        'color': '#000',
-        'width': '80px',
-        'height': '80px',
-        'font-size': '30px',
-        'text-valign': 'center',
-        'label': '★'
-      }
-    },
-    {
-      selector: 'node[gender = "male"][is_prophet = "False"]',
-      style: {
-        'background-color': '#2196f3',
-      }
-    },
-    {
-      selector: 'node[gender = "female"]',
-      style: {
-        'background-color': '#e91e63',
-      }
-    },
-    {
-      selector: 'edge',
-      style: {
-        'width': 2,
-        'line-color': '#999',
-        'target-arrow-color': '#999',
-        'target-arrow-shape': 'triangle',
-        'curve-style': 'bezier',
-        'label': 'data(label)',
-        'font-size': '10px',
-        'text-rotation': 'autorotate',
-        'text-margin-y': -10,
-        'color': '#333',
-        'text-background-opacity': 1,
-        'text-background-color': '#fff',
-        'text-background-padding': '2px',
-        'text-background-shape': 'roundrectangle'
+  // BFS algorithm to find shortest path
+  const findShortestPath = (startId: string, endId: string) => {
+    if (!data) return null;
+
+    const queue: [string, string[]][] = [[startId, [startId]]];
+    const visited = new Set([startId]);
+
+    while (queue.length > 0) {
+      const [currentId, path] = queue.shift()!;
+
+      if (currentId === endId) return path;
+
+      // Find neighbors from all links in data
+      const neighbors = data.links
+        .filter(l => l.source_id.toString() === currentId || l.target_id.toString() === currentId)
+        .map(l => l.source_id.toString() === currentId ? l.target_id.toString() : l.source_id.toString());
+
+      for (const neighbor of neighbors) {
+        if (!visited.has(neighbor)) {
+          visited.add(neighbor);
+          queue.push([neighbor, [...path, neighbor]]);
+        }
       }
     }
-  ];
+    return null;
+  };
+
+  const handleShowConnections = () => {
+    const selectedNodes = cyRef.current?.$(':selected');
+    if (selectedNodes?.length !== 2) {
+      alert('Please select exactly two nodes on the graph (use Ctrl+click or similar).');
+      return;
+    }
+
+    const startId = selectedNodes[0].id();
+    const endId = selectedNodes[1].id();
+    const path = findShortestPath(startId, endId);
+
+    if (path) {
+      // Add missing nodes and edges to elements
+      const newElements: any[] = [];
+      for (let i = 0; i < path.length; i++) {
+        const nodeId = path[i];
+        const node = data?.nodes.find(n => n.id.toString() === nodeId);
+        if (node) {
+          newElements.push({ data: { ...node, id: node.id.toString(), label: node.name, originalId: node.id } });
+        }
+
+        if (i < path.length - 1) {
+          const u = path[i];
+          const v = path[i+1];
+          const rel = data?.links.find(l =>
+            (l.source_id.toString() === u && l.target_id.toString() === v) ||
+            (l.source_id.toString() === v && l.target_id.toString() === u)
+          );
+          if (rel) {
+            newElements.push({
+              data: {
+                id: `e${rel.source_id}-${rel.target_id}`,
+                source: rel.source_id.toString(),
+                target: rel.target_id.toString(),
+                label: rel.type
+              }
+            });
+          }
+        }
+      }
+
+      setElements((prev) => {
+        const existingIds = new Set(prev.map(el => el.data.id));
+        const filteredNew = newElements.filter(el => !existingIds.has(el.data.id));
+        return [...prev, ...filteredNew];
+      });
+
+      // Highlight path
+      setTimeout(() => {
+        if (cyRef.current) {
+          cyRef.current.elements().removeClass('highlighted');
+          for (let i = 0; i < path.length - 1; i++) {
+            const u = path[i];
+            const v = path[i+1];
+            cyRef.current.$(`#${u}, #${v}`).addClass('highlighted');
+            cyRef.current.$(`edge[source="${u}"][target="${v}"], edge[source="${v}"][target="${u}"]`).addClass('highlighted');
+          }
+          cyRef.current.layout({ name: 'cose', animate: true }).run();
+        }
+      }, 200);
+    } else {
+      alert('No path found between selected nodes.');
+    }
+  };
 
   return (
-    <Box sx={{ display: 'flex', height: '100vh', overflow: 'hidden' }}>
-      <Drawer
-        variant="permanent"
-        sx={{
-          width: 300,
-          flexShrink: 0,
-          '& .MuiDrawer-paper': { width: 300, boxSizing: 'border-box' },
-        }}
-      >
-        <Box sx={{ p: 2 }}>
-          <Typography variant="h6" gutterBottom>SahabahGraph</Typography>
-          <TextField
-            fullWidth
-            size="small"
-            placeholder="Search Sahabah..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            slotProps={{
-              input: {
-                startAdornment: <SearchIcon sx={{ mr: 1, color: 'text.secondary' }} />,
-              }
-            }}
-          />
-        </Box>
-        <Divider />
-        <List sx={{ overflowY: 'auto' }}>
-          {filteredNodes.map((node) => (
-            <ListItem
-              key={node.id}
-              component="div"
-              disablePadding
-              secondaryAction={
-                <IconButton edge="end" onClick={() => addNodeToGraph(node)}>
-                  <AddIcon />
-                </IconButton>
-              }
-            >
-              <Button
-                fullWidth
-                sx={{ textAlign: 'left', justifyContent: 'flex-start', color: 'inherit', textTransform: 'none' }}
-                onClick={() => setSelectedNode(node)}
-              >
-                <ListItemText primary={node.name} secondary={node.title} />
-              </Button>
-            </ListItem>
-          ))}
-        </List>
-      </Drawer>
-
-      <Box sx={{ flexGrow: 1, position: 'relative', bgcolor: '#fafafa' }}>
-        <CytoscapeComponent
-          elements={elements}
-          style={{ width: '100%', height: '100%' }}
-          stylesheet={stylesheet}
-          cy={(cy: Core) => {
-            cyRef.current = cy;
-            cy.on('tap', 'node', (evt: any) => {
-              const nodeData = evt.target.data();
-              setSelectedNode(nodeData as unknown as Sahabi);
-            });
-          }}
-          layout={{ name: 'cose' }}
+    <MainLayout
+      sidebar={
+        <SahabahSidebar
+          nodes={filteredNodes}
+          onAddNode={addNodeToGraph}
+          onSelectNode={setSelectedNode}
+          searchTerm={searchTerm}
+          onSearchChange={setSearchTerm}
         />
-      </Box>
-
-      <Drawer
-        variant="permanent"
-        anchor="right"
-        sx={{
-          width: 350,
-          flexShrink: 0,
-          '& .MuiDrawer-paper': { width: 350, boxSizing: 'border-box' },
-        }}
-      >
-        <Box sx={{ p: 3 }}>
-          {selectedNode ? (
-            <>
-              <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-                <Avatar sx={{ bgcolor: selectedNode.is_prophet === "True" ? '#ffd700' : (selectedNode.gender === 'male' ? '#2196f3' : '#e91e63'), mr: 2 }}>
-                  {selectedNode.is_prophet === "True" ? <StarIcon /> : (selectedNode.gender === 'male' ? <PersonIcon /> : <FemaleIcon />)}
-                </Avatar>
-                <Box>
-                  <Typography variant="h5">{selectedNode.name}</Typography>
-                  <Typography variant="subtitle1" color="text.secondary">{selectedNode.title}</Typography>
-                </Box>
-              </Box>
-
-              <Divider sx={{ my: 2 }} />
-
-              <Typography variant="h6" gutterBottom>Expand Relationships</Typography>
-              <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
-                Click to reveal connections:
-              </Typography>
-              <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
-                {['sons', 'daughters', 'uncles', 'others'].map((cat) => (
-                  <Chip
-                    key={cat}
-                    label={cat.charAt(0).toUpperCase() + cat.slice(1)}
-                    onClick={() => expandRelationships(selectedNode.id, cat)}
-                    icon={<AddIcon />}
-                    color="primary"
-                    variant="outlined"
-                    clickable
-                  />
-                ))}
-              </Box>
-
-              <Box sx={{ mt: 4 }}>
-                <Typography variant="body1">
-                  This section could contain a brief biography or historical notes about {selectedNode.name}.
-                </Typography>
-              </Box>
-            </>
-          ) : (
-            <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
-              <Typography color="text.secondary">Select a node to view details</Typography>
-            </Box>
-          )}
-        </Box>
-      </Drawer>
-    </Box>
+      }
+      detailPanel={
+        <SahabahDetail
+          selectedNode={selectedNode}
+          links={data?.links || []}
+          onExpand={expandRelationships}
+        />
+      }
+    >
+      <GraphCanvas
+        elements={elements}
+        onNodeClick={setSelectedNode}
+        cyRef={cyRef}
+        onShowConnections={handleShowConnections}
+      />
+    </MainLayout>
   );
 };
 

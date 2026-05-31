@@ -1,0 +1,12 @@
+{
+  "app_name": "SahabahGraph",
+  "search_placeholder": "Sahabah suchen...",
+  "details_placeholder": "Wählen Sie einen Knoten aus, um Details anzuzeigen",
+  "expand_relationships": "Beziehungen erweitern",
+  "click_to_reveal": "Klicken Sie hier, um Verbindungen anzuzeigen:",
+  "add_to_graph": "Zum Graph hinzufügen",
+  "show_connections": "Verbindungen anzeigen",
+  "language": "Sprache",
+  "biography": "Biografie",
+  "bio_placeholder": "Dieser Abschnitt könnte eine kurze Biografie oder historische Notizen über {{name}} enthalten."
+}

@@ -1,0 +1,135 @@
+import React, { useState, useMemo } from 'react';
+import {
+  Box,
+  Drawer,
+  Typography,
+  Divider,
+  IconButton,
+  Avatar,
+  Chip,
+  Paper
+} from '@mui/material';
+import {
+  Star as StarIcon,
+  Person as PersonIcon,
+  Female as FemaleIcon,
+  Add as AddIcon,
+  ChevronLeft as ChevronLeftIcon,
+  ChevronRight as ChevronRightIcon
+} from '@mui/icons-material';
+import { useTranslation } from 'react-i18next';
+import type { Sahabi, Relationship } from '../../types';
+
+interface SahabahDetailProps {
+  selectedNode: Sahabi | null;
+  links: Relationship[];
+  onExpand: (nodeId: number, category: string) => void;
+}
+
+const SahabahDetail: React.FC<SahabahDetailProps> = ({
+  selectedNode,
+  links,
+  onExpand
+}) => {
+  const { t, i18n } = useTranslation();
+  const [collapsed, setCollapsed] = useState(false);
+
+  // Dynamically determine available relationship categories for the selected node
+  const availableCategories = useMemo(() => {
+    if (!selectedNode) return [];
+    const nodeRels = links.filter(l => l.source_id === selectedNode.id || l.target_id === selectedNode.id);
+    const categories = new Set<string>();
+    nodeRels.forEach(r => categories.add(r.category));
+    return Array.from(categories);
+  }, [selectedNode, links]);
+
+  if (collapsed) {
+    return (
+      <Box sx={{ width: 40, height: '100vh', borderLeft: 1, borderColor: 'divider', display: 'flex', flexDirection: 'column', alignItems: 'center', pt: 2 }}>
+        <IconButton onClick={() => setCollapsed(false)}>
+           {i18n.dir() === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+        </IconButton>
+      </Box>
+    );
+  }
+
+  return (
+    <Drawer
+      variant="permanent"
+      anchor="right"
+      sx={{
+        width: 350,
+        flexShrink: 0,
+        '& .MuiDrawer-paper': { width: 350, boxSizing: 'border-box', position: 'relative' },
+      }}
+    >
+      <Box sx={{ p: 1, display: 'flex', alignItems: 'center' }}>
+        <IconButton onClick={() => setCollapsed(true)}>
+           {i18n.dir() === 'rtl' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+        </IconButton>
+      </Box>
+
+      <Box sx={{ p: 3, pt: 0 }}>
+        {selectedNode ? (
+          <>
+            <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+              <Avatar
+                sx={{
+                  bgcolor: selectedNode.is_prophet === "True" ? '#ffd700' : (selectedNode.gender === 'male' ? '#2196f3' : '#e91e63'),
+                  mr: 2,
+                  width: 56,
+                  height: 56
+                }}
+              >
+                {selectedNode.is_prophet === "True" ? <StarIcon fontSize="large" /> : (selectedNode.gender === 'male' ? <PersonIcon fontSize="large" /> : <FemaleIcon fontSize="large" />)}
+              </Avatar>
+              <Box>
+                <Typography variant="h5">{selectedNode.name}</Typography>
+                <Typography variant="subtitle1" color="text.secondary">{selectedNode.title}</Typography>
+              </Box>
+            </Box>
+
+            <Divider sx={{ my: 2 }} />
+
+            <Typography variant="h6" gutterBottom>{t('expand_relationships')}</Typography>
+            <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
+              {t('click_to_reveal')}
+            </Typography>
+            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mb: 3 }}>
+              {availableCategories.length > 0 ? (
+                availableCategories.map((cat) => (
+                  <Chip
+                    key={cat}
+                    label={cat.charAt(0).toUpperCase() + cat.slice(1)}
+                    onClick={() => onExpand(selectedNode.id, cat)}
+                    icon={<AddIcon />}
+                    color="primary"
+                    variant="outlined"
+                    clickable
+                  />
+                ))
+              ) : (
+                <Typography variant="body2" color="text.disabled">No relationships found in data.</Typography>
+              )}
+            </Box>
+
+            <Paper variant="outlined" sx={{ p: 2, bgcolor: 'background.default' }}>
+              <Typography variant="subtitle2" gutterBottom color="primary">
+                {t('biography')}
+              </Typography>
+              <Typography variant="body2">
+                {t('bio_placeholder', { name: selectedNode.name })}
+              </Typography>
+            </Paper>
+          </>
+        ) : (
+          <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%', mt: 20 }}>
+            <Typography color="text.secondary">{t('details_placeholder')}</Typography>
+          </Box>
+        )}
+      </Box>
+    </Drawer>
+  );
+};
+
+export default SahabahDetail;
