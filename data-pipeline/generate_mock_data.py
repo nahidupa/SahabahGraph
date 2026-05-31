@@ -487,8 +487,35 @@ def main():
         if sid is not None:
             relationships.append({"source_id": sid, "target_id": 1007, "type": "PARTICIPATED_IN", "category": "battles"})
 
+    # 3. Calculate has_* flags
+    for n in nodes:
+        node_id = n['id']
+        if n['node_type'] == 'Sahabi':
+            n['has_parents'] = any(r['target_id'] == node_id and r['type'] == 'PARENT_OF' for r in relationships)
+            n['has_children'] = any(r['source_id'] == node_id and r['type'] == 'PARENT_OF' for r in relationships)
+            n['has_spouses'] = any((r['source_id'] == node_id or r['target_id'] == node_id) and r['type'] == 'SPOUSE_OF' for r in relationships)
+            n['has_siblings'] = any((r['source_id'] == node_id or r['target_id'] == node_id) and r['type'] == 'SIBLING_OF' for r in relationships)
+            n['has_uncles'] = any(r['target_id'] == node_id and r['type'] == 'UNCLE_OF' for r in relationships)
+            n['has_cousins'] = any((r['source_id'] == node_id or r['target_id'] == node_id) and r['type'] == 'COUSIN_OF' for r in relationships)
+            n['has_companions'] = any((r['source_id'] == node_id or r['target_id'] == node_id) and r['type'] == 'COMPANION_OF' for r in relationships)
+            n['has_teachers'] = any(r['target_id'] == node_id and r['type'] == 'TEACHER_OF' for r in relationships)
+            n['has_students'] = any(r['source_id'] == node_id and r['type'] == 'TEACHER_OF' for r in relationships)
+            n['has_battles'] = any(r['source_id'] == node_id and r['type'] == 'PARTICIPATED_IN' for r in relationships)
+            # Fill other has_* for battles as False for Sahabi
+            n['has_participants'] = False
+        elif n['node_type'] == 'Battle':
+            n['has_participants'] = any(r['target_id'] == node_id and r['type'] == 'PARTICIPATED_IN' for r in relationships)
+            # Fill Sahabi has_* as False for Battle
+            for field in ['has_parents', 'has_children', 'has_spouses', 'has_siblings', 'has_uncles', 'has_cousins', 'has_companions', 'has_teachers', 'has_students', 'has_battles']:
+                n[field] = False
+
     # Save CSVs
-    fieldnames = ["id", "name_ar", "name_en", "kunyah", "laqab", "gender", "is_prophet", "node_type", "prominence", "biography_short", "biography_source", "tribe", "clan", "birth_year_hijri", "death_year_hijri"]
+    fieldnames = [
+        "id", "name_ar", "name_en", "kunyah", "laqab", "gender", "is_prophet", "node_type", "prominence",
+        "biography_short", "biography_source", "tribe", "clan", "birth_year_hijri", "death_year_hijri",
+        "has_parents", "has_children", "has_spouses", "has_siblings", "has_uncles", "has_cousins",
+        "has_companions", "has_teachers", "has_students", "has_battles", "has_participants"
+    ]
     with open('data-pipeline/sahabah.csv', 'w', newline='', encoding='utf-8') as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
         writer.writeheader()

@@ -43,7 +43,18 @@ def load_data():
                         n.tribe = $tribe,
                         n.clan = $clan,
                         n.birth_year_hijri = toInteger($birth_year_hijri),
-                        n.death_year_hijri = toInteger($death_year_hijri)
+                        n.death_year_hijri = toInteger($death_year_hijri),
+                        n.has_parents = ($has_parents = 'True'),
+                        n.has_children = ($has_children = 'True'),
+                        n.has_spouses = ($has_spouses = 'True'),
+                        n.has_siblings = ($has_siblings = 'True'),
+                        n.has_uncles = ($has_uncles = 'True'),
+                        n.has_cousins = ($has_cousins = 'True'),
+                        n.has_companions = ($has_companions = 'True'),
+                        n.has_teachers = ($has_teachers = 'True'),
+                        n.has_students = ($has_students = 'True'),
+                        n.has_battles = ($has_battles = 'True'),
+                        n.has_participants = ($has_participants = 'True')
                 """
                 session.run(
                     query,
@@ -60,7 +71,18 @@ def load_data():
                     tribe=row['tribe'],
                     clan=row['clan'],
                     birth_year_hijri=row['birth_year_hijri'],
-                    death_year_hijri=row['death_year_hijri']
+                    death_year_hijri=row['death_year_hijri'],
+                    has_parents=row['has_parents'],
+                    has_children=row['has_children'],
+                    has_spouses=row['has_spouses'],
+                    has_siblings=row['has_siblings'],
+                    has_uncles=row['has_uncles'],
+                    has_cousins=row['has_cousins'],
+                    has_companions=row['has_companions'],
+                    has_teachers=row['has_teachers'],
+                    has_students=row['has_students'],
+                    has_battles=row['has_battles'],
+                    has_participants=row['has_participants']
                 )
 
         # 4. Load Relationships

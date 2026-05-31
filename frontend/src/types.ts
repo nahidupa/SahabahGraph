@@ -14,6 +14,17 @@ export interface Sahabi {
   clan?: string;
   birth_year_hijri?: number;
   death_year_hijri?: number;
+  has_parents?: boolean;
+  has_children?: boolean;
+  has_spouses?: boolean;
+  has_siblings?: boolean;
+  has_uncles?: boolean;
+  has_cousins?: boolean;
+  has_companions?: boolean;
+  has_teachers?: boolean;
+  has_students?: boolean;
+  has_battles?: boolean;
+  has_participants?: boolean;
 }
 
 export interface Relationship {
