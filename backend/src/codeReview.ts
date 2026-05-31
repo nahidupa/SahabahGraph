@@ -2,7 +2,7 @@ import { Neo4jGraphQL } from "@neo4j/graphql";
 import neo4j from "neo4j-driver";
 
 // This file is just for checking types during review
-const typeDefs = `#graphql
+export const typeDefs = `#graphql
   type Sahabi @node {
     id: Int!
     name: String!
@@ -17,4 +17,4 @@ const typeDefs = `#graphql
   }
 `;
 
-console.log("Types are valid");
+console.log("Types are valid", !!Neo4jGraphQL, !!neo4j, !!typeDefs);

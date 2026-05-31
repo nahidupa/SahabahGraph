@@ -1,6 +1,5 @@
 import type { GraphData } from '../types';
 
-/* eslint-disable no-restricted-globals */
 self.onmessage = (e: MessageEvent<{ data: GraphData, startId: string, endId: string }>) => {
   const { data, startId, endId } = e.data;
   const path = findShortestPath(data, startId, endId);

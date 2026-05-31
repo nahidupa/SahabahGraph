@@ -1,209 +1,209 @@
-id,name,gender,is_prophet,title,node_type,bio,birth_year,death_year
-0,Muhammad (PBUH),male,True,Rasulullah,Sahabi,The last Prophet of Islam.,-53,11
-1,Abu Bakr as-Siddiq,male,False,As-Siddiq,Sahabi,The first Caliph of Islam.,-51,13
-2,Umar ibn al-Khattab,male,False,Al-Faruq,Sahabi,The second Caliph of Islam.,-40,23
-3,Uthman ibn Affan,male,False,Dhun-Nurayn,Sahabi,The third Caliph of Islam.,-47,35
-4,Ali ibn Abi Talib,male,False,Asadullah,Sahabi,The fourth Caliph of Islam.,-23,40
-5,Talha ibn Ubaydullah,male,False,Talhat al-Khayr,Sahabi,One of the ten promised paradise.,-28,36
-6,Zubayr ibn al-Awwam,male,False,Hawari Rasulillah,Sahabi,One of the ten promised paradise.,-28,36
-7,Abdur Rahman ibn Awf,male,False,,Sahabi,One of the ten promised paradise.,-44,32
-8,Sa'd ibn Abi Waqqas,male,False,,Sahabi,One of the ten promised paradise.,-23,55
-9,Sa'id ibn Zayd,male,False,,Sahabi,One of the ten promised paradise.,-22,51
-10,Abu Ubaydah ibn al-Jarrah,male,False,Amin al-Ummah,Sahabi,One of the ten promised paradise.,-40,18
-11,Khadija bint Khuwaylid,female,False,Tahira,Sahabi,The first wife of the Prophet.,-68,-3
-12,Aisha bint Abi Bakr,female,False,Siddiqa,Sahabi,The wife of the Prophet and daughter of Abu Bakr.,9,58
-13,Fatima bint Muhammad,female,False,Az-Zahra,Sahabi,The daughter of the Prophet and wife of Ali.,-18,11
-14,Hasan ibn Ali,male,False,,Sahabi,Grandson of the Prophet.,3,50
-15,Husayn ibn Ali,male,False,,Sahabi,Grandson of the Prophet.,4,61
-16,Hamza ibn Abd al-Muttalib,male,False,Asadullah,Sahabi,Uncle of the Prophet.,-54,3
-17,Abbas ibn Abd al-Muttalib,male,False,,Sahabi,Uncle of the Prophet.,-56,32
-18,Bilal ibn Rabah,male,False,Muadhin,Sahabi,The first muadhin of Islam.,-42,20
-19,Khalid ibn al-Walid,male,False,Saifullah,Sahabi,The Sword of Allah.,-30,21
-20,Zaynab bint Muhammad,female,False,,Sahabi,Daughter of the Prophet.,-23,8
-21,Ruqayya bint Muhammad,female,False,,Sahabi,Daughter of the Prophet.,-20,2
-22,Umm Kulthum bint Muhammad,female,False,,Sahabi,Daughter of the Prophet.,-19,9
-23,Ja'far ibn Abi Talib,male,False,,Sahabi,Biographical info for Ja'far ibn Abi Talib,,
-24,Zayd ibn Harithah,male,False,,Sahabi,Biographical info for Zayd ibn Harithah,,
-25,Usama ibn Zayd,male,False,,Sahabi,Biographical info for Usama ibn Zayd,,
-26,Abdullah ibn Umar,male,False,,Sahabi,Biographical info for Abdullah ibn Umar,,
-27,Abdullah ibn Abbas,male,False,,Sahabi,Biographical info for Abdullah ibn Abbas,,
-28,Abdullah ibn Mas'ud,male,False,,Sahabi,Biographical info for Abdullah ibn Mas'ud,,
-29,Abu Hurairah,male,False,,Sahabi,Biographical info for Abu Hurairah,,
-30,Anas ibn Malik,male,False,,Sahabi,Biographical info for Anas ibn Malik,,
-31,Jabir ibn Abdullah,male,False,,Sahabi,Biographical info for Jabir ibn Abdullah,,
-32,Abu Sa'id al-Khudri,male,False,,Sahabi,Biographical info for Abu Sa'id al-Khudri,,
-33,Mu'adh ibn Jabal,male,False,,Sahabi,Biographical info for Mu'adh ibn Jabal,,
-34,Ubayy ibn Ka'b,male,False,,Sahabi,Biographical info for Ubayy ibn Ka'b,,
-35,Zayd ibn Thabit,male,False,,Sahabi,Biographical info for Zayd ibn Thabit,,
-36,Abu Dharr al-Ghifari,male,False,,Sahabi,Biographical info for Abu Dharr al-Ghifari,,
-37,Salman al-Farsi,male,False,,Sahabi,Biographical info for Salman al-Farsi,,
-38,Ammar ibn Yasir,male,False,,Sahabi,Biographical info for Ammar ibn Yasir,,
-39,Miqdad ibn Aswad,male,False,,Sahabi,Biographical info for Miqdad ibn Aswad,,
-40,Hudhayfa ibn al-Yaman,male,False,,Sahabi,Biographical info for Hudhayfa ibn al-Yaman,,
-41,Amr ibn al-Aas,male,False,,Sahabi,Biographical info for Amr ibn al-Aas,,
-42,Muawiyah ibn Abi Sufyan,male,False,,Sahabi,Biographical info for Muawiyah ibn Abi Sufyan,,
-43,Sahabi 43,male,False,,Sahabi,Biographical info for Sahabi 43,,
-44,Sahabi 44,male,False,,Sahabi,Biographical info for Sahabi 44,,
-45,Sahabi 45,male,False,,Sahabi,Biographical info for Sahabi 45,,
-46,Sahabi 46,male,False,,Sahabi,Biographical info for Sahabi 46,,
-47,Sahabi 47,male,False,,Sahabi,Biographical info for Sahabi 47,,
-48,Sahabi 48,male,False,,Sahabi,Biographical info for Sahabi 48,,
-49,Sahabi 49,male,False,,Sahabi,Biographical info for Sahabi 49,,
-50,Sahabi 50,male,False,,Sahabi,Biographical info for Sahabi 50,,
-51,Sahabi 51,male,False,,Sahabi,Biographical info for Sahabi 51,,
-52,Sahabi 52,male,False,,Sahabi,Biographical info for Sahabi 52,,
-53,Sahabi 53,male,False,,Sahabi,Biographical info for Sahabi 53,,
-54,Sahabi 54,male,False,,Sahabi,Biographical info for Sahabi 54,,
-55,Sahabi 55,male,False,,Sahabi,Biographical info for Sahabi 55,,
-56,Sahabi 56,male,False,,Sahabi,Biographical info for Sahabi 56,,
-57,Sahabi 57,male,False,,Sahabi,Biographical info for Sahabi 57,,
-58,Sahabi 58,male,False,,Sahabi,Biographical info for Sahabi 58,,
-59,Sahabi 59,male,False,,Sahabi,Biographical info for Sahabi 59,,
-60,Sahabi 60,male,False,,Sahabi,Biographical info for Sahabi 60,,
-61,Sahabi 61,male,False,,Sahabi,Biographical info for Sahabi 61,,
-62,Sahabi 62,male,False,,Sahabi,Biographical info for Sahabi 62,,
-63,Sahabi 63,male,False,,Sahabi,Biographical info for Sahabi 63,,
-64,Sahabi 64,male,False,,Sahabi,Biographical info for Sahabi 64,,
-65,Sahabi 65,male,False,,Sahabi,Biographical info for Sahabi 65,,
-66,Sahabi 66,male,False,,Sahabi,Biographical info for Sahabi 66,,
-67,Sahabi 67,male,False,,Sahabi,Biographical info for Sahabi 67,,
-68,Sahabi 68,male,False,,Sahabi,Biographical info for Sahabi 68,,
-69,Sahabi 69,male,False,,Sahabi,Biographical info for Sahabi 69,,
-70,Sahabi 70,male,False,,Sahabi,Biographical info for Sahabi 70,,
-71,Sahabi 71,male,False,,Sahabi,Biographical info for Sahabi 71,,
-72,Sahabi 72,male,False,,Sahabi,Biographical info for Sahabi 72,,
-73,Sahabi 73,male,False,,Sahabi,Biographical info for Sahabi 73,,
-74,Sahabi 74,male,False,,Sahabi,Biographical info for Sahabi 74,,
-75,Sahabi 75,male,False,,Sahabi,Biographical info for Sahabi 75,,
-76,Sahabi 76,male,False,,Sahabi,Biographical info for Sahabi 76,,
-77,Sahabi 77,male,False,,Sahabi,Biographical info for Sahabi 77,,
-78,Sahabi 78,male,False,,Sahabi,Biographical info for Sahabi 78,,
-79,Sahabi 79,male,False,,Sahabi,Biographical info for Sahabi 79,,
-80,Sahabi 80,male,False,,Sahabi,Biographical info for Sahabi 80,,
-81,Sahabi 81,male,False,,Sahabi,Biographical info for Sahabi 81,,
-82,Sahabi 82,male,False,,Sahabi,Biographical info for Sahabi 82,,
-83,Sahabi 83,male,False,,Sahabi,Biographical info for Sahabi 83,,
-84,Sahabi 84,male,False,,Sahabi,Biographical info for Sahabi 84,,
-85,Sahabi 85,male,False,,Sahabi,Biographical info for Sahabi 85,,
-86,Sahabi 86,male,False,,Sahabi,Biographical info for Sahabi 86,,
-87,Sahabi 87,male,False,,Sahabi,Biographical info for Sahabi 87,,
-88,Sahabi 88,male,False,,Sahabi,Biographical info for Sahabi 88,,
-89,Sahabi 89,male,False,,Sahabi,Biographical info for Sahabi 89,,
-90,Sahabi 90,male,False,,Sahabi,Biographical info for Sahabi 90,,
-91,Sahabi 91,male,False,,Sahabi,Biographical info for Sahabi 91,,
-92,Sahabi 92,male,False,,Sahabi,Biographical info for Sahabi 92,,
-93,Sahabi 93,male,False,,Sahabi,Biographical info for Sahabi 93,,
-94,Sahabi 94,male,False,,Sahabi,Biographical info for Sahabi 94,,
-95,Sahabi 95,male,False,,Sahabi,Biographical info for Sahabi 95,,
-96,Sahabi 96,male,False,,Sahabi,Biographical info for Sahabi 96,,
-97,Sahabi 97,male,False,,Sahabi,Biographical info for Sahabi 97,,
-98,Sahabi 98,male,False,,Sahabi,Biographical info for Sahabi 98,,
-99,Sahabi 99,male,False,,Sahabi,Biographical info for Sahabi 99,,
-100,Sahabi 100,male,False,,Sahabi,Biographical info for Sahabi 100,,
-101,Sahabi 101,male,False,,Sahabi,Biographical info for Sahabi 101,,
-102,Sahabi 102,male,False,,Sahabi,Biographical info for Sahabi 102,,
-103,Sahabi 103,male,False,,Sahabi,Biographical info for Sahabi 103,,
-104,Sahabi 104,male,False,,Sahabi,Biographical info for Sahabi 104,,
-105,Sahabi 105,male,False,,Sahabi,Biographical info for Sahabi 105,,
-106,Sahabi 106,male,False,,Sahabi,Biographical info for Sahabi 106,,
-107,Sahabi 107,male,False,,Sahabi,Biographical info for Sahabi 107,,
-108,Sahabi 108,male,False,,Sahabi,Biographical info for Sahabi 108,,
-109,Sahabi 109,male,False,,Sahabi,Biographical info for Sahabi 109,,
-110,Sahabi 110,male,False,,Sahabi,Biographical info for Sahabi 110,,
-111,Sahabi 111,male,False,,Sahabi,Biographical info for Sahabi 111,,
-112,Sahabi 112,male,False,,Sahabi,Biographical info for Sahabi 112,,
-113,Sahabi 113,male,False,,Sahabi,Biographical info for Sahabi 113,,
-114,Sahabi 114,male,False,,Sahabi,Biographical info for Sahabi 114,,
-115,Sahabi 115,male,False,,Sahabi,Biographical info for Sahabi 115,,
-116,Sahabi 116,male,False,,Sahabi,Biographical info for Sahabi 116,,
-117,Sahabi 117,male,False,,Sahabi,Biographical info for Sahabi 117,,
-118,Sahabi 118,male,False,,Sahabi,Biographical info for Sahabi 118,,
-119,Sahabi 119,male,False,,Sahabi,Biographical info for Sahabi 119,,
-120,Sahabi 120,male,False,,Sahabi,Biographical info for Sahabi 120,,
-121,Sahabi 121,male,False,,Sahabi,Biographical info for Sahabi 121,,
-122,Sahabi 122,male,False,,Sahabi,Biographical info for Sahabi 122,,
-123,Sahabi 123,male,False,,Sahabi,Biographical info for Sahabi 123,,
-124,Sahabi 124,male,False,,Sahabi,Biographical info for Sahabi 124,,
-125,Sahabi 125,male,False,,Sahabi,Biographical info for Sahabi 125,,
-126,Sahabi 126,male,False,,Sahabi,Biographical info for Sahabi 126,,
-127,Sahabi 127,male,False,,Sahabi,Biographical info for Sahabi 127,,
-128,Sahabi 128,male,False,,Sahabi,Biographical info for Sahabi 128,,
-129,Sahabi 129,male,False,,Sahabi,Biographical info for Sahabi 129,,
-130,Sahabi 130,male,False,,Sahabi,Biographical info for Sahabi 130,,
-131,Sahabi 131,male,False,,Sahabi,Biographical info for Sahabi 131,,
-132,Sahabi 132,male,False,,Sahabi,Biographical info for Sahabi 132,,
-133,Sahabi 133,male,False,,Sahabi,Biographical info for Sahabi 133,,
-134,Sahabi 134,male,False,,Sahabi,Biographical info for Sahabi 134,,
-135,Sahabi 135,male,False,,Sahabi,Biographical info for Sahabi 135,,
-136,Sahabi 136,male,False,,Sahabi,Biographical info for Sahabi 136,,
-137,Sahabi 137,male,False,,Sahabi,Biographical info for Sahabi 137,,
-138,Sahabi 138,male,False,,Sahabi,Biographical info for Sahabi 138,,
-139,Sahabi 139,male,False,,Sahabi,Biographical info for Sahabi 139,,
-140,Sahabi 140,male,False,,Sahabi,Biographical info for Sahabi 140,,
-141,Sahabi 141,male,False,,Sahabi,Biographical info for Sahabi 141,,
-142,Sahabi 142,male,False,,Sahabi,Biographical info for Sahabi 142,,
-143,Sahabi 143,male,False,,Sahabi,Biographical info for Sahabi 143,,
-144,Sahabi 144,male,False,,Sahabi,Biographical info for Sahabi 144,,
-145,Sahabi 145,male,False,,Sahabi,Biographical info for Sahabi 145,,
-146,Sahabi 146,male,False,,Sahabi,Biographical info for Sahabi 146,,
-147,Sahabi 147,male,False,,Sahabi,Biographical info for Sahabi 147,,
-148,Sahabi 148,male,False,,Sahabi,Biographical info for Sahabi 148,,
-149,Sahabi 149,male,False,,Sahabi,Biographical info for Sahabi 149,,
-150,Sahabi 150,male,False,,Sahabi,Biographical info for Sahabi 150,,
-151,Sahabi 151,male,False,,Sahabi,Biographical info for Sahabi 151,,
-152,Sahabi 152,male,False,,Sahabi,Biographical info for Sahabi 152,,
-153,Sahabi 153,male,False,,Sahabi,Biographical info for Sahabi 153,,
-154,Sahabi 154,male,False,,Sahabi,Biographical info for Sahabi 154,,
-155,Sahabi 155,male,False,,Sahabi,Biographical info for Sahabi 155,,
-156,Sahabi 156,male,False,,Sahabi,Biographical info for Sahabi 156,,
-157,Sahabi 157,male,False,,Sahabi,Biographical info for Sahabi 157,,
-158,Sahabi 158,male,False,,Sahabi,Biographical info for Sahabi 158,,
-159,Sahabi 159,male,False,,Sahabi,Biographical info for Sahabi 159,,
-160,Sahabi 160,male,False,,Sahabi,Biographical info for Sahabi 160,,
-161,Sahabi 161,male,False,,Sahabi,Biographical info for Sahabi 161,,
-162,Sahabi 162,male,False,,Sahabi,Biographical info for Sahabi 162,,
-163,Sahabi 163,male,False,,Sahabi,Biographical info for Sahabi 163,,
-164,Sahabi 164,male,False,,Sahabi,Biographical info for Sahabi 164,,
-165,Sahabi 165,male,False,,Sahabi,Biographical info for Sahabi 165,,
-166,Sahabi 166,male,False,,Sahabi,Biographical info for Sahabi 166,,
-167,Sahabi 167,male,False,,Sahabi,Biographical info for Sahabi 167,,
-168,Sahabi 168,male,False,,Sahabi,Biographical info for Sahabi 168,,
-169,Sahabi 169,male,False,,Sahabi,Biographical info for Sahabi 169,,
-170,Sahabi 170,male,False,,Sahabi,Biographical info for Sahabi 170,,
-171,Sahabi 171,male,False,,Sahabi,Biographical info for Sahabi 171,,
-172,Sahabi 172,male,False,,Sahabi,Biographical info for Sahabi 172,,
-173,Sahabi 173,male,False,,Sahabi,Biographical info for Sahabi 173,,
-174,Sahabi 174,male,False,,Sahabi,Biographical info for Sahabi 174,,
-175,Sahabi 175,male,False,,Sahabi,Biographical info for Sahabi 175,,
-176,Sahabi 176,male,False,,Sahabi,Biographical info for Sahabi 176,,
-177,Sahabi 177,male,False,,Sahabi,Biographical info for Sahabi 177,,
-178,Sahabi 178,male,False,,Sahabi,Biographical info for Sahabi 178,,
-179,Sahabi 179,male,False,,Sahabi,Biographical info for Sahabi 179,,
-180,Sahabi 180,male,False,,Sahabi,Biographical info for Sahabi 180,,
-181,Sahabi 181,male,False,,Sahabi,Biographical info for Sahabi 181,,
-182,Sahabi 182,male,False,,Sahabi,Biographical info for Sahabi 182,,
-183,Sahabi 183,male,False,,Sahabi,Biographical info for Sahabi 183,,
-184,Sahabi 184,male,False,,Sahabi,Biographical info for Sahabi 184,,
-185,Sahabi 185,male,False,,Sahabi,Biographical info for Sahabi 185,,
-186,Sahabi 186,male,False,,Sahabi,Biographical info for Sahabi 186,,
-187,Sahabi 187,male,False,,Sahabi,Biographical info for Sahabi 187,,
-188,Sahabi 188,male,False,,Sahabi,Biographical info for Sahabi 188,,
-189,Sahabi 189,male,False,,Sahabi,Biographical info for Sahabi 189,,
-190,Sahabi 190,male,False,,Sahabi,Biographical info for Sahabi 190,,
-191,Sahabi 191,male,False,,Sahabi,Biographical info for Sahabi 191,,
-192,Sahabi 192,male,False,,Sahabi,Biographical info for Sahabi 192,,
-193,Sahabi 193,male,False,,Sahabi,Biographical info for Sahabi 193,,
-194,Sahabi 194,male,False,,Sahabi,Biographical info for Sahabi 194,,
-195,Sahabi 195,male,False,,Sahabi,Biographical info for Sahabi 195,,
-196,Sahabi 196,male,False,,Sahabi,Biographical info for Sahabi 196,,
-197,Sahabi 197,male,False,,Sahabi,Biographical info for Sahabi 197,,
-198,Sahabi 198,male,False,,Sahabi,Biographical info for Sahabi 198,,
-199,Sahabi 199,male,False,,Sahabi,Biographical info for Sahabi 199,,
-1000,Battle of Badr,male,False,2 AH,Battle,First major battle of Islam.,2,2
-1001,Battle of Uhud,male,False,3 AH,Battle,Second major battle of Islam.,3,3
-1002,Battle of the Trench,male,False,5 AH,Battle,Defensive siege of Medina.,5,5
-1003,Battle of Khaibar,male,False,7 AH,Battle,Battle against the Jewish fortresses.,7,7
-1004,Battle of Mu'tah,male,False,8 AH,Battle,First battle against the Byzantines.,8,8
-1005,Battle of Hunayn,male,False,8 AH,Battle,Battle against the Hawazin and Thaqif.,8,8
-1006,Battle of Yarmouk,male,False,13 AH,Battle,Major battle between the Muslims and the Byzantines.,13,13
-1007,Battle of Qadisiyyah,male,False,15 AH,Battle,Major battle between the Muslims and the Sassanids.,15,15
+id,name,gender,is_prophet,title,node_type,bio,tribe,clan,birth_year,death_year
+0,Muhammad (PBUH),male,True,Rasulullah,Sahabi,The last Prophet of Islam.,Quraish,Banu Hashim,-53,11
+1,Abu Bakr as-Siddiq,male,False,As-Siddiq,Sahabi,The first Caliph of Islam.,Quraish,Banu Taym,-51,13
+2,Umar ibn al-Khattab,male,False,Al-Faruq,Sahabi,The second Caliph of Islam.,Quraish,Banu Adi,-40,23
+3,Uthman ibn Affan,male,False,Dhun-Nurayn,Sahabi,The third Caliph of Islam.,Quraish,Banu Umayya,-47,35
+4,Ali ibn Abi Talib,male,False,Asadullah,Sahabi,The fourth Caliph of Islam.,Quraish,Banu Hashim,-23,40
+5,Talha ibn Ubaydullah,male,False,Talhat al-Khayr,Sahabi,One of the ten promised paradise.,Quraish,Banu Taym,-28,36
+6,Zubayr ibn al-Awwam,male,False,Hawari Rasulillah,Sahabi,One of the ten promised paradise.,Quraish,Banu Asad,-28,36
+7,Abdur Rahman ibn Awf,male,False,,Sahabi,One of the ten promised paradise.,Quraish,Banu Zuhra,-44,32
+8,Sa'd ibn Abi Waqqas,male,False,,Sahabi,One of the ten promised paradise.,Quraish,Banu Zuhra,-23,55
+9,Sa'id ibn Zayd,male,False,,Sahabi,One of the ten promised paradise.,Quraish,Banu Adi,-22,51
+10,Abu Ubaydah ibn al-Jarrah,male,False,Amin al-Ummah,Sahabi,One of the ten promised paradise.,Quraish,Banu al-Harith,-40,18
+11,Khadija bint Khuwaylid,female,False,Tahira,Sahabi,The first wife of the Prophet.,Quraish,Banu Asad,-68,-3
+12,Aisha bint Abi Bakr,female,False,Siddiqa,Sahabi,The wife of the Prophet and daughter of Abu Bakr.,Quraish,Banu Taym,9,58
+13,Fatima bint Muhammad,female,False,Az-Zahra,Sahabi,The daughter of the Prophet and wife of Ali.,Quraish,Banu Hashim,-18,11
+14,Hasan ibn Ali,male,False,,Sahabi,Grandson of the Prophet.,Quraish,Banu Hashim,3,50
+15,Husayn ibn Ali,male,False,,Sahabi,Grandson of the Prophet.,Quraish,Banu Hashim,4,61
+16,Hamza ibn Abd al-Muttalib,male,False,Asadullah,Sahabi,Uncle of the Prophet.,Quraish,Banu Hashim,-54,3
+17,Abbas ibn Abd al-Muttalib,male,False,,Sahabi,Uncle of the Prophet.,Quraish,Banu Hashim,-56,32
+18,Bilal ibn Rabah,male,False,Muadhin,Sahabi,The first muadhin of Islam.,Habesha,,-42,20
+19,Khalid ibn al-Walid,male,False,Saifullah,Sahabi,The Sword of Allah.,Quraish,Banu Makhzum,-30,21
+20,Zaynab bint Muhammad,female,False,,Sahabi,Daughter of the Prophet.,Quraish,Banu Hashim,-23,8
+21,Ruqayya bint Muhammad,female,False,,Sahabi,Daughter of the Prophet.,Quraish,Banu Hashim,-20,2
+22,Umm Kulthum bint Muhammad,female,False,,Sahabi,Daughter of the Prophet.,Quraish,Banu Hashim,-19,9
+23,Ja'far ibn Abi Talib,male,False,,Sahabi,Biographical info for Ja'far ibn Abi Talib,Various,Various,0,60
+24,Zayd ibn Harithah,male,False,,Sahabi,Biographical info for Zayd ibn Harithah,Various,Various,0,60
+25,Usama ibn Zayd,male,False,,Sahabi,Biographical info for Usama ibn Zayd,Various,Various,0,60
+26,Abdullah ibn Umar,male,False,,Sahabi,Biographical info for Abdullah ibn Umar,Various,Various,0,60
+27,Abdullah ibn Abbas,male,False,,Sahabi,Biographical info for Abdullah ibn Abbas,Various,Various,0,60
+28,Abdullah ibn Mas'ud,male,False,,Sahabi,Biographical info for Abdullah ibn Mas'ud,Various,Various,0,60
+29,Abu Hurairah,male,False,,Sahabi,Biographical info for Abu Hurairah,Various,Various,0,60
+30,Anas ibn Malik,male,False,,Sahabi,Biographical info for Anas ibn Malik,Various,Various,0,60
+31,Jabir ibn Abdullah,male,False,,Sahabi,Biographical info for Jabir ibn Abdullah,Various,Various,0,60
+32,Abu Sa'id al-Khudri,male,False,,Sahabi,Biographical info for Abu Sa'id al-Khudri,Various,Various,0,60
+33,Mu'adh ibn Jabal,male,False,,Sahabi,Biographical info for Mu'adh ibn Jabal,Various,Various,0,60
+34,Ubayy ibn Ka'b,male,False,,Sahabi,Biographical info for Ubayy ibn Ka'b,Various,Various,0,60
+35,Zayd ibn Thabit,male,False,,Sahabi,Biographical info for Zayd ibn Thabit,Various,Various,0,60
+36,Abu Dharr al-Ghifari,male,False,,Sahabi,Biographical info for Abu Dharr al-Ghifari,Various,Various,0,60
+37,Salman al-Farsi,male,False,,Sahabi,Biographical info for Salman al-Farsi,Various,Various,0,60
+38,Ammar ibn Yasir,male,False,,Sahabi,Biographical info for Ammar ibn Yasir,Various,Various,0,60
+39,Miqdad ibn Aswad,male,False,,Sahabi,Biographical info for Miqdad ibn Aswad,Various,Various,0,60
+40,Hudhayfa ibn al-Yaman,male,False,,Sahabi,Biographical info for Hudhayfa ibn al-Yaman,Various,Various,0,60
+41,Amr ibn al-Aas,male,False,,Sahabi,Biographical info for Amr ibn al-Aas,Various,Various,0,60
+42,Muawiyah ibn Abi Sufyan,male,False,,Sahabi,Biographical info for Muawiyah ibn Abi Sufyan,Various,Various,0,60
+43,Sahabi 43,male,False,,Sahabi,Biographical info for Sahabi 43,Unknown,Unknown,0,60
+44,Sahabi 44,male,False,,Sahabi,Biographical info for Sahabi 44,Unknown,Unknown,0,60
+45,Sahabi 45,male,False,,Sahabi,Biographical info for Sahabi 45,Unknown,Unknown,0,60
+46,Sahabi 46,male,False,,Sahabi,Biographical info for Sahabi 46,Unknown,Unknown,0,60
+47,Sahabi 47,male,False,,Sahabi,Biographical info for Sahabi 47,Unknown,Unknown,0,60
+48,Sahabi 48,male,False,,Sahabi,Biographical info for Sahabi 48,Unknown,Unknown,0,60
+49,Sahabi 49,male,False,,Sahabi,Biographical info for Sahabi 49,Unknown,Unknown,0,60
+50,Sahabi 50,male,False,,Sahabi,Biographical info for Sahabi 50,Unknown,Unknown,0,60
+51,Sahabi 51,male,False,,Sahabi,Biographical info for Sahabi 51,Unknown,Unknown,0,60
+52,Sahabi 52,male,False,,Sahabi,Biographical info for Sahabi 52,Unknown,Unknown,0,60
+53,Sahabi 53,male,False,,Sahabi,Biographical info for Sahabi 53,Unknown,Unknown,0,60
+54,Sahabi 54,male,False,,Sahabi,Biographical info for Sahabi 54,Unknown,Unknown,0,60
+55,Sahabi 55,male,False,,Sahabi,Biographical info for Sahabi 55,Unknown,Unknown,0,60
+56,Sahabi 56,male,False,,Sahabi,Biographical info for Sahabi 56,Unknown,Unknown,0,60
+57,Sahabi 57,male,False,,Sahabi,Biographical info for Sahabi 57,Unknown,Unknown,0,60
+58,Sahabi 58,male,False,,Sahabi,Biographical info for Sahabi 58,Unknown,Unknown,0,60
+59,Sahabi 59,male,False,,Sahabi,Biographical info for Sahabi 59,Unknown,Unknown,0,60
+60,Sahabi 60,male,False,,Sahabi,Biographical info for Sahabi 60,Unknown,Unknown,0,60
+61,Sahabi 61,male,False,,Sahabi,Biographical info for Sahabi 61,Unknown,Unknown,0,60
+62,Sahabi 62,male,False,,Sahabi,Biographical info for Sahabi 62,Unknown,Unknown,0,60
+63,Sahabi 63,male,False,,Sahabi,Biographical info for Sahabi 63,Unknown,Unknown,0,60
+64,Sahabi 64,male,False,,Sahabi,Biographical info for Sahabi 64,Unknown,Unknown,0,60
+65,Sahabi 65,male,False,,Sahabi,Biographical info for Sahabi 65,Unknown,Unknown,0,60
+66,Sahabi 66,male,False,,Sahabi,Biographical info for Sahabi 66,Unknown,Unknown,0,60
+67,Sahabi 67,male,False,,Sahabi,Biographical info for Sahabi 67,Unknown,Unknown,0,60
+68,Sahabi 68,male,False,,Sahabi,Biographical info for Sahabi 68,Unknown,Unknown,0,60
+69,Sahabi 69,male,False,,Sahabi,Biographical info for Sahabi 69,Unknown,Unknown,0,60
+70,Sahabi 70,male,False,,Sahabi,Biographical info for Sahabi 70,Unknown,Unknown,0,60
+71,Sahabi 71,male,False,,Sahabi,Biographical info for Sahabi 71,Unknown,Unknown,0,60
+72,Sahabi 72,male,False,,Sahabi,Biographical info for Sahabi 72,Unknown,Unknown,0,60
+73,Sahabi 73,male,False,,Sahabi,Biographical info for Sahabi 73,Unknown,Unknown,0,60
+74,Sahabi 74,male,False,,Sahabi,Biographical info for Sahabi 74,Unknown,Unknown,0,60
+75,Sahabi 75,male,False,,Sahabi,Biographical info for Sahabi 75,Unknown,Unknown,0,60
+76,Sahabi 76,male,False,,Sahabi,Biographical info for Sahabi 76,Unknown,Unknown,0,60
+77,Sahabi 77,male,False,,Sahabi,Biographical info for Sahabi 77,Unknown,Unknown,0,60
+78,Sahabi 78,male,False,,Sahabi,Biographical info for Sahabi 78,Unknown,Unknown,0,60
+79,Sahabi 79,male,False,,Sahabi,Biographical info for Sahabi 79,Unknown,Unknown,0,60
+80,Sahabi 80,male,False,,Sahabi,Biographical info for Sahabi 80,Unknown,Unknown,0,60
+81,Sahabi 81,male,False,,Sahabi,Biographical info for Sahabi 81,Unknown,Unknown,0,60
+82,Sahabi 82,male,False,,Sahabi,Biographical info for Sahabi 82,Unknown,Unknown,0,60
+83,Sahabi 83,male,False,,Sahabi,Biographical info for Sahabi 83,Unknown,Unknown,0,60
+84,Sahabi 84,male,False,,Sahabi,Biographical info for Sahabi 84,Unknown,Unknown,0,60
+85,Sahabi 85,male,False,,Sahabi,Biographical info for Sahabi 85,Unknown,Unknown,0,60
+86,Sahabi 86,male,False,,Sahabi,Biographical info for Sahabi 86,Unknown,Unknown,0,60
+87,Sahabi 87,male,False,,Sahabi,Biographical info for Sahabi 87,Unknown,Unknown,0,60
+88,Sahabi 88,male,False,,Sahabi,Biographical info for Sahabi 88,Unknown,Unknown,0,60
+89,Sahabi 89,male,False,,Sahabi,Biographical info for Sahabi 89,Unknown,Unknown,0,60
+90,Sahabi 90,male,False,,Sahabi,Biographical info for Sahabi 90,Unknown,Unknown,0,60
+91,Sahabi 91,male,False,,Sahabi,Biographical info for Sahabi 91,Unknown,Unknown,0,60
+92,Sahabi 92,male,False,,Sahabi,Biographical info for Sahabi 92,Unknown,Unknown,0,60
+93,Sahabi 93,male,False,,Sahabi,Biographical info for Sahabi 93,Unknown,Unknown,0,60
+94,Sahabi 94,male,False,,Sahabi,Biographical info for Sahabi 94,Unknown,Unknown,0,60
+95,Sahabi 95,male,False,,Sahabi,Biographical info for Sahabi 95,Unknown,Unknown,0,60
+96,Sahabi 96,male,False,,Sahabi,Biographical info for Sahabi 96,Unknown,Unknown,0,60
+97,Sahabi 97,male,False,,Sahabi,Biographical info for Sahabi 97,Unknown,Unknown,0,60
+98,Sahabi 98,male,False,,Sahabi,Biographical info for Sahabi 98,Unknown,Unknown,0,60
+99,Sahabi 99,male,False,,Sahabi,Biographical info for Sahabi 99,Unknown,Unknown,0,60
+100,Sahabi 100,male,False,,Sahabi,Biographical info for Sahabi 100,Unknown,Unknown,0,60
+101,Sahabi 101,male,False,,Sahabi,Biographical info for Sahabi 101,Unknown,Unknown,0,60
+102,Sahabi 102,male,False,,Sahabi,Biographical info for Sahabi 102,Unknown,Unknown,0,60
+103,Sahabi 103,male,False,,Sahabi,Biographical info for Sahabi 103,Unknown,Unknown,0,60
+104,Sahabi 104,male,False,,Sahabi,Biographical info for Sahabi 104,Unknown,Unknown,0,60
+105,Sahabi 105,male,False,,Sahabi,Biographical info for Sahabi 105,Unknown,Unknown,0,60
+106,Sahabi 106,male,False,,Sahabi,Biographical info for Sahabi 106,Unknown,Unknown,0,60
+107,Sahabi 107,male,False,,Sahabi,Biographical info for Sahabi 107,Unknown,Unknown,0,60
+108,Sahabi 108,male,False,,Sahabi,Biographical info for Sahabi 108,Unknown,Unknown,0,60
+109,Sahabi 109,male,False,,Sahabi,Biographical info for Sahabi 109,Unknown,Unknown,0,60
+110,Sahabi 110,male,False,,Sahabi,Biographical info for Sahabi 110,Unknown,Unknown,0,60
+111,Sahabi 111,male,False,,Sahabi,Biographical info for Sahabi 111,Unknown,Unknown,0,60
+112,Sahabi 112,male,False,,Sahabi,Biographical info for Sahabi 112,Unknown,Unknown,0,60
+113,Sahabi 113,male,False,,Sahabi,Biographical info for Sahabi 113,Unknown,Unknown,0,60
+114,Sahabi 114,male,False,,Sahabi,Biographical info for Sahabi 114,Unknown,Unknown,0,60
+115,Sahabi 115,male,False,,Sahabi,Biographical info for Sahabi 115,Unknown,Unknown,0,60
+116,Sahabi 116,male,False,,Sahabi,Biographical info for Sahabi 116,Unknown,Unknown,0,60
+117,Sahabi 117,male,False,,Sahabi,Biographical info for Sahabi 117,Unknown,Unknown,0,60
+118,Sahabi 118,male,False,,Sahabi,Biographical info for Sahabi 118,Unknown,Unknown,0,60
+119,Sahabi 119,male,False,,Sahabi,Biographical info for Sahabi 119,Unknown,Unknown,0,60
+120,Sahabi 120,male,False,,Sahabi,Biographical info for Sahabi 120,Unknown,Unknown,0,60
+121,Sahabi 121,male,False,,Sahabi,Biographical info for Sahabi 121,Unknown,Unknown,0,60
+122,Sahabi 122,male,False,,Sahabi,Biographical info for Sahabi 122,Unknown,Unknown,0,60
+123,Sahabi 123,male,False,,Sahabi,Biographical info for Sahabi 123,Unknown,Unknown,0,60
+124,Sahabi 124,male,False,,Sahabi,Biographical info for Sahabi 124,Unknown,Unknown,0,60
+125,Sahabi 125,male,False,,Sahabi,Biographical info for Sahabi 125,Unknown,Unknown,0,60
+126,Sahabi 126,male,False,,Sahabi,Biographical info for Sahabi 126,Unknown,Unknown,0,60
+127,Sahabi 127,male,False,,Sahabi,Biographical info for Sahabi 127,Unknown,Unknown,0,60
+128,Sahabi 128,male,False,,Sahabi,Biographical info for Sahabi 128,Unknown,Unknown,0,60
+129,Sahabi 129,male,False,,Sahabi,Biographical info for Sahabi 129,Unknown,Unknown,0,60
+130,Sahabi 130,male,False,,Sahabi,Biographical info for Sahabi 130,Unknown,Unknown,0,60
+131,Sahabi 131,male,False,,Sahabi,Biographical info for Sahabi 131,Unknown,Unknown,0,60
+132,Sahabi 132,male,False,,Sahabi,Biographical info for Sahabi 132,Unknown,Unknown,0,60
+133,Sahabi 133,male,False,,Sahabi,Biographical info for Sahabi 133,Unknown,Unknown,0,60
+134,Sahabi 134,male,False,,Sahabi,Biographical info for Sahabi 134,Unknown,Unknown,0,60
+135,Sahabi 135,male,False,,Sahabi,Biographical info for Sahabi 135,Unknown,Unknown,0,60
+136,Sahabi 136,male,False,,Sahabi,Biographical info for Sahabi 136,Unknown,Unknown,0,60
+137,Sahabi 137,male,False,,Sahabi,Biographical info for Sahabi 137,Unknown,Unknown,0,60
+138,Sahabi 138,male,False,,Sahabi,Biographical info for Sahabi 138,Unknown,Unknown,0,60
+139,Sahabi 139,male,False,,Sahabi,Biographical info for Sahabi 139,Unknown,Unknown,0,60
+140,Sahabi 140,male,False,,Sahabi,Biographical info for Sahabi 140,Unknown,Unknown,0,60
+141,Sahabi 141,male,False,,Sahabi,Biographical info for Sahabi 141,Unknown,Unknown,0,60
+142,Sahabi 142,male,False,,Sahabi,Biographical info for Sahabi 142,Unknown,Unknown,0,60
+143,Sahabi 143,male,False,,Sahabi,Biographical info for Sahabi 143,Unknown,Unknown,0,60
+144,Sahabi 144,male,False,,Sahabi,Biographical info for Sahabi 144,Unknown,Unknown,0,60
+145,Sahabi 145,male,False,,Sahabi,Biographical info for Sahabi 145,Unknown,Unknown,0,60
+146,Sahabi 146,male,False,,Sahabi,Biographical info for Sahabi 146,Unknown,Unknown,0,60
+147,Sahabi 147,male,False,,Sahabi,Biographical info for Sahabi 147,Unknown,Unknown,0,60
+148,Sahabi 148,male,False,,Sahabi,Biographical info for Sahabi 148,Unknown,Unknown,0,60
+149,Sahabi 149,male,False,,Sahabi,Biographical info for Sahabi 149,Unknown,Unknown,0,60
+150,Sahabi 150,male,False,,Sahabi,Biographical info for Sahabi 150,Unknown,Unknown,0,60
+151,Sahabi 151,male,False,,Sahabi,Biographical info for Sahabi 151,Unknown,Unknown,0,60
+152,Sahabi 152,male,False,,Sahabi,Biographical info for Sahabi 152,Unknown,Unknown,0,60
+153,Sahabi 153,male,False,,Sahabi,Biographical info for Sahabi 153,Unknown,Unknown,0,60
+154,Sahabi 154,male,False,,Sahabi,Biographical info for Sahabi 154,Unknown,Unknown,0,60
+155,Sahabi 155,male,False,,Sahabi,Biographical info for Sahabi 155,Unknown,Unknown,0,60
+156,Sahabi 156,male,False,,Sahabi,Biographical info for Sahabi 156,Unknown,Unknown,0,60
+157,Sahabi 157,male,False,,Sahabi,Biographical info for Sahabi 157,Unknown,Unknown,0,60
+158,Sahabi 158,male,False,,Sahabi,Biographical info for Sahabi 158,Unknown,Unknown,0,60
+159,Sahabi 159,male,False,,Sahabi,Biographical info for Sahabi 159,Unknown,Unknown,0,60
+160,Sahabi 160,male,False,,Sahabi,Biographical info for Sahabi 160,Unknown,Unknown,0,60
+161,Sahabi 161,male,False,,Sahabi,Biographical info for Sahabi 161,Unknown,Unknown,0,60
+162,Sahabi 162,male,False,,Sahabi,Biographical info for Sahabi 162,Unknown,Unknown,0,60
+163,Sahabi 163,male,False,,Sahabi,Biographical info for Sahabi 163,Unknown,Unknown,0,60
+164,Sahabi 164,male,False,,Sahabi,Biographical info for Sahabi 164,Unknown,Unknown,0,60
+165,Sahabi 165,male,False,,Sahabi,Biographical info for Sahabi 165,Unknown,Unknown,0,60
+166,Sahabi 166,male,False,,Sahabi,Biographical info for Sahabi 166,Unknown,Unknown,0,60
+167,Sahabi 167,male,False,,Sahabi,Biographical info for Sahabi 167,Unknown,Unknown,0,60
+168,Sahabi 168,male,False,,Sahabi,Biographical info for Sahabi 168,Unknown,Unknown,0,60
+169,Sahabi 169,male,False,,Sahabi,Biographical info for Sahabi 169,Unknown,Unknown,0,60
+170,Sahabi 170,male,False,,Sahabi,Biographical info for Sahabi 170,Unknown,Unknown,0,60
+171,Sahabi 171,male,False,,Sahabi,Biographical info for Sahabi 171,Unknown,Unknown,0,60
+172,Sahabi 172,male,False,,Sahabi,Biographical info for Sahabi 172,Unknown,Unknown,0,60
+173,Sahabi 173,male,False,,Sahabi,Biographical info for Sahabi 173,Unknown,Unknown,0,60
+174,Sahabi 174,male,False,,Sahabi,Biographical info for Sahabi 174,Unknown,Unknown,0,60
+175,Sahabi 175,male,False,,Sahabi,Biographical info for Sahabi 175,Unknown,Unknown,0,60
+176,Sahabi 176,male,False,,Sahabi,Biographical info for Sahabi 176,Unknown,Unknown,0,60
+177,Sahabi 177,male,False,,Sahabi,Biographical info for Sahabi 177,Unknown,Unknown,0,60
+178,Sahabi 178,male,False,,Sahabi,Biographical info for Sahabi 178,Unknown,Unknown,0,60
+179,Sahabi 179,male,False,,Sahabi,Biographical info for Sahabi 179,Unknown,Unknown,0,60
+180,Sahabi 180,male,False,,Sahabi,Biographical info for Sahabi 180,Unknown,Unknown,0,60
+181,Sahabi 181,male,False,,Sahabi,Biographical info for Sahabi 181,Unknown,Unknown,0,60
+182,Sahabi 182,male,False,,Sahabi,Biographical info for Sahabi 182,Unknown,Unknown,0,60
+183,Sahabi 183,male,False,,Sahabi,Biographical info for Sahabi 183,Unknown,Unknown,0,60
+184,Sahabi 184,male,False,,Sahabi,Biographical info for Sahabi 184,Unknown,Unknown,0,60
+185,Sahabi 185,male,False,,Sahabi,Biographical info for Sahabi 185,Unknown,Unknown,0,60
+186,Sahabi 186,male,False,,Sahabi,Biographical info for Sahabi 186,Unknown,Unknown,0,60
+187,Sahabi 187,male,False,,Sahabi,Biographical info for Sahabi 187,Unknown,Unknown,0,60
+188,Sahabi 188,male,False,,Sahabi,Biographical info for Sahabi 188,Unknown,Unknown,0,60
+189,Sahabi 189,male,False,,Sahabi,Biographical info for Sahabi 189,Unknown,Unknown,0,60
+190,Sahabi 190,male,False,,Sahabi,Biographical info for Sahabi 190,Unknown,Unknown,0,60
+191,Sahabi 191,male,False,,Sahabi,Biographical info for Sahabi 191,Unknown,Unknown,0,60
+192,Sahabi 192,male,False,,Sahabi,Biographical info for Sahabi 192,Unknown,Unknown,0,60
+193,Sahabi 193,male,False,,Sahabi,Biographical info for Sahabi 193,Unknown,Unknown,0,60
+194,Sahabi 194,male,False,,Sahabi,Biographical info for Sahabi 194,Unknown,Unknown,0,60
+195,Sahabi 195,male,False,,Sahabi,Biographical info for Sahabi 195,Unknown,Unknown,0,60
+196,Sahabi 196,male,False,,Sahabi,Biographical info for Sahabi 196,Unknown,Unknown,0,60
+197,Sahabi 197,male,False,,Sahabi,Biographical info for Sahabi 197,Unknown,Unknown,0,60
+198,Sahabi 198,male,False,,Sahabi,Biographical info for Sahabi 198,Unknown,Unknown,0,60
+199,Sahabi 199,male,False,,Sahabi,Biographical info for Sahabi 199,Unknown,Unknown,0,60
+1000,Battle of Badr,male,False,2 AH,Battle,First major battle of Islam.,,,2,2
+1001,Battle of Uhud,male,False,3 AH,Battle,Second major battle of Islam.,,,3,3
+1002,Battle of the Trench,male,False,5 AH,Battle,Defensive siege of Medina.,,,5,5
+1003,Battle of Khaibar,male,False,7 AH,Battle,Battle against the Jewish fortresses.,,,7,7
+1004,Battle of Mu'tah,male,False,8 AH,Battle,First battle against the Byzantines.,,,8,8
+1005,Battle of Hunayn,male,False,8 AH,Battle,Battle against the Hawazin and Thaqif.,,,8,8
+1006,Battle of Yarmouk,male,False,13 AH,Battle,Major battle between the Muslims and the Byzantines.,,,13,13
+1007,Battle of Qadisiyyah,male,False,15 AH,Battle,Major battle between the Muslims and the Sassanids.,,,15,15

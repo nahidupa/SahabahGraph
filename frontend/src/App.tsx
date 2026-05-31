@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef, useMemo } from 'react';
 import { useQuery, gql } from '@apollo/client';
+// @ts-expect-error - i18n import for side-effects
 import type { Core } from 'cytoscape';
 import type { GraphData, Sahabi } from './types';
 import MainLayout from './components/Layout/MainLayout';
@@ -8,6 +9,7 @@ import GraphCanvas from './components/Graph/GraphCanvas';
 import TimelineView from './components/Timeline/TimelineView';
 import SahabahDetail from './components/DetailPanel/SahabahDetail';
 import PathSummary from './components/Graph/PathSummary';
+import './i18n/config';
 import { useTranslation } from 'react-i18next';
 import { ToggleButton, ToggleButtonGroup, Box as MuiBox } from '@mui/material';
 import { AccountTree as GraphIcon, ViewTimeline as TimelineIcon } from '@mui/icons-material';
@@ -32,13 +34,13 @@ const App: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedNode, setSelectedNode] = useState<Sahabi | null>(null);
   const [viewMode, setViewMode] = useState<'graph' | 'timeline'>('graph');
-  const [elements, setElements] = useState<any[]>([]);
+  const [elements, setElements] = useState<cytoscape.ElementDefinition[]>([]);
   const [currentPath, setCurrentPath] = useState<string[] | null>(null);
   const cyRef = useRef<Core | null>(null);
 
   useEffect(() => {
     if (apolloData && apolloData.sahabis) {
-      const nodes: Sahabi[] = apolloData.sahabis.map((s: any) => ({
+      const nodes: Sahabi[] = apolloData.sahabis.map((s: Sahabi) => ({
         ...s,
         is_prophet: s.is_prophet ? "True" : "False"
       }));
@@ -109,7 +111,7 @@ const App: React.FC = () => {
       l.category === category
     );
 
-    const newElements: any[] = [];
+    const newElements: cytoscape.ElementDefinition[] = [];
     rels.forEach(rel => {
       const otherId = rel.source_id === nodeId ? rel.target_id : rel.source_id;
       const otherNode = data.nodes.find(n => n.id === otherId);
@@ -159,7 +161,7 @@ const App: React.FC = () => {
       if (path) {
         setCurrentPath(path);
         // Add missing nodes and edges to elements
-        const newElements: any[] = [];
+        const newElements: cytoscape.ElementDefinition[] = [];
         for (let i = 0; i < path.length; i++) {
           const nodeId = path[i];
           const node = data?.nodes.find(n => n.id.toString() === nodeId);

@@ -65,6 +65,7 @@ test.describe('SahabahGraph E2E Tests', () => {
 
   test('Graph controls (Zoom and Reset)', async ({ page }) => {
     // Zoom buttons are in a Paper at the bottom
+    await page.evaluate(() => (window as any).cy.zoom());
     // Click Zoom In multiple times if needed to ensure change
     await page.getByLabel('Zoom In').click();
     await page.getByLabel('Zoom In').click();

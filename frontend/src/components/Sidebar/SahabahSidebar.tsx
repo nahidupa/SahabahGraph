@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import {
   Box,
   Drawer,
@@ -13,7 +13,8 @@ import {
   Select,
   MenuItem,
   FormControl,
-  InputLabel
+  InputLabel,
+  type SelectChangeEvent
 } from '@mui/material';
 import {
   Search as SearchIcon,
@@ -42,8 +43,26 @@ const SahabahSidebar: React.FC<SahabahSidebarProps> = ({
 }) => {
   const { t, i18n } = useTranslation();
   const [collapsed, setCollapsed] = useState(false);
+  const [selectedTribe, setSelectedTribe] = useState('All');
 
-  const handleLanguageChange = (event: any) => {
+  const tribes = useMemo(() => {
+    const tSet = new Set<string>();
+    nodes.forEach(n => {
+      if (n.tribe && n.node_type === 'Sahabi') tSet.add(n.tribe);
+    });
+    return ['All', ...Array.from(tSet).sort()];
+  }, [nodes]);
+
+  const filteredNodes = useMemo(() => {
+    return nodes.filter(n => {
+      const matchesSearch = n.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                           (n.title && n.title.toLowerCase().includes(searchTerm.toLowerCase()));
+      const matchesTribe = selectedTribe === 'All' || n.tribe === selectedTribe;
+      return matchesSearch && matchesTribe;
+    });
+  }, [nodes, searchTerm, selectedTribe]);
+
+  const handleLanguageChange = (event: SelectChangeEvent) => {
     i18n.changeLanguage(event.target.value);
   };
 
@@ -104,16 +123,33 @@ const SahabahSidebar: React.FC<SahabahSidebarProps> = ({
           placeholder={t('search_placeholder')}
           value={searchTerm}
           onChange={(e) => onSearchChange(e.target.value)}
+          sx={{ mb: 2 }}
           slotProps={{
             input: {
               startAdornment: <SearchIcon sx={{ mr: 1, color: 'text.secondary' }} />,
             }
           }}
         />
+
+        <FormControl fullWidth size="small">
+          <InputLabel id="tribe-select-label">{t('tribe')}</InputLabel>
+          <Select
+            labelId="tribe-select-label"
+            value={selectedTribe}
+            label={t('tribe')}
+            onChange={(e) => setSelectedTribe(e.target.value)}
+          >
+            {tribes.map(tribe => (
+              <MenuItem key={tribe} value={tribe}>
+                {tribe === 'All' ? t('all_tribes') : tribe}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
       </Box>
       <Divider />
       <List sx={{ overflowY: 'auto' }}>
-        {nodes.map((node) => (
+        {filteredNodes.map((node) => (
           <ListItem
             key={node.id}
             component="div"
