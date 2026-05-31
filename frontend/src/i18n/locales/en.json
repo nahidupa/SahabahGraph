@@ -21,6 +21,7 @@
     "student": "Student",
     "teacher": "Teacher",
     "companion": "Companion",
-    "peer": "Peer"
+    "peer": "Peer",
+    "battles": "Battles"
   }
 }

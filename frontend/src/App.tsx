@@ -6,7 +6,7 @@ import SahabahSidebar from './components/Sidebar/SahabahSidebar';
 import GraphCanvas from './components/Graph/GraphCanvas';
 import SahabahDetail from './components/DetailPanel/SahabahDetail';
 import PathSummary from './components/Graph/PathSummary';
-import './i18n/config';
+import i18n from './i18n/config';
 
 const App: React.FC = () => {
   const [data, setData] = useState<GraphData | null>(null);
@@ -129,10 +129,25 @@ const App: React.FC = () => {
             }
           }
         }
-      }, 200);
-    } else {
-      alert(t('no_path_found'));
-    }
+
+        setElements((prev) => {
+          const existingIds = new Set(prev.map(el => el.data.id));
+          const filteredNew = newElements.filter(el => !existingIds.has(el.data.id));
+          return [...prev, ...filteredNew];
+        });
+
+        setTimeout(() => {
+          if (cyRef.current) {
+            path.forEach(id => cyRef.current?.$id(id).addClass('highlighted'));
+            for (let i = 0; i < path.length - 1; i++) {
+              cyRef.current?.$(`edge[source="${path[i]}"][target="${path[i+1]}"], edge[source="${path[i+1]}"][target="${path[i]}"]`).addClass('highlighted');
+            }
+          }
+        }, 200);
+      } else {
+        alert(t('no_path_found'));
+      }
+    };
   };
 
   return (

@@ -1,32 +1,34 @@
 import csv
 import json
+import os
 
 def main():
     # 1. Nodes
+    # We'll add a 'node_type' field to distinguish between Sahabi and Battle
     nodes = [
-        {"id": 0, "name": "Muhammad (PBUH)", "gender": "male", "is_prophet": "True", "title": "Rasulullah"},
-        {"id": 1, "name": "Abu Bakr as-Siddiq", "gender": "male", "is_prophet": "False", "title": "As-Siddiq"},
-        {"id": 2, "name": "Umar ibn al-Khattab", "gender": "male", "is_prophet": "False", "title": "Al-Faruq"},
-        {"id": 3, "name": "Uthman ibn Affan", "gender": "male", "is_prophet": "False", "title": "Dhun-Nurayn"},
-        {"id": 4, "name": "Ali ibn Abi Talib", "gender": "male", "is_prophet": "False", "title": "Asadullah"},
-        {"id": 5, "name": "Talha ibn Ubaydullah", "gender": "male", "is_prophet": "False", "title": "Talhat al-Khayr"},
-        {"id": 6, "name": "Zubayr ibn al-Awwam", "gender": "male", "is_prophet": "False", "title": "Hawari Rasulillah"},
-        {"id": 7, "name": "Abdur Rahman ibn Awf", "gender": "male", "is_prophet": "False", "title": ""},
-        {"id": 8, "name": "Sa'd ibn Abi Waqqas", "gender": "male", "is_prophet": "False", "title": ""},
-        {"id": 9, "name": "Sa'id ibn Zayd", "gender": "male", "is_prophet": "False", "title": ""},
-        {"id": 10, "name": "Abu Ubaydah ibn al-Jarrah", "gender": "male", "is_prophet": "False", "title": "Amin al-Ummah"},
-        {"id": 11, "name": "Khadija bint Khuwaylid", "gender": "female", "is_prophet": "False", "title": "Tahira"},
-        {"id": 12, "name": "Aisha bint Abi Bakr", "gender": "female", "is_prophet": "False", "title": "Siddiqa"},
-        {"id": 13, "name": "Fatima bint Muhammad", "gender": "female", "is_prophet": "False", "title": "Az-Zahra"},
-        {"id": 14, "name": "Hasan ibn Ali", "gender": "male", "is_prophet": "False", "title": ""},
-        {"id": 15, "name": "Husayn ibn Ali", "gender": "male", "is_prophet": "False", "title": ""},
-        {"id": 16, "name": "Hamza ibn Abd al-Muttalib", "gender": "male", "is_prophet": "False", "title": "Asadullah"},
-        {"id": 17, "name": "Abbas ibn Abd al-Muttalib", "gender": "male", "is_prophet": "False", "title": ""},
-        {"id": 18, "name": "Bilal ibn Rabah", "gender": "male", "is_prophet": "False", "title": "Muadhin"},
-        {"id": 19, "name": "Khalid ibn al-Walid", "gender": "male", "is_prophet": "False", "title": "Saifullah"},
-        {"id": 20, "name": "Zaynab bint Muhammad", "gender": "female", "is_prophet": "False", "title": ""},
-        {"id": 21, "name": "Ruqayya bint Muhammad", "gender": "female", "is_prophet": "False", "title": ""},
-        {"id": 22, "name": "Umm Kulthum bint Muhammad", "gender": "female", "is_prophet": "False", "title": ""},
+        {"id": 0, "name": "Muhammad (PBUH)", "gender": "male", "is_prophet": "True", "title": "Rasulullah", "node_type": "Sahabi"},
+        {"id": 1, "name": "Abu Bakr as-Siddiq", "gender": "male", "is_prophet": "False", "title": "As-Siddiq", "node_type": "Sahabi"},
+        {"id": 2, "name": "Umar ibn al-Khattab", "gender": "male", "is_prophet": "False", "title": "Al-Faruq", "node_type": "Sahabi"},
+        {"id": 3, "name": "Uthman ibn Affan", "gender": "male", "is_prophet": "False", "title": "Dhun-Nurayn", "node_type": "Sahabi"},
+        {"id": 4, "name": "Ali ibn Abi Talib", "gender": "male", "is_prophet": "False", "title": "Asadullah", "node_type": "Sahabi"},
+        {"id": 5, "name": "Talha ibn Ubaydullah", "gender": "male", "is_prophet": "False", "title": "Talhat al-Khayr", "node_type": "Sahabi"},
+        {"id": 6, "name": "Zubayr ibn al-Awwam", "gender": "male", "is_prophet": "False", "title": "Hawari Rasulillah", "node_type": "Sahabi"},
+        {"id": 7, "name": "Abdur Rahman ibn Awf", "gender": "male", "is_prophet": "False", "title": "", "node_type": "Sahabi"},
+        {"id": 8, "name": "Sa'd ibn Abi Waqqas", "gender": "male", "is_prophet": "False", "title": "", "node_type": "Sahabi"},
+        {"id": 9, "name": "Sa'id ibn Zayd", "gender": "male", "is_prophet": "False", "title": "", "node_type": "Sahabi"},
+        {"id": 10, "name": "Abu Ubaydah ibn al-Jarrah", "gender": "male", "is_prophet": "False", "title": "Amin al-Ummah", "node_type": "Sahabi"},
+        {"id": 11, "name": "Khadija bint Khuwaylid", "gender": "female", "is_prophet": "False", "title": "Tahira", "node_type": "Sahabi"},
+        {"id": 12, "name": "Aisha bint Abi Bakr", "gender": "female", "is_prophet": "False", "title": "Siddiqa", "node_type": "Sahabi"},
+        {"id": 13, "name": "Fatima bint Muhammad", "gender": "female", "is_prophet": "False", "title": "Az-Zahra", "node_type": "Sahabi"},
+        {"id": 14, "name": "Hasan ibn Ali", "gender": "male", "is_prophet": "False", "title": "", "node_type": "Sahabi"},
+        {"id": 15, "name": "Husayn ibn Ali", "gender": "male", "is_prophet": "False", "title": "", "node_type": "Sahabi"},
+        {"id": 16, "name": "Hamza ibn Abd al-Muttalib", "gender": "male", "is_prophet": "False", "title": "Asadullah", "node_type": "Sahabi"},
+        {"id": 17, "name": "Abbas ibn Abd al-Muttalib", "gender": "male", "is_prophet": "False", "title": "", "node_type": "Sahabi"},
+        {"id": 18, "name": "Bilal ibn Rabah", "gender": "male", "is_prophet": "False", "title": "Muadhin", "node_type": "Sahabi"},
+        {"id": 19, "name": "Khalid ibn al-Walid", "gender": "male", "is_prophet": "False", "title": "Saifullah", "node_type": "Sahabi"},
+        {"id": 20, "name": "Zaynab bint Muhammad", "gender": "female", "is_prophet": "False", "title": "", "node_type": "Sahabi"},
+        {"id": 21, "name": "Ruqayya bint Muhammad", "gender": "female", "is_prophet": "False", "title": "", "node_type": "Sahabi"},
+        {"id": 22, "name": "Umm Kulthum bint Muhammad", "gender": "female", "is_prophet": "False", "title": "", "node_type": "Sahabi"},
     ]
 
     real_names = [
@@ -40,14 +42,26 @@ def main():
     start_id = len(nodes)
     for i, name in enumerate(real_names):
         gender = "female" if any(x in name.lower() for x in ["bint", "umm"]) else "male"
-        nodes.append({"id": start_id + i, "name": name, "gender": gender, "is_prophet": "False", "title": ""})
+        nodes.append({"id": start_id + i, "name": name, "gender": gender, "is_prophet": "False", "title": "", "node_type": "Sahabi"})
 
+    # Add extra Sahabah up to ID 199
     for i in range(len(nodes), 200):
-        nodes.append({"id": i, "name": f"Sahabi {i}", "gender": "male", "is_prophet": "False", "title": ""})
+        nodes.append({"id": i, "name": f"Sahabi {i}", "gender": "male", "is_prophet": "False", "title": "", "node_type": "Sahabi"})
+
+    # Add Battles starting from ID 1000
+    battles = [
+        {"id": 1000, "name": "Battle of Badr", "gender": "male", "is_prophet": "False", "title": "2 AH", "node_type": "Battle"},
+        {"id": 1001, "name": "Battle of Uhud", "gender": "male", "is_prophet": "False", "title": "3 AH", "node_type": "Battle"},
+        {"id": 1002, "name": "Battle of the Trench", "gender": "male", "is_prophet": "False", "title": "5 AH", "node_type": "Battle"},
+        {"id": 1003, "name": "Battle of Khaibar", "gender": "male", "is_prophet": "False", "title": "7 AH", "node_type": "Battle"},
+        {"id": 1004, "name": "Battle of Mu'tah", "gender": "male", "is_prophet": "False", "title": "8 AH", "node_type": "Battle"},
+        {"id": 1005, "name": "Battle of Hunayn", "gender": "male", "is_prophet": "False", "title": "8 AH", "node_type": "Battle"},
+        {"id": 1006, "name": "Battle of Yarmouk", "gender": "male", "is_prophet": "False", "title": "13 AH", "node_type": "Battle"},
+        {"id": 1007, "name": "Battle of Qadisiyyah", "gender": "male", "is_prophet": "False", "title": "15 AH", "node_type": "Battle"},
+    ]
+    nodes.extend(battles)
 
     # 2. Relationships
-    # types: SON_OF, DAUGHTER_OF, SPOUSE_OF, UNCLE_OF, COMPANION_OF, etc.
-    # categories: sons, daughters, uncles, others
     relationships = [
         {"source_id": 11, "target_id": 0, "type": "SPOUSE_OF", "category": "others"},
         {"source_id": 12, "target_id": 0, "type": "SPOUSE_OF", "category": "others"},
@@ -74,9 +88,30 @@ def main():
         {"source_id": 22, "target_id": 3, "type": "SPOUSE_OF", "category": "others"}, # Umm Kulthum & Uthman
     ]
 
+    # Add PARTICIPATED_IN relationships
+    # Badr (1000)
+    for sid in [0, 1, 2, 4, 16, 18]: # Muhammad, Abu Bakr, Umar, Ali, Hamza, Bilal
+        relationships.append({"source_id": sid, "target_id": 1000, "type": "PARTICIPATED_IN", "category": "battles"})
+
+    # Uhud (1001)
+    for sid in [0, 1, 2, 4, 16]: # Hamza martyred here
+        relationships.append({"source_id": sid, "target_id": 1001, "type": "PARTICIPATED_IN", "category": "battles"})
+
+    # Khaibar (1003)
+    for sid in [0, 1, 2, 4]:
+        relationships.append({"source_id": sid, "target_id": 1003, "type": "PARTICIPATED_IN", "category": "battles"})
+
+    # Yarmouk (1006)
+    for sid in [19, 10]: # Khalid ibn al-Walid, Abu Ubaydah
+        relationships.append({"source_id": sid, "target_id": 1006, "type": "PARTICIPATED_IN", "category": "battles"})
+
+    # Qadisiyyah (1007)
+    for sid in [8]: # Sa'd ibn Abi Waqqas
+        relationships.append({"source_id": sid, "target_id": 1007, "type": "PARTICIPATED_IN", "category": "battles"})
+
     # Save CSVs
     with open('data-pipeline/sahabah.csv', 'w', newline='', encoding='utf-8') as f:
-        writer = csv.DictWriter(f, fieldnames=["id", "name", "gender", "is_prophet", "title"])
+        writer = csv.DictWriter(f, fieldnames=["id", "name", "gender", "is_prophet", "title", "node_type"])
         writer.writeheader()
         writer.writerows(nodes)
 
@@ -91,7 +126,6 @@ def main():
         "links": relationships
     }
 
-    import os
     os.makedirs('frontend/public/data', exist_ok=True)
     with open('frontend/public/data/sahabah_data.json', 'w', encoding='utf-8') as f:
         json.dump(data, f, indent=2, ensure_ascii=False)

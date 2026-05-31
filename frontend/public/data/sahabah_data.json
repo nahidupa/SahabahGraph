@@ -1,1404 +1,1668 @@
 {
   "nodes": [
     {
-      "is_prophet": "True",
-      "gender": "male",
-      "name": "Muhammad (PBUH)",
       "id": 0,
-      "title": "Rasulullah"
+      "name": "Muhammad (PBUH)",
+      "gender": "male",
+      "is_prophet": "True",
+      "title": "Rasulullah",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Abu Bakr as-Siddiq",
       "id": 1,
-      "title": "As-Siddiq"
+      "name": "Abu Bakr as-Siddiq",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "As-Siddiq",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Umar ibn al-Khattab",
       "id": 2,
-      "title": "Al-Faruq"
+      "name": "Umar ibn al-Khattab",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "Al-Faruq",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Uthman ibn Affan",
       "id": 3,
-      "title": "Dhun-Nurayn"
+      "name": "Uthman ibn Affan",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "Dhun-Nurayn",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Ali ibn Abi Talib",
       "id": 4,
-      "title": "Asadullah"
+      "name": "Ali ibn Abi Talib",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "Asadullah",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Talha ibn Ubaydullah",
       "id": 5,
-      "title": "Talhat al-Khayr"
+      "name": "Talha ibn Ubaydullah",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "Talhat al-Khayr",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Zubayr ibn al-Awwam",
       "id": 6,
-      "title": "Hawari Rasulillah"
+      "name": "Zubayr ibn al-Awwam",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "Hawari Rasulillah",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Abdur Rahman ibn Awf",
       "id": 7,
-      "title": ""
+      "name": "Abdur Rahman ibn Awf",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sa'd ibn Abi Waqqas",
       "id": 8,
-      "title": ""
+      "name": "Sa'd ibn Abi Waqqas",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sa'id ibn Zayd",
       "id": 9,
-      "title": ""
+      "name": "Sa'id ibn Zayd",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Abu Ubaydah ibn al-Jarrah",
       "id": 10,
-      "title": "Amin al-Ummah"
+      "name": "Abu Ubaydah ibn al-Jarrah",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "Amin al-Ummah",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "female",
-      "name": "Khadija bint Khuwaylid",
       "id": 11,
-      "title": "Tahira"
+      "name": "Khadija bint Khuwaylid",
+      "gender": "female",
+      "is_prophet": "False",
+      "title": "Tahira",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "female",
-      "name": "Aisha bint Abi Bakr",
       "id": 12,
-      "title": "Siddiqa"
+      "name": "Aisha bint Abi Bakr",
+      "gender": "female",
+      "is_prophet": "False",
+      "title": "Siddiqa",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "female",
-      "name": "Fatima bint Muhammad",
       "id": 13,
-      "title": "Az-Zahra"
+      "name": "Fatima bint Muhammad",
+      "gender": "female",
+      "is_prophet": "False",
+      "title": "Az-Zahra",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Hasan ibn Ali",
       "id": 14,
-      "title": ""
+      "name": "Hasan ibn Ali",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Husayn ibn Ali",
       "id": 15,
-      "title": ""
+      "name": "Husayn ibn Ali",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Hamza ibn Abd al-Muttalib",
       "id": 16,
-      "title": "Asadullah"
+      "name": "Hamza ibn Abd al-Muttalib",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "Asadullah",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Abbas ibn Abd al-Muttalib",
       "id": 17,
-      "title": ""
+      "name": "Abbas ibn Abd al-Muttalib",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Bilal ibn Rabah",
       "id": 18,
-      "title": "Muadhin"
+      "name": "Bilal ibn Rabah",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "Muadhin",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Khalid ibn al-Walid",
       "id": 19,
-      "title": "Saifullah"
+      "name": "Khalid ibn al-Walid",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "Saifullah",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "female",
-      "name": "Zaynab bint Muhammad",
       "id": 20,
-      "title": ""
+      "name": "Zaynab bint Muhammad",
+      "gender": "female",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "female",
-      "name": "Ruqayya bint Muhammad",
       "id": 21,
-      "title": ""
-    },
-    {
-      "is_prophet": "False",
+      "name": "Ruqayya bint Muhammad",
       "gender": "female",
-      "name": "Umm Kulthum bint Muhammad",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
+    },
+    {
       "id": 22,
-      "title": ""
+      "name": "Umm Kulthum bint Muhammad",
+      "gender": "female",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Ja'far ibn Abi Talib",
       "id": 23,
-      "title": ""
+      "name": "Ja'far ibn Abi Talib",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Zayd ibn Harithah",
       "id": 24,
-      "title": ""
+      "name": "Zayd ibn Harithah",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Usama ibn Zayd",
       "id": 25,
-      "title": ""
+      "name": "Usama ibn Zayd",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Abdullah ibn Umar",
       "id": 26,
-      "title": ""
+      "name": "Abdullah ibn Umar",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Abdullah ibn Abbas",
       "id": 27,
-      "title": ""
+      "name": "Abdullah ibn Abbas",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Abdullah ibn Mas'ud",
       "id": 28,
-      "title": ""
+      "name": "Abdullah ibn Mas'ud",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Abu Hurairah",
       "id": 29,
-      "title": ""
+      "name": "Abu Hurairah",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Anas ibn Malik",
       "id": 30,
-      "title": ""
+      "name": "Anas ibn Malik",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Jabir ibn Abdullah",
       "id": 31,
-      "title": ""
+      "name": "Jabir ibn Abdullah",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Abu Sa'id al-Khudri",
       "id": 32,
-      "title": ""
+      "name": "Abu Sa'id al-Khudri",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Mu'adh ibn Jabal",
       "id": 33,
-      "title": ""
+      "name": "Mu'adh ibn Jabal",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Ubayy ibn Ka'b",
       "id": 34,
-      "title": ""
+      "name": "Ubayy ibn Ka'b",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Zayd ibn Thabit",
       "id": 35,
-      "title": ""
+      "name": "Zayd ibn Thabit",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Abu Dharr al-Ghifari",
       "id": 36,
-      "title": ""
+      "name": "Abu Dharr al-Ghifari",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Salman al-Farsi",
       "id": 37,
-      "title": ""
+      "name": "Salman al-Farsi",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Ammar ibn Yasir",
       "id": 38,
-      "title": ""
+      "name": "Ammar ibn Yasir",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Miqdad ibn Aswad",
       "id": 39,
-      "title": ""
+      "name": "Miqdad ibn Aswad",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Hudhayfa ibn al-Yaman",
       "id": 40,
-      "title": ""
+      "name": "Hudhayfa ibn al-Yaman",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Amr ibn al-Aas",
       "id": 41,
-      "title": ""
+      "name": "Amr ibn al-Aas",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Muawiyah ibn Abi Sufyan",
       "id": 42,
-      "title": ""
+      "name": "Muawiyah ibn Abi Sufyan",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 43",
       "id": 43,
-      "title": ""
+      "name": "Sahabi 43",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 44",
       "id": 44,
-      "title": ""
+      "name": "Sahabi 44",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 45",
       "id": 45,
-      "title": ""
+      "name": "Sahabi 45",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 46",
       "id": 46,
-      "title": ""
+      "name": "Sahabi 46",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 47",
       "id": 47,
-      "title": ""
+      "name": "Sahabi 47",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 48",
       "id": 48,
-      "title": ""
+      "name": "Sahabi 48",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 49",
       "id": 49,
-      "title": ""
+      "name": "Sahabi 49",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 50",
       "id": 50,
-      "title": ""
+      "name": "Sahabi 50",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 51",
       "id": 51,
-      "title": ""
+      "name": "Sahabi 51",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 52",
       "id": 52,
-      "title": ""
+      "name": "Sahabi 52",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 53",
       "id": 53,
-      "title": ""
+      "name": "Sahabi 53",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 54",
       "id": 54,
-      "title": ""
+      "name": "Sahabi 54",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 55",
       "id": 55,
-      "title": ""
+      "name": "Sahabi 55",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 56",
       "id": 56,
-      "title": ""
+      "name": "Sahabi 56",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 57",
       "id": 57,
-      "title": ""
+      "name": "Sahabi 57",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 58",
       "id": 58,
-      "title": ""
+      "name": "Sahabi 58",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 59",
       "id": 59,
-      "title": ""
+      "name": "Sahabi 59",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 60",
       "id": 60,
-      "title": ""
+      "name": "Sahabi 60",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 61",
       "id": 61,
-      "title": ""
+      "name": "Sahabi 61",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 62",
       "id": 62,
-      "title": ""
+      "name": "Sahabi 62",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 63",
       "id": 63,
-      "title": ""
+      "name": "Sahabi 63",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 64",
       "id": 64,
-      "title": ""
+      "name": "Sahabi 64",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 65",
       "id": 65,
-      "title": ""
+      "name": "Sahabi 65",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 66",
       "id": 66,
-      "title": ""
+      "name": "Sahabi 66",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 67",
       "id": 67,
-      "title": ""
+      "name": "Sahabi 67",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 68",
       "id": 68,
-      "title": ""
+      "name": "Sahabi 68",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 69",
       "id": 69,
-      "title": ""
+      "name": "Sahabi 69",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 70",
       "id": 70,
-      "title": ""
+      "name": "Sahabi 70",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 71",
       "id": 71,
-      "title": ""
+      "name": "Sahabi 71",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 72",
       "id": 72,
-      "title": ""
+      "name": "Sahabi 72",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 73",
       "id": 73,
-      "title": ""
+      "name": "Sahabi 73",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 74",
       "id": 74,
-      "title": ""
+      "name": "Sahabi 74",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 75",
       "id": 75,
-      "title": ""
+      "name": "Sahabi 75",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 76",
       "id": 76,
-      "title": ""
+      "name": "Sahabi 76",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 77",
       "id": 77,
-      "title": ""
+      "name": "Sahabi 77",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 78",
       "id": 78,
-      "title": ""
+      "name": "Sahabi 78",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 79",
       "id": 79,
-      "title": ""
+      "name": "Sahabi 79",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 80",
       "id": 80,
-      "title": ""
+      "name": "Sahabi 80",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 81",
       "id": 81,
-      "title": ""
+      "name": "Sahabi 81",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 82",
       "id": 82,
-      "title": ""
+      "name": "Sahabi 82",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 83",
       "id": 83,
-      "title": ""
+      "name": "Sahabi 83",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 84",
       "id": 84,
-      "title": ""
+      "name": "Sahabi 84",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 85",
       "id": 85,
-      "title": ""
+      "name": "Sahabi 85",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 86",
       "id": 86,
-      "title": ""
+      "name": "Sahabi 86",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 87",
       "id": 87,
-      "title": ""
+      "name": "Sahabi 87",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 88",
       "id": 88,
-      "title": ""
+      "name": "Sahabi 88",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 89",
       "id": 89,
-      "title": ""
+      "name": "Sahabi 89",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 90",
       "id": 90,
-      "title": ""
+      "name": "Sahabi 90",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 91",
       "id": 91,
-      "title": ""
+      "name": "Sahabi 91",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 92",
       "id": 92,
-      "title": ""
+      "name": "Sahabi 92",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 93",
       "id": 93,
-      "title": ""
+      "name": "Sahabi 93",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 94",
       "id": 94,
-      "title": ""
+      "name": "Sahabi 94",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 95",
       "id": 95,
-      "title": ""
+      "name": "Sahabi 95",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 96",
       "id": 96,
-      "title": ""
+      "name": "Sahabi 96",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 97",
       "id": 97,
-      "title": ""
+      "name": "Sahabi 97",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 98",
       "id": 98,
-      "title": ""
+      "name": "Sahabi 98",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 99",
       "id": 99,
-      "title": ""
+      "name": "Sahabi 99",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 100",
       "id": 100,
-      "title": ""
+      "name": "Sahabi 100",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 101",
       "id": 101,
-      "title": ""
+      "name": "Sahabi 101",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 102",
       "id": 102,
-      "title": ""
+      "name": "Sahabi 102",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 103",
       "id": 103,
-      "title": ""
+      "name": "Sahabi 103",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 104",
       "id": 104,
-      "title": ""
+      "name": "Sahabi 104",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 105",
       "id": 105,
-      "title": ""
+      "name": "Sahabi 105",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 106",
       "id": 106,
-      "title": ""
+      "name": "Sahabi 106",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 107",
       "id": 107,
-      "title": ""
+      "name": "Sahabi 107",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 108",
       "id": 108,
-      "title": ""
+      "name": "Sahabi 108",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 109",
       "id": 109,
-      "title": ""
+      "name": "Sahabi 109",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 110",
       "id": 110,
-      "title": ""
+      "name": "Sahabi 110",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 111",
       "id": 111,
-      "title": ""
+      "name": "Sahabi 111",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 112",
       "id": 112,
-      "title": ""
+      "name": "Sahabi 112",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 113",
       "id": 113,
-      "title": ""
+      "name": "Sahabi 113",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 114",
       "id": 114,
-      "title": ""
+      "name": "Sahabi 114",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 115",
       "id": 115,
-      "title": ""
+      "name": "Sahabi 115",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 116",
       "id": 116,
-      "title": ""
+      "name": "Sahabi 116",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 117",
       "id": 117,
-      "title": ""
+      "name": "Sahabi 117",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 118",
       "id": 118,
-      "title": ""
+      "name": "Sahabi 118",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 119",
       "id": 119,
-      "title": ""
+      "name": "Sahabi 119",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 120",
       "id": 120,
-      "title": ""
+      "name": "Sahabi 120",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 121",
       "id": 121,
-      "title": ""
+      "name": "Sahabi 121",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 122",
       "id": 122,
-      "title": ""
+      "name": "Sahabi 122",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 123",
       "id": 123,
-      "title": ""
+      "name": "Sahabi 123",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 124",
       "id": 124,
-      "title": ""
+      "name": "Sahabi 124",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 125",
       "id": 125,
-      "title": ""
+      "name": "Sahabi 125",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 126",
       "id": 126,
-      "title": ""
+      "name": "Sahabi 126",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 127",
       "id": 127,
-      "title": ""
+      "name": "Sahabi 127",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 128",
       "id": 128,
-      "title": ""
+      "name": "Sahabi 128",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 129",
       "id": 129,
-      "title": ""
+      "name": "Sahabi 129",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 130",
       "id": 130,
-      "title": ""
+      "name": "Sahabi 130",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 131",
       "id": 131,
-      "title": ""
+      "name": "Sahabi 131",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 132",
       "id": 132,
-      "title": ""
+      "name": "Sahabi 132",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 133",
       "id": 133,
-      "title": ""
+      "name": "Sahabi 133",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 134",
       "id": 134,
-      "title": ""
+      "name": "Sahabi 134",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 135",
       "id": 135,
-      "title": ""
+      "name": "Sahabi 135",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 136",
       "id": 136,
-      "title": ""
+      "name": "Sahabi 136",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 137",
       "id": 137,
-      "title": ""
+      "name": "Sahabi 137",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 138",
       "id": 138,
-      "title": ""
+      "name": "Sahabi 138",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 139",
       "id": 139,
-      "title": ""
+      "name": "Sahabi 139",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 140",
       "id": 140,
-      "title": ""
+      "name": "Sahabi 140",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 141",
       "id": 141,
-      "title": ""
+      "name": "Sahabi 141",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 142",
       "id": 142,
-      "title": ""
+      "name": "Sahabi 142",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 143",
       "id": 143,
-      "title": ""
+      "name": "Sahabi 143",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 144",
       "id": 144,
-      "title": ""
+      "name": "Sahabi 144",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 145",
       "id": 145,
-      "title": ""
+      "name": "Sahabi 145",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 146",
       "id": 146,
-      "title": ""
+      "name": "Sahabi 146",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 147",
       "id": 147,
-      "title": ""
+      "name": "Sahabi 147",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 148",
       "id": 148,
-      "title": ""
+      "name": "Sahabi 148",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 149",
       "id": 149,
-      "title": ""
+      "name": "Sahabi 149",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 150",
       "id": 150,
-      "title": ""
+      "name": "Sahabi 150",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 151",
       "id": 151,
-      "title": ""
+      "name": "Sahabi 151",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 152",
       "id": 152,
-      "title": ""
+      "name": "Sahabi 152",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 153",
       "id": 153,
-      "title": ""
+      "name": "Sahabi 153",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 154",
       "id": 154,
-      "title": ""
+      "name": "Sahabi 154",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 155",
       "id": 155,
-      "title": ""
+      "name": "Sahabi 155",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 156",
       "id": 156,
-      "title": ""
+      "name": "Sahabi 156",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 157",
       "id": 157,
-      "title": ""
+      "name": "Sahabi 157",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 158",
       "id": 158,
-      "title": ""
+      "name": "Sahabi 158",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 159",
       "id": 159,
-      "title": ""
+      "name": "Sahabi 159",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 160",
       "id": 160,
-      "title": ""
+      "name": "Sahabi 160",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 161",
       "id": 161,
-      "title": ""
+      "name": "Sahabi 161",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 162",
       "id": 162,
-      "title": ""
+      "name": "Sahabi 162",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 163",
       "id": 163,
-      "title": ""
+      "name": "Sahabi 163",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 164",
       "id": 164,
-      "title": ""
+      "name": "Sahabi 164",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 165",
       "id": 165,
-      "title": ""
+      "name": "Sahabi 165",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 166",
       "id": 166,
-      "title": ""
+      "name": "Sahabi 166",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 167",
       "id": 167,
-      "title": ""
+      "name": "Sahabi 167",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 168",
       "id": 168,
-      "title": ""
+      "name": "Sahabi 168",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 169",
       "id": 169,
-      "title": ""
+      "name": "Sahabi 169",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 170",
       "id": 170,
-      "title": ""
+      "name": "Sahabi 170",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 171",
       "id": 171,
-      "title": ""
+      "name": "Sahabi 171",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 172",
       "id": 172,
-      "title": ""
+      "name": "Sahabi 172",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 173",
       "id": 173,
-      "title": ""
+      "name": "Sahabi 173",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 174",
       "id": 174,
-      "title": ""
+      "name": "Sahabi 174",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 175",
       "id": 175,
-      "title": ""
+      "name": "Sahabi 175",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 176",
       "id": 176,
-      "title": ""
+      "name": "Sahabi 176",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 177",
       "id": 177,
-      "title": ""
+      "name": "Sahabi 177",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 178",
       "id": 178,
-      "title": ""
+      "name": "Sahabi 178",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 179",
       "id": 179,
-      "title": ""
+      "name": "Sahabi 179",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 180",
       "id": 180,
-      "title": ""
+      "name": "Sahabi 180",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 181",
       "id": 181,
-      "title": ""
+      "name": "Sahabi 181",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 182",
       "id": 182,
-      "title": ""
+      "name": "Sahabi 182",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 183",
       "id": 183,
-      "title": ""
+      "name": "Sahabi 183",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 184",
       "id": 184,
-      "title": ""
+      "name": "Sahabi 184",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 185",
       "id": 185,
-      "title": ""
+      "name": "Sahabi 185",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 186",
       "id": 186,
-      "title": ""
+      "name": "Sahabi 186",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 187",
       "id": 187,
-      "title": ""
+      "name": "Sahabi 187",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 188",
       "id": 188,
-      "title": ""
+      "name": "Sahabi 188",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 189",
       "id": 189,
-      "title": ""
+      "name": "Sahabi 189",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 190",
       "id": 190,
-      "title": ""
+      "name": "Sahabi 190",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 191",
       "id": 191,
-      "title": ""
+      "name": "Sahabi 191",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 192",
       "id": 192,
-      "title": ""
+      "name": "Sahabi 192",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 193",
       "id": 193,
-      "title": ""
+      "name": "Sahabi 193",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 194",
       "id": 194,
-      "title": ""
+      "name": "Sahabi 194",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 195",
       "id": 195,
-      "title": ""
+      "name": "Sahabi 195",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 196",
       "id": 196,
-      "title": ""
+      "name": "Sahabi 196",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 197",
       "id": 197,
-      "title": ""
+      "name": "Sahabi 197",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 198",
       "id": 198,
-      "title": ""
+      "name": "Sahabi 198",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
     },
     {
-      "is_prophet": "False",
-      "gender": "male",
-      "name": "Sahabi 199",
       "id": 199,
-      "title": ""
+      "name": "Sahabi 199",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "",
+      "node_type": "Sahabi"
+    },
+    {
+      "id": 1000,
+      "name": "Battle of Badr",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "2 AH",
+      "node_type": "Battle"
+    },
+    {
+      "id": 1001,
+      "name": "Battle of Uhud",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "3 AH",
+      "node_type": "Battle"
+    },
+    {
+      "id": 1002,
+      "name": "Battle of the Trench",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "5 AH",
+      "node_type": "Battle"
+    },
+    {
+      "id": 1003,
+      "name": "Battle of Khaibar",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "7 AH",
+      "node_type": "Battle"
+    },
+    {
+      "id": 1004,
+      "name": "Battle of Mu'tah",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "8 AH",
+      "node_type": "Battle"
+    },
+    {
+      "id": 1005,
+      "name": "Battle of Hunayn",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "8 AH",
+      "node_type": "Battle"
+    },
+    {
+      "id": 1006,
+      "name": "Battle of Yarmouk",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "13 AH",
+      "node_type": "Battle"
+    },
+    {
+      "id": 1007,
+      "name": "Battle of Qadisiyyah",
+      "gender": "male",
+      "is_prophet": "False",
+      "title": "15 AH",
+      "node_type": "Battle"
     }
   ],
   "links": [
@@ -1515,6 +1779,114 @@
       "target_id": 3,
       "type": "SPOUSE_OF",
       "category": "others"
+    },
+    {
+      "source_id": 0,
+      "target_id": 1000,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 1,
+      "target_id": 1000,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 2,
+      "target_id": 1000,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 4,
+      "target_id": 1000,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 16,
+      "target_id": 1000,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 18,
+      "target_id": 1000,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 0,
+      "target_id": 1001,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 1,
+      "target_id": 1001,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 2,
+      "target_id": 1001,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 4,
+      "target_id": 1001,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 16,
+      "target_id": 1001,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 0,
+      "target_id": 1003,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 1,
+      "target_id": 1003,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 2,
+      "target_id": 1003,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 4,
+      "target_id": 1003,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 19,
+      "target_id": 1006,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 10,
+      "target_id": 1006,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
+    },
+    {
+      "source_id": 8,
+      "target_id": 1007,
+      "type": "PARTICIPATED_IN",
+      "category": "battles"
     }
   ]
 }

@@ -26,6 +26,14 @@ const typeDefs = `#graphql
     uncles: [Sahabi!]! @relationship(type: "UNCLE_OF", direction: OUT)
     spouses: [Sahabi!]! @relationship(type: "SPOUSE_OF", direction: IN)
     companions: [Sahabi!]! @relationship(type: "COMPANION_OF", direction: OUT)
+    participatedIn: [Battle!]! @relationship(type: "PARTICIPATED_IN", direction: OUT)
+  }
+
+  type Battle @node {
+    id: Int!
+    name: String!
+    title: String # Used for the year (e.g., 2 AH)
+    participants: [Sahabi!]! @relationship(type: "PARTICIPATED_IN", direction: IN)
   }
 `;
 
