@@ -23,7 +23,8 @@ async function exportData() {
             return {
                 ...node,
                 id: node.id.toInt ? node.id.toInt() : node.id,
-                is_prophet: node.is_prophet ? "True" : "False"
+                is_prophet: node.is_prophet ? "True" : "False",
+                bio: node.bio || ""
             };
         });
 

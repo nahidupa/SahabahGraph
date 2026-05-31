@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef, useMemo } from 'react';
+import { useQuery, gql } from '@apollo/client';
 import type { Core } from 'cytoscape';
 import type { GraphData, Sahabi } from './types';
 import MainLayout from './components/Layout/MainLayout';
@@ -7,7 +8,21 @@ import GraphCanvas from './components/Graph/GraphCanvas';
 import SahabahDetail from './components/DetailPanel/SahabahDetail';
 import './i18n/config';
 
+const GET_SAHABAH = gql`
+  query GetSahabah {
+    sahabis {
+      id
+      name
+      gender
+      is_prophet
+      title
+      bio
+    }
+  }
+`;
+
 const App: React.FC = () => {
+  const { data: apolloData } = useQuery(GET_SAHABAH);
   const [data, setData] = useState<GraphData | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedNode, setSelectedNode] = useState<Sahabi | null>(null);
@@ -15,16 +30,54 @@ const App: React.FC = () => {
   const cyRef = useRef<Core | null>(null);
 
   useEffect(() => {
-    fetch('./data/sahabah_data.json')
-      .then((res) => res.json())
-      .then((json: GraphData) => {
-        setData(json);
-        const prophet = json.nodes.find(n => n.id === 0);
-        if (prophet) {
-          setElements([{ data: { ...prophet, id: prophet.id.toString(), label: '★', fullName: prophet.name, originalId: prophet.id } }]);
-        }
-      });
-  }, []);
+    if (apolloData && apolloData.sahabis) {
+      const nodes: Sahabi[] = apolloData.sahabis.map((s: any) => ({
+        ...s,
+        is_prophet: s.is_prophet ? "True" : "False"
+      }));
+
+      // For links, we still need to fetch from the JSON for now,
+      // or we could expand the GraphQL query to include relationships.
+      // Given the current architecture, let's keep the JSON fetch for links
+      // but prefer GraphQL for nodes if available.
+      fetch('./data/sahabah_data.json')
+        .then((res) => res.json())
+        .then((json: GraphData) => {
+          const combinedData = {
+            nodes: nodes,
+            links: json.links
+          };
+          setData(combinedData);
+          const prophet = nodes.find(n => n.id === 0);
+          if (prophet) {
+            setElements([{ data: { ...prophet, id: prophet.id.toString(), label: '★', fullName: prophet.name, originalId: prophet.id } }]);
+          }
+        })
+        .catch(() => {
+          // Fallback to purely JSON if GraphQL fails or during transition
+          fetch('./data/sahabah_data.json')
+            .then((res) => res.json())
+            .then((json: GraphData) => {
+              setData(json);
+              const prophet = json.nodes.find(n => n.id === 0);
+              if (prophet) {
+                setElements([{ data: { ...prophet, id: prophet.id.toString(), label: '★', fullName: prophet.name, originalId: prophet.id } }]);
+              }
+            });
+        });
+    } else {
+      // Original fetch for initial load or if Apollo fails
+      fetch('./data/sahabah_data.json')
+        .then((res) => res.json())
+        .then((json: GraphData) => {
+          setData(json);
+          const prophet = json.nodes.find(n => n.id === 0);
+          if (prophet) {
+            setElements([{ data: { ...prophet, id: prophet.id.toString(), label: '★', fullName: prophet.name, originalId: prophet.id } }]);
+          }
+        });
+    }
+  }, [apolloData]);
 
   const filteredNodes = useMemo(() => {
     if (!data) return [];
