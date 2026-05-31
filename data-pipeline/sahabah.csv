@@ -220,3 +220,18 @@ id,name_ar,name_en,kunyah,laqab,gender,is_prophet,node_type,prominence,biography
 1005,غزوة حنين,Battle of Hunayn,,,male,False,Battle,EVENT,Battle against the Hawazin and Thaqif.,Sirat Ibn Hisham,,,8,8,False,False,False,False,False,False,False,False,False,False,False
 1006,معركة اليرموك,Battle of Yarmouk,,,male,False,Battle,EVENT,Major battle between the Muslims and the Byzantines.,General History,,,13,13,False,False,False,False,False,False,False,False,False,False,True
 1007,معركة القادسية,Battle of Qadisiyyah,,,male,False,Battle,EVENT,Major battle between the Muslims and the Sassanids.,General History,,,15,15,False,False,False,False,False,False,False,False,False,False,True
+1008,,Sawda bint Zamʿa,,,female,False,Sahabi,SAHABI,Wife of Muhammad (PBUH). Graph profile: 0 documented children.,Fact-Check Report,,,,,False,false,True,False,False,False,False,False,False,False,False
+1009,,Ramla bint Abi Sufyan,,,female,False,Sahabi,SAHABI,Wife of Muhammad (PBUH). Graph profile: 1 documented children.,Fact-Check Report,,,,,False,true,True,False,False,False,False,False,False,False,False
+1010,,Juwayriyyah bint al-Harith,,,female,False,Sahabi,SAHABI,Wife of Muhammad (PBUH). Graph profile: 0 documented children.,Fact-Check Report,,,,,False,false,True,False,False,False,False,False,False,False,False
+1011,,Umm Salama (Hind bint Abi Umayya),,,female,False,Sahabi,SAHABI,Wife of Muhammad (PBUH). Graph profile: 1 documented children.,Fact-Check Report,,,,,False,true,True,False,False,False,False,False,False,False,False
+1012,,Maymunah bint al-Harith,,,female,False,Sahabi,SAHABI,Wife of Muhammad (PBUH). Graph profile: 0 documented children.,Fact-Check Report,,,,,False,false,True,False,False,False,False,False,False,False,False
+1013,,Qasim ibn Muhammad,,,male,False,Sahabi,SAHABI,Child of Muhammad (PBUH). Born before Prophecy,Fact-Check Report,,,,,True,False,False,False,False,False,False,False,False,False,False
+1014,,Abdullah ibn Muhammad,,,male,False,Sahabi,SAHABI,Child of Muhammad (PBUH). Called al-Tayyib or al-Tahir,Fact-Check Report,,,,,True,False,False,False,False,False,False,False,False,False,False
+1015,,Ibrahim ibn Muhammad,,,male,False,Sahabi,SAHABI,Child of Muhammad (PBUH). Only son by non-Arab wife,Fact-Check Report,,,,,True,False,False,False,False,False,False,False,False,False,False
+1016,,Qutaylah bint Abd-al-Uzza,,,female,False,Sahabi,SAHABI,Wife of Abu Bakr as-Siddiq. Graph profile: 2 documented children.,Fact-Check Report,,,,,False,true,True,False,False,False,False,False,False,False,False
+1017,,Umm Ruman (Salma bint Sufyan),,,female,False,Sahabi,SAHABI,Wife of Abu Bakr as-Siddiq. Graph profile: 4 documented children.,Fact-Check Report,,,,,False,true,True,False,False,False,False,False,False,False,False
+1018,,Habiba bint Kharija,,,female,False,Sahabi,SAHABI,Wife of Abu Bakr as-Siddiq. Graph profile: 2 documented children.,Fact-Check Report,,,,,False,true,True,False,False,False,False,False,False,False,False
+1019,,Abd Allah ibn Abi Bakr,,,male,False,Sahabi,SAHABI,Child of Abu Bakr as-Siddiq. Slave trader; lived 61 AH,Fact-Check Report,,,,,True,False,False,False,False,False,False,False,False,False,False
+1020,,Abd al-Rahman ibn Abi Bakr,,,male,False,Sahabi,SAHABI,Child of Abu Bakr as-Siddiq. Poet; lived 46 AH,Fact-Check Report,,,,,True,False,False,False,False,False,False,False,False,False,False
+1021,,Ummamah bint Abi al-As,,,female,False,Sahabi,SAHABI,Wife of Ali ibn Abi Talib. Graph profile: 3 documented children.,Fact-Check Report,,,,,False,true,True,False,False,False,False,False,False,False,False
+1022,,Ruqayyah bint Muhammad,,,female,False,Sahabi,SAHABI,Wife of Uthman ibn Affan. Graph profile: 2 documented children.,Fact-Check Report,,,,,False,true,True,False,False,False,False,False,False,False,False

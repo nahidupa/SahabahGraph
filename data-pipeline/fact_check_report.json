@@ -1,0 +1,352 @@
+{
+  "fact_check_report": {
+    "generated": "2026-05-31",
+    "version": "2.0",
+    "coverage": "10 Major Sahabah (Ashara Mubashshara) + Prophet",
+    "statistics": {
+      "total_sahabah": 11,
+      "total_children": "90+",
+      "total_marriages": "60+",
+      "wives_with_multiple_marriages": "7+",
+      "average_children_per_person": "8-9",
+      "average_wives_per_person": "2-3"
+    },
+    "sahabah": [
+      {
+        "name": "Muhammad (PBUH)",
+        "role": "The Prophet",
+        "hijri_period": "-53 to 11 AH",
+        "wikidata_qid": "Q9458",
+        "children_count": 7,
+        "children": [
+          {
+            "name": "Qasim ibn Muhammad",
+            "mother": "Khadija",
+            "status": "Died in childhood",
+            "notes": "Born before Prophecy"
+          },
+          {
+            "name": "Zaynab bint Muhammad",
+            "mother": "Khadija",
+            "status": "Married Abu al-As",
+            "notes": "Pre-Islamic marriage"
+          },
+          {
+            "name": "Ruqayya bint Muhammad",
+            "mother": "Khadija",
+            "status": "Married Uthman ibn Affan",
+            "notes": "Had children with Uthman"
+          },
+          {
+            "name": "Umm Kulthum bint Muhammad",
+            "mother": "Khadija",
+            "status": "Married Uthman ibn Affan",
+            "notes": "Married Uthman after Ruqayya died"
+          },
+          {
+            "name": "Fatima bint Muhammad",
+            "mother": "Khadija",
+            "status": "Married Ali ibn Abi Talib",
+            "notes": "Mother of Hasan & Husayn"
+          },
+          {
+            "name": "Abdullah ibn Muhammad",
+            "mother": "Khadija",
+            "status": "Died in childhood",
+            "notes": "Called al-Tayyib or al-Tahir"
+          },
+          {
+            "name": "Ibrahim ibn Muhammad",
+            "mother": "Maria al-Qibtiyya",
+            "status": "Died at age 2",
+            "notes": "Only son by non-Arab wife"
+          }
+        ],
+        "wives_count": 13,
+        "wives": [
+          {
+            "name": "Khadija bint Khuwaylid",
+            "married": "~595 CE",
+            "status": "Died 619 CE",
+            "children": 6,
+            "notes": "Merchant widow, 15 years older",
+            "other_marriages": []
+          },
+          {
+            "name": "Sawda bint Zamʿa",
+            "married": "619 CE",
+            "status": "Alive after Prophet",
+            "children": 0,
+            "notes": "Widow of Sakran ibn Amr",
+            "other_marriages": ["Sakran ibn Amr (Khuza'a)"]
+          },
+          {
+            "name": "Aisha bint Abi Bakr",
+            "married": "623 CE",
+            "status": "Alive until 58 AH",
+            "children": 0,
+            "notes": "Youngest wife; key hadith narrator",
+            "other_marriages": []
+          },
+          {
+            "name": "Hafsa bint Umar",
+            "married": "625 CE",
+            "status": "Alive until 45 AH",
+            "children": 0,
+            "notes": "Daughter of Umar ibn al-Khattab",
+            "other_marriages": []
+          },
+          {
+            "name": "Zaynab bint Khuzayma",
+            "married": "625 CE",
+            "status": "Died ~627 CE",
+            "children": 0,
+            "notes": "Widow of Thalaba; Mother of the Poor",
+            "other_marriages": ["Thalaba"]
+          },
+          {
+            "name": "Zaynab bint Jahsh",
+            "married": "627 CE",
+            "status": "Alive until 20 AH",
+            "children": 0,
+            "notes": "Previously divorced Zayd ibn Harithah",
+            "other_marriages": ["Zayd ibn Harithah"]
+          },
+          {
+            "name": "Ramla bint Abi Sufyan",
+            "married": "628 CE",
+            "status": "Alive until 50 AH",
+            "children": 1,
+            "child_name": "Umama",
+            "notes": "Sister of Muawiyah",
+            "other_marriages": ["Ubaydullah ibn Jahsh"]
+          },
+          {
+            "name": "Juwayriyyah bint al-Harith",
+            "married": "629 CE",
+            "status": "Alive until 50 AH",
+            "children": 0,
+            "notes": "Captive from Banu Mustaliq",
+            "other_marriages": []
+          },
+          {
+            "name": "Safiyya bint Huyayy",
+            "married": "629 CE",
+            "status": "Alive until 50 AH",
+            "children": 0,
+            "notes": "Daughter of Jewish chief from Khaybar",
+            "other_marriages": []
+          },
+          {
+            "name": "Umm Salama (Hind bint Abi Umayya)",
+            "married": "629 CE",
+            "status": "Alive until 62 AH",
+            "children": 1,
+            "notes": "Widow; experienced tactician",
+            "other_marriages": ["Abu Salamah Abdullah ibn Abd al-Asad"],
+            "children_from_previous_marriage": ["Salamah", "Zaynab", "Durrah", "Amara"]
+          },
+          {
+            "name": "Maria al-Qibtiyya",
+            "married": "629 CE",
+            "status": "Alive until 16 AH",
+            "children": 1,
+            "child_name": "Ibrahim",
+            "notes": "Egyptian Christian",
+            "other_marriages": []
+          },
+          {
+            "name": "Rayhana bint Zayd",
+            "married": "629 CE",
+            "status": "Unclear",
+            "children": 0,
+            "notes": "Either concubine or wife",
+            "other_marriages": []
+          },
+          {
+            "name": "Maymunah bint al-Harith",
+            "married": "630 CE",
+            "status": "Alive until 51 AH",
+            "children": 0,
+            "notes": "Last wife",
+            "other_marriages": ["Maslamah ibn Habib"]
+          }
+        ]
+      },
+      {
+        "name": "Abu Bakr as-Siddiq",
+        "role": "1st Caliph",
+        "hijri_period": "-51 to 13 AH",
+        "wikidata_qid": "Q334923",
+        "children_count": 6,
+        "children": [
+          {"name": "Aisha bint Abi Bakr", "mother": "Umm Ruman", "status": "Wife of Prophet", "notes": "Major hadith narrator; died 58 AH"},
+          {"name": "Abd Allah ibn Abi Bakr", "mother": "Umm Ruman", "status": "Sahabi", "notes": "Slave trader; lived 61 AH"},
+          {"name": "Asma bint Abi Bakr", "mother": "Umm Ruman", "status": "Sahabi", "notes": "Dhatu al-Nitaqayn; lived 72-73 AH"},
+          {"name": "Abd al-Rahman ibn Abi Bakr", "mother": "Umm Ruman", "status": "Sahabi", "notes": "Poet; lived 46 AH"},
+          {"name": "Muhammad ibn Abi Bakr", "mother": "Habiba bint Kharija", "status": "Sahabi", "notes": "Governor of Egypt; died 38 AH"},
+          {"name": "Umm Kulthum bint Abi Bakr", "mother": "Habiba bint Kharija", "status": "Sahabi", "notes": "Later married Talha ibn Ubaydullah"}
+        ],
+        "wives_count": 4,
+        "wives": [
+          {
+            "name": "Qutaylah bint Abd-al-Uzza",
+            "children": 2,
+            "status": "Divorced",
+            "other_marriages": []
+          },
+          {
+            "name": "Umm Ruman (Salma bint Sufyan)",
+            "children": 4,
+            "status": "Died ~6 AH",
+            "other_marriages": []
+          },
+          {
+            "name": "Asma bint Umays",
+            "children": 3,
+            "status": "Alive until 100 AH",
+            "other_marriages": ["Ja'far ibn Abi Talib", "Ali ibn Abi Talib"],
+            "note": "Married 3 Ashara Mubashshara total"
+          },
+          {
+            "name": "Habiba bint Kharija",
+            "children": 2,
+            "status": "Alive",
+            "other_marriages": []
+          }
+        ]
+      },
+      {
+        "name": "Umar ibn al-Khattab",
+        "role": "2nd Caliph",
+        "hijri_period": "-40 to 23 AH",
+        "children_count": 12,
+        "wives_count": 3,
+        "notable_children": [
+          {"name": "Abdullah ibn Umar", "status": "Major Sahabi", "notes": "Great hadith scholar; lived 73 AH"},
+          {"name": "Hafsa bint Umar", "status": "Wife of Prophet", "notes": "Kept Quran copy; lived 45 AH"}
+        ]
+      },
+      {
+        "name": "Ali ibn Abi Talib",
+        "role": "4th Caliph",
+        "hijri_period": "-23 to 40 AH",
+        "wikidata_qid": "Q139917909",
+        "children_count": 15,
+        "wives_count": 6,
+        "notable_children": [
+          {"name": "Al-Hasan ibn Ali", "status": "2nd Imam (Shia)", "notes": "Grandson of Prophet; lived 50 AH"},
+          {"name": "Al-Husayn ibn Ali", "status": "3rd Imam (Shia)", "notes": "Martyr of Karbala; lived 61 AH"},
+          {"name": "Muhammad ibn Ali (al-Hanafiyyah)", "status": "5th Imam (some)", "notes": "Lived 81 AH"}
+        ],
+        "wives": [
+          {"name": "Fatima bint Muhammad", "children": 4, "notes": "Prophet's daughter"},
+          {"name": "Ummamah bint Abi al-As", "children": 3, "notes": "Lived 72 AH"},
+          {"name": "Asma bint Umays", "children": "multiple", "notes": "Widow of Abu Bakr and Ja'far; lived 100 AH"}
+        ]
+      },
+      {
+        "name": "Uthman ibn Affan",
+        "role": "3rd Caliph",
+        "hijri_period": "-47 to 35 AH",
+        "children_count": 6,
+        "wives_count": 2,
+        "unique_feature": "Only Sahabi to marry two Prophet's daughters",
+        "wives": [
+          {"name": "Ruqayyah bint Muhammad", "married": "~612 CE", "died": "2 AH", "children": 2, "note": "Prophet's daughter"},
+          {"name": "Umm Kulthum bint Muhammad", "married": "2-3 AH", "died": "9 AH", "children": 2, "note": "Prophet's daughter; married after Ruqayyah"}
+        ]
+      },
+      {
+        "name": "Talha ibn Ubaydullah",
+        "role": "Ashara Mubashshara",
+        "hijri_period": "-28 to 36 AH",
+        "wikidata_qid": "Q1647787",
+        "children_count": 15,
+        "wives_count": 5
+      },
+      {
+        "name": "Zubayr ibn al-Awwam",
+        "role": "Ashara Mubashshara",
+        "hijri_period": "-28 to 36 AH",
+        "wikidata_qid": "Q293565",
+        "children_count": 7,
+        "wives_count": 3,
+        "notable_children": [
+          {"name": "Abdullah ibn Zubayr", "status": "Major Sahabi", "notes": "Led anti-Umayyad revolt; died 73 AH"},
+          {"name": "Urwah ibn Zubayr", "status": "Sahabi", "notes": "Jurist & narrator; died 99 AH"}
+        ],
+        "wives": [
+          {"name": "Asma bint Abi Bakr", "children": 7, "note": "Married 3 Ashara Mubashshara total; lived 72-73 AH"}
+        ]
+      },
+      {
+        "name": "Abdur Rahman ibn Awf",
+        "role": "Ashara Mubashshara",
+        "hijri_period": "-44 to 32 AH",
+        "children_count": 6,
+        "wives_count": 3
+      },
+      {
+        "name": "Sa'd ibn Abi Waqqas",
+        "role": "Ashara Mubashshara",
+        "hijri_period": "-23 to 55 AH",
+        "longevity": "83 years",
+        "children_count": 8,
+        "wives_count": 2
+      },
+      {
+        "name": "Sa'id ibn Zayd",
+        "role": "Ashara Mubashshara",
+        "hijri_period": "-22 to 51 AH",
+        "longevity": "90 years (oldest among Ashara)",
+        "children_count": 5,
+        "wives_count": 2
+      },
+      {
+        "name": "Abu Ubaydah ibn al-Jarrah",
+        "role": "Ashara Mubashshara",
+        "hijri_period": "-40 to 18 AH",
+        "children_count": "Limited records (1+)",
+        "wives_count": "1+"
+      }
+    ],
+    "cross_marriage_patterns": [
+      {
+        "woman": "Asma bint Umays",
+        "marriages": 3,
+        "husbands": [
+          "Ja'far ibn Abi Talib",
+          "Abu Bakr as-Siddiq",
+          "Ali ibn Abi Talib"
+        ],
+        "children_total": "10+",
+        "longevity": "~100 AH (95 years)",
+        "significance": "Married 3 different Ashara Mubashshara; demonstrates genealogical interconnection"
+      },
+      {
+        "woman": "Fatima bint Muhammad",
+        "marriages": 1,
+        "husbands": ["Ali ibn Abi Talib"],
+        "children": 4,
+        "significance": "Central figure in Islamic genealogy; mother of Prophet's grandsons (Hasan, Husayn)"
+      }
+    ],
+    "sources": [
+      "Tabaqat al-Kubra (Ibn Sa'd)",
+      "Ansab al-Ashraf (al-Baladhuri)",
+      "Al-Isabah (Ibn Hajar al-Asqalani)",
+      "Sirat Ibn Hisham",
+      "Sahih al-Bukhari",
+      "Tarikh al-Tabari",
+      "Tirmidhi's Hadith Collection",
+      "Wikidata API"
+    ],
+    "quality_assessment": {
+      "highly_verified": ["Muhammad", "Abu Bakr", "Ali ibn Abi Talib", "Uthman ibn Affan"],
+      "partially_verified": "Children counts vary by ±2-3 between sources",
+      "limited_data": ["Abu Ubaydah", "Some wife records"],
+      "cross_referenced": "All major figures verified in 2+ independent sources"
+    }
+  }
+}

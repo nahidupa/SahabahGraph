@@ -53,7 +53,7 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
       }
     },
     {
-      selector: 'node[is_prophet = "True"]',
+      selector: 'node[is_prophet = true]',
       style: {
         'shape': 'star',
         'background-color': '#ffd700',
@@ -66,7 +66,7 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
       }
     },
     {
-      selector: 'node[gender = "male"][is_prophet = "False"]',
+      selector: 'node[gender = "male"][is_prophet = false]',
       style: {
         'background-color': '#2196f3',
       }
