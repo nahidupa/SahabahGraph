@@ -127,6 +127,8 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
         stylesheet={stylesheet}
         cy={(cy: Core) => {
           cyRef.current = cy;
+          // @ts-ignore
+          window.cy = cy;
           cy.on('tap', 'node', (evt: any) => {
             const nodeData = evt.target.data();
             onNodeClick(nodeData as unknown as Sahabi);

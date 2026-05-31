@@ -6,9 +6,11 @@ import SahabahSidebar from './components/Sidebar/SahabahSidebar';
 import GraphCanvas from './components/Graph/GraphCanvas';
 import SahabahDetail from './components/DetailPanel/SahabahDetail';
 import PathSummary from './components/Graph/PathSummary';
+import { useTranslation } from 'react-i18next';
 import './i18n/config';
 
 const App: React.FC = () => {
+  const { t } = useTranslation();
   const [data, setData] = useState<GraphData | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedNode, setSelectedNode] = useState<Sahabi | null>(null);
@@ -82,7 +84,6 @@ const App: React.FC = () => {
   };
 
   const handleShowConnections = () => {
-    const { t } = i18n;
     const selectedNodes = cyRef.current?.$(':selected');
     if (selectedNodes?.length !== 2) {
       alert(t('select_two_nodes'));
@@ -129,10 +130,31 @@ const App: React.FC = () => {
             }
           }
         }
-      }, 200);
-    } else {
-      alert(t('no_path_found'));
-    }
+        setElements((prev) => {
+          const existingIds = new Set(prev.map(el => el.data.id));
+          const filteredNew = newElements.filter(el => !existingIds.has(el.data.id));
+          return [...prev, ...filteredNew];
+        });
+
+        setTimeout(() => {
+          if (cyRef.current) {
+            path.forEach(id => cyRef.current?.$id(id).addClass('highlighted'));
+            // Find edges in path
+            for (let i = 0; i < path.length - 1; i++) {
+              const u = path[i];
+              const v = path[i + 1];
+              cyRef.current?.edges().filter(edge =>
+                (edge.source().id() === u && edge.target().id() === v) ||
+                (edge.source().id() === v && edge.target().id() === u)
+              ).addClass('highlighted');
+            }
+            cyRef.current.fit(cyRef.current.$('.highlighted'), 50);
+          }
+        }, 200);
+      } else {
+        alert(t('no_path_found'));
+      }
+    };
   };
 
   return (
