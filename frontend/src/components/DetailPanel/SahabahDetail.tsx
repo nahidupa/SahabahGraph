@@ -30,7 +30,7 @@ import type { Sahabi, Relationship } from '../../types';
 interface SahabahDetailProps {
   selectedNode: Sahabi | null;
   links: Relationship[];
-  onExpand: (nodeId: number, category: string) => void;
+  onExpand: (nodeId: number | string, categoryOrType: string) => void;
 }
 
 const SahabahDetail: React.FC<SahabahDetailProps> = ({
@@ -51,6 +51,17 @@ const SahabahDetail: React.FC<SahabahDetailProps> = ({
     const categories = new Set<string>();
     nodeRels.forEach(r => categories.add(r.category));
     return Array.from(categories);
+  }, [selectedNode, links]);
+
+  const availableRelationshipTypes = useMemo(() => {
+    if (!selectedNode) return [];
+    const selectedId = String(selectedNode.id);
+    const nodeRels = links.filter(
+      (l) => String(l.source_id) === selectedId || String(l.target_id) === selectedId
+    );
+    const types = new Set<string>();
+    nodeRels.forEach((r) => types.add(r.type));
+    return Array.from(types);
   }, [selectedNode, links]);
 
   if (collapsed) {
@@ -169,6 +180,27 @@ const SahabahDetail: React.FC<SahabahDetailProps> = ({
                     onClick={() => onExpand(selectedNode.id, cat)}
                     icon={<AddIcon />}
                     color="primary"
+                    variant="outlined"
+                    clickable
+                  />
+                ))
+              ) : (
+                <Typography variant="body2" color="text.disabled">{t('no_rels_found')}</Typography>
+              )}
+            </Box>
+
+            <Typography variant="subtitle2" color="text.secondary" sx={{ mb: 1 }}>
+              {t('relationship_types', { defaultValue: 'Relationship Types' })}
+            </Typography>
+            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mb: 3 }}>
+              {availableRelationshipTypes.length > 0 ? (
+                availableRelationshipTypes.map((type) => (
+                  <Chip
+                    key={type}
+                    label={t(`relationships.${type}`, { defaultValue: type })}
+                    onClick={() => onExpand(selectedNode.id, type)}
+                    icon={<AddIcon />}
+                    color="secondary"
                     variant="outlined"
                     clickable
                   />

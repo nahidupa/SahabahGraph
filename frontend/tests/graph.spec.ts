@@ -66,27 +66,15 @@ test.describe('SahabahGraph E2E Tests', () => {
     expect(edgeCount).toBeGreaterThan(0);
   });
 
-  test('Right-click on graph node opens relationship context menu', async ({ page, browserName }) => {
-    const clickPoint = await page.evaluate(() => {
-      const node = window.cy.nodes()[0];
-      const rendered = node.renderedPosition();
-      const rect = window.cy.container().getBoundingClientRect();
-      return { x: rect.left + rendered.x, y: rect.top + rendered.y };
-    });
+  test('Relationship type actions are available in detail panel', async ({ page }) => {
+    await page.getByText('Abu Bakr as-Siddiq').first().click();
 
-    if (browserName === 'webkit') {
-      await page.evaluate(() => {
-        window.cy.nodes()[0].emit('cxttap');
-      });
-    } else {
-      await page.mouse.click(clickPoint.x, clickPoint.y, { button: 'right' });
-    }
+    await expect(page.getByText('Relationship Types')).toBeVisible();
+    const relationshipTypeChip = page.getByRole('button', { name: 'is the parent of' });
+    await expect(relationshipTypeChip).toBeVisible();
+    await relationshipTypeChip.click();
 
-    const relationshipMenu = page.getByRole('menu').last();
-    await expect(relationshipMenu).toBeVisible();
-    await expect(relationshipMenu.getByText('Expand Relationships')).toBeVisible();
-    await expect(relationshipMenu.getByText('No relationships found in data.')).not.toBeVisible();
-    await expect(relationshipMenu.getByRole('menuitem').first()).toBeVisible();
+    await page.waitForFunction(() => window.cy && window.cy.edges().length > 0);
   });
 
   test('Abu Bakr shows relationship categories in detail panel', async ({ page }) => {

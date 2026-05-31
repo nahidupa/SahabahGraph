@@ -327,8 +327,6 @@ const App: React.FC = () => {
           onNodeClick={setSelectedNode}
           cyRef={cyRef}
           onShowConnections={handleShowConnections}
-          links={data?.links || []}
-          onExpand={expandRelationships}
         />
       ) : (
         <TimelineView
