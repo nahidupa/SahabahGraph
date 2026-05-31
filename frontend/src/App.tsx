@@ -99,11 +99,11 @@ const App: React.FC = () => {
     });
   };
 
-  const expandRelationships = (nodeId: number, category: string) => {
+  const expandRelationships = (nodeId: number, categoryOrType: string) => {
     if (!data) return;
     const rels = data.links.filter(l =>
       (l.source_id === nodeId || l.target_id === nodeId) &&
-      l.category === category
+      (l.category === categoryOrType || l.type === categoryOrType)
     );
 
     const newElements: cytoscape.ElementDefinition[] = [];
@@ -258,6 +258,8 @@ const App: React.FC = () => {
           onNodeClick={setSelectedNode}
           cyRef={cyRef}
           onShowConnections={handleShowConnections}
+          links={data?.links || []}
+          onExpand={expandRelationships}
         />
       ) : (
         <TimelineView
