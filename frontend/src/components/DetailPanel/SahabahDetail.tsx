@@ -7,11 +7,7 @@ import {
   IconButton,
   Avatar,
   Chip,
-  Paper,
-  List,
-  ListItem,
-  ListItemText,
-  ListItemIcon
+  Paper
 } from '@mui/material';
 import {
   Star as StarIcon,
@@ -21,7 +17,10 @@ import {
   ChevronLeft as ChevronLeftIcon,
   ChevronRight as ChevronRightIcon,
   Security as BattleIcon,
-  HistoryEdu as BioIcon
+  HistoryEdu as BioIcon,
+  Groups as TribeIcon,
+  AccountTree as ClanIcon,
+  EventNote as DateIcon
 } from '@mui/icons-material';
 import { useTranslation } from 'react-i18next';
 import type { Sahabi, Relationship } from '../../types';
@@ -107,6 +106,42 @@ const SahabahDetail: React.FC<SahabahDetailProps> = ({
             </Box>
 
             <Divider sx={{ my: 2 }} />
+
+            {selectedNode.node_type === 'Sahabi' && (
+              <Box sx={{ mb: 3 }}>
+                <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
+                  {selectedNode.tribe && (
+                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                      <TribeIcon fontSize="small" color="action" sx={{ mr: 1 }} />
+                      <Box>
+                        <Typography variant="caption" color="text.secondary">{t('tribe')}</Typography>
+                        <Typography variant="body2">{selectedNode.tribe}</Typography>
+                      </Box>
+                    </Box>
+                  )}
+                  {selectedNode.clan && (
+                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                      <ClanIcon fontSize="small" color="action" sx={{ mr: 1 }} />
+                      <Box>
+                        <Typography variant="caption" color="text.secondary">{t('clan')}</Typography>
+                        <Typography variant="body2">{selectedNode.clan}</Typography>
+                      </Box>
+                    </Box>
+                  )}
+                  {(selectedNode.birth_year || selectedNode.death_year) && (
+                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                      <DateIcon fontSize="small" color="action" sx={{ mr: 1 }} />
+                      <Box>
+                        <Typography variant="caption" color="text.secondary">{t('born')} / {t('died')}</Typography>
+                        <Typography variant="body2">
+                          {selectedNode.birth_year || '?'} - {selectedNode.death_year || '?'}
+                        </Typography>
+                      </Box>
+                    </Box>
+                  )}
+                </Box>
+              </Box>
+            )}
 
             <Typography variant="h6" gutterBottom>{t('expand_relationships')}</Typography>
             <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>

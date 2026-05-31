@@ -1,10 +1,10 @@
 import React from 'react';
 import { Box, Paper, IconButton, Tooltip, Divider } from '@mui/material';
 import { Route as RouteIcon, ZoomIn as ZoomInIcon, ZoomOut as ZoomOutIcon, RestartAlt as ResetIcon, Download as DownloadIcon, Image as ImageIcon } from '@mui/icons-material';
-// @ts-ignore
+// @ts-expect-error - react-cytoscapejs missing types
 import CytoscapeComponent from 'react-cytoscapejs';
 import cytoscape from 'cytoscape';
-// @ts-ignore
+// @ts-expect-error - cytoscape-svg missing types
 import svg from 'cytoscape-svg';
 import type { Core } from 'cytoscape';
 import type { Sahabi } from '../../types';
@@ -147,7 +147,7 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
 
   const handleExportSVG = () => {
     if (!cyRef.current) return;
-    // @ts-ignore
+    // @ts-expect-error - svg extension not in types
     const svgContent = cyRef.current.svg({ full: true, bg: '#ffffff' });
     const blob = new Blob([svgContent], { type: 'image/svg+xml;charset=utf-8' });
     const url = URL.createObjectURL(blob);
@@ -166,7 +166,7 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
         stylesheet={stylesheet}
         cy={(cy: Core) => {
           cyRef.current = cy;
-          // @ts-ignore
+          // @ts-expect-error - exposing cy to window for E2E tests
           window.cy = cy;
           cy.on('tap', 'node', (evt: any) => {
             const nodeData = evt.target.data();
