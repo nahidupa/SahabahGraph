@@ -30,13 +30,15 @@ def load_data():
                     SET s.name = $name,
                         s.title = $title,
                         s.gender = $gender,
-                        s.is_prophet = ($is_prophet = 'True')
+                        s.is_prophet = ($is_prophet = 'True'),
+                        s.bio = $bio
                     """,
                     id=row['id'],
                     name=row['name'],
                     title=row['title'],
                     gender=row['gender'],
-                    is_prophet=row['is_prophet']
+                    is_prophet=row['is_prophet'],
+                    bio=row['bio']
                 )
 
         # 4. Load Relationships

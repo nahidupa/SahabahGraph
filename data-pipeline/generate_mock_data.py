@@ -4,29 +4,29 @@ import json
 def main():
     # 1. Nodes
     nodes = [
-        {"id": 0, "name": "Muhammad (PBUH)", "gender": "male", "is_prophet": "True", "title": "Rasulullah"},
-        {"id": 1, "name": "Abu Bakr as-Siddiq", "gender": "male", "is_prophet": "False", "title": "As-Siddiq"},
-        {"id": 2, "name": "Umar ibn al-Khattab", "gender": "male", "is_prophet": "False", "title": "Al-Faruq"},
-        {"id": 3, "name": "Uthman ibn Affan", "gender": "male", "is_prophet": "False", "title": "Dhun-Nurayn"},
-        {"id": 4, "name": "Ali ibn Abi Talib", "gender": "male", "is_prophet": "False", "title": "Asadullah"},
-        {"id": 5, "name": "Talha ibn Ubaydullah", "gender": "male", "is_prophet": "False", "title": "Talhat al-Khayr"},
-        {"id": 6, "name": "Zubayr ibn al-Awwam", "gender": "male", "is_prophet": "False", "title": "Hawari Rasulillah"},
-        {"id": 7, "name": "Abdur Rahman ibn Awf", "gender": "male", "is_prophet": "False", "title": ""},
-        {"id": 8, "name": "Sa'd ibn Abi Waqqas", "gender": "male", "is_prophet": "False", "title": ""},
-        {"id": 9, "name": "Sa'id ibn Zayd", "gender": "male", "is_prophet": "False", "title": ""},
-        {"id": 10, "name": "Abu Ubaydah ibn al-Jarrah", "gender": "male", "is_prophet": "False", "title": "Amin al-Ummah"},
-        {"id": 11, "name": "Khadija bint Khuwaylid", "gender": "female", "is_prophet": "False", "title": "Tahira"},
-        {"id": 12, "name": "Aisha bint Abi Bakr", "gender": "female", "is_prophet": "False", "title": "Siddiqa"},
-        {"id": 13, "name": "Fatima bint Muhammad", "gender": "female", "is_prophet": "False", "title": "Az-Zahra"},
-        {"id": 14, "name": "Hasan ibn Ali", "gender": "male", "is_prophet": "False", "title": ""},
-        {"id": 15, "name": "Husayn ibn Ali", "gender": "male", "is_prophet": "False", "title": ""},
-        {"id": 16, "name": "Hamza ibn Abd al-Muttalib", "gender": "male", "is_prophet": "False", "title": "Asadullah"},
-        {"id": 17, "name": "Abbas ibn Abd al-Muttalib", "gender": "male", "is_prophet": "False", "title": ""},
-        {"id": 18, "name": "Bilal ibn Rabah", "gender": "male", "is_prophet": "False", "title": "Muadhin"},
-        {"id": 19, "name": "Khalid ibn al-Walid", "gender": "male", "is_prophet": "False", "title": "Saifullah"},
-        {"id": 20, "name": "Zaynab bint Muhammad", "gender": "female", "is_prophet": "False", "title": ""},
-        {"id": 21, "name": "Ruqayya bint Muhammad", "gender": "female", "is_prophet": "False", "title": ""},
-        {"id": 22, "name": "Umm Kulthum bint Muhammad", "gender": "female", "is_prophet": "False", "title": ""},
+        {"id": 0, "name": "Muhammad (PBUH)", "gender": "male", "is_prophet": "True", "title": "Rasulullah", "bio": "The last Prophet of Islam."},
+        {"id": 1, "name": "Abu Bakr as-Siddiq", "gender": "male", "is_prophet": "False", "title": "As-Siddiq", "bio": "The first Caliph of Islam."},
+        {"id": 2, "name": "Umar ibn al-Khattab", "gender": "male", "is_prophet": "False", "title": "Al-Faruq", "bio": "The second Caliph of Islam."},
+        {"id": 3, "name": "Uthman ibn Affan", "gender": "male", "is_prophet": "False", "title": "Dhun-Nurayn", "bio": "The third Caliph of Islam."},
+        {"id": 4, "name": "Ali ibn Abi Talib", "gender": "male", "is_prophet": "False", "title": "Asadullah", "bio": "The fourth Caliph of Islam."},
+        {"id": 5, "name": "Talha ibn Ubaydullah", "gender": "male", "is_prophet": "False", "title": "Talhat al-Khayr", "bio": "One of the ten promised paradise."},
+        {"id": 6, "name": "Zubayr ibn al-Awwam", "gender": "male", "is_prophet": "False", "title": "Hawari Rasulillah", "bio": "One of the ten promised paradise."},
+        {"id": 7, "name": "Abdur Rahman ibn Awf", "gender": "male", "is_prophet": "False", "title": "", "bio": "One of the ten promised paradise."},
+        {"id": 8, "name": "Sa'd ibn Abi Waqqas", "gender": "male", "is_prophet": "False", "title": "", "bio": "One of the ten promised paradise."},
+        {"id": 9, "name": "Sa'id ibn Zayd", "gender": "male", "is_prophet": "False", "title": "", "bio": "One of the ten promised paradise."},
+        {"id": 10, "name": "Abu Ubaydah ibn al-Jarrah", "gender": "male", "is_prophet": "False", "title": "Amin al-Ummah", "bio": "One of the ten promised paradise."},
+        {"id": 11, "name": "Khadija bint Khuwaylid", "gender": "female", "is_prophet": "False", "title": "Tahira", "bio": "The first wife of the Prophet."},
+        {"id": 12, "name": "Aisha bint Abi Bakr", "gender": "female", "is_prophet": "False", "title": "Siddiqa", "bio": "The wife of the Prophet and daughter of Abu Bakr."},
+        {"id": 13, "name": "Fatima bint Muhammad", "gender": "female", "is_prophet": "False", "title": "Az-Zahra", "bio": "The daughter of the Prophet and wife of Ali."},
+        {"id": 14, "name": "Hasan ibn Ali", "gender": "male", "is_prophet": "False", "title": "", "bio": "Grandson of the Prophet."},
+        {"id": 15, "name": "Husayn ibn Ali", "gender": "male", "is_prophet": "False", "title": "", "bio": "Grandson of the Prophet."},
+        {"id": 16, "name": "Hamza ibn Abd al-Muttalib", "gender": "male", "is_prophet": "False", "title": "Asadullah", "bio": "Uncle of the Prophet."},
+        {"id": 17, "name": "Abbas ibn Abd al-Muttalib", "gender": "male", "is_prophet": "False", "title": "", "bio": "Uncle of the Prophet."},
+        {"id": 18, "name": "Bilal ibn Rabah", "gender": "male", "is_prophet": "False", "title": "Muadhin", "bio": "The first muadhin of Islam."},
+        {"id": 19, "name": "Khalid ibn al-Walid", "gender": "male", "is_prophet": "False", "title": "Saifullah", "bio": "The Sword of Allah."},
+        {"id": 20, "name": "Zaynab bint Muhammad", "gender": "female", "is_prophet": "False", "title": "", "bio": "Daughter of the Prophet."},
+        {"id": 21, "name": "Ruqayya bint Muhammad", "gender": "female", "is_prophet": "False", "title": "", "bio": "Daughter of the Prophet."},
+        {"id": 22, "name": "Umm Kulthum bint Muhammad", "gender": "female", "is_prophet": "False", "title": "", "bio": "Daughter of the Prophet."},
     ]
 
     real_names = [
@@ -40,10 +40,10 @@ def main():
     start_id = len(nodes)
     for i, name in enumerate(real_names):
         gender = "female" if any(x in name.lower() for x in ["bint", "umm"]) else "male"
-        nodes.append({"id": start_id + i, "name": name, "gender": gender, "is_prophet": "False", "title": ""})
+        nodes.append({"id": start_id + i, "name": name, "gender": gender, "is_prophet": "False", "title": "", "bio": f"Biographical info for {name}"})
 
     for i in range(len(nodes), 200):
-        nodes.append({"id": i, "name": f"Sahabi {i}", "gender": "male", "is_prophet": "False", "title": ""})
+        nodes.append({"id": i, "name": f"Sahabi {i}", "gender": "male", "is_prophet": "False", "title": "", "bio": f"Biographical info for Sahabi {i}"})
 
     # 2. Relationships
     # types: SON_OF, DAUGHTER_OF, SPOUSE_OF, UNCLE_OF, COMPANION_OF, etc.
@@ -72,11 +72,14 @@ def main():
         {"source_id": 12, "target_id": 1, "type": "DAUGHTER_OF", "category": "daughters"},
         {"source_id": 21, "target_id": 3, "type": "SPOUSE_OF", "category": "others"}, # Ruqayya & Uthman
         {"source_id": 22, "target_id": 3, "type": "SPOUSE_OF", "category": "others"}, # Umm Kulthum & Uthman
+
+        {"source_id": 14, "target_id": 15, "type": "SIBLING_OF", "category": "others"}, # Hasan & Husayn
+        {"source_id": 27, "target_id": 0, "type": "TEACHER_OF", "category": "others"}, # Prophet taught Ibn Abbas
     ]
 
     # Save CSVs
     with open('data-pipeline/sahabah.csv', 'w', newline='', encoding='utf-8') as f:
-        writer = csv.DictWriter(f, fieldnames=["id", "name", "gender", "is_prophet", "title"])
+        writer = csv.DictWriter(f, fieldnames=["id", "name", "gender", "is_prophet", "title", "bio"])
         writer.writeheader()
         writer.writerows(nodes)
 
