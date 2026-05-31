@@ -114,3 +114,4 @@ source_id,target_id,type,category
 41,1006,PARTICIPATED_IN,battles
 8,1007,PARTICIPATED_IN,battles
 102,1007,PARTICIPATED_IN,battles
+1023,4,PARENT_OF,family
