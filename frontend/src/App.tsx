@@ -8,6 +8,7 @@ import GraphCanvas from './components/Graph/GraphCanvas';
 import SahabahDetail from './components/DetailPanel/SahabahDetail';
 import PathSummary from './components/Graph/PathSummary';
 import i18n from './i18n/config';
+import { useTranslation } from 'react-i18next';
 
 const GET_SAHABAH = gql`
   query GetSahabah {
@@ -23,6 +24,7 @@ const GET_SAHABAH = gql`
 `;
 
 const App: React.FC = () => {
+  const { t } = useTranslation();
   const { data: apolloData } = useQuery(GET_SAHABAH);
   const [data, setData] = useState<GraphData | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
@@ -135,7 +137,6 @@ const App: React.FC = () => {
   };
 
   const handleShowConnections = () => {
-    const { t } = i18n;
     const selectedNodes = cyRef.current?.$(':selected');
     if (selectedNodes?.length !== 2) {
       alert(t('select_two_nodes'));

@@ -123,7 +123,6 @@ const SahabahSidebar: React.FC<SahabahSidebarProps> = ({
               fullWidth
               sx={{
                 textAlign: i18n.dir() === 'rtl' ? 'right' : 'left',
-                justifyContent: 'flex-start',
                 color: 'inherit',
                 textTransform: 'none',
                 px: 2,

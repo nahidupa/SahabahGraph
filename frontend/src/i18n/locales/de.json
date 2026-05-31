@@ -7,6 +7,8 @@
   "add_to_graph": "Zum Graph hinzufügen",
   "show_connections": "Verbindungen anzeigen",
   "language": "Sprache",
+  "export_png": "PNG exportieren",
+  "export_svg": "SVG exportieren",
   "biography": "Biografie",
   "bio_placeholder": "Dieser Abschnitt könnte eine kurze Biografie oder historische Notizen über {{name}} enthalten.",
   "expand_sidebar": "Seitenleiste erweitern",

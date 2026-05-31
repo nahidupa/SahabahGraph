@@ -7,6 +7,8 @@
   "add_to_graph": "إضافة إلى الرسم البياني",
   "show_connections": "إظهار الاتصالات",
   "language": "اللغة",
+  "export_png": "تصدير PNG",
+  "export_svg": "تصدير SVG",
   "biography": "السيرة الذاتية",
   "bio_placeholder": "هذا القسم قد يحتوي على سيرة ذاتية موجزة أو ملاحظات تاريخية عن {{name}}.",
   "expand_sidebar": "توسيع الشريط الجانبي",
