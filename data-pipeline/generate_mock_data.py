@@ -376,16 +376,99 @@ def main():
     ]
     nodes.extend(battles)
 
-    # 2. Relationships
-    # Types: PARENT_OF, SPOUSE_OF, SIBLING_OF, TEACHER_OF, PARTICIPATED_IN
-    # Categories: family, mentorship, battles, others
-
     # Helper to find ID by name
     def find_id(name_en):
         for n in nodes:
             if n['name_en'] == name_en:
                 return n['id']
         return None
+
+    # Additional Political Figures (Governors)
+    political_figures = [
+        {"id": 201, "name_ar": "سعيد بن العاص", "name_en": "Said ibn al-As", "node_type": "PoliticalFigure", "prominence": "UMAYYAD", "biography_short": "Umayyad-era governor of Medina under Muawiya.", "biography_source": "General History", "tribe": "Quraish", "clan": "Banu Umayya", "gender": "male", "is_prophet": "False", "birth_year_hijri": 2, "death_year_hijri": 58},
+        {"id": 202, "name_ar": "الوليد بن عتبة بن أبي سفيان", "name_en": "al-Walid ibn Utba ibn Abi Sufyan", "node_type": "PoliticalFigure", "prominence": "UMAYYAD", "biography_short": "Umayyad governor linked to Medina during Muawiya and Yazid transitions.", "biography_source": "General History", "tribe": "Quraish", "clan": "Banu Umayya", "gender": "male", "is_prophet": "False", "death_year_hijri": 65},
+        {"id": 203, "name_ar": "عمرو بن سعيد بن العاص", "name_en": "Amr ibn Said ibn al-As", "node_type": "PoliticalFigure", "prominence": "UMAYYAD", "biography_short": "Umayyad governor of Medina with multiple terms.", "biography_source": "General History", "tribe": "Quraish", "clan": "Banu Umayya", "gender": "male", "is_prophet": "False", "death_year_hijri": 70},
+        {"id": 204, "name_ar": "عثمان بن محمد بن أبي سفيان", "name_en": "Uthman ibn Muhammad ibn Abi Sufyan", "node_type": "PoliticalFigure", "prominence": "UMAYYAD", "biography_short": "Umayyad governor of Medina during late Yazid period.", "biography_source": "General History", "tribe": "Quraish", "clan": "Banu Umayya", "gender": "male", "is_prophet": "False", "death_year_hijri": 70},
+        {"id": 205, "name_ar": "يزيد بن معاوية", "name_en": "Yazid ibn Muawiya", "node_type": "PoliticalFigure", "prominence": "UMAYYAD", "biography_short": "Second Umayyad caliph.", "biography_source": "General History", "tribe": "Quraish", "clan": "Banu Umayya", "gender": "male", "is_prophet": "False", "birth_year_hijri": 26, "death_year_hijri": 64},
+        {"id": 209, "name_ar": "خالد بن أسيد بن العاص", "name_en": "Khalid ibn Asid ibn al-As", "node_type": "PoliticalFigure", "prominence": "UMAYYAD", "biography_short": "Umayyad governor of Mecca during Muawiya era.", "biography_source": "General History", "tribe": "Quraish", "clan": "Banu Umayya", "gender": "male", "is_prophet": "False", "death_year_hijri": 70},
+        {"id": 210, "name_ar": "المغيرة بن شعبة", "name_en": "Al-Mughira ibn Shu'ba", "node_type": "PoliticalFigure", "prominence": "UMAYYAD", "biography_short": "Famous governor of Kufa under Muawiya.", "biography_source": "General History", "tribe": "Thaqif", "clan": "Thaqif", "gender": "male", "is_prophet": "False", "death_year_hijri": 75},
+        {"id": 211, "name_ar": "زياد بن أبيه", "name_en": "Ziyad ibn Abih", "node_type": "PoliticalFigure", "prominence": "UMAYYAD", "biography_short": "Powerful governor of Kufa and Basra.", "biography_source": "General History", "tribe": "Thaqif", "clan": "Thaqif", "gender": "male", "is_prophet": "False", "death_year_hijri": 73},
+        {"id": 212, "name_ar": "مسلمة بن مخلد", "name_en": "Maslama ibn Mukhallad", "node_type": "PoliticalFigure", "prominence": "UMAYYAD", "biography_short": "Governor of Egypt under Muawiya.", "biography_source": "General History", "tribe": "Quraysh", "clan": "Banu Umayya", "gender": "male", "is_prophet": "False", "death_year_hijri": 70},
+        {"id": 213, "name_ar": "عبيدة بن الزبير", "name_en": "Ubayda ibn al-Zubayr", "node_type": "PoliticalFigure", "prominence": "ZUBAYRID", "biography_short": "Brother of Abdallah ibn al-Zubayr, served as governor of Medina.", "biography_source": "Wikipedia", "tribe": "Quraish", "clan": "Banu Asad", "gender": "male", "is_prophet": "False"},
+        {"id": 214, "name_ar": "مصعب بن الزبير", "name_en": "Mus'ab ibn al-Zubayr", "node_type": "PoliticalFigure", "prominence": "ZUBAYRID", "biography_short": "Brother of Abdallah ibn al-Zubayr, governor of Medina and later Iraq.", "biography_source": "Wikipedia", "tribe": "Quraish", "clan": "Banu Asad", "gender": "male", "is_prophet": "False", "death_year_hijri": 72},
+        {"id": 215, "name_ar": "جابر بن الأسود بن عوف", "name_en": "Jabir ibn al-Aswad ibn Awf", "node_type": "PoliticalFigure", "prominence": "ZUBAYRID", "biography_short": "Zubayrid governor of Medina.", "biography_source": "Wikipedia", "tribe": "Quraish", "clan": "Banu Zuhra", "gender": "male", "is_prophet": "False"},
+        {"id": 216, "name_ar": "طلحة بن عبد الله بن عوف", "name_en": "Talha ibn Abdallah ibn Awf", "node_type": "PoliticalFigure", "prominence": "ZUBAYRID", "biography_short": "Zubayrid governor of Medina, nephew of Abdur Rahman ibn Awf.", "biography_source": "Wikipedia", "tribe": "Quraish", "clan": "Banu Zuhra", "gender": "male", "is_prophet": "False"},
+        {"id": 217, "name_ar": "طارق بن عمرو", "name_en": "Tariq ibn Amr", "node_type": "PoliticalFigure", "prominence": "UMAYYAD", "biography_short": "Umayyad general who re-established control over Medina.", "biography_source": "Wikipedia", "gender": "male", "is_prophet": "False"},
+        {"id": 218, "name_ar": "الحجاج بن يوسف", "name_en": "al-Hajjaj ibn Yusuf", "node_type": "PoliticalFigure", "prominence": "UMAYYAD", "biography_short": "Famous Umayyad governor, served in Medina before Iraq.", "biography_source": "Wikipedia", "tribe": "Thaqif", "gender": "male", "is_prophet": "False", "death_year_hijri": 95},
+        {"id": 219, "name_ar": "يحيى بن الحكم", "name_en": "Yahya ibn al-Hakam", "node_type": "PoliticalFigure", "prominence": "UMAYYAD", "biography_short": "Uncle of Abd al-Malik ibn Marwan, governor of Medina.", "biography_source": "Wikipedia", "tribe": "Quraish", "clan": "Banu Umayya", "gender": "male", "is_prophet": "False"},
+        {"id": 220, "name_ar": "أبان بن عثمان", "name_en": "Aban ibn Uthman", "node_type": "PoliticalFigure", "prominence": "UMAYYAD", "biography_short": "Son of Caliph Uthman ibn Affan, governor of Medina and scholar.", "biography_source": "Wikipedia", "tribe": "Quraish", "clan": "Banu Umayya", "gender": "male", "is_prophet": "False", "death_year_hijri": 105},
+        {"id": 221, "name_ar": "هشام بن إسماعيل المخزومي", "name_en": "Hisham ibn Isma'il al-Makhzumi", "node_type": "PoliticalFigure", "prominence": "UMAYYAD", "biography_short": "Father-in-law of Abd al-Malik, governor of Medina.", "biography_source": "Wikipedia", "tribe": "Quraish", "clan": "Banu Makhzum", "gender": "male", "is_prophet": "False"},
+        {"id": 222, "name_ar": "عمر بن عبد العزيز", "name_en": "Umar ibn Abd al-Aziz", "node_type": "PoliticalFigure", "prominence": "UMAYYAD", "biography_short": "Known as the fifth Rashidun Caliph, served as governor of Medina.", "biography_source": "Wikipedia", "tribe": "Quraish", "clan": "Banu Umayya", "gender": "male", "is_prophet": "False", "death_year_hijri": 101},
+        {"id": 223, "name_ar": "عثمان بن حيان المري", "name_en": "Uthman ibn Hayyan al-Murri", "node_type": "PoliticalFigure", "prominence": "UMAYYAD", "biography_short": "Umayyad governor of Medina.", "biography_source": "Wikipedia", "tribe": "Banu Murra", "gender": "male", "is_prophet": "False"},
+        {"id": 224, "name_ar": "أبو بكر بن محمد بن عمرو بن حزم", "name_en": "Abu Bakr ibn Muhammad ibn Amr ibn Hazm", "node_type": "PoliticalFigure", "prominence": "UMAYYAD", "biography_short": "Governor and judge of Medina, descendant of Amr ibn Hazm.", "biography_source": "Wikipedia", "tribe": "Ansar", "gender": "male", "is_prophet": "False", "death_year_hijri": 120},
+        {"id": 225, "name_ar": "عبد الرحمن بن الضحاك الفهري", "name_en": "Abd al-Rahman ibn al-Dahhak al-Fihri", "node_type": "PoliticalFigure", "prominence": "UMAYYAD", "biography_short": "Umayyad governor of Medina.", "biography_source": "Wikipedia", "tribe": "Quraish", "clan": "Banu Fihr", "gender": "male", "is_prophet": "False"},
+        {"id": 226, "name_ar": "عبد الواحد بن عبد الله النصري", "name_en": "Abd al-Wahid ibn Abdallah al-Nasri", "node_type": "PoliticalFigure", "prominence": "UMAYYAD", "biography_short": "Umayyad governor of Medina.", "biography_source": "Wikipedia", "gender": "male", "is_prophet": "False"},
+        {"id": 227, "name_ar": "إبراهيم بن هشام المخزومي", "name_en": "Ibrahim ibn Hisham al-Makhzumi", "node_type": "PoliticalFigure", "prominence": "UMAYYAD", "biography_short": "Son of Hisham ibn Isma'il, governor of Medina.", "biography_source": "Wikipedia", "tribe": "Quraish", "clan": "Banu Makhzum", "gender": "male", "is_prophet": "False"},
+        {"id": 228, "name_ar": "خالد بن عبد الملك بن الحارث", "name_en": "Khalid ibn Abd al-Malik ibn al-Harith", "node_type": "PoliticalFigure", "prominence": "UMAYYAD", "biography_short": "Umayyad governor of Medina.", "biography_source": "Wikipedia", "tribe": "Quraish", "clan": "Banu Umayya", "gender": "male", "is_prophet": "False"},
+        {"id": 229, "name_ar": "محمد بن هشام المخزومي", "name_en": "Muhammad ibn Hisham al-Makhzumi", "node_type": "PoliticalFigure", "prominence": "UMAYYAD", "biography_short": "Brother of Ibrahim, governor of Medina.", "biography_source": "Wikipedia", "tribe": "Quraish", "clan": "Banu Makhzum", "gender": "male", "is_prophet": "False"},
+        {"id": 230, "name_ar": "يوسف بن محمد الثقفي", "name_en": "Yusuf ibn Muhammad al-Thaqafi", "node_type": "PoliticalFigure", "prominence": "UMAYYAD", "biography_short": "Thaqafi governor of Medina.", "biography_source": "Wikipedia", "tribe": "Thaqif", "gender": "male", "is_prophet": "False"},
+        {"id": 231, "name_ar": "عبد العزيز بن عبد الله بن عمرو بن عثمان", "name_en": "Abd al-Aziz ibn Abdallah ibn Amr ibn Uthman", "node_type": "PoliticalFigure", "prominence": "UMAYYAD", "biography_short": "Great-grandson of Caliph Uthman, governor of Medina.", "biography_source": "Wikipedia", "tribe": "Quraish", "clan": "Banu Umayya", "gender": "male", "is_prophet": "False"},
+        {"id": 232, "name_ar": "عبد العزيز بن عمر بن عبد العزيز", "name_en": "Abd al-Aziz ibn Umar ibn Abd al-Aziz", "node_type": "PoliticalFigure", "prominence": "UMAYYAD", "biography_short": "Son of Caliph Umar II, governor of Medina.", "biography_source": "Wikipedia", "tribe": "Quraish", "clan": "Banu Umayya", "gender": "male", "is_prophet": "False"},
+        {"id": 233, "name_ar": "عبد الواحد بن سليمان بن عبد الملك", "name_en": "Abd al-Wahid ibn Sulayman ibn Abd al-Malik", "node_type": "PoliticalFigure", "prominence": "UMAYYAD", "biography_short": "Son of Caliph Sulayman, governor of Medina.", "biography_source": "Wikipedia", "tribe": "Quraish", "clan": "Banu Umayya", "gender": "male", "is_prophet": "False"},
+        {"id": 234, "name_ar": "محمد بن عبد الملك بن مروان", "name_en": "Muhammad ibn Abd al-Malik ibn Marwan", "node_type": "PoliticalFigure", "prominence": "UMAYYAD", "biography_short": "Son of Caliph Abd al-Malik, governor of Medina.", "biography_source": "Wikipedia", "tribe": "Quraish", "clan": "Banu Umayya", "gender": "male", "is_prophet": "False"},
+        {"id": 235, "name_ar": "الوليد بن عروة السعدي", "name_en": "Al-Walid ibn Urwah al-Sa'di", "node_type": "PoliticalFigure", "prominence": "UMAYYAD", "biography_short": "Umayyad governor of Medina.", "biography_source": "Wikipedia", "gender": "male", "is_prophet": "False"},
+        {"id": 236, "name_ar": "يوسف بن عروة السعدي", "name_en": "Yusuf ibn Urwah al-Sa'di", "node_type": "PoliticalFigure", "prominence": "UMAYYAD", "biography_short": "The last Umayyad governor of Medina.", "biography_source": "Wikipedia", "gender": "male", "is_prophet": "False"},
+        {"id": 237, "name_ar": "داود بن علي", "name_en": "Dawud ibn Ali", "node_type": "PoliticalFigure", "prominence": "ABBASID", "biography_short": "Uncle of Caliph al-Saffah, first Abbasid governor of Medina.", "biography_source": "Wikipedia", "tribe": "Abbasid", "clan": "Banu Hashim", "gender": "male", "is_prophet": "False", "death_year_hijri": 133},
+        {"id": 238, "name_ar": "زياد بن عبيد الله الحارثي", "name_en": "Ziyad ibn Ubaydallah al-Harithi", "node_type": "PoliticalFigure", "prominence": "ABBASID", "biography_short": "Abbasid governor of Medina, uncle of al-Saffah.", "biography_source": "Wikipedia", "gender": "male", "is_prophet": "False"},
+        {"id": 239, "name_ar": "محمد بن خالد القسري", "name_en": "Muhammad ibn Khalid al-Qasri", "node_type": "PoliticalFigure", "prominence": "ABBASID", "biography_short": "Abbasid governor of Medina.", "biography_source": "Wikipedia", "gender": "male", "is_prophet": "False"},
+        {"id": 240, "name_ar": "رياح بن عثمان المري", "name_en": "Riyah ibn Uthman al-Murri", "node_type": "PoliticalFigure", "prominence": "ABBASID", "biography_short": "Abbasid governor of Medina, son of Uthman ibn Hayyan.", "biography_source": "Wikipedia", "tribe": "Banu Murra", "gender": "male", "is_prophet": "False"},
+        {"id": 241, "name_ar": "كثير بن الحسين العبدي", "name_en": "Kathir ibn al-Husayn al-Abdi", "node_type": "PoliticalFigure", "prominence": "ABBASID", "biography_short": "Abbasid governor of Medina.", "biography_source": "Wikipedia", "gender": "male", "is_prophet": "False"},
+        {"id": 242, "name_ar": "عبد الله بن الربيع الحارثي", "name_en": "Abdallah ibn al-Rabi al-Harithi", "node_type": "PoliticalFigure", "prominence": "ABBASID", "biography_short": "Abbasid governor of Medina.", "biography_source": "Wikipedia", "gender": "male", "is_prophet": "False"},
+        {"id": 243, "name_ar": "جعفر بن سليمان بن علي", "name_en": "Ja'far ibn Sulayman ibn Ali", "node_type": "PoliticalFigure", "prominence": "ABBASID", "biography_short": "Cousin of Caliph al-Mansur, governor of Medina.", "biography_source": "Wikipedia", "tribe": "Abbasid", "clan": "Banu Hashim", "gender": "male", "is_prophet": "False"},
+        {"id": 244, "name_ar": "الحسن بن زيد بن الحسن", "name_en": "al-Hasan ibn Zayd", "node_type": "PoliticalFigure", "prominence": "ABBASID", "biography_short": "Great-grandson of Ali ibn Abi Talib, appointed governor by al-Mansur.", "biography_source": "Wikipedia", "tribe": "Alid", "clan": "Banu Hashim", "gender": "male", "is_prophet": "False", "death_year_hijri": 168},
+        {"id": 245, "name_ar": "عبد الصمد بن علي", "name_en": "Abd al-Samad ibn Ali", "node_type": "PoliticalFigure", "prominence": "ABBASID", "biography_short": "Uncle of Caliph al-Mansur, governor of Medina.", "biography_source": "Wikipedia", "tribe": "Abbasid", "clan": "Banu Hashim", "gender": "male", "is_prophet": "False", "death_year_hijri": 185},
+        {"id": 246, "name_ar": "تمام بن العباس", "name_en": "Tammam ibn Abbas", "node_type": "PoliticalFigure", "prominence": "RASHIDUN", "biography_short": "Governor of Medina for Ali ibn Abi Talib.", "biography_source": "Wikipedia", "tribe": "Quraish", "clan": "Banu Hashim", "gender": "male", "is_prophet": "False"},
+    ]
+
+    for pf in political_figures:
+        # Fill missing fields
+        for field in ["kunyah", "laqab", "biography_source", "tribe", "clan", "birth_year_hijri", "death_year_hijri"]:
+            if field not in pf:
+                pf[field] = ""
+        nodes.append(pf)
+
+    # Missing family members from fact-check
+    fact_check_nodes = [
+        {"id": 1008, "name_en": "Sawda bint Zamʿa", "gender": "female", "node_type": "Sahabi", "prominence": "SAHABI", "biography_short": "Wife of Muhammad (PBUH).", "biography_source": "Fact-Check Report"},
+        {"id": 1009, "name_en": "Ramla bint Abi Sufyan", "gender": "female", "node_type": "Sahabi", "prominence": "SAHABI", "biography_short": "Wife of Muhammad (PBUH).", "biography_source": "Fact-Check Report"},
+        {"id": 1010, "name_en": "Juwayriyyah bint al-Harith", "gender": "female", "node_type": "Sahabi", "prominence": "SAHABI", "biography_short": "Wife of Muhammad (PBUH).", "biography_source": "Fact-Check Report"},
+        {"id": 1011, "name_en": "Umm Salama (Hind bint Abi Umayya)", "gender": "female", "node_type": "Sahabi", "prominence": "SAHABI", "biography_short": "Wife of Muhammad (PBUH).", "biography_source": "Fact-Check Report"},
+        {"id": 1012, "name_en": "Maymunah bint al-Harith", "gender": "female", "node_type": "Sahabi", "prominence": "SAHABI", "biography_short": "Wife of Muhammad (PBUH).", "biography_source": "Fact-Check Report"},
+        {"id": 1013, "name_en": "Qasim ibn Muhammad", "gender": "male", "node_type": "Sahabi", "prominence": "SAHABI", "biography_short": "Child of Muhammad (PBUH). Born before Prophecy", "biography_source": "Fact-Check Report"},
+        {"id": 1014, "name_en": "Abdullah ibn Muhammad", "gender": "male", "node_type": "Sahabi", "prominence": "SAHABI", "biography_short": "Child of Muhammad (PBUH). Called al-Tayyib or al-Tahir", "biography_source": "Fact-Check Report"},
+        {"id": 1015, "name_en": "Ibrahim ibn Muhammad", "gender": "male", "node_type": "Sahabi", "prominence": "SAHABI", "biography_short": "Child of Muhammad (PBUH). Only son by non-Arab wife", "biography_source": "Fact-Check Report"},
+        {"id": 1016, "name_en": "Qutaylah bint Abd-al-Uzza", "gender": "female", "node_type": "Sahabi", "prominence": "SAHABI", "biography_short": "Wife of Abu Bakr as-Siddiq.", "biography_source": "Fact-Check Report"},
+        {"id": 1017, "name_en": "Umm Ruman (Salma bint Sufyan)", "gender": "female", "node_type": "Sahabi", "prominence": "SAHABI", "biography_short": "Wife of Abu Bakr as-Siddiq.", "biography_source": "Fact-Check Report"},
+        {"id": 1018, "name_en": "Habiba bint Kharija", "gender": "female", "node_type": "Sahabi", "prominence": "SAHABI", "biography_short": "Wife of Abu Bakr as-Siddiq.", "biography_source": "Fact-Check Report"},
+        {"id": 1019, "name_en": "Abd Allah ibn Abi Bakr", "gender": "male", "node_type": "Sahabi", "prominence": "SAHABI", "biography_short": "Child of Abu Bakr as-Siddiq.", "biography_source": "Fact-Check Report"},
+        {"id": 1020, "name_en": "Abd al-Rahman ibn Abi Bakr", "gender": "male", "node_type": "Sahabi", "prominence": "SAHABI", "biography_short": "Child of Abu Bakr as-Siddiq.", "biography_source": "Fact-Check Report"},
+        {"id": 1021, "name_en": "Ummamah bint Abi al-As", "gender": "female", "node_type": "Sahabi", "prominence": "SAHABI", "biography_short": "Wife of Ali ibn Abi Talib.", "biography_source": "Fact-Check Report"},
+        {"id": 1022, "name_en": "Ruqayyah bint Muhammad", "gender": "female", "node_type": "Sahabi", "prominence": "SAHABI", "biography_short": "Wife of Uthman ibn Affan.", "biography_source": "Fact-Check Report"},
+    ]
+
+    for fcn in fact_check_nodes:
+        # Check if already exists by name
+        if find_id(fcn['name_en']) is not None:
+            continue
+        # Fill missing fields
+        for field in ["name_ar", "kunyah", "laqab", "is_prophet", "tribe", "clan", "birth_year_hijri", "death_year_hijri"]:
+            if field not in fcn:
+                fcn[field] = "" if field != "is_prophet" else "False"
+        nodes.append(fcn)
+
+    # 2. Relationships
+    # Types: PARENT_OF, SPOUSE_OF, SIBLING_OF, TEACHER_OF, PARTICIPATED_IN
+    # Categories: family, mentorship, battles, others
 
     relationships = [
         {"source_id": find_id("Khadija bint Khuwaylid"), "target_id": 0, "type": "SPOUSE_OF", "category": "family"},
@@ -446,6 +529,13 @@ def main():
         {"source_id": find_id("Abu Sufyan ibn Harb"), "target_id": find_id("Muawiyah ibn Abi Sufyan"), "type": "PARENT_OF", "category": "family"},
         {"source_id": find_id("Abu Sufyan ibn Harb"), "target_id": find_id("Umm Habiba"), "type": "PARENT_OF", "category": "family"},
         {"source_id": find_id("Abu Sufyan ibn Harb"), "target_id": find_id("Yazid ibn Abi Sufyan"), "type": "PARENT_OF", "category": "family"},
+
+        # New relationships for Political Figures
+        {"source_id": find_id("Uthman ibn Affan"), "target_id": find_id("Aban ibn Uthman"), "type": "PARENT_OF", "category": "family"},
+        {"source_id": find_id("Zubayr ibn al-Awwam"), "target_id": find_id("Mus'ab ibn al-Zubayr"), "type": "PARENT_OF", "category": "family"},
+        {"source_id": find_id("Zubayr ibn al-Awwam"), "target_id": find_id("Ubayda ibn al-Zubayr"), "type": "PARENT_OF", "category": "family"},
+        {"source_id": find_id("Abbas ibn Abd al-Muttalib"), "target_id": find_id("Tammam ibn Abbas"), "type": "PARENT_OF", "category": "family"},
+        {"source_id": find_id("Marwan ibn al-Hakam"), "target_id": find_id("Yahya ibn al-Hakam"), "type": "SIBLING_OF", "category": "family"},
     ]
 
     # Add PARTICIPATED_IN relationships
@@ -516,12 +606,12 @@ def main():
         "has_parents", "has_children", "has_spouses", "has_siblings", "has_uncles", "has_cousins",
         "has_companions", "has_teachers", "has_students", "has_battles", "has_participants"
     ]
-    with open('data-pipeline/sahabah.csv', 'w', newline='', encoding='utf-8') as f:
+    with open('sahabah.csv', 'w', newline='', encoding='utf-8') as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
         writer.writeheader()
         writer.writerows(nodes)
 
-    with open('data-pipeline/relationships.csv', 'w', newline='', encoding='utf-8') as f:
+    with open('relationships.csv', 'w', newline='', encoding='utf-8') as f:
         writer = csv.DictWriter(f, fieldnames=["source_id", "target_id", "type", "category"])
         writer.writeheader()
         writer.writerows(relationships)
@@ -531,8 +621,10 @@ def main():
         "nodes": nodes,
         "links": relationships
     }
-    with open('frontend/public/data/sahabah_data.json', 'w', encoding='utf-8') as f:
-        json.dump(graph_data, f, ensure_ascii=False, indent=2)
+    json_path = os.path.join('..', 'frontend', 'public', 'data', 'sahabah_data.json')
+    if os.path.exists(os.path.dirname(json_path)):
+        with open(json_path, 'w', encoding='utf-8') as f:
+            json.dump(graph_data, f, ensure_ascii=False, indent=2)
 
 if __name__ == "__main__":
     main()

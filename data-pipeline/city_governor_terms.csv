@@ -1,12 +1,48 @@
 term_id,city_id,city_name_ar,city_name_en,lat,lng,governor_id,governor_name,caliph_id,caliph_name,start_year_ce,end_year_ce,start_year_hijri,end_year_hijri,termination_type,notes,source_ref
+madina-r1,madina,المدينة,Medina,24.4709,39.6122,128,Sahl ibn Hunayf,4,Ali ibn Abi Talib,657,657,37,37,Dismissed,Governor for Ali,https://en.wikipedia.org/wiki/List_of_caliphal_governors_of_Medina
+madina-r2,madina,المدينة,Medina,24.4709,39.6122,246,Tammam ibn Abbas,4,Ali ibn Abi Talib,657,658,37,38,Dismissed,Governor for Ali,https://en.wikipedia.org/wiki/List_of_caliphal_governors_of_Medina
+madina-r3,madina,المدينة,Medina,24.4709,39.6122,44,Abu Ayyub al-Ansari,4,Ali ibn Abi Talib,660,660,40,40,Fled,Governor for Ali,https://en.wikipedia.org/wiki/List_of_caliphal_governors_of_Medina
 madina-1,madina,المدينة,Medina,24.4709,39.6122,116,Marwan ibn al-Hakam,42,Muawiya I,662,669,42,49,Dismissed,First Umayyad governor term in this dataset,https://en.wikipedia.org/wiki/Governors_of_Medina
 madina-2,madina,المدينة,Medina,24.4709,39.6122,201,Said ibn al-As,42,Muawiya I,669,674,49,54,Replaced,Son of Uthman-era notable from Banu Umayya,https://en.wikipedia.org/wiki/Governors_of_Medina
-madina-3,madina,المدينة,Medina,24.4709,39.6122,202,al-Walid ibn Utba ibn Abi Sufyan,42,Muawiya I,674,678,54,58,EndOfTerm,Continued Umayyad consolidation in Hijaz,https://en.wikipedia.org/wiki/Governors_of_Medina
-madina-4,madina,المدينة,Medina,24.4709,39.6122,203,Amr ibn Said ibn al-As,42,Muawiya I,678,680,58,60,SuccessionTransition,Served until Muawiya death,https://en.wikipedia.org/wiki/Governors_of_Medina
-madina-5,madina,المدينة,Medina,24.4709,39.6122,202,al-Walid ibn Utba ibn Abi Sufyan,205,Yazid I,680,681,60,61,RemovedAfterUnrest,In office at start of Yazid reign,https://en.wikipedia.org/wiki/Governors_of_Medina
-madina-6,madina,المدينة,Medina,24.4709,39.6122,203,Amr ibn Said ibn al-As,205,Yazid I,681,682,61,62,Reassigned,Short second term,https://en.wikipedia.org/wiki/Governors_of_Medina
-madina-7,madina,المدينة,Medina,24.4709,39.6122,204,Uthman ibn Muhammad ibn Abi Sufyan,205,Yazid I,682,683,62,63,Fled,Governorship collapsed with anti-Umayyad uprising,https://en.wikipedia.org/wiki/Governors_of_Medina
+madina-3,madina,المدينة,Medina,24.4709,39.6122,116,Marwan ibn al-Hakam,42,Muawiya I,674,677,54,58,Dismissed,Re-appointed by Muawiya,https://en.wikipedia.org/wiki/List_of_caliphal_governors_of_Medina
+madina-4,madina,المدينة,Medina,24.4709,39.6122,202,al-Walid ibn Utba ibn Abi Sufyan,42,Muawiya I,677,680,58,60,Dismissed,Nephew of Muawiya,https://en.wikipedia.org/wiki/List_of_caliphal_governors_of_Medina
+madina-5,madina,المدينة,Medina,24.4709,39.6122,203,Amr ibn Said ibn al-As,205,Yazid I,680,681,60,61,Dismissed,Appointed by Yazid I,https://en.wikipedia.org/wiki/List_of_caliphal_governors_of_Medina
+madina-6,madina,المدينة,Medina,24.4709,39.6122,202,al-Walid ibn Utba ibn Abi Sufyan,205,Yazid I,681,682,61,62,Dismissed,Re-appointed by Yazid I,https://en.wikipedia.org/wiki/List_of_caliphal_governors_of_Medina
+madina-7,madina,المدينة,Medina,24.4709,39.6122,204,Uthman ibn Muhammad ibn Abi Sufyan,205,Yazid I,682,683,62,63,Expelled,Cousin of Yazid I,https://en.wikipedia.org/wiki/List_of_caliphal_governors_of_Medina
 madina-8,madina,المدينة,Medina,24.4709,39.6122,,,205,Yazid I,683,683,63,63,VacancyAfterRevolt,Medina briefly outside stable Umayyad control,https://en.wikipedia.org/wiki/Battle_of_al-Harra
+madina-z1,madina,المدينة,Medina,24.4709,39.6122,213,Ubayda ibn al-Zubayr,117,Abdallah ibn al-Zubayr,684,685,64,65,Dismissed,Brother of Ibn al-Zubayr,https://en.wikipedia.org/wiki/List_of_caliphal_governors_of_Medina
+madina-z2,madina,المدينة,Medina,24.4709,39.6122,214,Mus'ab ibn al-Zubayr,117,Abdallah ibn al-Zubayr,685,686,65,66,MovedToIraq,Brother of Ibn al-Zubayr,https://en.wikipedia.org/wiki/List_of_caliphal_governors_of_Medina
+madina-z3,madina,المدينة,Medina,24.4709,39.6122,215,Jabir ibn al-Aswad ibn Awf,117,Abdallah ibn al-Zubayr,687,690,67,70,Dismissed,,https://en.wikipedia.org/wiki/List_of_caliphal_governors_of_Medina
+madina-z4,madina,المدينة,Medina,24.4709,39.6122,216,Talha ibn Abdallah ibn Awf,117,Abdallah ibn al-Zubayr,690,691,70,71,Fled,Nephew of Abdur Rahman ibn Awf,https://en.wikipedia.org/wiki/List_of_caliphal_governors_of_Medina
+madina-u1,madina,المدينة,Medina,24.4709,39.6122,217,Tariq ibn Amr,,Abd al-Malik,691,693,72,73,Dismissed,,https://en.wikipedia.org/wiki/List_of_caliphal_governors_of_Medina
+madina-u2,madina,المدينة,Medina,24.4709,39.6122,218,al-Hajjaj ibn Yusuf,,Abd al-Malik,693,694,73,74,Dismissed,,https://en.wikipedia.org/wiki/List_of_caliphal_governors_of_Medina
+madina-u3,madina,المدينة,Medina,24.4709,39.6122,219,Yahya ibn al-Hakam,,Abd al-Malik,694,695,74,75,Resigned,Uncle of Abd al-Malik,https://en.wikipedia.org/wiki/List_of_caliphal_governors_of_Medina
+madina-u4,madina,المدينة,Medina,24.4709,39.6122,220,Aban ibn Uthman,,Abd al-Malik,695,702,75,82,Dismissed,Son of Uthman ibn Affan,https://en.wikipedia.org/wiki/List_of_caliphal_governors_of_Medina
+madina-u5,madina,المدينة,Medina,24.4709,39.6122,221,Hisham ibn Isma'il al-Makhzumi,,Abd al-Malik,702,706,82,86,Dismissed,Father-in-law of Abd al-Malik,https://en.wikipedia.org/wiki/List_of_caliphal_governors_of_Medina
+madina-u6,madina,المدينة,Medina,24.4709,39.6122,222,Umar ibn Abd al-Aziz,,al-Walid I,706,712,86,93,Dismissed,Subsequently became caliph,https://en.wikipedia.org/wiki/List_of_caliphal_governors_of_Medina
+madina-u7,madina,المدينة,Medina,24.4709,39.6122,223,Uthman ibn Hayyan al-Murri,,al-Walid I,712,715,93,96,Dismissed,,https://en.wikipedia.org/wiki/List_of_caliphal_governors_of_Medina
+madina-u8,madina,المدينة,Medina,24.4709,39.6122,224,Abu Bakr ibn Muhammad ibn Amr ibn Hazm,,Sulayman,715,720,96,101,Dismissed,,https://en.wikipedia.org/wiki/List_of_caliphal_governors_of_Medina
+madina-u9,madina,المدينة,Medina,24.4709,39.6122,225,Abd al-Rahman ibn al-Dahhak al-Fihri,,Yazid II,720,723,101,104,Dismissed,,https://en.wikipedia.org/wiki/List_of_caliphal_governors_of_Medina
+madina-u10,madina,المدينة,Medina,24.4709,39.6122,226,Abd al-Wahid ibn Abdallah al-Nasri,,Yazid II,723,724,104,105,Dismissed,,https://en.wikipedia.org/wiki/List_of_caliphal_governors_of_Medina
+madina-u11,madina,المدينة,Medina,24.4709,39.6122,227,Ibrahim ibn Hisham al-Makhzumi,,Hisham,724,732,105,114,Dismissed,,https://en.wikipedia.org/wiki/List_of_caliphal_governors_of_Medina
+madina-u12,madina,المدينة,Medina,24.4709,39.6122,228,Khalid ibn Abd al-Malik ibn al-Harith,,Hisham,732,736,114,118,Dismissed,,https://en.wikipedia.org/wiki/List_of_caliphal_governors_of_Medina
+madina-u13,madina,المدينة,Medina,24.4709,39.6122,229,Muhammad ibn Hisham al-Makhzumi,,Hisham,737,743,118,125,Dismissed,,https://en.wikipedia.org/wiki/List_of_caliphal_governors_of_Medina
+madina-u14,madina,المدينة,Medina,24.4709,39.6122,230,Yusuf ibn Muhammad al-Thaqafi,,al-Walid II,743,744,125,126,Dismissed,,https://en.wikipedia.org/wiki/List_of_caliphal_governors_of_Medina
+madina-u15,madina,المدينة,Medina,24.4709,39.6122,231,Abd al-Aziz ibn Abdallah ibn Amr ibn Uthman,,Yazid III,744,744,126,126,Dismissed,,https://en.wikipedia.org/wiki/List_of_caliphal_governors_of_Medina
+madina-u16,madina,المدينة,Medina,24.4709,39.6122,232,Abd al-Aziz ibn Umar ibn Abd al-Aziz,,Yazid III,744,747,126,129,Dismissed,,https://en.wikipedia.org/wiki/List_of_caliphal_governors_of_Medina
+madina-u17,madina,المدينة,Medina,24.4709,39.6122,233,Abd al-Wahid ibn Sulayman ibn Abd al-Malik,,Marwan II,747,747,129,129,Fled,,https://en.wikipedia.org/wiki/List_of_caliphal_governors_of_Medina
+madina-u18,madina,المدينة,Medina,24.4709,39.6122,234,Muhammad ibn Abd al-Malik ibn Marwan,,Marwan II,748,748,130,130,TermEnded,,https://en.wikipedia.org/wiki/List_of_caliphal_governors_of_Medina
+madina-u19,madina,المدينة,Medina,24.4709,39.6122,235,Al-Walid ibn Urwah al-Sa'di,,Marwan II,748,750,130,132,Dismissed,,https://en.wikipedia.org/wiki/List_of_caliphal_governors_of_Medina
+madina-u20,madina,المدينة,Medina,24.4709,39.6122,236,Yusuf ibn Urwah al-Sa'di,,Marwan II,750,750,132,132,LastGovernor,Last Umayyad governor,https://en.wikipedia.org/wiki/List_of_caliphal_governors_of_Medina
+madina-a1,madina,المدينة,Medina,24.4709,39.6122,237,Dawud ibn Ali,,al-Saffah,750,750,132,133,DiedInOffice,Uncle of al-Saffah,https://en.wikipedia.org/wiki/List_of_caliphal_governors_of_Medina
+madina-a2,madina,المدينة,Medina,24.4709,39.6122,238,Ziyad ibn Ubaydallah al-Harithi,,al-Saffah,750,758,132,141,Dismissed,Uncle of al-Saffah,https://en.wikipedia.org/wiki/List_of_caliphal_governors_of_Medina
+madina-a3,madina,المدينة,Medina,24.4709,39.6122,239,Muhammad ibn Khalid al-Qasri,,al-Mansur,758,761,141,143,Dismissed,,https://en.wikipedia.org/wiki/List_of_caliphal_governors_of_Medina
+madina-a4,madina,المدينة,Medina,24.4709,39.6122,240,Riyah ibn Uthman al-Murri,,al-Mansur,761,762,143,145,Imprisoned,,https://en.wikipedia.org/wiki/List_of_caliphal_governors_of_Medina
+madina-a5,madina,المدينة,Medina,24.4709,39.6122,241,Kathir ibn al-Husayn al-Abdi,,Isa ibn Musa,762,763,145,145,Dismissed,,https://en.wikipedia.org/wiki/List_of_caliphal_governors_of_Medina
+madina-a6,madina,المدينة,Medina,24.4709,39.6122,242,Abdallah ibn al-Rabi al-Harithi,,al-Mansur,763,763,145,145,Dismissed,,https://en.wikipedia.org/wiki/List_of_caliphal_governors_of_Medina
+madina-a7,madina,المدينة,Medina,24.4709,39.6122,243,Ja'far ibn Sulayman ibn Ali,,al-Mansur,763,767,145,149,Dismissed,,https://en.wikipedia.org/wiki/List_of_caliphal_governors_of_Medina
+madina-a8,madina,المدينة,Medina,24.4709,39.6122,244,al-Hasan ibn Zayd,,al-Mansur,767,772,149,155,Dismissed,Great-grandson of Ali,https://en.wikipedia.org/wiki/List_of_caliphal_governors_of_Medina
+madina-a9,madina,المدينة,Medina,24.4709,39.6122,245,Abd al-Samad ibn Ali,,al-Mansur,772,776,155,159,Dismissed,Uncle of al-Mansur,https://en.wikipedia.org/wiki/List_of_caliphal_governors_of_Medina
 makkah-1,makkah,مكة,Mecca,21.3891,39.8579,209,Khalid ibn Asid ibn al-As,42,Muawiya I,660,679,40,59,TermEnded,Early Umayyad governor of Mecca,https://en.wikipedia.org/wiki/Governors_of_Mecca
 makkah-2,makkah,مكة,Mecca,21.3891,39.8579,203,Amr ibn Said ibn al-As,205,Yazid I,680,682,60,62,Reassigned,Brief governorship of Mecca,https://en.wikipedia.org/wiki/Governors_of_Mecca
 damascus-1,damascus,دمشق,Damascus,33.5138,36.2765,42,Muawiya ibn Abi Sufyan,42,Muawiya I,661,680,41,60,Caliph,As caliph and governor from Damascus,https://en.wikipedia.org/wiki/Muawiya_I
