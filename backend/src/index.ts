@@ -31,6 +31,15 @@ const typeDefs = `#graphql
     siblings: [Sahabi!]! @relationship(type: "SIBLING_OF", direction: OUT)
     students: [Sahabi!]! @relationship(type: "TEACHER_OF", direction: OUT)
     teachers: [Sahabi!]! @relationship(type: "TEACHER_OF", direction: IN)
+    participatedIn: [Battle!]! @relationship(type: "PARTICIPATED_IN", direction: OUT)
+  }
+
+  type Battle @node {
+    id: Int!
+    name: String!
+    title: String # Used for the year (e.g., 2 AH)
+    bio: String
+    participants: [Sahabi!]! @relationship(type: "PARTICIPATED_IN", direction: IN)
   }
 `;
 

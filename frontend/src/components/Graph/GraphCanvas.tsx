@@ -71,6 +71,16 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
       }
     },
     {
+      selector: 'node[node_type = "Battle"]',
+      style: {
+        'shape': 'diamond',
+        'background-color': '#795548',
+        'color': '#fff',
+        'width': '60px',
+        'height': '60px',
+      }
+    },
+    {
       selector: 'node:selected',
       style: {
         'border-width': '4px',
@@ -156,6 +166,8 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
         stylesheet={stylesheet}
         cy={(cy: Core) => {
           cyRef.current = cy;
+          // @ts-ignore
+          window.cy = cy;
           cy.on('tap', 'node', (evt: cytoscape.EventObject) => {
             const nodeData = evt.target.data();
             onNodeClick(nodeData as unknown as Sahabi);
