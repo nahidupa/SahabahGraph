@@ -2042,7 +2042,7 @@
       "birth_year_hijri": "0",
       "death_year_hijri": "60",
       "has_children": false,
-      "has_parents": false,
+      "has_parents": true,
       "has_spouses": false,
       "has_siblings": false,
       "has_uncles": false,
@@ -4688,7 +4688,7 @@
       "birth_year_hijri": "0",
       "death_year_hijri": "60",
       "has_children": false,
-      "has_parents": false,
+      "has_parents": true,
       "has_spouses": false,
       "has_siblings": false,
       "has_uncles": false,
@@ -7208,6 +7208,33 @@
       "has_teachers": false,
       "has_students": false,
       "has_battles": false
+    },
+    {
+      "id": "1024",
+      "name_en": "Umm Ruman bint Amir",
+      "name_ar": "",
+      "kunyah": "",
+      "laqab": "",
+      "gender": "female",
+      "is_prophet": false,
+      "node_type": "Sahabi",
+      "prominence": "SAHABI",
+      "biography_short": "Mother of Aisha and Umm Kulthum bint Abi Bakr.",
+      "biography_source": "Fact-Check Report",
+      "tribe": "",
+      "clan": "",
+      "birth_year_hijri": "",
+      "death_year_hijri": "",
+      "has_children": false,
+      "has_parents": false,
+      "has_spouses": false,
+      "has_siblings": false,
+      "has_uncles": false,
+      "has_cousins": false,
+      "has_companions": false,
+      "has_teachers": false,
+      "has_students": false,
+      "has_battles": false
     }
   ],
   "links": [
@@ -8136,6 +8163,86 @@
       "target": 4,
       "source_id": 1023,
       "target_id": 4,
+      "type": "PARENT_OF",
+      "category": "family"
+    },
+    {
+      "source": 57,
+      "target": 25,
+      "source_id": 57,
+      "target_id": 25,
+      "type": "PARENT_OF",
+      "category": "family"
+    },
+    {
+      "source": 84,
+      "target": 27,
+      "source_id": 84,
+      "target_id": 27,
+      "type": "PARENT_OF",
+      "category": "family"
+    },
+    {
+      "source": 87,
+      "target": 42,
+      "source_id": 87,
+      "target_id": 42,
+      "type": "PARENT_OF",
+      "category": "family"
+    },
+    {
+      "source": 1,
+      "target": 75,
+      "source_id": 1,
+      "target_id": 75,
+      "type": "PARENT_OF",
+      "category": "family"
+    },
+    {
+      "source": 85,
+      "target": 118,
+      "source_id": 85,
+      "target_id": 118,
+      "type": "PARENT_OF",
+      "category": "family"
+    },
+    {
+      "source": 85,
+      "target": 119,
+      "source_id": 85,
+      "target_id": 119,
+      "type": "PARENT_OF",
+      "category": "family"
+    },
+    {
+      "source": 17,
+      "target": 173,
+      "source_id": 17,
+      "target_id": 173,
+      "type": "PARENT_OF",
+      "category": "family"
+    },
+    {
+      "source": 84,
+      "target": 173,
+      "source_id": 84,
+      "target_id": 173,
+      "type": "PARENT_OF",
+      "category": "family"
+    },
+    {
+      "source": 1024,
+      "target": 12,
+      "source_id": 1024,
+      "target_id": 12,
+      "type": "PARENT_OF",
+      "category": "family"
+    },
+    {
+      "source": 1024,
+      "target": 75,
+      "source_id": 1024,
+      "target_id": 75,
       "type": "PARENT_OF",
       "category": "family"
     }

@@ -74,7 +74,7 @@ id,name_ar,name_en,kunyah,laqab,gender,is_prophet,node_type,prominence,biography
 72,فاطمة بنت الخطاب,Fatimah bint al-Khattab,,,female,False,Sahabi,SAHABI,The sister of Umar and reason for his conversion.,General History,Various,Various,0,60,False,False,False,True,False,False,False,False,False,False,False
 73,أروى بنت عبد المطلب,Arwa bint Abd al-Muttalib,,,female,False,Sahabi,SAHABI,The aunt of the Prophet.,General History,Various,Various,0,60,False,False,False,False,False,False,False,False,False,False,False
 74,أمامة بنت حمزة,Umamah bint Hamza,,,female,False,Sahabi,SAHABI,The daughter of the Lion of Allah.,General History,Various,Various,0,60,True,False,False,False,False,False,False,False,False,False,False
-75,أم كلثوم بنت أبي بكر,Umm Kulthum bint Abi Bakr,,,female,False,Sahabi,SAHABI,The daughter of Abu Bakr.,General History,Various,Various,0,60,False,False,False,False,False,False,False,False,False,False,False
+75,أم كلثوم بنت أبي بكر,Umm Kulthum bint Abi Bakr,,,female,False,Sahabi,SAHABI,The daughter of Abu Bakr.,General History,Various,Various,0,60,True,False,False,False,False,False,False,False,False,False,False
 76,أم كلثوم بنت عقبة,Umm Kulthum bint Uqba,,,female,False,Sahabi,SAHABI,The first woman to migrate to Medina after Hudaybiyyah.,General History,Various,Various,0,60,False,False,False,False,False,False,False,False,False,False,False
 77,أم شريك,Umm Sharik,,,female,False,Sahabi,SAHABI,The woman who was persecuted for her faith.,General History,Various,Various,0,60,False,False,False,False,False,False,False,False,False,False,False
 78,أم معبد,Umm Ma'bad,,,female,False,Sahabi,SAHABI,The woman who described the Prophet during Hijrah.,General History,Various,Various,0,60,False,False,False,False,False,False,False,False,False,False,False
@@ -172,7 +172,7 @@ id,name_ar,name_en,kunyah,laqab,gender,is_prophet,node_type,prominence,biography
 170,أربد بن حميرة,Arbad ibn Humayrah,,,male,False,Sahabi,SAHABI,An early convert and companion.,General History,Various,Various,0,60,False,False,False,False,False,False,False,False,False,False,False
 171,عاقل بن البكير,Āqil ibn al-Bukayr,,,male,False,Sahabi,BADRI,One of the early converts and martyrs of Badr.,General History,Various,Various,0,60,False,False,False,False,False,False,False,False,False,True,False
 172,دحية الكلبي,Dihyah ibn Khalifa al-Kalbi,,,male,False,Sahabi,SAHABI,The handsome companion whom Jibril often resembled.,General History,Various,Various,0,60,False,False,False,False,False,False,False,False,False,False,False
-173,الفضل بن عباس,Fadl ibn Abbas,,,male,False,Sahabi,SAHABI,The cousin of the Prophet who was with him at Arafat.,General History,Various,Various,0,60,False,False,False,False,False,False,False,False,False,False,False
+173,الفضل بن عباس,Fadl ibn Abbas,,,male,False,Sahabi,SAHABI,The cousin of the Prophet who was with him at Arafat.,General History,Various,Various,0,60,True,False,False,False,False,False,False,False,False,False,False
 174,حنظلة بن أبي عامر,Hanzala Ibn Abi Amir,,,male,False,Sahabi,BADRI,The one washed by the angels (Ghasil al-Mala'ikah).,General History,Various,Various,0,60,False,False,False,False,False,False,False,False,False,True,False
 175,عمران بن حصين,Imran ibn Husain,,,male,False,Sahabi,SAHABI,The one whom the angels used to greet.,General History,Various,Various,0,60,False,False,False,False,False,False,False,False,False,False,False
 176,عياض بن غنم,Iyad ibn Ghanm,,,male,False,Sahabi,SAHABI,The commander who conquered northern Mesopotamia.,General History,Various,Various,0,60,False,False,False,False,False,False,False,False,False,False,False
@@ -266,3 +266,4 @@ id,name_ar,name_en,kunyah,laqab,gender,is_prophet,node_type,prominence,biography
 1021,,Ummamah bint Abi al-As,,,female,False,Sahabi,SAHABI,Wife of Ali ibn Abi Talib.,Fact-Check Report,,,,,False,False,False,False,False,False,False,False,False,False,False
 1022,,Ruqayyah bint Muhammad,,,female,False,Sahabi,SAHABI,Wife of Uthman ibn Affan.,Fact-Check Report,,,,,False,False,False,False,False,False,False,False,False,False,False
 1023,أبو طالب بن عبد المطلب,Abu Talib ibn Abd al-Muttalib,Abu Ali,,male,False,Sahabi,SAHABI,The father of Ali ibn Abi Talib and guardian of Muhammad (PBUH).,Historical Reference,Quraish,Banu Hashim,-78,-10,True,True,False,True,False,False,False,False,False,False,False
+1024,,Umm Ruman bint Amir,,,female,False,Sahabi,SAHABI,Mother of Aisha and Umm Kulthum bint Abi Bakr.,Fact-Check Report,,,,,False,False,False,False,False,False,False,False,False,False,False

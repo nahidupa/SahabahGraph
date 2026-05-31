@@ -115,3 +115,13 @@ source_id,target_id,type,category
 8,1007,PARTICIPATED_IN,battles
 102,1007,PARTICIPATED_IN,battles
 1023,4,PARENT_OF,family
+57,25,PARENT_OF,family
+84,27,PARENT_OF,family
+87,42,PARENT_OF,family
+1,75,PARENT_OF,family
+85,118,PARENT_OF,family
+85,119,PARENT_OF,family
+17,173,PARENT_OF,family
+84,173,PARENT_OF,family
+1024,12,PARENT_OF,family
+1024,75,PARENT_OF,family
