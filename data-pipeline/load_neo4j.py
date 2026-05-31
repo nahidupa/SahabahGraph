@@ -15,6 +15,9 @@ def load_data():
     os.chdir(script_dir)
 
     with driver.session() as session:
+        # 1. Clear database (optional, but good for clean loads)
+        # session.run("MATCH (n) DETACH DELETE n")
+
         # 2. Constraints (Idempotency)
         print("Setting up constraints...")
         session.run("CREATE CONSTRAINT sahabah_id IF NOT EXISTS FOR (s:Sahabi) REQUIRE s.id IS UNIQUE")
@@ -28,20 +31,36 @@ def load_data():
                 label = row.get('node_type', 'Sahabi')
                 query = f"""
                     MERGE (n:{label} {{id: toInteger($id)}})
-                    SET n.name = $name,
-                        n.title = $title,
+                    SET n.name_ar = $name_ar,
+                        n.name_en = $name_en,
+                        n.kunyah = $kunyah,
+                        n.laqab = $laqab,
                         n.gender = $gender,
                         n.is_prophet = ($is_prophet = 'True'),
-                        n.bio = $bio
+                        n.prominence = $prominence,
+                        n.biography_short = $biography_short,
+                        n.biography_source = $biography_source,
+                        n.tribe = $tribe,
+                        n.clan = $clan,
+                        n.birth_year_hijri = toInteger($birth_year_hijri),
+                        n.death_year_hijri = toInteger($death_year_hijri)
                 """
                 session.run(
                     query,
                     id=row['id'],
-                    name=row['name'],
-                    title=row['title'],
+                    name_ar=row['name_ar'],
+                    name_en=row['name_en'],
+                    kunyah=row['kunyah'],
+                    laqab=row['laqab'],
                     gender=row['gender'],
                     is_prophet=row['is_prophet'],
-                    bio=row['bio']
+                    prominence=row['prominence'],
+                    biography_short=row['biography_short'],
+                    biography_source=row['biography_source'],
+                    tribe=row['tribe'],
+                    clan=row['clan'],
+                    birth_year_hijri=row['birth_year_hijri'],
+                    death_year_hijri=row['death_year_hijri']
                 )
 
         # 4. Load Relationships
