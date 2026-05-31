@@ -1,5 +1,5 @@
 id,name_ar,name_en,kunyah,laqab,gender,is_prophet,node_type,prominence,biography_short,biography_source,tribe,clan,birth_year_hijri,death_year_hijri,has_parents,has_children,has_spouses,has_siblings,has_uncles,has_cousins,has_companions,has_teachers,has_students,has_battles,has_participants
-0,محمد,Muhammad (PBUH),Abu al-Qasim,Rasulullah,male,True,Sahabi,PROPHET,The last Prophet of Islam.,Sirat Ibn Hisham,Quraish,Banu Hashim,-53,11,False,True,True,False,True,True,True,False,True,True,False
+0,محمد,Muhammad (PBUH),Abu al-Qasim,Rasulullah,male,True,Sahabi,PROPHET,The last Prophet of Islam.,Sirat Ibn Hisham,Quraish,Banu Hashim,-53,11,True,True,True,False,True,True,True,False,True,True,False
 1,أبو بكر الصديق,Abu Bakr as-Siddiq,Abu Bakr,As-Siddiq,male,False,Sahabi,ASHARA_MUBASHSHARA,The first Caliph of Islam.,Al-Isabah,Quraish,Banu Taym,-51,13,True,True,False,False,False,False,True,False,False,True,False
 2,عمر بن الخطاب,Umar ibn al-Khattab,Abu Hafs,Al-Faruq,male,False,Sahabi,ASHARA_MUBASHSHARA,The second Caliph of Islam.,Al-Isabah,Quraish,Banu Adi,-40,23,True,True,False,True,False,False,True,False,False,True,False
 3,عثمان بن عفان,Uthman ibn Affan,Abu Amr,Dhun-Nurayn,male,False,Sahabi,ASHARA_MUBASHSHARA,The third Caliph of Islam.,Al-Isabah,Quraish,Banu Umayya,-47,35,True,True,True,False,False,False,True,False,False,False,False
@@ -60,9 +60,9 @@ id,name_ar,name_en,kunyah,laqab,gender,is_prophet,node_type,prominence,biography
 58,سودة بنت زمعة,Sawda bint Zam'a,,,female,False,Sahabi,SAHABI,The first woman the Prophet married after Khadija.,General History,Various,Various,0,60,False,False,True,False,False,False,False,False,False,False,False
 59,زينب بنت جحش,Zaynab bint Jahsh,,,female,False,Sahabi,SAHABI,The wife of the Prophet known for her charity.,General History,Various,Various,0,60,False,False,True,False,False,False,False,False,False,False,False
 60,جويرية بنت الحارث,Juwayriya bint al-Harith,,,female,False,Sahabi,SAHABI,The wife of the Prophet who brought blessings to her tribe.,General History,Various,Various,0,60,TRUE,False,True,False,False,False,False,False,False,False,False
-61,صفية بنت حيي,Safiyya bint Huyayy,,,female,False,Sahabi,SAHABI,The wife of the Prophet from the lineage of Aaron.,General History,Various,Various,0,60,False,False,True,False,False,False,False,False,False,False,False
-62,ميمونة بنت الحارث,Maymuna bint al-Harith,,,female,False,Sahabi,SAHABI,The last woman the Prophet married.,General History,Various,Various,0,60,False,False,True,False,False,False,False,False,False,False,False
-63,زينب بنت خزيمة,Zaynab bint Khuzayma,,,female,False,Sahabi,SAHABI,The mother of the poor (Umm al-Masakin).,General History,Various,Various,0,60,False,False,True,False,False,False,False,False,False,False,False
+61,صفية بنت حيي,Safiyya bint Huyayy,,,female,False,Sahabi,SAHABI,The wife of the Prophet from the lineage of Aaron.,General History,Various,Various,0,60,True,False,True,False,False,False,False,False,False,False,False
+62,ميمونة بنت الحارث,Maymuna bint al-Harith,,,female,False,Sahabi,SAHABI,The last woman the Prophet married.,General History,Various,Various,0,60,True,False,True,False,False,False,False,False,False,False,False
+63,زينب بنت خزيمة,Zaynab bint Khuzayma,,,female,False,Sahabi,SAHABI,The mother of the poor (Umm al-Masakin).,General History,Various,Various,0,60,True,False,True,False,False,False,False,False,False,False,False
 64,أم حبيبة,Umm Habiba,,,female,False,Sahabi,SAHABI,The wife of the Prophet and daughter of Abu Sufyan.,General History,Various,Various,0,60,True,False,True,False,False,False,False,False,False,False,False
 65,صفية بنت عبد المطلب,Safiyya bint Abd al-Muttalib,,,female,False,Sahabi,SAHABI,The aunt of the Prophet and mother of Zubayr.,General History,Various,Various,0,60,False,False,False,False,False,False,False,False,False,False,False
 66,أم حرام بنت ملحان,Umm Haram bint Milhan,,,female,False,Sahabi,SAHABI,The one who died in a naval expedition.,General History,Various,Various,0,60,False,False,False,True,False,False,False,False,False,False,False
@@ -303,3 +303,9 @@ id,name_ar,name_en,kunyah,laqab,gender,is_prophet,node_type,prominence,biography
 1058,Safinah bint al-Harith,Safinah bint al-Harith,,,F,False,PoliticalFigure,1,Pre-Islamic mother,Al-Isabah,,,0,0,False,True,True,False,False,False,False,False,False,False,False
 1059,Harb ibn Umayya,Harb ibn Umayya,,,M,False,PoliticalFigure,2,Pre-Islamic father,Al-Isabah,,,0,0,False,True,True,False,False,False,False,False,False,False,False
 1060,Safiyyah bint Hajaj,Safiyyah bint Hajaj,,,F,False,PoliticalFigure,1,Pre-Islamic mother,Al-Isabah,,,0,0,False,True,True,False,False,False,False,False,False,False,False
+1061,عبد الله بن عبد المطلب,Abdullah ibn Abd al-Muttalib,,,M,False,PoliticalFigure,3,Father of Prophet Muhammad,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
+1062,آمنة بنت وهب,Aminah bint Wahb,,,F,False,PoliticalFigure,3,Mother of Prophet Muhammad,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
+1063,جحش بن رئاب,Jahsh ibn Riyab,,,M,False,PoliticalFigure,2,Pre-Islamic father,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
+1064,أميمة بنت عبد المطلب,Umayma bint Abd al-Muttalib,,,F,False,PoliticalFigure,2,Pre-Islamic mother,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
+1065,الحارث بن حزن,al-Harith ibn Hazn,,,M,False,PoliticalFigure,2,Pre-Islamic father,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
+1066,هند بنت عوف,Hind bint Awf,,,F,False,PoliticalFigure,2,Pre-Islamic mother,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False

@@ -1,5 +1,5 @@
 child_id,child_name_en,child_name_ar,parents,wives_or_husbands
-0,Muhammad (PBUH),محمد,,
+0,Muhammad (PBUH),محمد,Abdullah ibn Abd al-Muttalib | Aminah bint Wahb,
 1,Abu Bakr as-Siddiq,أبو بكر الصديق,Uthman Abu Quhafa | Salma (Umm al-Khair),
 2,Umar ibn al-Khattab,عمر بن الخطاب,Al-Khattab ibn Nufayl | Hantamah bint Hisham,
 3,Uthman ibn Affan,عثمان بن عفان,Affan ibn Abi al-As | Arwa bint Kurayz,
@@ -60,9 +60,9 @@ child_id,child_name_en,child_name_ar,parents,wives_or_husbands
 58,Sawda bint Zam'a,سودة بنت زمعة,,
 59,Zaynab bint Jahsh,زينب بنت جحش,,
 60,Juwayriya bint al-Harith,جويرية بنت الحارث,Bashir ibn Sa'd | Amra bint Rawahah,
-61,Safiyya bint Huyayy,صفية بنت حيي,,
-62,Maymuna bint al-Harith,ميمونة بنت الحارث,,
-63,Zaynab bint Khuzayma,زينب بنت خزيمة,,
+61,Safiyya bint Huyayy,صفية بنت حيي,Jahsh ibn Riyab | Umayma bint Abd al-Muttalib,
+62,Maymuna bint al-Harith,ميمونة بنت الحارث,al-Harith ibn Hazn | Hind bint Awf,
+63,Zaynab bint Khuzayma,زينب بنت خزيمة,Muhammad (PBUH) | Khadija bint Khuwaylid,
 64,Umm Habiba,أم حبيبة,Abu Sufyan ibn Harb,Muhammad (PBUH)
 65,Safiyya bint Abd al-Muttalib,صفية بنت عبد المطلب,,
 66,Umm Haram bint Milhan,أم حرام بنت ملحان,,
