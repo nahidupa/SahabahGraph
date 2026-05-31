@@ -49,8 +49,8 @@ const SahabahSidebar: React.FC<SahabahSidebarProps> = ({
 
   if (collapsed) {
     return (
-      <Box sx={{ width: 40, height: '100vh', borderRight: 1, borderColor: 'divider', display: 'flex', flexDirection: 'column', alignItems: 'center', pt: 2 }}>
-        <IconButton onClick={() => setCollapsed(false)}>
+      <Box sx={{ width: 40, height: '100vh', borderInlineEnd: 1, borderColor: 'divider', display: 'flex', flexDirection: 'column', alignItems: 'center', pt: 2, bgcolor: 'background.paper' }}>
+        <IconButton onClick={() => setCollapsed(false)} title={t('expand_sidebar')}>
            {i18n.dir() === 'rtl' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
         </IconButton>
       </Box>
@@ -63,17 +63,25 @@ const SahabahSidebar: React.FC<SahabahSidebarProps> = ({
       sx={{
         width: 300,
         flexShrink: 0,
-        '& .MuiDrawer-paper': { width: 300, boxSizing: 'border-box', position: 'relative' },
+        '& .MuiDrawer-paper': {
+          width: 300,
+          boxSizing: 'border-box',
+          position: 'relative',
+          borderInlineEnd: 1,
+          borderInlineStart: 0,
+          borderRight: i18n.dir() === 'rtl' ? 'none' : undefined,
+          borderLeft: i18n.dir() === 'ltr' ? 'none' : undefined,
+        },
       }}
     >
-      <Box sx={{ p: 2, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <Typography variant="h6">{t('app_name')}</Typography>
-        <IconButton onClick={() => setCollapsed(true)}>
+      <Box sx={{ p: 2, display: 'flex', justifyContent: 'space-between', alignItems: 'center', bgcolor: 'primary.main', color: 'primary.contrastText' }}>
+        <Typography variant="h6" sx={{ fontWeight: 'bold' }}>{t('app_name')}</Typography>
+        <IconButton onClick={() => setCollapsed(true)} sx={{ color: 'inherit' }}>
           {i18n.dir() === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
         </IconButton>
       </Box>
 
-      <Box sx={{ p: 2 }}>
+      <Box sx={{ p: 2, bgcolor: 'background.paper' }}>
         <FormControl fullWidth size="small" sx={{ mb: 2 }}>
           <InputLabel id="language-select-label">{t('language')}</InputLabel>
           <Select
@@ -110,18 +118,37 @@ const SahabahSidebar: React.FC<SahabahSidebarProps> = ({
             key={node.id}
             component="div"
             disablePadding
-            secondaryAction={
-              <IconButton edge="end" onClick={() => onAddNode(node)} title={t('add_to_graph')}>
-                <AddIcon />
-              </IconButton>
-            }
           >
             <Button
               fullWidth
-              sx={{ textAlign: 'left', justifyContent: 'flex-start', color: 'inherit', textTransform: 'none', px: 2 }}
+              sx={{
+                textAlign: i18n.dir() === 'rtl' ? 'right' : 'left',
+                justifyContent: 'flex-start',
+                color: 'inherit',
+                textTransform: 'none',
+                px: 2,
+                py: 1,
+                display: 'flex',
+                justifyContent: 'space-between'
+              }}
               onClick={() => onSelectNode(node)}
             >
-              <ListItemText primary={node.name} secondary={node.title} />
+              <ListItemText
+                primary={node.name}
+                secondary={node.title}
+                sx={{ textAlign: 'inherit' }}
+              />
+              <IconButton
+                size="small"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onAddNode(node);
+                }}
+                title={t('add_to_graph')}
+                sx={{ ml: 1 }}
+              >
+                <AddIcon fontSize="small" />
+              </IconButton>
             </Button>
           </ListItem>
         ))}

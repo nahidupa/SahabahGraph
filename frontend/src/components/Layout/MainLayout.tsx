@@ -32,7 +32,15 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children, sidebar, detailPanel 
     <CacheProvider value={direction === 'rtl' ? cacheRtl : cacheLtr}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Box sx={{ display: 'flex', height: '100vh', width: '100vw', overflow: 'hidden', direction }}>
+        <Box
+          sx={{
+            display: 'flex',
+            height: '100vh',
+            width: '100vw',
+            overflow: 'hidden',
+          }}
+          dir={direction}
+        >
           {sidebar}
           <Box component="main" sx={{ flexGrow: 1, position: 'relative', height: '100%', overflow: 'hidden' }}>
             {children}

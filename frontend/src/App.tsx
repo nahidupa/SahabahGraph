@@ -6,6 +6,7 @@ import MainLayout from './components/Layout/MainLayout';
 import SahabahSidebar from './components/Sidebar/SahabahSidebar';
 import GraphCanvas from './components/Graph/GraphCanvas';
 import SahabahDetail from './components/DetailPanel/SahabahDetail';
+import PathSummary from './components/Graph/PathSummary';
 import './i18n/config';
 
 const GET_SAHABAH = gql`
@@ -27,6 +28,7 @@ const App: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedNode, setSelectedNode] = useState<Sahabi | null>(null);
   const [elements, setElements] = useState<any[]>([]);
+  const [currentPath, setCurrentPath] = useState<string[] | null>(null);
   const cyRef = useRef<Core | null>(null);
 
   useEffect(() => {
@@ -132,95 +134,57 @@ const App: React.FC = () => {
     }, 100);
   };
 
-  // BFS algorithm to find shortest path
-  const findShortestPath = (startId: string, endId: string) => {
-    if (!data) return null;
-
-    const queue: [string, string[]][] = [[startId, [startId]]];
-    const visited = new Set([startId]);
-
-    while (queue.length > 0) {
-      const [currentId, path] = queue.shift()!;
-
-      if (currentId === endId) return path;
-
-      // Find neighbors from all links in data
-      const neighbors = data.links
-        .filter(l => l.source_id.toString() === currentId || l.target_id.toString() === currentId)
-        .map(l => l.source_id.toString() === currentId ? l.target_id.toString() : l.source_id.toString());
-
-      for (const neighbor of neighbors) {
-        if (!visited.has(neighbor)) {
-          visited.add(neighbor);
-          queue.push([neighbor, [...path, neighbor]]);
-        }
-      }
-    }
-    return null;
-  };
-
   const handleShowConnections = () => {
+    const { t } = i18n;
     const selectedNodes = cyRef.current?.$(':selected');
     if (selectedNodes?.length !== 2) {
-      alert('Please select exactly two nodes on the graph (use Ctrl+click or similar).');
+      alert(t('select_two_nodes'));
       return;
     }
 
     const startId = selectedNodes[0].id();
     const endId = selectedNodes[1].id();
-    const path = findShortestPath(startId, endId);
 
-    if (path) {
-      // Add missing nodes and edges to elements
-      const newElements: any[] = [];
-      for (let i = 0; i < path.length; i++) {
-        const nodeId = path[i];
-        const node = data?.nodes.find(n => n.id.toString() === nodeId);
-        if (node) {
-          newElements.push({ data: { ...node, id: node.id.toString(), label: node.name, originalId: node.id } });
-        }
+    if (!data) return;
 
-        if (i < path.length - 1) {
-          const u = path[i];
-          const v = path[i+1];
-          const rel = data?.links.find(l =>
-            (l.source_id.toString() === u && l.target_id.toString() === v) ||
-            (l.source_id.toString() === v && l.target_id.toString() === u)
-          );
-          if (rel) {
-            newElements.push({
-              data: {
-                id: `e${rel.source_id}-${rel.target_id}`,
-                source: rel.source_id.toString(),
-                target: rel.target_id.toString(),
-                label: rel.type
-              }
-            });
+    const worker = new Worker(new URL('./workers/pathfinder.ts', import.meta.url), { type: 'module' });
+    worker.postMessage({ data, startId, endId });
+
+    worker.onmessage = (e: MessageEvent<string[] | null>) => {
+      const path = e.data;
+      if (path) {
+        setCurrentPath(path);
+        // Add missing nodes and edges to elements
+        const newElements: any[] = [];
+        for (let i = 0; i < path.length; i++) {
+          const nodeId = path[i];
+          const node = data?.nodes.find(n => n.id.toString() === nodeId);
+          if (node) {
+            newElements.push({ data: { ...node, id: node.id.toString(), label: node.name, originalId: node.id } });
           }
-        }
-      }
 
-      setElements((prev) => {
-        const existingIds = new Set(prev.map(el => el.data.id));
-        const filteredNew = newElements.filter(el => !existingIds.has(el.data.id));
-        return [...prev, ...filteredNew];
-      });
-
-      // Highlight path
-      setTimeout(() => {
-        if (cyRef.current) {
-          cyRef.current.elements().removeClass('highlighted');
-          for (let i = 0; i < path.length - 1; i++) {
+          if (i < path.length - 1) {
             const u = path[i];
-            const v = path[i+1];
-            cyRef.current.$(`#${u}, #${v}`).addClass('highlighted');
-            cyRef.current.$(`edge[source="${u}"][target="${v}"], edge[source="${v}"][target="${u}"]`).addClass('highlighted');
+            const v = path[i + 1];
+            const rel = data?.links.find(l =>
+              (l.source_id.toString() === u && l.target_id.toString() === v) ||
+              (l.source_id.toString() === v && l.target_id.toString() === u)
+            );
+            if (rel) {
+              newElements.push({
+                data: {
+                  id: `e${rel.source_id}-${rel.target_id}`,
+                  source: rel.source_id.toString(),
+                  target: rel.target_id.toString(),
+                  label: rel.type
+                }
+              });
+            }
           }
-          cyRef.current.layout({ name: 'cose', animate: true }).run();
         }
       }, 200);
     } else {
-      alert('No path found between selected nodes.');
+      alert(t('no_path_found'));
     }
   };
 
@@ -249,6 +213,16 @@ const App: React.FC = () => {
         cyRef={cyRef}
         onShowConnections={handleShowConnections}
       />
+      {currentPath && (
+        <PathSummary
+          path={currentPath}
+          data={data}
+          onClose={() => {
+            setCurrentPath(null);
+            cyRef.current?.elements().removeClass('highlighted');
+          }}
+        />
+      )}
     </MainLayout>
   );
 };
