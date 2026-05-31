@@ -7,3 +7,16 @@ madina-5,madina,المدينة,Medina,24.4709,39.6122,202,al-Walid ibn Utba ibn 
 madina-6,madina,المدينة,Medina,24.4709,39.6122,203,Amr ibn Said ibn al-As,205,Yazid I,681,682,61,62,Reassigned,Short second term,https://en.wikipedia.org/wiki/Governors_of_Medina
 madina-7,madina,المدينة,Medina,24.4709,39.6122,204,Uthman ibn Muhammad ibn Abi Sufyan,205,Yazid I,682,683,62,63,Fled,Governorship collapsed with anti-Umayyad uprising,https://en.wikipedia.org/wiki/Governors_of_Medina
 madina-8,madina,المدينة,Medina,24.4709,39.6122,,,205,Yazid I,683,683,63,63,VacancyAfterRevolt,Medina briefly outside stable Umayyad control,https://en.wikipedia.org/wiki/Battle_of_al-Harra
+makkah-1,makkah,مكة,Mecca,21.3891,39.8579,209,Khalid ibn Asid ibn al-As,42,Muawiya I,660,679,40,59,TermEnded,Early Umayyad governor of Mecca,https://en.wikipedia.org/wiki/Governors_of_Mecca
+makkah-2,makkah,مكة,Mecca,21.3891,39.8579,203,Amr ibn Said ibn al-As,205,Yazid I,680,682,60,62,Reassigned,Brief governorship of Mecca,https://en.wikipedia.org/wiki/Governors_of_Mecca
+damascus-1,damascus,دمشق,Damascus,33.5138,36.2765,42,Muawiya ibn Abi Sufyan,42,Muawiya I,661,680,41,60,Caliph,As caliph and governor from Damascus,https://en.wikipedia.org/wiki/Muawiya_I
+damascus-2,damascus,دمشق,Damascus,33.5138,36.2765,116,Marwan ibn al-Hakam,42,Muawiya I,670,679,50,59,Deputy,Administrative deputy under Muawiya,https://en.wikipedia.org/wiki/Marwan_ibn_al-Hakam
+damascus-3,damascus,دمشق,Damascus,33.5138,36.2765,42,Muawiya ibn Abi Sufyan,205,Yazid I,680,680,60,60,ContinuedRule,Yazid inherited capital control,https://en.wikipedia.org/wiki/Governors_of_Damascus
+kufa-1,kufa,الكوفة,Kufa,32.0259,44.4018,210,Al-Mughira ibn Shu'ba,42,Muawiya I,664,678,44,58,Replaced,Master administrator of Kufa,https://en.wikipedia.org/wiki/Al-Mughira_ibn_Shu%27ba
+kufa-2,kufa,الكوفة,Kufa,32.0259,44.4018,211,Ziyad ibn Abih,42,Muawiya I,678,680,58,60,TermEnded,Powerful governor known for strict rule,https://en.wikipedia.org/wiki/Ziyad_ibn_Abih
+kufa-3,kufa,الكوفة,Kufa,32.0259,44.4018,211,Ziyad ibn Abih,205,Yazid I,680,681,60,61,Continued,Continued under Yazid until death,https://en.wikipedia.org/wiki/Ziyad_ibn_Abih
+basra-1,basra,البصرة,Basra,30.5085,47.7804,211,Ziyad ibn Abih,42,Muawiya I,675,680,55,60,TermEnded,Joint governor of Kufa-Basra combined,https://en.wikipedia.org/wiki/Ziyad_ibn_Abih
+basra-2,basra,البصرة,Basra,30.5085,47.7804,211,Ziyad ibn Abih,205,Yazid I,680,681,60,61,Continued,Continued governance under Yazid,https://en.wikipedia.org/wiki/Ziyad_ibn_Abih
+fustat-1,fustat,الفسطاط,Fustat,30.0060,31.2360,41,Amr ibn al-Aas,42,Muawiya I,662,667,42,47,Retired,Conqueror of Egypt in earlier period,https://en.wikipedia.org/wiki/Amr_ibn_al-Aas
+fustat-2,fustat,الفسطاط,Fustat,30.0060,31.2360,212,Maslama ibn Mukhallad,42,Muawiya I,668,680,48,60,TermEnded,Efficient administrator of Egypt,https://en.wikipedia.org/wiki/Maslama_ibn_Mukhallad
+fustat-3,fustat,الفسطاط,Fustat,30.0060,31.2360,212,Maslama ibn Mukhallad,205,Yazid I,680,681,60,61,Continued,Remained governor at start of Yazid era,https://en.wikipedia.org/wiki/Maslama_ibn_Mukhallad
