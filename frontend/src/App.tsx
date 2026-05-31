@@ -45,6 +45,11 @@ const normalizeNodeId = (value: unknown): number => {
   return Number.isFinite(parsed) ? parsed : -1;
 };
 
+const normalizeProphetFlag = (value: unknown): 'true' | 'false' => {
+  if (typeof value === 'boolean') return value ? 'true' : 'false';
+  return String(value).toLowerCase() === 'true' ? 'true' : 'false';
+};
+
 const loadGraphData = async (): Promise<GraphData> => {
   const baseUrl = import.meta.env.BASE_URL || '/';
   const normalizedBase = baseUrl.endsWith('/') ? baseUrl : `${baseUrl}/`;
@@ -132,12 +137,13 @@ const App: React.FC = () => {
 
         const nodes = (apolloNodes.length > 0
           ? apolloNodes.map((apolloNode) => {
-              const jsonNode = graphData.nodes.find((n) => n.id === apolloNode.id);
+              const jsonNode = graphData.nodes.find((n) => String(n.id) === String(apolloNode.id));
               return jsonNode ? { ...jsonNode, ...apolloNode } : apolloNode;
             })
           : graphData.nodes).map((node) => ({
             ...node,
-            is_prophet: node.is_prophet ? 'true' : 'false',
+            id: normalizeNodeId(node.id),
+            is_prophet: normalizeProphetFlag(node.is_prophet),
           }));
         const combinedData: GraphData = {
           nodes,
@@ -147,7 +153,7 @@ const App: React.FC = () => {
         setData(combinedData);
         setPoliticalData(loadedPoliticalData);
 
-        const prophet = nodes.find((n) => n.id === 0);
+        const prophet = nodes.find((n) => n.id === 0) ?? nodes[0];
         if (prophet) {
           setElements([
             {
