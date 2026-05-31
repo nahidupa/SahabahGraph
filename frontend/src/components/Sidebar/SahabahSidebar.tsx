@@ -13,7 +13,8 @@ import {
   Select,
   MenuItem,
   FormControl,
-  InputLabel
+  InputLabel,
+  type SelectChangeEvent
 } from '@mui/material';
 import {
   Search as SearchIcon,
@@ -61,7 +62,7 @@ const SahabahSidebar: React.FC<SahabahSidebarProps> = ({
     });
   }, [nodes, searchTerm, selectedTribe]);
 
-  const handleLanguageChange = (event: any) => {
+  const handleLanguageChange = (event: SelectChangeEvent) => {
     i18n.changeLanguage(event.target.value);
   };
 
