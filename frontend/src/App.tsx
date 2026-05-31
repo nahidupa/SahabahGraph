@@ -182,10 +182,30 @@ const App: React.FC = () => {
             }
           }
         }
-      }, 200);
-    } else {
-      alert(t('no_path_found'));
-    }
+
+        setElements((prev) => {
+          const existingIds = new Set(prev.map(el => el.data.id));
+          const filteredNew = newElements.filter(el => !existingIds.has(el.data.id));
+          return [...prev, ...filteredNew];
+        });
+
+        // Highlight path
+        setTimeout(() => {
+          if (cyRef.current) {
+            cyRef.current.elements().removeClass('highlighted');
+            for (let i = 0; i < path.length - 1; i++) {
+              const u = path[i];
+              const v = path[i + 1];
+              cyRef.current.$(`#${u}, #${v}`).addClass('highlighted');
+              cyRef.current.$(`edge[source="${u}"][target="${v}"], edge[source="${v}"][target="${u}"]`).addClass('highlighted');
+            }
+            cyRef.current.layout({ name: 'cose', animate: true }).run();
+          }
+        }, 200);
+      } else {
+        alert(t('no_path_found'));
+      }
+    };
   };
 
   return (
