@@ -20,14 +20,20 @@ def validate_graph_json() -> tuple[list[str], list[str]]:
 
     for node_id, node in nodes.items():
         if node.get('node_type') == 'Sahabi':
-            birth = node.get('birth_year_hijri')
-            death = node.get('death_year_hijri')
-            if birth is not None and death is not None and birth != 0 and death != 0 and birth > death:
-                errors.append(f"Inconsistency: {node['name_en']} (ID {node_id}) born in {birth} but died in {death}.")
+            birth_raw = node.get('birth_year_hijri')
+            death_raw = node.get('death_year_hijri')
+            if birth_raw is not None and death_raw is not None:
+                try:
+                    birth = int(birth_raw)
+                    death = int(death_raw)
+                    if birth != 0 and death != 0 and birth > death:
+                        errors.append(f"Inconsistency: {node['name_en']} (ID {node_id}) born in {birth} but died in {death}.")
+                except (ValueError, TypeError):
+                    pass
 
     for link in links:
-        source_id = link['source_id']
-        target_id = link['target_id']
+        source_id = str(link['source_id'])
+        target_id = str(link['target_id'])
         rel_type = link['type']
 
         if source_id not in nodes or target_id not in nodes:
@@ -45,12 +51,18 @@ def validate_graph_json() -> tuple[list[str], list[str]]:
                 child_birth = source.get('birth_year_hijri')
                 parent_birth = target.get('birth_year_hijri')
 
-            if child_birth and parent_birth and child_birth != 0 and parent_birth != 0 and child_birth < parent_birth:
-                errors.append(
-                    f"Inconsistency: Child born before parent. Rel: {rel_type} source: {source['name_en']} "
-                    f"(born {source.get('birth_year_hijri')}), target: {target['name_en']} "
-                    f"(born {target.get('birth_year_hijri')})."
-                )
+            if child_birth is not None and parent_birth is not None:
+                try:
+                    c_birth = int(child_birth)
+                    p_birth = int(parent_birth)
+                    if c_birth != 0 and p_birth != 0 and c_birth < p_birth:
+                        errors.append(
+                            f"Inconsistency: Child born before parent. Rel: {rel_type} source: {source['name_en']} "
+                            f"(born {parent_birth}), target: {target['name_en']} "
+                            f"(born {child_birth})."
+                        )
+                except (ValueError, TypeError):
+                    pass
 
         if rel_type == 'SON_OF' and source.get('gender') != 'male':
             errors.append(f"Gender mismatch: {source['name_en']} is {source.get('gender')} but has relationship SON_OF.")

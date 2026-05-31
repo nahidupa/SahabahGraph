@@ -10,12 +10,17 @@ from pathlib import Path
 
 SAHABAH_CSV = "sahabah.csv"
 RELATIONSHIPS_CSV = "relationships.csv"
+CITIES_CSV = "cities.csv"
+GOVERNOR_TERMS_CSV = "city_governor_terms.csv"
 OUTPUT_JSON = "../frontend/public/data/sahabah_data.json"
+POLITICAL_JSON = "../frontend/public/data/political_terms.json"
 
 def load_data():
     """Load CSV files"""
     sahabah_data = []
     relationships_data = []
+    cities_data = []
+    terms_data = []
     
     with open(SAHABAH_CSV, 'r', encoding='utf-8') as f:
         reader = csv.DictReader(f)
@@ -24,8 +29,18 @@ def load_data():
     with open(RELATIONSHIPS_CSV, 'r', encoding='utf-8') as f:
         reader = csv.DictReader(f)
         relationships_data = list(reader)
+
+    if Path(CITIES_CSV).exists():
+        with open(CITIES_CSV, 'r', encoding='utf-8') as f:
+            reader = csv.DictReader(f)
+            cities_data = list(reader)
+
+    if Path(GOVERNOR_TERMS_CSV).exists():
+        with open(GOVERNOR_TERMS_CSV, 'r', encoding='utf-8') as f:
+            reader = csv.DictReader(f)
+            terms_data = list(reader)
     
-    return sahabah_data, relationships_data
+    return sahabah_data, relationships_data, cities_data, terms_data
 
 def export_to_json(sahabah_data, relationships_data):
     """Export to frontend JSON format"""
@@ -77,6 +92,8 @@ def export_to_json(sahabah_data, relationships_data):
             link = {
                 'source': source_id,
                 'target': target_id,
+                'source_id': source_id,
+                'target_id': target_id,
                 'type': rel['type'],
                 'category': rel.get('category', '')
             }
@@ -84,17 +101,54 @@ def export_to_json(sahabah_data, relationships_data):
     
     return {'nodes': nodes, 'links': links}
 
+def export_political_to_json(cities_data, terms_data):
+    """Export to political terms JSON format"""
+    cities = []
+    for city in cities_data:
+        cities.append({
+            'id': city['city_id'],
+            'name_ar': city['city_name_ar'],
+            'name_en': city['city_name_en'],
+            'lat': float(city['lat']),
+            'lng': float(city['lng']),
+            'x': int(city['map_x']),
+            'y': int(city['map_y'])
+        })
+
+    terms = []
+    for term in terms_data:
+        terms.append({
+            'id': term['term_id'],
+            'city_id': term['city_id'],
+            'governor_name': term['governor_name'],
+            'governor_id': int(term['governor_id']) if term['governor_id'] else None,
+            'caliph_name': term['caliph_name'],
+            'caliph_id': int(term['caliph_id']) if term['caliph_id'] else None,
+            'start_year_ce': int(term['start_year_ce']) if term['start_year_ce'] else 0,
+            'end_year_ce': int(term['end_year_ce']) if term['end_year_ce'] else 0,
+            'start_year_hijri': int(term['start_year_hijri']) if term['start_year_hijri'] else 0,
+            'end_year_hijri': int(term['end_year_hijri']) if term['end_year_hijri'] else 0,
+            'termination': term['termination_type'],
+            'notes': term['notes'],
+            'source_ref': term['source_ref'],
+            'vacancy': not term['governor_name']
+        })
+
+    return {'cities': cities, 'terms': terms}
+
 def main():
     print("=" * 70)
     print("EXPORTING TO FRONTEND JSON")
     print("=" * 70)
     
     print("\n📂 Loading CSV data...")
-    sahabah_data, relationships_data = load_data()
+    sahabah_data, relationships_data, cities_data, terms_data = load_data()
     print(f"✓ Loaded {len(sahabah_data)} people")
     print(f"✓ Loaded {len(relationships_data)} relationships")
+    print(f"✓ Loaded {len(cities_data)} cities")
+    print(f"✓ Loaded {len(terms_data)} governor terms")
     
-    print("\n📦 Exporting to JSON...")
+    print("\n📦 Exporting Sahabah to JSON...")
     graph_data = export_to_json(sahabah_data, relationships_data)
     
     # Create output directory if needed
@@ -107,6 +161,17 @@ def main():
     
     print(f"✓ Exported {len(graph_data['nodes'])} nodes")
     print(f"✓ Exported {len(graph_data['links'])} links")
+
+    if cities_data or terms_data:
+        print("\n📦 Exporting Political Data to JSON...")
+        political_data = export_political_to_json(cities_data, terms_data)
+
+        # Save JSON
+        with open(POLITICAL_JSON, 'w', encoding='utf-8') as f:
+            json.dump(political_data, f, ensure_ascii=False, indent=2)
+
+        print(f"✓ Exported {len(political_data['cities'])} cities")
+        print(f"✓ Exported {len(political_data['terms'])} terms")
     
     # Print statistics
     print("\n" + "=" * 70)
