@@ -5,6 +5,7 @@
   "expand_relationships": "توسيع العلاقات",
   "click_to_reveal": "انقر لإظهار الاتصالات:",
   "add_to_graph": "إضافة إلى الرسم البياني",
+  "remove_from_graph": "إزالة من الرسم البياني",
   "show_connections": "إظهار الاتصالات",
   "language": "اللغة",
   "export_png": "تصدير PNG",

@@ -5,6 +5,7 @@
   "expand_relationships": "Expand Relationships",
   "click_to_reveal": "Click to reveal connections:",
   "add_to_graph": "Add to Graph",
+  "remove_from_graph": "Remove from Graph",
   "show_connections": "Show Connections",
   "language": "Language",
   "export_png": "Export PNG",

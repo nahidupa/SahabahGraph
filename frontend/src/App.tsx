@@ -213,6 +213,32 @@ const App: React.FC = () => {
     });
   };
 
+  const removeNodesFromGraph = (nodeIds: string[]) => {
+    if (nodeIds.length === 0) return;
+    const removableNodeIds = new Set(nodeIds);
+
+    setElements((prev) =>
+      prev.filter((el) => {
+        const elId = String(el.data.id ?? '');
+        const source = String(el.data.source ?? '');
+        const target = String(el.data.target ?? '');
+
+        if (removableNodeIds.has(elId)) return false;
+        if (source && removableNodeIds.has(source)) return false;
+        if (target && removableNodeIds.has(target)) return false;
+        return true;
+      })
+    );
+
+    if (selectedNode && removableNodeIds.has(String(selectedNode.id))) {
+      setSelectedNode(null);
+    }
+
+    setAllPaths([]);
+    setCurrentPathIndex(0);
+    cyRef.current?.elements().removeClass('highlighted');
+  };
+
   const expandRelationships = (nodeId: number | string, categoryOrType: string) => {
     if (!data) return;
     const rels = data.links.filter(l =>
@@ -389,6 +415,7 @@ const App: React.FC = () => {
           onNodeClick={setSelectedNode}
           cyRef={cyRef}
           onShowConnections={handleShowConnections}
+          onDeleteSelectedNodes={removeNodesFromGraph}
         />
       ) : viewMode === 'timeline' ? (
         <TimelineView

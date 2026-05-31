@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Box, Paper, IconButton, Tooltip, Divider } from '@mui/material';
 import {
   Route as RouteIcon,
@@ -22,6 +22,7 @@ interface GraphCanvasProps {
   cyRef: React.MutableRefObject<Core | null>;
   onShowConnections?: () => void;
   showConnectionsActive?: boolean;
+  onDeleteSelectedNodes?: (nodeIds: string[]) => void;
 }
 
 if (typeof cytoscape('core', 'svg') !== 'function') {
@@ -33,9 +34,39 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
   onNodeClick,
   cyRef,
   onShowConnections,
-  showConnectionsActive
+  showConnectionsActive,
+  onDeleteSelectedNodes
 }) => {
   const { t } = useTranslation();
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (!onDeleteSelectedNodes) return;
+      if (event.key !== 'Delete' && event.key !== 'Backspace') return;
+
+      const target = event.target as HTMLElement | null;
+      const tagName = target?.tagName?.toLowerCase() ?? '';
+      const isTypingContext =
+        tagName === 'input' ||
+        tagName === 'textarea' ||
+        tagName === 'select' ||
+        target?.isContentEditable === true;
+      if (isTypingContext) return;
+
+      const cy = cyRef.current;
+      if (!cy) return;
+
+      const selectedNodes = cy.$('node:selected');
+      if (selectedNodes.length === 0) return;
+
+      event.preventDefault();
+      const selectedNodeIds = selectedNodes.map((node) => node.id());
+      onDeleteSelectedNodes(selectedNodeIds);
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [cyRef, onDeleteSelectedNodes]);
 
   const isMultiSelectGesture = (evt: cytoscape.EventObject): boolean => {
     const originalEvent = evt.originalEvent as MouseEvent | KeyboardEvent | undefined;

@@ -5,6 +5,7 @@
   "expand_relationships": "Beziehungen erweitern",
   "click_to_reveal": "Klicken Sie hier, um Verbindungen anzuzeigen:",
   "add_to_graph": "Zum Graph hinzufügen",
+  "remove_from_graph": "Aus dem Graph entfernen",
   "show_connections": "Verbindungen anzeigen",
   "language": "Sprache",
   "export_png": "PNG exportieren",
