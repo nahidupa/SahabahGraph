@@ -56,23 +56,19 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
   }, [contextMenu, links]);
 
   const handleContextMenu = (event: cytoscape.EventObject) => {
-    event.preventDefault();
-    // @ts-expect-error - originalEvent might exist and have preventDefault
-    event.originalEvent?.preventDefault();
+    // @ts-expect-error - originalEvent might exist
+    const originalEvent = event.originalEvent as MouseEvent | undefined;
+    if (!originalEvent) return;
+
+    originalEvent.preventDefault();
     const node = event.target;
     const nodeId = parseInt(node.id());
-    const position = event.renderedPosition;
 
-    // Get the container's position to offset the menu correctly
-    const container = cyRef.current?.container();
-    if (container) {
-      const rect = container.getBoundingClientRect();
-      setContextMenu({
-        mouseX: rect.left + position.x,
-        mouseY: rect.top + position.y,
-        nodeId: nodeId,
-      });
-    }
+    setContextMenu({
+      mouseX: originalEvent.clientX,
+      mouseY: originalEvent.clientY,
+      nodeId: nodeId,
+    });
   };
 
   const handleClose = () => {

@@ -4,6 +4,7 @@ import {
   Drawer,
   List,
   ListItem,
+  ListItemButton,
   ListItemText,
   TextField,
   Typography,
@@ -154,19 +155,25 @@ const SahabahSidebar: React.FC<SahabahSidebarProps> = ({
         {filteredNodes.map((node) => (
           <ListItem
             key={node.id}
-            component="div"
             disablePadding
+            secondaryAction={
+              <IconButton
+                size="small"
+                onClick={() => onAddNode(node)}
+                title={t('add_to_graph')}
+                sx={{ ml: 1 }}
+              >
+                <AddIcon fontSize="small" />
+              </IconButton>
+            }
           >
-            <Button
-              fullWidth
+            <ListItemButton
               sx={{
                 textAlign: i18n.dir() === 'rtl' ? 'right' : 'left',
                 color: 'inherit',
                 textTransform: 'none',
                 px: 2,
                 py: 1,
-                display: 'flex',
-                justifyContent: 'space-between',
                 transition: 'all 0.2s ease-in-out',
                 '&:hover': {
                   bgcolor: 'rgba(46, 125, 50, 0.08)',
@@ -189,18 +196,7 @@ const SahabahSidebar: React.FC<SahabahSidebarProps> = ({
                 }
                 sx={{ textAlign: 'inherit' }}
               />
-              <IconButton
-                size="small"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  onAddNode(node);
-                }}
-                title={t('add_to_graph')}
-                sx={{ ml: 1 }}
-              >
-                <AddIcon fontSize="small" />
-              </IconButton>
-            </Button>
+            </ListItemButton>
           </ListItem>
         ))}
       </List>
