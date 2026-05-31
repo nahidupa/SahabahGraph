@@ -27,6 +27,7 @@
   "select_two_nodes": "Please select exactly two nodes on the graph (use Ctrl+click or similar).",
   "no_path_found": "No path found between selected nodes.",
   "path_summary": "Path Summary",
+  "legend_title": "Legend",
   "categories": {
     "family": "Family",
     "student": "Student",
@@ -34,6 +35,15 @@
     "companion": "Companion",
     "peer": "Peer",
     "battles": "Battles"
+  },
+  "legend": {
+    "is_prophet": "Prophet (PBUH)",
+    "male": "Male Sahabi",
+    "female": "Female Sahabi",
+    "Battle": "Battle",
+    "family_rel": "Family Relationship",
+    "academic_rel": "Academic Relationship",
+    "other_rel": "Other Relationship"
   },
   "relationships": {
     "SON_OF": "is the son of",

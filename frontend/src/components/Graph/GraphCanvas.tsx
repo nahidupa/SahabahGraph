@@ -8,6 +8,7 @@ import svg from 'cytoscape-svg';
 import type { Core } from 'cytoscape';
 import type { Sahabi } from '../../types';
 import { useTranslation } from 'react-i18next';
+import Legend from './Legend';
 
 interface GraphCanvasProps {
   elements: cytoscape.ElementDefinition[];
@@ -106,6 +107,22 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
         'text-background-shape': 'roundrectangle'
       }
     },
+    // Family Relationships
+    {
+      selector: 'edge[label = "SON_OF"], edge[label = "DAUGHTER_OF"], edge[label = "SIBLING_OF"], edge[label = "SPOUSE_OF"], edge[label = "PARENT_OF"]',
+      style: {
+        'line-color': '#4caf50',
+        'target-arrow-color': '#4caf50'
+      }
+    },
+    // Academic Relationships
+    {
+      selector: 'edge[label = "TEACHER_OF"]',
+      style: {
+        'line-color': '#ff9800',
+        'target-arrow-color': '#ff9800'
+      }
+    },
     {
       selector: 'node.highlighted',
       style: {
@@ -174,6 +191,8 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
         }}
         layout={{ name: 'cose' }}
       />
+
+      <Legend />
 
       <Paper
         sx={{

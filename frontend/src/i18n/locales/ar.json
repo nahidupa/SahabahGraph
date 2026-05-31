@@ -22,6 +22,7 @@
   "select_two_nodes": "يرجى اختيار عقدتين بالضبط على الرسم البياني.",
   "no_path_found": "لم يتم العثور على مسار بين العقد المختارة.",
   "path_summary": "ملخص المسار",
+  "legend_title": "مفتاح الخريطة",
   "categories": {
     "family": "عائلة",
     "student": "طالب",
@@ -29,6 +30,15 @@
     "companion": "رفيق",
     "peer": "زميل",
     "battles": "الغزوات"
+  },
+  "legend": {
+    "is_prophet": "النبي ﷺ",
+    "male": "صحابي",
+    "female": "صحابية",
+    "Battle": "غزوة",
+    "family_rel": "علاقة عائلية",
+    "academic_rel": "علاقة تعليمية",
+    "other_rel": "علاقة أخرى"
   },
   "relationships": {
     "SON_OF": "ابن لـ",
