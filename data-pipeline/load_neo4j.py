@@ -31,7 +31,8 @@ def load_data():
                     SET n.name = $name,
                         n.title = $title,
                         n.gender = $gender,
-                        n.is_prophet = ($is_prophet = 'True')
+                        n.is_prophet = ($is_prophet = 'True'),
+                        n.bio = $bio
                 """
                 session.run(
                     query,
@@ -39,7 +40,8 @@ def load_data():
                     name=row['name'],
                     title=row['title'],
                     gender=row['gender'],
-                    is_prophet=row['is_prophet']
+                    is_prophet=row['is_prophet'],
+                    bio=row['bio']
                 )
 
         # 4. Load Relationships

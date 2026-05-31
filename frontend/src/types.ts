@@ -4,6 +4,7 @@ export interface Sahabi {
   gender: 'male' | 'female';
   is_prophet: string; // "True" or "False" from JSON
   title: string;
+  bio: string;
   node_type?: 'Sahabi' | 'Battle';
 }
 

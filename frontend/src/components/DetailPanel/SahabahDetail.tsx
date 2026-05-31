@@ -138,7 +138,7 @@ const SahabahDetail: React.FC<SahabahDetailProps> = ({
                 </Typography>
               </Box>
               <Typography variant="body2">
-                {t('bio_placeholder', { name: selectedNode.name })}
+                {selectedNode.bio || t('bio_placeholder', { name: selectedNode.name })}
               </Typography>
             </Paper>
 

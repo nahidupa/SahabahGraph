@@ -21,11 +21,16 @@ const typeDefs = `#graphql
     title: String
     gender: String
     is_prophet: Boolean
+    bio: String
     sons: [Sahabi!]! @relationship(type: "SON_OF", direction: IN)
     daughters: [Sahabi!]! @relationship(type: "DAUGHTER_OF", direction: IN)
     uncles: [Sahabi!]! @relationship(type: "UNCLE_OF", direction: OUT)
     spouses: [Sahabi!]! @relationship(type: "SPOUSE_OF", direction: IN)
     companions: [Sahabi!]! @relationship(type: "COMPANION_OF", direction: OUT)
+    cousins: [Sahabi!]! @relationship(type: "COUSIN_OF", direction: OUT)
+    siblings: [Sahabi!]! @relationship(type: "SIBLING_OF", direction: OUT)
+    students: [Sahabi!]! @relationship(type: "TEACHER_OF", direction: OUT)
+    teachers: [Sahabi!]! @relationship(type: "TEACHER_OF", direction: IN)
     participatedIn: [Battle!]! @relationship(type: "PARTICIPATED_IN", direction: OUT)
   }
 
@@ -33,6 +38,7 @@ const typeDefs = `#graphql
     id: Int!
     name: String!
     title: String # Used for the year (e.g., 2 AH)
+    bio: String
     participants: [Sahabi!]! @relationship(type: "PARTICIPATED_IN", direction: IN)
   }
 `;
