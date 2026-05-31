@@ -1,12 +1,20 @@
-import React from 'react';
-import { Box, Paper, IconButton, Tooltip, Divider } from '@mui/material';
-import { Route as RouteIcon, ZoomIn as ZoomInIcon, ZoomOut as ZoomOutIcon, RestartAlt as ResetIcon, Download as DownloadIcon, Image as ImageIcon } from '@mui/icons-material';
+import React, { useState, useMemo } from 'react';
+import { Box, Paper, IconButton, Tooltip, Divider, Menu, MenuItem, ListItemIcon, ListItemText, Typography } from '@mui/material';
+import {
+  Route as RouteIcon,
+  ZoomIn as ZoomInIcon,
+  ZoomOut as ZoomOutIcon,
+  RestartAlt as ResetIcon,
+  Download as DownloadIcon,
+  Image as ImageIcon,
+  Add as AddIcon
+} from '@mui/icons-material';
 import CytoscapeComponent from 'react-cytoscapejs';
 import cytoscape from 'cytoscape';
 // @ts-expect-error - cytoscape-svg lacks official type definitions
 import svg from 'cytoscape-svg';
 import type { Core } from 'cytoscape';
-import type { Sahabi } from '../../types';
+import type { Sahabi, Relationship } from '../../types';
 import { useTranslation } from 'react-i18next';
 
 interface GraphCanvasProps {
@@ -15,6 +23,8 @@ interface GraphCanvasProps {
   cyRef: React.MutableRefObject<Core | null>;
   onShowConnections?: () => void;
   showConnectionsActive?: boolean;
+  links?: Relationship[];
+  onExpand?: (nodeId: number, categoryOrType: string) => void;
 }
 
 if (typeof cytoscape('core', 'svg') !== 'function') {
@@ -26,9 +36,55 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
   onNodeClick,
   cyRef,
   onShowConnections,
-  showConnectionsActive
+  showConnectionsActive,
+  links = [],
+  onExpand
 }) => {
   const { t } = useTranslation();
+  const [contextMenu, setContextMenu] = useState<{
+    mouseX: number;
+    mouseY: number;
+    nodeId: number;
+  } | null>(null);
+
+  const availableRelTypes = useMemo(() => {
+    if (!contextMenu || !links) return [];
+    const nodeRels = links.filter(l => l.source_id === contextMenu.nodeId || l.target_id === contextMenu.nodeId);
+    const types = new Set<string>();
+    nodeRels.forEach(r => types.add(r.type));
+    return Array.from(types);
+  }, [contextMenu, links]);
+
+  const handleContextMenu = (event: cytoscape.EventObject) => {
+    event.preventDefault();
+    // @ts-expect-error - originalEvent might exist and have preventDefault
+    event.originalEvent?.preventDefault();
+    const node = event.target;
+    const nodeId = parseInt(node.id());
+    const position = event.renderedPosition;
+
+    // Get the container's position to offset the menu correctly
+    const container = cyRef.current?.container();
+    if (container) {
+      const rect = container.getBoundingClientRect();
+      setContextMenu({
+        mouseX: rect.left + position.x,
+        mouseY: rect.top + position.y,
+        nodeId: nodeId,
+      });
+    }
+  };
+
+  const handleClose = () => {
+    setContextMenu(null);
+  };
+
+  const handleExpand = (type: string) => {
+    if (onExpand && contextMenu) {
+      onExpand(contextMenu.nodeId, type);
+    }
+    handleClose();
+  };
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const stylesheet: any[] = [
@@ -171,6 +227,7 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
             const nodeData = evt.target.data();
             onNodeClick(nodeData as unknown as Sahabi);
           });
+          cy.on('cxttap', 'node', handleContextMenu);
         }}
         layout={{ name: 'cose' }}
       />
@@ -213,6 +270,40 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
           <IconButton onClick={handleExportSVG}><DownloadIcon /></IconButton>
         </Tooltip>
       </Paper>
+
+      <Menu
+        open={contextMenu !== null}
+        onClose={handleClose}
+        anchorReference="anchorPosition"
+        anchorPosition={
+          contextMenu !== null
+            ? { top: contextMenu.mouseY, left: contextMenu.mouseX }
+            : undefined
+        }
+      >
+        <Box sx={{ px: 2, py: 1 }}>
+          <Typography variant="subtitle2" color="text.secondary">
+            {t('expand_relationships')}
+          </Typography>
+        </Box>
+        <Divider />
+        {availableRelTypes.length > 0 ? (
+          availableRelTypes.map((type) => (
+            <MenuItem key={type} onClick={() => handleExpand(type)}>
+              <ListItemIcon>
+                <AddIcon fontSize="small" />
+              </ListItemIcon>
+              <ListItemText>
+                {t(`relationships.${type}`, { defaultValue: type })}
+              </ListItemText>
+            </MenuItem>
+          ))
+        ) : (
+          <MenuItem disabled>
+            <ListItemText>{t('no_rels_found')}</ListItemText>
+          </MenuItem>
+        )}
+      </Menu>
     </Box>
   );
 };
