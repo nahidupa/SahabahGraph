@@ -33,6 +33,42 @@ interface SahabahDetailProps {
   onExpand: (nodeId: number | string, categoryOrType: string) => void;
 }
 
+interface GraphProfileFact {
+  label: string;
+  count: number;
+  type: 'children' | 'parents' | 'spouses' | 'battles';
+}
+
+const parseGraphProfile = (biography: string): GraphProfileFact[] => {
+  if (!biography.includes('Graph profile:')) return [];
+  
+  const profileMatch = biography.match(/Graph profile: (.*?)\.?$/);
+  if (!profileMatch) return [];
+  
+  const profileText = profileMatch[1];
+  const facts: GraphProfileFact[] = [];
+  
+  const patterns = [
+    { regex: /(\d+)\s+documented\s+children?/i, type: 'children' as const, label: 'Children' },
+    { regex: /(\d+)\s+documented\s+spouses?/i, type: 'spouses' as const, label: 'Spouses' },
+    { regex: /(\d+)\s+linked\s+parents?/i, type: 'parents' as const, label: 'Parents' },
+    { regex: /(\d+)\s+linked\s+battles?/i, type: 'battles' as const, label: 'Battles' },
+  ];
+  
+  patterns.forEach(({ regex, type, label }) => {
+    const match = profileText.match(regex);
+    if (match) {
+      facts.push({
+        label,
+        count: parseInt(match[1], 10),
+        type,
+      });
+    }
+  });
+  
+  return facts;
+};
+
 const SahabahDetail: React.FC<SahabahDetailProps> = ({
   selectedNode,
   links,
@@ -332,6 +368,36 @@ const SahabahDetail: React.FC<SahabahDetailProps> = ({
                   </Typography>
                 </Box>
               )}
+              
+              {(() => {
+                const graphFacts = parseGraphProfile(selectedNode.biography_short || '');
+                if (graphFacts.length > 0) {
+                  return (
+                    <Box sx={{ mt: 2, pt: 2, borderTop: '1px solid', borderColor: 'divider' }}>
+                      <Typography variant="caption" color="text.secondary" sx={{ display: 'block', mb: 1 }}>
+                        {t('graph_profile', { defaultValue: 'Graph Relations' })}
+                      </Typography>
+                      <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
+                        {graphFacts.map((fact) => (
+                          <Chip
+                            key={fact.type}
+                            label={`${fact.label}: ${fact.count}`}
+                            size="small"
+                            variant="outlined"
+                            color={
+                              fact.type === 'children' ? 'info' :
+                              fact.type === 'spouses' ? 'secondary' :
+                              fact.type === 'parents' ? 'warning' :
+                              'error'
+                            }
+                          />
+                        ))}
+                      </Box>
+                    </Box>
+                  );
+                }
+                return null;
+              })()}
             </Paper>
 
             {selectedNode.node_type === 'Battle' && (
