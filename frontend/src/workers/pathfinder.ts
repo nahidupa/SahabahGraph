@@ -19,7 +19,7 @@ self.onmessage = (e: MessageEvent<{ data: GraphData, startId: string, endId: str
   self.postMessage(paths);
 };
 
-const findShortestPathsDijkstra = (data: GraphData, startId: string, endId: string) => {
+export const findShortestPathsDijkstra = (data: GraphData, startId: string, endId: string) => {
   if (!data) return [];
 
   const distances: Record<string, number> = {};
@@ -72,7 +72,7 @@ const findShortestPathsDijkstra = (data: GraphData, startId: string, endId: stri
     }
   }
 
-  if (distances[endId] === Infinity) return [];
+  if (distances[endId] === Infinity || distances[endId] === undefined) return [];
 
   const allPaths: string[][] = [];
 
@@ -81,6 +81,7 @@ const findShortestPathsDijkstra = (data: GraphData, startId: string, endId: stri
       allPaths.push([startId, ...path]);
       return;
     }
+    if (!previous[current]) return;
     for (const prev of previous[current]) {
       backtrack(prev, [current, ...path]);
     }

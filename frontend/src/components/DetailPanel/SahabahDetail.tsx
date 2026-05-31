@@ -78,12 +78,12 @@ const SahabahDetail: React.FC<SahabahDetailProps> = ({
         },
       }}
     >
-      <Box sx={{ p: 1, display: 'flex', alignItems: 'center', bgcolor: 'background.paper', borderBottom: 1, borderColor: 'divider' }}>
-        <IconButton onClick={() => setCollapsed(true)} title={t('collapse_details')}>
+      <Box sx={{ p: 1, display: 'flex', alignItems: 'center', bgcolor: 'primary.main', color: 'primary.contrastText' }}>
+        <IconButton onClick={() => setCollapsed(true)} title={t('collapse_details')} sx={{ color: 'inherit' }}>
            {i18n.dir() === 'rtl' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
         </IconButton>
-        <Typography variant="subtitle1" sx={{ ml: 1, fontWeight: 'medium' }}>
-          {selectedNode ? selectedNode.name_en : t('details_title', { defaultValue: 'Details' })}
+        <Typography variant="subtitle1" sx={{ ml: 1, fontWeight: 'bold', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+          {selectedNode ? (i18n.language.startsWith('ar') && selectedNode.name_ar ? selectedNode.name_ar : selectedNode.name_en) : t('details_title', { defaultValue: 'Details' })}
         </Typography>
       </Box>
 
@@ -142,7 +142,7 @@ const SahabahDetail: React.FC<SahabahDetailProps> = ({
                     <Box sx={{ display: 'flex', alignItems: 'center' }}>
                       <DateIcon fontSize="small" color="action" sx={{ mr: 1 }} />
                       <Box>
-                        <Typography variant="caption" color="text.secondary">{t('born')} / {t('died')} (AH)</Typography>
+                        <Typography variant="caption" color="text.secondary">{t('born')} / {t('died')} ({t('ah')})</Typography>
                         <Typography variant="body2">
                           {selectedNode.birth_year_hijri !== 0 ? selectedNode.birth_year_hijri : '?'} - {selectedNode.death_year_hijri !== 0 ? selectedNode.death_year_hijri : '?'}
                         </Typography>
@@ -175,7 +175,7 @@ const SahabahDetail: React.FC<SahabahDetailProps> = ({
               )}
             </Box>
 
-            <Paper variant="outlined" sx={{ p: 2, bgcolor: 'background.default', mb: 3 }}>
+            <Paper variant="outlined" sx={{ p: 2, bgcolor: 'background.default', mb: 3, border: '1px solid', borderColor: 'divider', borderRadius: 2 }}>
               <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
                 <BioIcon color="primary" sx={{ mr: 1, fontSize: 20 }} />
                 <Typography variant="subtitle2" color="primary">

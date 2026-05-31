@@ -32,7 +32,7 @@ const PathSummary: React.FC<PathSummaryProps> = ({
   for (let i = 0; i < path.length; i++) {
     const node = data.nodes.find(n => n.id.toString() === path[i]);
     if (node) {
-      pathElements.push({ type: 'node', label: node.name });
+      pathElements.push({ type: 'node', label: i18n.language.startsWith('ar') && node.name_ar ? node.name_ar : node.name_en });
     }
 
     if (i < path.length - 1) {

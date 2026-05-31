@@ -13,14 +13,14 @@ const TimelineView: React.FC<TimelineViewProps> = ({ nodes, onSelectNode, select
   const { t } = useTranslation();
 
   const timelineData = useMemo(() => {
-    const validNodes = nodes.filter(n => n.birth_year !== undefined && n.death_year !== undefined);
+    const validNodes = nodes.filter(n => n.birth_year_hijri !== undefined && n.death_year_hijri !== undefined);
     if (validNodes.length === 0) return { nodes: [], minYear: 0, maxYear: 0 };
 
-    const minYear = Math.min(...validNodes.map(n => n.birth_year!));
-    const maxYear = Math.max(...validNodes.map(n => n.death_year!));
+    const minYear = Math.min(...validNodes.map(n => n.birth_year_hijri!));
+    const maxYear = Math.max(...validNodes.map(n => n.death_year_hijri!));
 
     // Sort nodes by birth year
-    const sortedNodes = [...validNodes].sort((a, b) => (a.birth_year || 0) - (b.birth_year || 0));
+    const sortedNodes = [...validNodes].sort((a, b) => (a.birth_year_hijri || 0) - (b.birth_year_hijri || 0));
 
     return { nodes: sortedNodes, minYear, maxYear };
   }, [nodes]);
@@ -39,14 +39,14 @@ const TimelineView: React.FC<TimelineViewProps> = ({ nodes, onSelectNode, select
   }
 
   return (
-    <Box sx={{ width: '100%', height: '100%', overflow: 'auto', p: 3, bgcolor: 'background.default' }}>
-      <Typography variant="h5" gutterBottom sx={{ mb: 4 }}>
+    <Box sx={{ width: '100%', height: '100%', overflow: 'auto', p: 4, bgcolor: 'background.default' }}>
+      <Typography variant="h4" gutterBottom sx={{ mb: 4, fontWeight: 800, color: 'primary.main' }}>
         {t('timeline_view')}
       </Typography>
 
-      <Box sx={{ position: 'relative', minWidth: 800, mt: 5 }}>
+      <Box sx={{ position: 'relative', minWidth: 1000, mt: 6, p: 4, bgcolor: 'background.paper', borderRadius: 4, boxShadow: '0 10px 30px rgba(0,0,0,0.05)' }}>
         {/* Year Markers */}
-        <Box sx={{ position: 'relative', height: 30, mb: 2, borderBottom: '2px solid', borderColor: 'divider' }}>
+        <Box sx={{ position: 'relative', height: 40, mb: 4, borderBottom: '2px solid', borderColor: 'primary.light' }}>
           {Array.from({ length: Math.ceil(range / 10) + 1 }).map((_, i) => {
             const year = Math.floor(minYear / 10) * 10 + i * 10;
             if (year < minYear || year > maxYear) return null;
@@ -76,16 +76,18 @@ const TimelineView: React.FC<TimelineViewProps> = ({ nodes, onSelectNode, select
                 onClick={() => onSelectNode(node)}
                 sx={{
                   position: 'relative',
-                  height: 32,
+                  height: 40,
                   width: '100%',
                   cursor: 'pointer',
                   '&:hover .bar': {
-                    opacity: 0.8,
-                    filter: 'brightness(1.1)'
-                  }
+                    opacity: 0.9,
+                    filter: 'brightness(1.05)',
+                    boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+                  },
+                  transition: 'all 0.2s'
                 }}
               >
-                <Tooltip title={`${node.name} (${node.birth_year} - ${node.death_year} AH)`}>
+                <Tooltip title={`${i18n.language.startsWith('ar') && node.name_ar ? node.name_ar : node.name_en} (${node.birth_year_hijri} - ${node.death_year_hijri} ${t('ah')})`}>
                   <Paper
                     className="bar"
                     elevation={isSelected ? 4 : 1}
@@ -109,7 +111,7 @@ const TimelineView: React.FC<TimelineViewProps> = ({ nodes, onSelectNode, select
                   >
                     {!isBattle && width > 10 && (
                       <Typography variant="caption" sx={{ color: node.is_prophet === 'True' ? 'black' : 'white', fontWeight: 'bold' }}>
-                        {node.name}
+                        {i18n.language.startsWith('ar') && node.name_ar ? node.name_ar : node.name_en}
                       </Typography>
                     )}
                   </Paper>
@@ -120,11 +122,11 @@ const TimelineView: React.FC<TimelineViewProps> = ({ nodes, onSelectNode, select
                     sx={{
                       position: 'absolute',
                       left: `${left + width + 0.5}%`,
-                      lineHeight: '32px',
+                      lineHeight: '40px',
                       fontWeight: isSelected ? 'bold' : 'normal'
                     }}
                   >
-                    {node.name}
+                    {i18n.language.startsWith('ar') && node.name_ar ? node.name_ar : node.name_en}
                   </Typography>
                 )}
                 {isBattle && (
@@ -133,11 +135,11 @@ const TimelineView: React.FC<TimelineViewProps> = ({ nodes, onSelectNode, select
                    sx={{
                      position: 'absolute',
                      left: `${left + 1.5}%`,
-                     lineHeight: '32px',
+                     lineHeight: '40px',
                      fontWeight: isSelected ? 'bold' : 'normal'
                    }}
                  >
-                   {node.name}
+                   {i18n.language.startsWith('ar') && node.name_ar ? node.name_ar : node.name_en}
                  </Typography>
                 )}
               </Box>
