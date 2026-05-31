@@ -14,6 +14,7 @@ import {
   MenuItem,
   FormControl,
   InputLabel,
+  InputAdornment,
   type SelectChangeEvent
 } from '@mui/material';
 import {
@@ -21,7 +22,9 @@ import {
   Add as AddIcon,
   ChevronLeft as ChevronLeftIcon,
   ChevronRight as ChevronRightIcon,
-  Language as LanguageIcon
+  Language as LanguageIcon,
+  Clear as ClearIcon,
+  SearchOff as SearchOffIcon
 } from '@mui/icons-material';
 import { useTranslation } from 'react-i18next';
 import type { Sahabi } from '../../types';
@@ -129,6 +132,18 @@ const SahabahSidebar: React.FC<SahabahSidebarProps> = ({
           slotProps={{
             input: {
               startAdornment: <SearchIcon sx={{ mr: 1, color: 'text.secondary' }} />,
+              endAdornment: searchTerm ? (
+                <InputAdornment position="end">
+                  <IconButton
+                    size="small"
+                    onClick={() => onSearchChange('')}
+                    aria-label={t('clear_search')}
+                    edge="end"
+                  >
+                    <ClearIcon fontSize="small" />
+                  </IconButton>
+                </InputAdornment>
+              ) : null
             }
           }}
         />
@@ -150,8 +165,13 @@ const SahabahSidebar: React.FC<SahabahSidebarProps> = ({
         </FormControl>
       </Box>
       <Divider />
-      <List sx={{ overflowY: 'auto' }}>
-        {filteredNodes.map((node) => (
+      <List sx={{ overflowY: 'auto', flexGrow: 1 }}>
+        {filteredNodes.length === 0 ? (
+          <Box sx={{ p: 4, textAlign: 'center', opacity: 0.6 }}>
+            <SearchOffIcon sx={{ fontSize: 48, mb: 2, color: 'text.disabled' }} />
+            <Typography variant="body2">{t('no_results_found')}</Typography>
+          </Box>
+        ) : filteredNodes.map((node) => (
           <ListItem
             key={node.id}
             disablePadding

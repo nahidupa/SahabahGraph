@@ -66,5 +66,7 @@
     "APPOINTED_GOVERNOR_OF": "appointed governor of",
     "GOVERNOR_OF": "served as governor of",
     "GOVERNOR_UNDER": "served under"
-  }
+  },
+  "no_results_found": "No results found matching your criteria.",
+  "clear_search": "Clear search"
 }
