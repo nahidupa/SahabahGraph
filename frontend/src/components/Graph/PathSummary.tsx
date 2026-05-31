@@ -1,6 +1,6 @@
 import React from 'react';
 import { Paper, Typography, Box, IconButton, Stack } from '@mui/material';
-import { Close as CloseIcon, ArrowForward as ArrowIcon, ArrowBack as ArrowBackIcon } from '@mui/icons-material';
+import { Close as CloseIcon, ArrowForward as ArrowIcon, ArrowBack as ArrowBackIcon, ChevronLeft, ChevronRight } from '@mui/icons-material';
 import { useTranslation } from 'react-i18next';
 import type { GraphData } from '../../types';
 
@@ -8,10 +8,22 @@ interface PathSummaryProps {
   path: string[];
   data: GraphData | null;
   onClose: () => void;
+  totalPaths?: number;
+  currentPathIndex?: number;
+  onNext?: () => void;
+  onPrev?: () => void;
 }
 
-const PathSummary: React.FC<PathSummaryProps> = ({ path, data, onClose }) => {
-  const { i18n } = useTranslation();
+const PathSummary: React.FC<PathSummaryProps> = ({
+  path,
+  data,
+  onClose,
+  totalPaths = 1,
+  currentPathIndex = 0,
+  onNext,
+  onPrev
+}) => {
+  const { i18n, t } = useTranslation();
   const isRtl = i18n.dir() === 'rtl';
 
   if (!path || path.length === 0 || !data) return null;
@@ -46,13 +58,22 @@ const PathSummary: React.FC<PathSummaryProps> = ({ path, data, onClose }) => {
         transform: 'translateX(-50%)',
         zIndex: 1100,
         p: 2,
-        maxWidth: '80%',
-        maxHeight: '150px',
+        maxWidth: '90%',
+        maxHeight: '250px',
         overflowY: 'auto'
       }}
     >
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 1 }}>
-        <Typography variant="subtitle2" color="primary">Path Summary</Typography>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+          <Typography variant="subtitle2" color="primary">{t('path_summary')}</Typography>
+          {totalPaths > 1 && (
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+              <IconButton size="small" onClick={onPrev}><ChevronLeft fontSize="small" /></IconButton>
+              <Typography variant="caption">{currentPathIndex + 1} / {totalPaths}</Typography>
+              <IconButton size="small" onClick={onNext}><ChevronRight fontSize="small" /></IconButton>
+            </Box>
+          )}
+        </Box>
         <IconButton size="small" onClick={onClose}>
           <CloseIcon fontSize="small" />
         </IconButton>
@@ -81,7 +102,7 @@ const PathSummary: React.FC<PathSummaryProps> = ({ path, data, onClose }) => {
               <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
                 {isRtl ? <ArrowBackIcon fontSize="small" color="disabled" /> : <ArrowIcon fontSize="small" color="disabled" />}
                 <Typography variant="caption" color="text.secondary">
-                  {el.label}
+                  {t(`relationships.${el.label}`, { defaultValue: el.label })}
                 </Typography>
                 {isRtl ? <ArrowBackIcon fontSize="small" color="disabled" /> : <ArrowIcon fontSize="small" color="disabled" />}
               </Box>

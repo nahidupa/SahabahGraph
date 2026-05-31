@@ -166,7 +166,6 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
         stylesheet={stylesheet}
         cy={(cy: Core) => {
           cyRef.current = cy;
-          // @ts-expect-error - exposing cy to window for E2E tests
           window.cy = cy;
           cy.on('tap', 'node', (evt: cytoscape.EventObject) => {
             const nodeData = evt.target.data();
