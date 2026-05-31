@@ -68,8 +68,8 @@ describe('Parent Relationships Integrity', () => {
       }
 
       // Verify child has_parents flag is set correctly
-      const child = nodes.get(rel.child);
-      if (!child.has_parents) {
+      const child = nodes.get(rel.child) as any;
+      if (child && !child.has_parents) {
         missingRelationships.push(
           `Flag mismatch: ${rel.childName} (${rel.child}) has parent relationships but has_parents=False`
         );
@@ -112,13 +112,13 @@ describe('Parent Relationships Integrity', () => {
     const ageIssues: string[] = [];
 
     for (const link of parentLinks) {
-      const parent = nodes.get(String(link.source));
-      const child = nodes.get(String(link.target));
+      const parent = nodes.get(String(link.source)) as any;
+      const child = nodes.get(String(link.target)) as any;
 
       if (!parent || !child) continue;
 
-      const parentBirth = parseInt(parent.birth_year_hijri);
-      const childBirth = parseInt(child.birth_year_hijri);
+      const parentBirth = parseInt((parent.birth_year_hijri as any) || '0');
+      const childBirth = parseInt((child.birth_year_hijri as any) || '0');
 
       // Skip if either is 0 (unknown birth year)
       if (parentBirth === 0 || childBirth === 0) continue;

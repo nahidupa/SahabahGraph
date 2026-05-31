@@ -1,29 +1,29 @@
 id,name_ar,name_en,kunyah,laqab,gender,is_prophet,node_type,prominence,biography_short,biography_source,tribe,clan,birth_year_hijri,death_year_hijri,has_parents,has_children,has_spouses,has_siblings,has_uncles,has_cousins,has_companions,has_teachers,has_students,has_battles,has_participants
 0,محمد,Muhammad (PBUH),Abu al-Qasim,Rasulullah,male,True,Sahabi,PROPHET,The last Prophet of Islam.,Sirat Ibn Hisham,Quraish,Banu Hashim,-53,11,False,True,True,False,True,True,True,False,True,True,False
-1,أبو بكر الصديق,Abu Bakr as-Siddiq,Abu Bakr,As-Siddiq,male,False,Sahabi,ASHARA_MUBASHSHARA,The first Caliph of Islam.,Al-Isabah,Quraish,Banu Taym,-51,13,False,True,False,False,False,False,True,False,False,True,False
-2,عمر بن الخطاب,Umar ibn al-Khattab,Abu Hafs,Al-Faruq,male,False,Sahabi,ASHARA_MUBASHSHARA,The second Caliph of Islam.,Al-Isabah,Quraish,Banu Adi,-40,23,False,True,False,True,False,False,True,False,False,True,False
-3,عثمان بن عفان,Uthman ibn Affan,Abu Amr,Dhun-Nurayn,male,False,Sahabi,ASHARA_MUBASHSHARA,The third Caliph of Islam.,Al-Isabah,Quraish,Banu Umayya,-47,35,False,True,True,False,False,False,True,False,False,False,False
+1,أبو بكر الصديق,Abu Bakr as-Siddiq,Abu Bakr,As-Siddiq,male,False,Sahabi,ASHARA_MUBASHSHARA,The first Caliph of Islam.,Al-Isabah,Quraish,Banu Taym,-51,13,True,True,False,False,False,False,True,False,False,True,False
+2,عمر بن الخطاب,Umar ibn al-Khattab,Abu Hafs,Al-Faruq,male,False,Sahabi,ASHARA_MUBASHSHARA,The second Caliph of Islam.,Al-Isabah,Quraish,Banu Adi,-40,23,True,True,False,True,False,False,True,False,False,True,False
+3,عثمان بن عفان,Uthman ibn Affan,Abu Amr,Dhun-Nurayn,male,False,Sahabi,ASHARA_MUBASHSHARA,The third Caliph of Islam.,Al-Isabah,Quraish,Banu Umayya,-47,35,True,True,True,False,False,False,True,False,False,False,False
 4,علي بن أبي طالب,Ali ibn Abi Talib,Abu al-Hasan,Asadullah,male,False,Sahabi,ASHARA_MUBASHSHARA,The fourth Caliph of Islam.,Al-Isabah,Quraish,Banu Hashim,-23,40,True,True,False,True,False,True,False,False,False,True,False
-5,طلحة بن عبيد الله,Talha ibn Ubaydullah,Abu Muhammad,Talhat al-Khayr,male,False,Sahabi,ASHARA_MUBASHSHARA,One of the ten promised paradise.,Al-Isabah,Quraish,Banu Taym,-28,36,False,False,False,False,False,False,False,False,False,False,False
-6,الزبير بن العوام,Zubayr ibn al-Awwam,Abu Abdullah,Hawari Rasulillah,male,False,Sahabi,ASHARA_MUBASHSHARA,One of the ten promised paradise.,Al-Isabah,Quraish,Banu Asad,-28,36,False,True,False,False,False,False,False,False,False,False,False
-7,عبد الرحمن بن عوف,Abdur Rahman ibn Awf,Abu Muhammad,,male,False,Sahabi,ASHARA_MUBASHSHARA,One of the ten promised paradise.,Al-Isabah,Quraish,Banu Zuhra,-44,32,False,False,False,False,False,False,False,False,False,False,False
-8,سعد بن أبي وقاص,Sa'd ibn Abi Waqqas,Abu Ishaq,,male,False,Sahabi,ASHARA_MUBASHSHARA,One of the ten promised paradise.,Al-Isabah,Quraish,Banu Zuhra,-23,55,False,False,False,False,False,False,False,False,False,True,False
-9,سعيد بن زيد,Sa'id ibn Zayd,Abu al-Awar,,male,False,Sahabi,ASHARA_MUBASHSHARA,One of the ten promised paradise.,Al-Isabah,Quraish,Banu Adi,-22,51,False,False,False,False,False,False,False,False,False,False,False
-10,أبو عبيدة بن الجراح,Abu Ubaydah ibn al-Jarrah,Abu Ubaydah,Amin al-Ummah,male,False,Sahabi,ASHARA_MUBASHSHARA,One of the ten promised paradise.,Al-Isabah,Quraish,Banu al-Harith,-40,18,False,False,False,False,False,False,False,False,False,True,False
-11,خديجة بنت خويلد,Khadija bint Khuwaylid,Umm Hind,Tahira,female,False,Sahabi,SAHABI,The first wife of the Prophet.,Al-Isabah,Quraish,Banu Asad,-68,-3,False,False,True,False,False,False,False,False,False,False,False
+5,طلحة بن عبيد الله,Talha ibn Ubaydullah,Abu Muhammad,Talhat al-Khayr,male,False,Sahabi,ASHARA_MUBASHSHARA,One of the ten promised paradise.,Al-Isabah,Quraish,Banu Taym,-28,36,True,False,False,False,False,False,False,False,False,False,False
+6,الزبير بن العوام,Zubayr ibn al-Awwam,Abu Abdullah,Hawari Rasulillah,male,False,Sahabi,ASHARA_MUBASHSHARA,One of the ten promised paradise.,Al-Isabah,Quraish,Banu Asad,-28,36,True,True,False,False,False,False,False,False,False,False,False
+7,عبد الرحمن بن عوف,Abdur Rahman ibn Awf,Abu Muhammad,,male,False,Sahabi,ASHARA_MUBASHSHARA,One of the ten promised paradise.,Al-Isabah,Quraish,Banu Zuhra,-44,32,True,False,False,False,False,False,False,False,False,False,False
+8,سعد بن أبي وقاص,Sa'd ibn Abi Waqqas,Abu Ishaq,,male,False,Sahabi,ASHARA_MUBASHSHARA,One of the ten promised paradise.,Al-Isabah,Quraish,Banu Zuhra,-23,55,True,False,False,False,False,False,False,False,False,True,False
+9,سعيد بن زيد,Sa'id ibn Zayd,Abu al-Awar,,male,False,Sahabi,ASHARA_MUBASHSHARA,One of the ten promised paradise.,Al-Isabah,Quraish,Banu Adi,-22,51,True,False,False,False,False,False,False,False,False,False,False
+10,أبو عبيدة بن الجراح,Abu Ubaydah ibn al-Jarrah,Abu Ubaydah,Amin al-Ummah,male,False,Sahabi,ASHARA_MUBASHSHARA,One of the ten promised paradise.,Al-Isabah,Quraish,Banu al-Harith,-40,18,True,False,False,False,False,False,False,False,False,True,False
+11,خديجة بنت خويلد,Khadija bint Khuwaylid,Umm Hind,Tahira,female,False,Sahabi,SAHABI,The first wife of the Prophet.,Al-Isabah,Quraish,Banu Asad,-68,-3,True,False,True,False,False,False,False,False,False,False,False
 12,عائشة بنت أبي بكر,Aisha bint Abi Bakr,Umm Abdullah,Siddiqa,female,False,Sahabi,SAHABI,The wife of the Prophet and daughter of Abu Bakr.,Al-Isabah,Quraish,Banu Taym,9,58,True,False,True,False,False,False,False,False,False,False,False
 13,فاطمة بنت محمد,Fatima bint Muhammad,Umm Abiha,Az-Zahra,female,False,Sahabi,SAHABI,The daughter of the Prophet and wife of Ali.,Al-Isabah,Quraish,Banu Hashim,-18,11,True,True,False,False,False,False,False,False,False,False,False
 14,الحسن بن علي,Hasan ibn Ali,Abu Muhammad,Sibt Rasulillah,male,False,Sahabi,SAHABI,Grandson of the Prophet.,Al-Isabah,Quraish,Banu Hashim,3,50,True,False,False,True,False,False,False,False,False,False,False
 15,الحسين بن علي,Husayn ibn Ali,Abu Abdullah,Sayyid Shabab Ahl al-Jannah,male,False,Sahabi,SAHABI,Grandson of the Prophet.,Al-Isabah,Quraish,Banu Hashim,4,61,True,False,False,True,False,False,False,False,False,False,False
-16,حمزة بن عبد المطلب,Hamza ibn Abd al-Muttalib,Abu Umara,Asadullah,male,False,Sahabi,BADRI,Uncle of the Prophet.,Al-Isabah,Quraish,Banu Hashim,-54,3,False,True,False,False,False,False,False,False,False,True,False
-17,العباس بن عبد المطلب,Abbas ibn Abd al-Muttalib,Abu al-Fadl,,male,False,Sahabi,SAHABI,Uncle of the Prophet.,Al-Isabah,Quraish,Banu Hashim,-56,32,False,True,False,False,False,False,False,False,False,False,False
+16,حمزة بن عبد المطلب,Hamza ibn Abd al-Muttalib,Abu Umara,Asadullah,male,False,Sahabi,BADRI,Uncle of the Prophet.,Al-Isabah,Quraish,Banu Hashim,-54,3,True,True,False,False,False,False,False,False,False,True,False
+17,العباس بن عبد المطلب,Abbas ibn Abd al-Muttalib,Abu al-Fadl,,male,False,Sahabi,SAHABI,Uncle of the Prophet.,Al-Isabah,Quraish,Banu Hashim,-56,32,True,True,False,False,False,False,False,False,False,False,False
 18,بلال بن رباح,Bilal ibn Rabah,Abu Abdillah,Muadhin,male,False,Sahabi,BADRI,The first muadhin of Islam.,Al-Isabah,Habesha,,-42,20,False,False,False,False,False,False,False,False,False,True,False
 19,خالد بن الوليد,Khalid ibn al-Walid,Abu Sulayman,Saifullah,male,False,Sahabi,SAHABI,The Sword of Allah.,Al-Isabah,Quraish,Banu Makhzum,-30,21,False,False,False,False,False,False,False,False,False,True,False
 20,زينب بنت محمد,Zaynab bint Muhammad,,,female,False,Sahabi,SAHABI,Daughter of the Prophet.,Al-Isabah,Quraish,Banu Hashim,-23,8,True,False,False,False,False,False,False,False,False,False,False
 21,رقية بنت محمد,Ruqayya bint Muhammad,Umm Abdillah,,female,False,Sahabi,SAHABI,Daughter of the Prophet.,Al-Isabah,Quraish,Banu Hashim,-20,2,True,False,True,False,False,False,False,False,False,False,False
 22,أم كلثوم بنت محمد,Umm Kulthum bint Muhammad,,,female,False,Sahabi,SAHABI,Daughter of the Prophet.,Al-Isabah,Quraish,Banu Hashim,-19,9,True,False,True,False,False,False,False,False,False,False,False
 23,جعفر بن أبي طالب,Ja'far ibn Abi Talib,,,male,False,Sahabi,SAHABI,Cousin of the Prophet and martyr of Mu'tah.,General History,Various,Various,0,60,False,True,False,True,False,False,False,False,False,False,False
-24,زيد بن حارثة,Zayd ibn Harithah,,,male,False,Sahabi,BADRI,The only Sahabi mentioned by name in the Quran.,General History,Various,Various,0,60,False,True,False,False,False,False,False,False,False,True,False
+24,زيد بن حارثة,Zayd ibn Harithah,,,male,False,Sahabi,BADRI,The only Sahabi mentioned by name in the Quran.,General History,Various,Various,0,60,True,True,False,False,False,False,False,False,False,True,False
 25,أسامة بن زيد,Usama ibn Zayd,,,male,False,Sahabi,SAHABI,The beloved of the Messenger of Allah.,General History,Various,Various,0,60,True,False,False,False,False,False,False,False,False,False,False
 26,عبد الله بن عمر,Abdullah ibn Umar,,,male,False,Sahabi,SAHABI,Son of Umar and a great scholar of hadith.,General History,Various,Various,0,60,True,False,False,False,False,False,False,False,False,False,False
 27,عبد الله بن عباس,Abdullah ibn Abbas,,,male,False,Sahabi,SAHABI,The interpreter of the Quran.,General History,Various,Various,0,60,True,False,False,False,False,False,False,True,False,False,False
@@ -34,19 +34,19 @@ id,name_ar,name_en,kunyah,laqab,gender,is_prophet,node_type,prominence,biography
 32,أبو سعيد الخدري,Abu Sa'id al-Khudri,,,male,False,Sahabi,SAHABI,One of the young Sahabah and hadith narrators.,General History,Various,Various,0,60,False,False,False,False,False,False,False,False,False,False,False
 33,معاذ بن جبل,Mu'adh ibn Jabal,,,male,False,Sahabi,SAHABI,The most knowledgeable of halal and haram.,General History,Various,Various,0,60,False,False,False,False,False,False,False,False,False,False,False
 34,أبي بن كعب,Ubayy ibn Ka'b,,,male,False,Sahabi,SAHABI,The master of reciters.,General History,Various,Various,0,60,False,False,False,False,False,False,False,False,False,False,False
-35,زيد بن ثابت,Zayd ibn Thabit,,,male,False,Sahabi,SAHABI,The primary scribe of the Quran.,General History,Various,Various,0,60,False,False,False,False,False,False,False,False,False,False,False
+35,زيد بن ثابت,Zayd ibn Thabit,,,male,False,Sahabi,SAHABI,The primary scribe of the Quran.,General History,Various,Various,0,60,True,False,False,False,False,False,False,False,False,False,False
 36,أبو ذر الغفاري,Abu Dharr al-Ghifari,,,male,False,Sahabi,SAHABI,Known for his asceticism and truthfulness.,General History,Various,Various,0,60,False,False,False,False,False,False,False,False,False,False,False
 37,سلمان الفارسي,Salman al-Farsi,,,male,False,Sahabi,SAHABI,The seeker of truth from Persia.,General History,Various,Various,0,60,False,False,False,False,False,False,False,False,False,False,False
-38,عمار بن ياسر,Ammar ibn Yasir,,,male,False,Sahabi,BADRI,One of the early converts and martyrs.,General History,Various,Various,0,60,False,False,False,False,False,False,False,False,False,True,False
+38,عمار بن ياسر,Ammar ibn Yasir,,,male,False,Sahabi,BADRI,One of the early converts and martyrs.,General History,Various,Various,0,60,True,False,False,False,False,False,False,False,False,True,False
 39,المقداد بن الأسود,Miqdad ibn Aswad,,,male,False,Sahabi,BADRI,One of the first to fight on horseback.,General History,Various,Various,0,60,False,False,False,False,False,False,False,False,False,True,False
 40,حذيفة بن اليمان,Hudhayfa ibn al-Yaman,,,male,False,Sahabi,SAHABI,The keeper of the Prophet's secrets.,General History,Various,Various,0,60,False,False,False,False,False,False,False,False,False,False,False
 41,عمرو بن العاص,Amr ibn al-Aas,,,male,False,Sahabi,SAHABI,The conqueror of Egypt.,General History,Various,Various,0,60,False,False,False,False,False,False,False,False,False,True,False
 42,معاوية بن أبي سفيان,Muawiyah ibn Abi Sufyan,,,male,False,Sahabi,SAHABI,The founder of the Umayyad dynasty.,General History,Various,Various,0,60,True,False,False,False,False,False,False,False,False,False,False
 43,مصعب بن عمير,Mus'ab ibn Umayr,,,male,False,Sahabi,BADRI,The first ambassador of Islam to Medina.,General History,Various,Various,0,60,False,False,False,False,False,False,False,False,False,True,False
 44,أبو أيوب الأنصاري,Abu Ayyub al-Ansari,,,male,False,Sahabi,BADRI,The host of the Prophet in Medina.,General History,Various,Various,0,60,False,False,False,False,False,False,False,False,False,True,False
-45,سعد بن معاذ,Sa'd ibn Mu'adh,,,male,False,Sahabi,BADRI,The leader of the Aws tribe.,General History,Various,Various,0,60,False,False,False,False,False,False,False,False,False,True,False
+45,سعد بن معاذ,Sa'd ibn Mu'adh,,,male,False,Sahabi,BADRI,The leader of the Aws tribe.,General History,Various,Various,0,60,True,False,False,False,False,False,False,False,False,True,False
 46,سعد بن عبادة,Sa'd ibn Ubadah,,,male,False,Sahabi,SAHABI,The leader of the Khazraj tribe.,General History,Various,Various,0,60,False,False,False,False,False,False,False,False,False,False,False
-47,عبادة بن الصامت,Ubadah ibn al-Samit,,,male,False,Sahabi,BADRI,A prominent leader of the Ansar.,General History,Various,Various,0,60,False,False,False,False,False,False,False,False,False,True,False
+47,عبادة بن الصامت,Ubadah ibn al-Samit,,,male,False,Sahabi,BADRI,A prominent leader of the Ansar.,General History,Various,Various,0,60,True,False,False,False,False,False,False,False,False,True,False
 48,أبو الدرداء,Abu al-Darda,,,male,False,Sahabi,SAHABI,The sage of this Ummah.,General History,Various,Various,0,60,False,False,False,False,False,False,False,False,False,False,False
 49,أبو موسى الأشعري,Abu Musa al-Ash'ari,,,male,False,Sahabi,SAHABI,A beautiful reciter of the Quran.,General History,Various,Various,0,60,False,False,False,False,False,False,False,False,False,False,False
 50,صهيب الرومي,Suhayb ar-Rumi,,,male,False,Sahabi,SAHABI,The Roman who traded his wealth for his faith.,General History,Various,Various,0,60,False,False,False,False,False,False,False,False,False,False,False
@@ -89,10 +89,10 @@ id,name_ar,name_en,kunyah,laqab,gender,is_prophet,node_type,prominence,biography
 87,هند بنت عتبة,Hind bint Utba,,,female,False,Sahabi,SAHABI,The mother of Muawiyah who later accepted Islam.,General History,Various,Various,0,60,False,False,False,False,False,False,False,False,False,False,False
 88,أم حكيم,Umm Hakim,,,female,False,Sahabi,SAHABI,The wife of Ikrimah ibn Abi Jahl.,General History,Various,Various,0,60,False,False,False,False,False,False,False,False,False,False,False
 89,عكرمة بن أبي جهل,Ikrimah ibn Abi Jahl,,,male,False,Sahabi,SAHABI,The son of Abu Jahl who became a great warrior for Islam.,General History,Various,Various,0,60,False,False,False,False,False,False,False,False,False,False,False
-90,صفوان بن أمية,Safwan ibn Umayya,,,male,False,Sahabi,SAHABI,A prominent leader of Quraish who later converted.,General History,Various,Various,0,60,False,False,False,False,False,False,False,False,False,False,False
+90,صفوان بن أمية,Safwan ibn Umayya,,,male,False,Sahabi,SAHABI,A prominent leader of Quraish who later converted.,General History,Various,Various,0,60,True,False,False,False,False,False,False,False,False,False,False
 91,سهيل بن عمرو,Suhayl ibn Amr,,,male,False,Sahabi,SAHABI,The eloquent speaker of Quraish who converted.,General History,Various,Various,0,60,False,False,False,False,False,False,False,False,False,False,False
 92,حكيم بن حزام,Hakim ibn Hizam,,,male,False,Sahabi,SAHABI,The nephew of Khadija and a wise leader.,General History,Various,Various,0,60,False,False,False,False,False,False,False,False,False,False,False
-93,أبو سفيان بن حرب,Abu Sufyan ibn Harb,,,male,False,Sahabi,SAHABI,The leader of Quraish who accepted Islam at the Conquest of Mecca.,General History,Various,Various,0,60,False,True,False,False,False,False,False,False,False,False,False
+93,أبو سفيان بن حرب,Abu Sufyan ibn Harb,,,male,False,Sahabi,SAHABI,The leader of Quraish who accepted Islam at the Conquest of Mecca.,General History,Various,Various,0,60,True,True,False,False,False,False,False,False,False,False,False
 94,أبو جندل بن سهيل,Abu Jandal ibn Suhayl,,,male,False,Sahabi,SAHABI,The one who escaped Quraish and was returned due to Hudaybiyyah.,General History,Various,Various,0,60,False,False,False,False,False,False,False,False,False,False,False
 95,عبد الله بن حذافة,Abdullah ibn Hudhafa,,,male,False,Sahabi,SAHABI,The envoy to the Persian Emperor.,General History,Various,Various,0,60,False,False,False,False,False,False,False,False,False,False,False
 96,عبد الله بن جحش,Abdullah ibn Jahsh,,,male,False,Sahabi,BADRI,The first to be called Commander of the Believers.,General History,Various,Various,0,60,False,False,False,False,False,False,False,False,False,True,False
@@ -267,3 +267,39 @@ id,name_ar,name_en,kunyah,laqab,gender,is_prophet,node_type,prominence,biography
 1022,,Ruqayyah bint Muhammad,,,female,False,Sahabi,SAHABI,Wife of Uthman ibn Affan.,Fact-Check Report,,,,,False,False,False,False,False,False,False,False,False,False,False
 1023,أبو طالب بن عبد المطلب,Abu Talib ibn Abd al-Muttalib,Abu Ali,,male,False,Sahabi,SAHABI,The father of Ali ibn Abi Talib and guardian of Muhammad (PBUH).,Historical Reference,Quraish,Banu Hashim,-78,-10,True,True,False,True,False,False,False,False,False,False,False
 1024,,Umm Ruman bint Amir,,,female,False,Sahabi,SAHABI,Mother of Aisha and Umm Kulthum bint Abi Bakr.,Fact-Check Report,,,,,False,False,False,False,False,False,False,False,False,False,False
+1025,Uthman Abu Quhafa,Uthman Abu Quhafa,,,M,False,PoliticalFigure,2,Pre-Islamic father,Al-Isabah,,,0,0,False,True,True,False,False,False,False,False,False,False,False
+1026,Salma (Umm al-Khair),Salma (Umm al-Khair),,,F,False,PoliticalFigure,1,Pre-Islamic mother,Al-Isabah,,,0,0,False,True,True,False,False,False,False,False,False,False,False
+1027,Al-Khattab ibn Nufayl,Al-Khattab ibn Nufayl,,,M,False,PoliticalFigure,2,Pre-Islamic father,Al-Isabah,,,0,0,False,True,True,False,False,False,False,False,False,False,False
+1028,Hantamah bint Hisham,Hantamah bint Hisham,,,F,False,PoliticalFigure,1,Pre-Islamic mother,Al-Isabah,,,0,0,False,True,True,False,False,False,False,False,False,False,False
+1029,Affan ibn Abi al-As,Affan ibn Abi al-As,,,M,False,PoliticalFigure,2,Pre-Islamic father,Al-Isabah,,,0,0,False,True,True,False,False,False,False,False,False,False,False
+1030,Arwa bint Kurayz,Arwa bint Kurayz,,,F,False,PoliticalFigure,1,Pre-Islamic mother,Al-Isabah,,,0,0,False,True,True,False,False,False,False,False,False,False,False
+1031,Ubaydullah ibn Uthman,Ubaydullah ibn Uthman,,,M,False,PoliticalFigure,2,Pre-Islamic father,Al-Isabah,,,0,0,False,True,True,False,False,False,False,False,False,False,False
+1032,Salma bint Wuhayb,Salma bint Wuhayb,,,F,False,PoliticalFigure,1,Pre-Islamic mother,Al-Isabah,,,0,0,False,True,True,False,False,False,False,False,False,False,False
+1033,Al-Awwam ibn Khuwaylid,Al-Awwam ibn Khuwaylid,,,M,False,PoliticalFigure,2,Pre-Islamic father,Al-Isabah,,,0,0,False,True,True,False,False,False,False,False,False,False,False
+1034,Safiyyah bint Abd al-Muttalib,Safiyyah bint Abd al-Muttalib,,,F,False,PoliticalFigure,1,Pre-Islamic mother,Al-Isabah,,,0,0,False,True,True,False,False,False,False,False,False,False,False
+1035,Awf ibn Abd Harith,Awf ibn Abd Harith,,,M,False,PoliticalFigure,2,Pre-Islamic father,Al-Isabah,,,0,0,False,True,True,False,False,False,False,False,False,False,False
+1036,Umm Kulthum al-Ansariyya,Umm Kulthum al-Ansariyya,,,F,False,PoliticalFigure,1,Pre-Islamic mother,Al-Isabah,,,0,0,False,True,True,False,False,False,False,False,False,False,False
+1037,Abi Waqqas Malik,Abi Waqqas Malik,,,M,False,PoliticalFigure,2,Pre-Islamic father,Al-Isabah,,,0,0,False,True,True,False,False,False,False,False,False,False,False
+1038,Hamimah bint Sufyan,Hamimah bint Sufyan,,,F,False,PoliticalFigure,1,Pre-Islamic mother,Al-Isabah,,,0,0,False,True,True,False,False,False,False,False,False,False,False
+1039,Zayd ibn Amr ibn Nufayl,Zayd ibn Amr ibn Nufayl,,,M,False,PoliticalFigure,2,Pre-Islamic father,Al-Isabah,,,0,0,False,True,True,False,False,False,False,False,False,False,False
+1040,Safiyyah bint Umayyah,Safiyyah bint Umayyah,,,F,False,PoliticalFigure,1,Pre-Islamic mother,Al-Isabah,,,0,0,False,True,True,False,False,False,False,False,False,False,False
+1041,Abdullah ibn al-Jarrah,Abdullah ibn al-Jarrah,,,M,False,PoliticalFigure,2,Pre-Islamic father,Al-Isabah,,,0,0,False,True,True,False,False,False,False,False,False,False,False
+1042,Umayya bint Abdullah,Umayya bint Abdullah,,,F,False,PoliticalFigure,1,Pre-Islamic mother,Al-Isabah,,,0,0,False,True,True,False,False,False,False,False,False,False,False
+1043,Khuwaylid ibn Asad,Khuwaylid ibn Asad,,,M,False,PoliticalFigure,2,Pre-Islamic father,Al-Isabah,,,0,0,False,True,True,False,False,False,False,False,False,False,False
+1044,Fatima bint Za'idah,Fatima bint Za'idah,,,F,False,PoliticalFigure,1,Pre-Islamic mother,Al-Isabah,,,0,0,False,True,True,False,False,False,False,False,False,False,False
+1045,Hala bint Whayb,Hala bint Whayb,,,F,False,PoliticalFigure,1,Pre-Islamic mother,Al-Isabah,,,0,0,False,True,True,False,False,False,False,False,False,False,False
+1046,Nuwaylah,Nuwaylah,,,F,False,PoliticalFigure,1,Pre-Islamic mother,Al-Isabah,,,0,0,False,True,True,False,False,False,False,False,False,False,False
+1047,Harithah ibn Sharahil,Harithah ibn Sharahil,,,M,False,PoliticalFigure,2,Pre-Islamic father,Al-Isabah,,,0,0,False,True,True,False,False,False,False,False,False,False,False
+1048,Su'da,Su'da,,,F,False,PoliticalFigure,1,Pre-Islamic mother,Al-Isabah,,,0,0,False,True,True,False,False,False,False,False,False,False,False
+1049,Thabit ibn Dahdah,Thabit ibn Dahdah,,,M,False,PoliticalFigure,2,Pre-Islamic father,Al-Isabah,,,0,0,False,True,True,False,False,False,False,False,False,False,False
+1050,Layla bint Abd al-Muttalib,Layla bint Abd al-Muttalib,,,F,False,PoliticalFigure,1,Pre-Islamic mother,Al-Isabah,,,0,0,False,True,True,False,False,False,False,False,False,False,False
+1051,Yasir ibn Amir,Yasir ibn Amir,,,M,False,PoliticalFigure,2,Pre-Islamic father,Al-Isabah,,,0,0,False,True,True,False,False,False,False,False,False,False,False
+1052,Sumayya bint Khayyat,Sumayya bint Khayyat,,,F,False,PoliticalFigure,1,Pre-Islamic mother,Al-Isabah,,,0,0,False,True,True,False,False,False,False,False,False,False,False
+1053,Mu'adh ibn an-Nu'man,Mu'adh ibn an-Nu'man,,,M,False,PoliticalFigure,2,Pre-Islamic father,Al-Isabah,,,0,0,False,True,True,False,False,False,False,False,False,False,False
+1054,Kab'ah bint Abd Harith,Kab'ah bint Abd Harith,,,F,False,PoliticalFigure,1,Pre-Islamic mother,Al-Isabah,,,0,0,False,True,True,False,False,False,False,False,False,False,False
+1055,al-Samit ibn Qays,al-Samit ibn Qays,,,M,False,PoliticalFigure,2,Pre-Islamic father,Al-Isabah,,,0,0,False,True,True,False,False,False,False,False,False,False,False
+1056,Umama bint Abdullah,Umama bint Abdullah,,,F,False,PoliticalFigure,1,Pre-Islamic mother,Al-Isabah,,,0,0,False,True,True,False,False,False,False,False,False,False,False
+1057,Umayya ibn Khalaf,Umayya ibn Khalaf,,,M,False,PoliticalFigure,2,Pre-Islamic father,Al-Isabah,,,0,0,False,True,True,False,False,False,False,False,False,False,False
+1058,Safinah bint al-Harith,Safinah bint al-Harith,,,F,False,PoliticalFigure,1,Pre-Islamic mother,Al-Isabah,,,0,0,False,True,True,False,False,False,False,False,False,False,False
+1059,Harb ibn Umayya,Harb ibn Umayya,,,M,False,PoliticalFigure,2,Pre-Islamic father,Al-Isabah,,,0,0,False,True,True,False,False,False,False,False,False,False,False
+1060,Safiyyah bint Hajaj,Safiyyah bint Hajaj,,,F,False,PoliticalFigure,1,Pre-Islamic mother,Al-Isabah,,,0,0,False,True,True,False,False,False,False,False,False,False,False
