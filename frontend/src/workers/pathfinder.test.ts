@@ -11,10 +11,10 @@ describe('pathfinder logic', () => {
       { id: 4, name_en: 'D', gender: 'male', is_prophet: 'False' },
     ],
     links: [
-      { source_id: 1, target_id: 2, type: 'SON_OF', category: 'family' },
-      { source_id: 2, target_id: 3, type: 'SON_OF', category: 'family' },
-      { source_id: 1, target_id: 3, type: 'COMPANION_OF', category: 'others' },
-      { source_id: 3, target_id: 4, type: 'PARENT_OF', category: 'family' },
+      { source: 1, target: 2, type: 'SON_OF', category: 'family' },
+      { source: 2, target: 3, type: 'SON_OF', category: 'family' },
+      { source: 1, target: 3, type: 'COMPANION_OF', category: 'others' },
+      { source: 3, target: 4, type: 'PARENT_OF', category: 'family' },
     ],
   };
 
@@ -35,10 +35,10 @@ describe('pathfinder logic', () => {
             { id: 4, name_en: 'D', gender: 'male', is_prophet: 'False' },
         ],
         links: [
-            { source_id: 1, target_id: 2, type: 'SON_OF', category: 'family' }, // 1
-            { source_id: 2, target_id: 4, type: 'SON_OF', category: 'family' }, // 1 -> total 2
-            { source_id: 1, target_id: 3, type: 'SON_OF', category: 'family' }, // 1
-            { source_id: 3, target_id: 4, type: 'SON_OF', category: 'family' }, // 1 -> total 2
+          { source: 1, target: 2, type: 'SON_OF', category: 'family' }, // 1
+          { source: 2, target: 4, type: 'SON_OF', category: 'family' }, // 1 -> total 2
+          { source: 1, target: 3, type: 'SON_OF', category: 'family' }, // 1
+          { source: 3, target: 4, type: 'SON_OF', category: 'family' }, // 1 -> total 2
         ]
      };
      const paths = findShortestPathsDijkstra(data, '1', '4');

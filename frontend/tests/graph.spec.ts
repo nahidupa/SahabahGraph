@@ -4,7 +4,9 @@ test.describe('SahabahGraph E2E Tests', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/');
     // Wait for the initial node to be loaded in the graph
-    await page.waitForFunction(() => window.cy && window.cy.nodes().length > 0);
+    await expect(page.getByText('Muhammad (PBUH)').first()).toBeVisible({ timeout: 15000 });
+    // We'll wait for the graph to be ready in the tests that need it
+    await page.waitForFunction(() => (window as any).cy && (window as any).cy.nodes().length > 0, { timeout: 15000 });
   });
 
   test('Search functionality filters the sidebar list', async ({ page }) => {
@@ -29,7 +31,7 @@ test.describe('SahabahGraph E2E Tests', () => {
 
   test('Adding a node from sidebar to graph', async ({ page }) => {
     // Initially only 1 node (Muhammad PBUH)
-    let nodeCount = await page.evaluate(() => window.cy.nodes().length);
+    let nodeCount = await page.evaluate(() => (window as any).cy.nodes().length);
     expect(nodeCount).toBe(1);
 
     // Click "Add to Graph" in the Abu Bakr list item.
@@ -118,5 +120,105 @@ test.describe('SahabahGraph E2E Tests', () => {
 
     await page.getByLabel('Reset Layout').click();
     await page.waitForTimeout(500);
+  });
+
+  test('View switching (Timeline and Political)', async ({ page }) => {
+    // Switch to Timeline View
+    await page.getByRole('button', { name: 'Timeline View' }).click();
+    await expect(page.getByRole('heading', { name: 'Timeline View' })).toBeVisible();
+
+    // Switch to Political View
+    await page.getByRole('button', { name: 'Political View' }).click();
+    await expect(page.getByText('City Map')).toBeVisible();
+    await expect(page.getByText('Governor Terms')).toBeVisible();
+
+    // Switch back to Graph View
+    await page.getByRole('button', { name: 'Graph View' }).click();
+    // Wait for the graph to be visible again by checking a node
+    await expect(page.getByText('Muhammad (PBUH)')).toBeVisible();
+  });
+
+  test('Language switching updates UI and direction', async ({ page }) => {
+    // Open language selector
+    await page.getByLabel('Language').click();
+    // Select Arabic
+    await page.getByRole('option', { name: 'العربية' }).click();
+
+    // Verify RTL layout direction on the main container
+    const mainBox = page.locator('div[dir="rtl"]');
+    await expect(mainBox.first()).toBeVisible();
+
+    // Verify translated text
+    await expect(page.getByText('رسم بياني للصحابة')).toBeVisible();
+    await expect(page.getByPlaceholder('البحث عن الصحابة...')).toBeVisible();
+
+    // Switch back to English
+    await page.getByRole('combobox', { name: 'اللغة' }).click();
+    await page.getByRole('option', { name: 'English' }).click();
+    await expect(page.getByPlaceholder('Search Sahabah...')).toBeVisible();
+  });
+
+  test('Sidebar and Detail Panel toggle', async ({ page }) => {
+    // Collapse sidebar
+    await page.locator('div').filter({ hasText: /^SahabahGraph$/ }).getByRole('button').click();
+
+    // Now it should be collapsed. Check for expand button which DOES have a title.
+    await expect(page.getByTitle('Expand Sidebar')).toBeVisible();
+
+    // Expand sidebar
+    await page.getByTitle('Expand Sidebar').click();
+    await expect(page.getByText('SahabahGraph')).toBeVisible();
+
+    // Select a node to show detail panel
+    await page.getByText('Muhammad (PBUH)').first().click();
+    await expect(page.getByText('Expand Relationships')).toBeVisible();
+
+    // Collapse detail panel
+    await page.getByTitle('Collapse Details').click();
+    await expect(page.getByTitle('Expand Details')).toBeVisible();
+    await expect(page.getByText('Expand Relationships')).not.toBeVisible();
+
+    // Expand detail panel
+    await page.getByTitle('Expand Details').click();
+    await expect(page.getByText('Expand Relationships')).toBeVisible();
+  });
+
+  test('Tribe filtering', async ({ page }) => {
+    // Open tribe selector
+    await page.getByLabel('Tribe').click();
+    // Select 'Quraish' (matched from sahabah_data.json)
+    await page.getByRole('option', { name: 'Quraish' }).click();
+
+    // Verify some Sahabi from Quraish is visible (Abu Bakr is Quraish)
+    await expect(page.getByText('Abu Bakr as-Siddiq').first()).toBeVisible();
+
+    // Select another tribe where Abu Bakr is NOT in (if possible, but let's just check 'All' works)
+    await page.getByRole('combobox', { name: 'Tribe' }).click();
+    await page.getByRole('option', { name: 'All Tribes' }).click();
+    await expect(page.getByText('Muhammad (PBUH)')).toBeVisible();
+  });
+
+  test('Pathfinding (Show Connections)', async ({ page }) => {
+    // Add Abu Bakr to graph first to have at least two nodes for selection
+    const abuBakrItem = page
+      .getByRole('listitem')
+      .filter({ has: page.getByRole('button', { name: /Abu Bakr as-Siddiq/i }) })
+      .first();
+    await abuBakrItem.getByRole('button', { name: 'Add to Graph' }).click();
+
+    // Select Muhammad (PBUH) in the graph (it should already be there)
+    await page.getByText('Muhammad (PBUH)').first().click();
+
+    // Simulate user multi-selection
+    await page.evaluate(() => {
+      window.cy.$('node[id="0"]').select();
+      window.cy.$('node[id="1"]').select();
+    });
+
+    // Click Show Connections
+    await page.getByLabel('show connections').click();
+
+    // Verify Path Summary appears
+    await expect(page.getByText('Path Summary')).toBeVisible();
   });
 });

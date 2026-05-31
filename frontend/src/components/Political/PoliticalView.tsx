@@ -45,6 +45,29 @@ const PoliticalView: React.FC<PoliticalViewProps> = ({
     [cities, selectedCityId]
   );
 
+  const selectedCityStats = useMemo(() => {
+    if (!selectedCity) return null;
+
+    const cityTerms = terms.filter((term) => term.city_id === selectedCity.id);
+    const activeTerms = cityTerms.filter((term) => !term.vacancy);
+    const distinctGovernors = new Set(
+      activeTerms
+        .map((term) => (term.governor_name ?? '').trim())
+        .filter((name) => name.length > 0)
+    );
+
+    const yearValues = cityTerms.flatMap((term) => [term.start_year_ce, term.end_year_ce]);
+    const minYear = yearValues.length ? Math.min(...yearValues) : null;
+    const maxYear = yearValues.length ? Math.max(...yearValues) : null;
+
+    return {
+      totalTerms: cityTerms.length,
+      governors: distinctGovernors.size,
+      firstYear: minYear,
+      lastYear: maxYear,
+    };
+  }, [selectedCity, terms]);
+
   const filteredTerms = useMemo(() => {
     return terms
       .filter((term) => {
@@ -141,6 +164,29 @@ const PoliticalView: React.FC<PoliticalViewProps> = ({
               <Typography variant="caption" color="text.secondary">
                 {selectedCity.lat.toFixed(3)}, {selectedCity.lng.toFixed(3)}
               </Typography>
+              {selectedCityStats && (
+                <Stack direction="row" spacing={0.75} sx={{ mt: 1, flexWrap: 'wrap', rowGap: 0.75 }}>
+                  <Chip
+                    size="small"
+                    color="primary"
+                    variant="outlined"
+                    label={t('total_terms', { defaultValue: 'Terms' }) + `: ${selectedCityStats.totalTerms}`}
+                  />
+                  <Chip
+                    size="small"
+                    color="secondary"
+                    variant="outlined"
+                    label={t('governors', { defaultValue: 'Governors' }) + `: ${selectedCityStats.governors}`}
+                  />
+                  {selectedCityStats.firstYear !== null && selectedCityStats.lastYear !== null && (
+                    <Chip
+                      size="small"
+                      variant="outlined"
+                      label={`${selectedCityStats.firstYear}–${selectedCityStats.lastYear} CE`}
+                    />
+                  )}
+                </Stack>
+              )}
             </Box>
           )}
         </Box>
