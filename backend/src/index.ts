@@ -1,48 +1,50 @@
-import express from 'express';
 import { ApolloServer } from '@apollo/server';
-import { expressMiddleware } from '@apollo/server/express4';
-import cors from 'cors';
+import { startStandaloneServer } from '@apollo/server/standalone';
 import dotenv from 'dotenv';
+import { Neo4jGraphQL } from "@neo4j/graphql";
+import neo4j from "neo4j-driver";
 
 dotenv.config();
 
-const app = express();
-const port = process.env.PORT || 4000;
+const driver = neo4j.driver(
+    process.env.NEO4J_URI || "bolt://localhost:7687",
+    neo4j.auth.basic(
+        process.env.NEO4J_USER || "neo4j",
+        process.env.NEO4J_PASSWORD || "password"
+    )
+);
 
-// GraphQL schema definition
 const typeDefs = `#graphql
-  type Query {
-    hello: String
+  type Sahabi @node {
+    id: Int!
+    name: String!
+    title: String
+    gender: String
+    is_prophet: Boolean
+    sons: [Sahabi!]! @relationship(type: "SON_OF", direction: IN)
+    daughters: [Sahabi!]! @relationship(type: "DAUGHTER_OF", direction: IN)
+    uncles: [Sahabi!]! @relationship(type: "UNCLE_OF", direction: OUT)
+    spouses: [Sahabi!]! @relationship(type: "SPOUSE_OF", direction: IN)
+    companions: [Sahabi!]! @relationship(type: "COMPANION_OF", direction: OUT)
   }
 `;
 
-// Resolvers define how to fetch the types defined in your schema
-const resolvers = {
-  Query: {
-    hello: () => 'Hello from SahabahGraph Backend!',
-  },
-};
-
-const server = new ApolloServer({
-  typeDefs,
-  resolvers,
-});
+const neoSchema = new Neo4jGraphQL({ typeDefs, driver });
 
 async function startServer() {
-  await server.start();
+    const port = Number(process.env.PORT) || 4000;
 
-  app.use(
-    '/graphql',
-    cors<cors.CorsRequest>(),
-    express.json(),
-    expressMiddleware(server)
-  );
+    const server = new ApolloServer({
+        schema: await neoSchema.getSchema(),
+    });
 
-  app.listen(port, () => {
-    console.log(`🚀 Server ready at http://localhost:${port}/graphql`);
-  });
+    const { url } = await startStandaloneServer(server, {
+        listen: { port },
+    });
+
+    console.log(`🚀 Server ready at ${url}`);
 }
 
 startServer().catch((error) => {
-  console.error('Failed to start server', error);
+    console.error('Failed to start server', error);
 });
