@@ -7,11 +7,7 @@ import {
   IconButton,
   Avatar,
   Chip,
-  Paper,
-  List,
-  ListItem,
-  ListItemText,
-  ListItemIcon
+  Paper
 } from '@mui/material';
 import {
   Star as StarIcon,

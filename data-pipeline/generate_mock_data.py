@@ -6,29 +6,29 @@ def main():
     # 1. Nodes
     # We'll add a 'node_type' field to distinguish between Sahabi and Battle
     nodes = [
-        {"id": 0, "name": "Muhammad (PBUH)", "gender": "male", "is_prophet": "True", "title": "Rasulullah", "node_type": "Sahabi", "bio": "The last Prophet of Islam."},
-        {"id": 1, "name": "Abu Bakr as-Siddiq", "gender": "male", "is_prophet": "False", "title": "As-Siddiq", "node_type": "Sahabi", "bio": "The first Caliph of Islam."},
-        {"id": 2, "name": "Umar ibn al-Khattab", "gender": "male", "is_prophet": "False", "title": "Al-Faruq", "node_type": "Sahabi", "bio": "The second Caliph of Islam."},
-        {"id": 3, "name": "Uthman ibn Affan", "gender": "male", "is_prophet": "False", "title": "Dhun-Nurayn", "node_type": "Sahabi", "bio": "The third Caliph of Islam."},
-        {"id": 4, "name": "Ali ibn Abi Talib", "gender": "male", "is_prophet": "False", "title": "Asadullah", "node_type": "Sahabi", "bio": "The fourth Caliph of Islam."},
-        {"id": 5, "name": "Talha ibn Ubaydullah", "gender": "male", "is_prophet": "False", "title": "Talhat al-Khayr", "node_type": "Sahabi", "bio": "One of the ten promised paradise."},
-        {"id": 6, "name": "Zubayr ibn al-Awwam", "gender": "male", "is_prophet": "False", "title": "Hawari Rasulillah", "node_type": "Sahabi", "bio": "One of the ten promised paradise."},
-        {"id": 7, "name": "Abdur Rahman ibn Awf", "gender": "male", "is_prophet": "False", "title": "", "node_type": "Sahabi", "bio": "One of the ten promised paradise."},
-        {"id": 8, "name": "Sa'd ibn Abi Waqqas", "gender": "male", "is_prophet": "False", "title": "", "node_type": "Sahabi", "bio": "One of the ten promised paradise."},
-        {"id": 9, "name": "Sa'id ibn Zayd", "gender": "male", "is_prophet": "False", "title": "", "node_type": "Sahabi", "bio": "One of the ten promised paradise."},
-        {"id": 10, "name": "Abu Ubaydah ibn al-Jarrah", "gender": "male", "is_prophet": "False", "title": "Amin al-Ummah", "node_type": "Sahabi", "bio": "One of the ten promised paradise."},
-        {"id": 11, "name": "Khadija bint Khuwaylid", "gender": "female", "is_prophet": "False", "title": "Tahira", "node_type": "Sahabi", "bio": "The first wife of the Prophet."},
-        {"id": 12, "name": "Aisha bint Abi Bakr", "gender": "female", "is_prophet": "False", "title": "Siddiqa", "node_type": "Sahabi", "bio": "The wife of the Prophet and daughter of Abu Bakr."},
-        {"id": 13, "name": "Fatima bint Muhammad", "gender": "female", "is_prophet": "False", "title": "Az-Zahra", "node_type": "Sahabi", "bio": "The daughter of the Prophet and wife of Ali."},
-        {"id": 14, "name": "Hasan ibn Ali", "gender": "male", "is_prophet": "False", "title": "", "node_type": "Sahabi", "bio": "Grandson of the Prophet."},
-        {"id": 15, "name": "Husayn ibn Ali", "gender": "male", "is_prophet": "False", "title": "", "node_type": "Sahabi", "bio": "Grandson of the Prophet."},
-        {"id": 16, "name": "Hamza ibn Abd al-Muttalib", "gender": "male", "is_prophet": "False", "title": "Asadullah", "node_type": "Sahabi", "bio": "Uncle of the Prophet."},
-        {"id": 17, "name": "Abbas ibn Abd al-Muttalib", "gender": "male", "is_prophet": "False", "title": "", "node_type": "Sahabi", "bio": "Uncle of the Prophet."},
-        {"id": 18, "name": "Bilal ibn Rabah", "gender": "male", "is_prophet": "False", "title": "Muadhin", "node_type": "Sahabi", "bio": "The first muadhin of Islam."},
-        {"id": 19, "name": "Khalid ibn al-Walid", "gender": "male", "is_prophet": "False", "title": "Saifullah", "node_type": "Sahabi", "bio": "The Sword of Allah."},
-        {"id": 20, "name": "Zaynab bint Muhammad", "gender": "female", "is_prophet": "False", "title": "", "node_type": "Sahabi", "bio": "Daughter of the Prophet."},
-        {"id": 21, "name": "Ruqayya bint Muhammad", "gender": "female", "is_prophet": "False", "title": "", "node_type": "Sahabi", "bio": "Daughter of the Prophet."},
-        {"id": 22, "name": "Umm Kulthum bint Muhammad", "gender": "female", "is_prophet": "False", "title": "", "node_type": "Sahabi", "bio": "Daughter of the Prophet."},
+        {"id": 0, "name": "Muhammad (PBUH)", "gender": "male", "is_prophet": "True", "title": "Rasulullah", "node_type": "Sahabi", "bio": "The last Prophet of Islam.", "birth_year": -53, "death_year": 11},
+        {"id": 1, "name": "Abu Bakr as-Siddiq", "gender": "male", "is_prophet": "False", "title": "As-Siddiq", "node_type": "Sahabi", "bio": "The first Caliph of Islam.", "birth_year": -51, "death_year": 13},
+        {"id": 2, "name": "Umar ibn al-Khattab", "gender": "male", "is_prophet": "False", "title": "Al-Faruq", "node_type": "Sahabi", "bio": "The second Caliph of Islam.", "birth_year": -40, "death_year": 23},
+        {"id": 3, "name": "Uthman ibn Affan", "gender": "male", "is_prophet": "False", "title": "Dhun-Nurayn", "node_type": "Sahabi", "bio": "The third Caliph of Islam.", "birth_year": -47, "death_year": 35},
+        {"id": 4, "name": "Ali ibn Abi Talib", "gender": "male", "is_prophet": "False", "title": "Asadullah", "node_type": "Sahabi", "bio": "The fourth Caliph of Islam.", "birth_year": -23, "death_year": 40},
+        {"id": 5, "name": "Talha ibn Ubaydullah", "gender": "male", "is_prophet": "False", "title": "Talhat al-Khayr", "node_type": "Sahabi", "bio": "One of the ten promised paradise.", "birth_year": -28, "death_year": 36},
+        {"id": 6, "name": "Zubayr ibn al-Awwam", "gender": "male", "is_prophet": "False", "title": "Hawari Rasulillah", "node_type": "Sahabi", "bio": "One of the ten promised paradise.", "birth_year": -28, "death_year": 36},
+        {"id": 7, "name": "Abdur Rahman ibn Awf", "gender": "male", "is_prophet": "False", "title": "", "node_type": "Sahabi", "bio": "One of the ten promised paradise.", "birth_year": -44, "death_year": 32},
+        {"id": 8, "name": "Sa'd ibn Abi Waqqas", "gender": "male", "is_prophet": "False", "title": "", "node_type": "Sahabi", "bio": "One of the ten promised paradise.", "birth_year": -23, "death_year": 55},
+        {"id": 9, "name": "Sa'id ibn Zayd", "gender": "male", "is_prophet": "False", "title": "", "node_type": "Sahabi", "bio": "One of the ten promised paradise.", "birth_year": -22, "death_year": 51},
+        {"id": 10, "name": "Abu Ubaydah ibn al-Jarrah", "gender": "male", "is_prophet": "False", "title": "Amin al-Ummah", "node_type": "Sahabi", "bio": "One of the ten promised paradise.", "birth_year": -40, "death_year": 18},
+        {"id": 11, "name": "Khadija bint Khuwaylid", "gender": "female", "is_prophet": "False", "title": "Tahira", "node_type": "Sahabi", "bio": "The first wife of the Prophet.", "birth_year": -68, "death_year": -3},
+        {"id": 12, "name": "Aisha bint Abi Bakr", "gender": "female", "is_prophet": "False", "title": "Siddiqa", "node_type": "Sahabi", "bio": "The wife of the Prophet and daughter of Abu Bakr.", "birth_year": 9, "death_year": 58},
+        {"id": 13, "name": "Fatima bint Muhammad", "gender": "female", "is_prophet": "False", "title": "Az-Zahra", "node_type": "Sahabi", "bio": "The daughter of the Prophet and wife of Ali.", "birth_year": -18, "death_year": 11},
+        {"id": 14, "name": "Hasan ibn Ali", "gender": "male", "is_prophet": "False", "title": "", "node_type": "Sahabi", "bio": "Grandson of the Prophet.", "birth_year": 3, "death_year": 50},
+        {"id": 15, "name": "Husayn ibn Ali", "gender": "male", "is_prophet": "False", "title": "", "node_type": "Sahabi", "bio": "Grandson of the Prophet.", "birth_year": 4, "death_year": 61},
+        {"id": 16, "name": "Hamza ibn Abd al-Muttalib", "gender": "male", "is_prophet": "False", "title": "Asadullah", "node_type": "Sahabi", "bio": "Uncle of the Prophet.", "birth_year": -54, "death_year": 3},
+        {"id": 17, "name": "Abbas ibn Abd al-Muttalib", "gender": "male", "is_prophet": "False", "title": "", "node_type": "Sahabi", "bio": "Uncle of the Prophet.", "birth_year": -56, "death_year": 32},
+        {"id": 18, "name": "Bilal ibn Rabah", "gender": "male", "is_prophet": "False", "title": "Muadhin", "node_type": "Sahabi", "bio": "The first muadhin of Islam.", "birth_year": -42, "death_year": 20},
+        {"id": 19, "name": "Khalid ibn al-Walid", "gender": "male", "is_prophet": "False", "title": "Saifullah", "node_type": "Sahabi", "bio": "The Sword of Allah.", "birth_year": -30, "death_year": 21},
+        {"id": 20, "name": "Zaynab bint Muhammad", "gender": "female", "is_prophet": "False", "title": "", "node_type": "Sahabi", "bio": "Daughter of the Prophet.", "birth_year": -23, "death_year": 8},
+        {"id": 21, "name": "Ruqayya bint Muhammad", "gender": "female", "is_prophet": "False", "title": "", "node_type": "Sahabi", "bio": "Daughter of the Prophet.", "birth_year": -20, "death_year": 2},
+        {"id": 22, "name": "Umm Kulthum bint Muhammad", "gender": "female", "is_prophet": "False", "title": "", "node_type": "Sahabi", "bio": "Daughter of the Prophet.", "birth_year": -19, "death_year": 9},
     ]
 
     real_names = [
@@ -50,14 +50,14 @@ def main():
 
     # Add Battles starting from ID 1000
     battles = [
-        {"id": 1000, "name": "Battle of Badr", "gender": "male", "is_prophet": "False", "title": "2 AH", "node_type": "Battle", "bio": "First major battle of Islam."},
-        {"id": 1001, "name": "Battle of Uhud", "gender": "male", "is_prophet": "False", "title": "3 AH", "node_type": "Battle", "bio": "Second major battle of Islam."},
-        {"id": 1002, "name": "Battle of the Trench", "gender": "male", "is_prophet": "False", "title": "5 AH", "node_type": "Battle", "bio": "Defensive siege of Medina."},
-        {"id": 1003, "name": "Battle of Khaibar", "gender": "male", "is_prophet": "False", "title": "7 AH", "node_type": "Battle", "bio": "Battle against the Jewish fortresses."},
-        {"id": 1004, "name": "Battle of Mu'tah", "gender": "male", "is_prophet": "False", "title": "8 AH", "node_type": "Battle", "bio": "First battle against the Byzantines."},
-        {"id": 1005, "name": "Battle of Hunayn", "gender": "male", "is_prophet": "False", "title": "8 AH", "node_type": "Battle", "bio": "Battle against the Hawazin and Thaqif."},
-        {"id": 1006, "name": "Battle of Yarmouk", "gender": "male", "is_prophet": "False", "title": "13 AH", "node_type": "Battle", "bio": "Major battle between the Muslims and the Byzantines."},
-        {"id": 1007, "name": "Battle of Qadisiyyah", "gender": "male", "is_prophet": "False", "title": "15 AH", "node_type": "Battle", "bio": "Major battle between the Muslims and the Sassanids."},
+        {"id": 1000, "name": "Battle of Badr", "gender": "male", "is_prophet": "False", "title": "2 AH", "node_type": "Battle", "bio": "First major battle of Islam.", "birth_year": 2, "death_year": 2},
+        {"id": 1001, "name": "Battle of Uhud", "gender": "male", "is_prophet": "False", "title": "3 AH", "node_type": "Battle", "bio": "Second major battle of Islam.", "birth_year": 3, "death_year": 3},
+        {"id": 1002, "name": "Battle of the Trench", "gender": "male", "is_prophet": "False", "title": "5 AH", "node_type": "Battle", "bio": "Defensive siege of Medina.", "birth_year": 5, "death_year": 5},
+        {"id": 1003, "name": "Battle of Khaibar", "gender": "male", "is_prophet": "False", "title": "7 AH", "node_type": "Battle", "bio": "Battle against the Jewish fortresses.", "birth_year": 7, "death_year": 7},
+        {"id": 1004, "name": "Battle of Mu'tah", "gender": "male", "is_prophet": "False", "title": "8 AH", "node_type": "Battle", "bio": "First battle against the Byzantines.", "birth_year": 8, "death_year": 8},
+        {"id": 1005, "name": "Battle of Hunayn", "gender": "male", "is_prophet": "False", "title": "8 AH", "node_type": "Battle", "bio": "Battle against the Hawazin and Thaqif.", "birth_year": 8, "death_year": 8},
+        {"id": 1006, "name": "Battle of Yarmouk", "gender": "male", "is_prophet": "False", "title": "13 AH", "node_type": "Battle", "bio": "Major battle between the Muslims and the Byzantines.", "birth_year": 13, "death_year": 13},
+        {"id": 1007, "name": "Battle of Qadisiyyah", "gender": "male", "is_prophet": "False", "title": "15 AH", "node_type": "Battle", "bio": "Major battle between the Muslims and the Sassanids.", "birth_year": 15, "death_year": 15},
     ]
     nodes.extend(battles)
 
@@ -114,7 +114,7 @@ def main():
 
     # Save CSVs
     with open('data-pipeline/sahabah.csv', 'w', newline='', encoding='utf-8') as f:
-        writer = csv.DictWriter(f, fieldnames=["id", "name", "gender", "is_prophet", "title", "node_type", "bio"])
+        writer = csv.DictWriter(f, fieldnames=["id", "name", "gender", "is_prophet", "title", "node_type", "bio", "birth_year", "death_year"])
         writer.writeheader()
         writer.writerows(nodes)
 

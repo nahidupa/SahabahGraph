@@ -6,6 +6,8 @@ export interface Sahabi {
   title: string;
   bio: string;
   node_type?: 'Sahabi' | 'Battle';
+  birth_year?: number;
+  death_year?: number;
 }
 
 export interface Relationship {

@@ -22,6 +22,8 @@ const typeDefs = `#graphql
     gender: String
     is_prophet: Boolean
     bio: String
+    birth_year: Int
+    death_year: Int
     sons: [Sahabi!]! @relationship(type: "SON_OF", direction: IN)
     daughters: [Sahabi!]! @relationship(type: "DAUGHTER_OF", direction: IN)
     uncles: [Sahabi!]! @relationship(type: "UNCLE_OF", direction: OUT)

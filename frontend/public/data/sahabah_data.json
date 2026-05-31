@@ -6,7 +6,10 @@
       "gender": "male",
       "is_prophet": "True",
       "title": "Rasulullah",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "The last Prophet of Islam.",
+      "birth_year": -53,
+      "death_year": 11
     },
     {
       "id": 1,
@@ -14,7 +17,10 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "As-Siddiq",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "The first Caliph of Islam.",
+      "birth_year": -51,
+      "death_year": 13
     },
     {
       "id": 2,
@@ -22,7 +28,10 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "Al-Faruq",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "The second Caliph of Islam.",
+      "birth_year": -40,
+      "death_year": 23
     },
     {
       "id": 3,
@@ -30,7 +39,10 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "Dhun-Nurayn",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "The third Caliph of Islam.",
+      "birth_year": -47,
+      "death_year": 35
     },
     {
       "id": 4,
@@ -38,7 +50,10 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "Asadullah",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "The fourth Caliph of Islam.",
+      "birth_year": -23,
+      "death_year": 40
     },
     {
       "id": 5,
@@ -46,7 +61,10 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "Talhat al-Khayr",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "One of the ten promised paradise.",
+      "birth_year": -28,
+      "death_year": 36
     },
     {
       "id": 6,
@@ -54,7 +72,10 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "Hawari Rasulillah",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "One of the ten promised paradise.",
+      "birth_year": -28,
+      "death_year": 36
     },
     {
       "id": 7,
@@ -62,7 +83,10 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "One of the ten promised paradise.",
+      "birth_year": -44,
+      "death_year": 32
     },
     {
       "id": 8,
@@ -70,7 +94,10 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "One of the ten promised paradise.",
+      "birth_year": -23,
+      "death_year": 55
     },
     {
       "id": 9,
@@ -78,7 +105,10 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "One of the ten promised paradise.",
+      "birth_year": -22,
+      "death_year": 51
     },
     {
       "id": 10,
@@ -86,7 +116,10 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "Amin al-Ummah",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "One of the ten promised paradise.",
+      "birth_year": -40,
+      "death_year": 18
     },
     {
       "id": 11,
@@ -94,7 +127,10 @@
       "gender": "female",
       "is_prophet": "False",
       "title": "Tahira",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "The first wife of the Prophet.",
+      "birth_year": -68,
+      "death_year": -3
     },
     {
       "id": 12,
@@ -102,7 +138,10 @@
       "gender": "female",
       "is_prophet": "False",
       "title": "Siddiqa",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "The wife of the Prophet and daughter of Abu Bakr.",
+      "birth_year": 9,
+      "death_year": 58
     },
     {
       "id": 13,
@@ -110,7 +149,10 @@
       "gender": "female",
       "is_prophet": "False",
       "title": "Az-Zahra",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "The daughter of the Prophet and wife of Ali.",
+      "birth_year": -18,
+      "death_year": 11
     },
     {
       "id": 14,
@@ -118,7 +160,10 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Grandson of the Prophet.",
+      "birth_year": 3,
+      "death_year": 50
     },
     {
       "id": 15,
@@ -126,7 +171,10 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Grandson of the Prophet.",
+      "birth_year": 4,
+      "death_year": 61
     },
     {
       "id": 16,
@@ -134,7 +182,10 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "Asadullah",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Uncle of the Prophet.",
+      "birth_year": -54,
+      "death_year": 3
     },
     {
       "id": 17,
@@ -142,7 +193,10 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Uncle of the Prophet.",
+      "birth_year": -56,
+      "death_year": 32
     },
     {
       "id": 18,
@@ -150,7 +204,10 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "Muadhin",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "The first muadhin of Islam.",
+      "birth_year": -42,
+      "death_year": 20
     },
     {
       "id": 19,
@@ -158,7 +215,10 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "Saifullah",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "The Sword of Allah.",
+      "birth_year": -30,
+      "death_year": 21
     },
     {
       "id": 20,
@@ -166,7 +226,10 @@
       "gender": "female",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Daughter of the Prophet.",
+      "birth_year": -23,
+      "death_year": 8
     },
     {
       "id": 21,
@@ -174,7 +237,10 @@
       "gender": "female",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Daughter of the Prophet.",
+      "birth_year": -20,
+      "death_year": 2
     },
     {
       "id": 22,
@@ -182,7 +248,10 @@
       "gender": "female",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Daughter of the Prophet.",
+      "birth_year": -19,
+      "death_year": 9
     },
     {
       "id": 23,
@@ -190,7 +259,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Ja'far ibn Abi Talib"
     },
     {
       "id": 24,
@@ -198,7 +268,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Zayd ibn Harithah"
     },
     {
       "id": 25,
@@ -206,7 +277,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Usama ibn Zayd"
     },
     {
       "id": 26,
@@ -214,7 +286,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Abdullah ibn Umar"
     },
     {
       "id": 27,
@@ -222,7 +295,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Abdullah ibn Abbas"
     },
     {
       "id": 28,
@@ -230,7 +304,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Abdullah ibn Mas'ud"
     },
     {
       "id": 29,
@@ -238,7 +313,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Abu Hurairah"
     },
     {
       "id": 30,
@@ -246,7 +322,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Anas ibn Malik"
     },
     {
       "id": 31,
@@ -254,7 +331,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Jabir ibn Abdullah"
     },
     {
       "id": 32,
@@ -262,7 +340,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Abu Sa'id al-Khudri"
     },
     {
       "id": 33,
@@ -270,7 +349,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Mu'adh ibn Jabal"
     },
     {
       "id": 34,
@@ -278,7 +358,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Ubayy ibn Ka'b"
     },
     {
       "id": 35,
@@ -286,7 +367,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Zayd ibn Thabit"
     },
     {
       "id": 36,
@@ -294,7 +376,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Abu Dharr al-Ghifari"
     },
     {
       "id": 37,
@@ -302,7 +385,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Salman al-Farsi"
     },
     {
       "id": 38,
@@ -310,7 +394,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Ammar ibn Yasir"
     },
     {
       "id": 39,
@@ -318,7 +403,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Miqdad ibn Aswad"
     },
     {
       "id": 40,
@@ -326,7 +412,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Hudhayfa ibn al-Yaman"
     },
     {
       "id": 41,
@@ -334,7 +421,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Amr ibn al-Aas"
     },
     {
       "id": 42,
@@ -342,7 +430,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Muawiyah ibn Abi Sufyan"
     },
     {
       "id": 43,
@@ -350,7 +439,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 43"
     },
     {
       "id": 44,
@@ -358,7 +448,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 44"
     },
     {
       "id": 45,
@@ -366,7 +457,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 45"
     },
     {
       "id": 46,
@@ -374,7 +466,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 46"
     },
     {
       "id": 47,
@@ -382,7 +475,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 47"
     },
     {
       "id": 48,
@@ -390,7 +484,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 48"
     },
     {
       "id": 49,
@@ -398,7 +493,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 49"
     },
     {
       "id": 50,
@@ -406,7 +502,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 50"
     },
     {
       "id": 51,
@@ -414,7 +511,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 51"
     },
     {
       "id": 52,
@@ -422,7 +520,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 52"
     },
     {
       "id": 53,
@@ -430,7 +529,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 53"
     },
     {
       "id": 54,
@@ -438,7 +538,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 54"
     },
     {
       "id": 55,
@@ -446,7 +547,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 55"
     },
     {
       "id": 56,
@@ -454,7 +556,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 56"
     },
     {
       "id": 57,
@@ -462,7 +565,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 57"
     },
     {
       "id": 58,
@@ -470,7 +574,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 58"
     },
     {
       "id": 59,
@@ -478,7 +583,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 59"
     },
     {
       "id": 60,
@@ -486,7 +592,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 60"
     },
     {
       "id": 61,
@@ -494,7 +601,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 61"
     },
     {
       "id": 62,
@@ -502,7 +610,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 62"
     },
     {
       "id": 63,
@@ -510,7 +619,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 63"
     },
     {
       "id": 64,
@@ -518,7 +628,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 64"
     },
     {
       "id": 65,
@@ -526,7 +637,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 65"
     },
     {
       "id": 66,
@@ -534,7 +646,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 66"
     },
     {
       "id": 67,
@@ -542,7 +655,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 67"
     },
     {
       "id": 68,
@@ -550,7 +664,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 68"
     },
     {
       "id": 69,
@@ -558,7 +673,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 69"
     },
     {
       "id": 70,
@@ -566,7 +682,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 70"
     },
     {
       "id": 71,
@@ -574,7 +691,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 71"
     },
     {
       "id": 72,
@@ -582,7 +700,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 72"
     },
     {
       "id": 73,
@@ -590,7 +709,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 73"
     },
     {
       "id": 74,
@@ -598,7 +718,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 74"
     },
     {
       "id": 75,
@@ -606,7 +727,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 75"
     },
     {
       "id": 76,
@@ -614,7 +736,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 76"
     },
     {
       "id": 77,
@@ -622,7 +745,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 77"
     },
     {
       "id": 78,
@@ -630,7 +754,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 78"
     },
     {
       "id": 79,
@@ -638,7 +763,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 79"
     },
     {
       "id": 80,
@@ -646,7 +772,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 80"
     },
     {
       "id": 81,
@@ -654,7 +781,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 81"
     },
     {
       "id": 82,
@@ -662,7 +790,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 82"
     },
     {
       "id": 83,
@@ -670,7 +799,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 83"
     },
     {
       "id": 84,
@@ -678,7 +808,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 84"
     },
     {
       "id": 85,
@@ -686,7 +817,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 85"
     },
     {
       "id": 86,
@@ -694,7 +826,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 86"
     },
     {
       "id": 87,
@@ -702,7 +835,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 87"
     },
     {
       "id": 88,
@@ -710,7 +844,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 88"
     },
     {
       "id": 89,
@@ -718,7 +853,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 89"
     },
     {
       "id": 90,
@@ -726,7 +862,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 90"
     },
     {
       "id": 91,
@@ -734,7 +871,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 91"
     },
     {
       "id": 92,
@@ -742,7 +880,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 92"
     },
     {
       "id": 93,
@@ -750,7 +889,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 93"
     },
     {
       "id": 94,
@@ -758,7 +898,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 94"
     },
     {
       "id": 95,
@@ -766,7 +907,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 95"
     },
     {
       "id": 96,
@@ -774,7 +916,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 96"
     },
     {
       "id": 97,
@@ -782,7 +925,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 97"
     },
     {
       "id": 98,
@@ -790,7 +934,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 98"
     },
     {
       "id": 99,
@@ -798,7 +943,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 99"
     },
     {
       "id": 100,
@@ -806,7 +952,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 100"
     },
     {
       "id": 101,
@@ -814,7 +961,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 101"
     },
     {
       "id": 102,
@@ -822,7 +970,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 102"
     },
     {
       "id": 103,
@@ -830,7 +979,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 103"
     },
     {
       "id": 104,
@@ -838,7 +988,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 104"
     },
     {
       "id": 105,
@@ -846,7 +997,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 105"
     },
     {
       "id": 106,
@@ -854,7 +1006,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 106"
     },
     {
       "id": 107,
@@ -862,7 +1015,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 107"
     },
     {
       "id": 108,
@@ -870,7 +1024,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 108"
     },
     {
       "id": 109,
@@ -878,7 +1033,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 109"
     },
     {
       "id": 110,
@@ -886,7 +1042,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 110"
     },
     {
       "id": 111,
@@ -894,7 +1051,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 111"
     },
     {
       "id": 112,
@@ -902,7 +1060,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 112"
     },
     {
       "id": 113,
@@ -910,7 +1069,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 113"
     },
     {
       "id": 114,
@@ -918,7 +1078,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 114"
     },
     {
       "id": 115,
@@ -926,7 +1087,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 115"
     },
     {
       "id": 116,
@@ -934,7 +1096,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 116"
     },
     {
       "id": 117,
@@ -942,7 +1105,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 117"
     },
     {
       "id": 118,
@@ -950,7 +1114,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 118"
     },
     {
       "id": 119,
@@ -958,7 +1123,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 119"
     },
     {
       "id": 120,
@@ -966,7 +1132,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 120"
     },
     {
       "id": 121,
@@ -974,7 +1141,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 121"
     },
     {
       "id": 122,
@@ -982,7 +1150,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 122"
     },
     {
       "id": 123,
@@ -990,7 +1159,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 123"
     },
     {
       "id": 124,
@@ -998,7 +1168,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 124"
     },
     {
       "id": 125,
@@ -1006,7 +1177,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 125"
     },
     {
       "id": 126,
@@ -1014,7 +1186,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 126"
     },
     {
       "id": 127,
@@ -1022,7 +1195,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 127"
     },
     {
       "id": 128,
@@ -1030,7 +1204,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 128"
     },
     {
       "id": 129,
@@ -1038,7 +1213,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 129"
     },
     {
       "id": 130,
@@ -1046,7 +1222,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 130"
     },
     {
       "id": 131,
@@ -1054,7 +1231,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 131"
     },
     {
       "id": 132,
@@ -1062,7 +1240,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 132"
     },
     {
       "id": 133,
@@ -1070,7 +1249,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 133"
     },
     {
       "id": 134,
@@ -1078,7 +1258,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 134"
     },
     {
       "id": 135,
@@ -1086,7 +1267,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 135"
     },
     {
       "id": 136,
@@ -1094,7 +1276,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 136"
     },
     {
       "id": 137,
@@ -1102,7 +1285,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 137"
     },
     {
       "id": 138,
@@ -1110,7 +1294,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 138"
     },
     {
       "id": 139,
@@ -1118,7 +1303,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 139"
     },
     {
       "id": 140,
@@ -1126,7 +1312,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 140"
     },
     {
       "id": 141,
@@ -1134,7 +1321,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 141"
     },
     {
       "id": 142,
@@ -1142,7 +1330,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 142"
     },
     {
       "id": 143,
@@ -1150,7 +1339,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 143"
     },
     {
       "id": 144,
@@ -1158,7 +1348,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 144"
     },
     {
       "id": 145,
@@ -1166,7 +1357,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 145"
     },
     {
       "id": 146,
@@ -1174,7 +1366,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 146"
     },
     {
       "id": 147,
@@ -1182,7 +1375,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 147"
     },
     {
       "id": 148,
@@ -1190,7 +1384,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 148"
     },
     {
       "id": 149,
@@ -1198,7 +1393,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 149"
     },
     {
       "id": 150,
@@ -1206,7 +1402,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 150"
     },
     {
       "id": 151,
@@ -1214,7 +1411,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 151"
     },
     {
       "id": 152,
@@ -1222,7 +1420,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 152"
     },
     {
       "id": 153,
@@ -1230,7 +1429,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 153"
     },
     {
       "id": 154,
@@ -1238,7 +1438,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 154"
     },
     {
       "id": 155,
@@ -1246,7 +1447,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 155"
     },
     {
       "id": 156,
@@ -1254,7 +1456,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 156"
     },
     {
       "id": 157,
@@ -1262,7 +1465,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 157"
     },
     {
       "id": 158,
@@ -1270,7 +1474,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 158"
     },
     {
       "id": 159,
@@ -1278,7 +1483,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 159"
     },
     {
       "id": 160,
@@ -1286,7 +1492,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 160"
     },
     {
       "id": 161,
@@ -1294,7 +1501,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 161"
     },
     {
       "id": 162,
@@ -1302,7 +1510,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 162"
     },
     {
       "id": 163,
@@ -1310,7 +1519,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 163"
     },
     {
       "id": 164,
@@ -1318,7 +1528,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 164"
     },
     {
       "id": 165,
@@ -1326,7 +1537,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 165"
     },
     {
       "id": 166,
@@ -1334,7 +1546,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 166"
     },
     {
       "id": 167,
@@ -1342,7 +1555,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 167"
     },
     {
       "id": 168,
@@ -1350,7 +1564,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 168"
     },
     {
       "id": 169,
@@ -1358,7 +1573,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 169"
     },
     {
       "id": 170,
@@ -1366,7 +1582,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 170"
     },
     {
       "id": 171,
@@ -1374,7 +1591,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 171"
     },
     {
       "id": 172,
@@ -1382,7 +1600,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 172"
     },
     {
       "id": 173,
@@ -1390,7 +1609,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 173"
     },
     {
       "id": 174,
@@ -1398,7 +1618,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 174"
     },
     {
       "id": 175,
@@ -1406,7 +1627,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 175"
     },
     {
       "id": 176,
@@ -1414,7 +1636,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 176"
     },
     {
       "id": 177,
@@ -1422,7 +1645,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 177"
     },
     {
       "id": 178,
@@ -1430,7 +1654,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 178"
     },
     {
       "id": 179,
@@ -1438,7 +1663,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 179"
     },
     {
       "id": 180,
@@ -1446,7 +1672,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 180"
     },
     {
       "id": 181,
@@ -1454,7 +1681,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 181"
     },
     {
       "id": 182,
@@ -1462,7 +1690,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 182"
     },
     {
       "id": 183,
@@ -1470,7 +1699,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 183"
     },
     {
       "id": 184,
@@ -1478,7 +1708,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 184"
     },
     {
       "id": 185,
@@ -1486,7 +1717,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 185"
     },
     {
       "id": 186,
@@ -1494,7 +1726,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 186"
     },
     {
       "id": 187,
@@ -1502,7 +1735,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 187"
     },
     {
       "id": 188,
@@ -1510,7 +1744,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 188"
     },
     {
       "id": 189,
@@ -1518,7 +1753,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 189"
     },
     {
       "id": 190,
@@ -1526,7 +1762,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 190"
     },
     {
       "id": 191,
@@ -1534,7 +1771,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 191"
     },
     {
       "id": 192,
@@ -1542,7 +1780,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 192"
     },
     {
       "id": 193,
@@ -1550,7 +1789,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 193"
     },
     {
       "id": 194,
@@ -1558,7 +1798,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 194"
     },
     {
       "id": 195,
@@ -1566,7 +1807,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 195"
     },
     {
       "id": 196,
@@ -1574,7 +1816,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 196"
     },
     {
       "id": 197,
@@ -1582,7 +1825,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 197"
     },
     {
       "id": 198,
@@ -1590,7 +1834,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 198"
     },
     {
       "id": 199,
@@ -1598,7 +1843,8 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "",
-      "node_type": "Sahabi"
+      "node_type": "Sahabi",
+      "bio": "Biographical info for Sahabi 199"
     },
     {
       "id": 1000,
@@ -1606,7 +1852,10 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "2 AH",
-      "node_type": "Battle"
+      "node_type": "Battle",
+      "bio": "First major battle of Islam.",
+      "birth_year": 2,
+      "death_year": 2
     },
     {
       "id": 1001,
@@ -1614,7 +1863,10 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "3 AH",
-      "node_type": "Battle"
+      "node_type": "Battle",
+      "bio": "Second major battle of Islam.",
+      "birth_year": 3,
+      "death_year": 3
     },
     {
       "id": 1002,
@@ -1622,7 +1874,10 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "5 AH",
-      "node_type": "Battle"
+      "node_type": "Battle",
+      "bio": "Defensive siege of Medina.",
+      "birth_year": 5,
+      "death_year": 5
     },
     {
       "id": 1003,
@@ -1630,7 +1885,10 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "7 AH",
-      "node_type": "Battle"
+      "node_type": "Battle",
+      "bio": "Battle against the Jewish fortresses.",
+      "birth_year": 7,
+      "death_year": 7
     },
     {
       "id": 1004,
@@ -1638,7 +1896,10 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "8 AH",
-      "node_type": "Battle"
+      "node_type": "Battle",
+      "bio": "First battle against the Byzantines.",
+      "birth_year": 8,
+      "death_year": 8
     },
     {
       "id": 1005,
@@ -1646,7 +1907,10 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "8 AH",
-      "node_type": "Battle"
+      "node_type": "Battle",
+      "bio": "Battle against the Hawazin and Thaqif.",
+      "birth_year": 8,
+      "death_year": 8
     },
     {
       "id": 1006,
@@ -1654,7 +1918,10 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "13 AH",
-      "node_type": "Battle"
+      "node_type": "Battle",
+      "bio": "Major battle between the Muslims and the Byzantines.",
+      "birth_year": 13,
+      "death_year": 13
     },
     {
       "id": 1007,
@@ -1662,7 +1929,10 @@
       "gender": "male",
       "is_prophet": "False",
       "title": "15 AH",
-      "node_type": "Battle"
+      "node_type": "Battle",
+      "bio": "Major battle between the Muslims and the Sassanids.",
+      "birth_year": 15,
+      "death_year": 15
     }
   ],
   "links": [
@@ -1778,6 +2048,18 @@
       "source_id": 22,
       "target_id": 3,
       "type": "SPOUSE_OF",
+      "category": "others"
+    },
+    {
+      "source_id": 14,
+      "target_id": 15,
+      "type": "SIBLING_OF",
+      "category": "others"
+    },
+    {
+      "source_id": 27,
+      "target_id": 0,
+      "type": "TEACHER_OF",
       "category": "others"
     },
     {
