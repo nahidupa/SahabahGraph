@@ -107,9 +107,10 @@ const App: React.FC = () => {
   };
 
   const handleShowConnections = () => {
+    const { t } = i18n;
     const selectedNodes = cyRef.current?.$(':selected');
     if (selectedNodes?.length !== 2) {
-      alert('Please select exactly two nodes on the graph (use Ctrl+click or similar).');
+      alert(t('select_two_nodes'));
       return;
     }
 
@@ -167,7 +168,7 @@ const App: React.FC = () => {
         }
       }, 200);
     } else {
-      alert('No path found between selected nodes.');
+      alert(t('no_path_found'));
     }
   };
 
