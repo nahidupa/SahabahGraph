@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chrome AI Diagnostic Tool</title>
+  <style>
+    body {
+      font-family: 'Monaco', 'Courier New', monospace;
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 20px;
+      background: #1e1e1e;
+      color: #d4d4d4;
+    }
+    h1 {
+      color: #4ec9b0;
+      border-bottom: 2px solid #4ec9b0;
+      padding-bottom: 10px;
+    }
+    .check {
+      margin: 15px 0;
+      padding: 15px;
+      background: #252526;
+      border-left: 4px solid #4ec9b0;
+      border-radius: 4px;
+    }
+    .check.pass { border-left-color: #4ec9b0; }
+    .check.fail { border-left-color: #f48771; }
+    .check.warn { border-left-color: #dcdcaa; }
+    .check-title {
+      font-weight: bold;
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+    .check-detail {
+      margin-left: 20px;
+      color: #9cdcfe;
+      font-size: 14px;
+    }
+    .code {
+      background: #1e1e1e;
+      padding: 10px;
+      border-radius: 4px;
+      margin: 10px 0;
+      overflow-x: auto;
+    }
+    .instructions {
+      background: #264f78;
+      padding: 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+    .instructions h3 {
+      margin-top: 0;
+      color: #dcdcaa;
+    }
+    button {
+      background: #0e639c;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      margin: 10px 5px;
+    }
+    button:hover {
+      background: #1177bb;
+    }
+  </style>
+</head>
+<body>
+  <h1>🔍 Chrome AI Diagnostic Tool</h1>
+  <div id="results"></div>
+  
+  <div class="instructions">
+    <h3>📋 Based on diagnostics, follow these steps:</h3>
+    <div id="fix-instructions">Running diagnostics...</div>
+  </div>
+
+  <script>
+    const results = document.getElementById('results');
+    const fixInstructions = document.getElementById('fix-instructions');
+    
+    function addCheck(title, status, details) {
+      const div = document.createElement('div');
+      div.className = `check ${status}`;
+      
+      const emoji = status === 'pass' ? '✅' : status === 'fail' ? '❌' : '⚠️';
+      div.innerHTML = `
+        <div class="check-title">${emoji} ${title}</div>
+        <div class="check-detail">${details}</div>
+      `;
+      results.appendChild(div);
+    }
+
+    async function runDiagnostics() {
+      results.innerHTML = '';
+      const issues = [];
+      
+      // Check 1: window.ai exists
+      if (typeof window.ai !== 'undefined') {
+        addCheck('window.ai exists', 'pass', 'window.ai object is present');
+      } else {
+        addCheck('window.ai exists', 'fail', 'window.ai is undefined - AI API not available');
+        issues.push('window_ai_missing');
+      }
+      
+      // Check 2: window.ai.languageModel exists
+      if (typeof window.ai !== 'undefined' && window.ai.languageModel) {
+        addCheck('window.ai.languageModel exists', 'pass', 'Language model API is present');
+      } else {
+        addCheck('window.ai.languageModel exists', 'fail', 
+          typeof window.ai !== 'undefined' 
+            ? 'window.ai exists but languageModel property is missing'
+            : 'window.ai is undefined');
+        issues.push('language_model_missing');
+      }
+      
+      // Check 3: Check for alternative APIs
+      const altAPIs = [
+        'window.ai.assistant',
+        'window.ai.rewriter', 
+        'window.ai.writer',
+        'window.ai.summarizer',
+        'window.chrome?.aiOriginTrial'
+      ];
+      
+      const foundAPIs = [];
+      altAPIs.forEach(api => {
+        try {
+          const value = eval(api);
+          if (value !== undefined) {
+            foundAPIs.push(api);
+          }
+        } catch (e) {}
+      });
+      
+      if (foundAPIs.length > 0) {
+        addCheck('Alternative AI APIs', 'warn', 
+          'Found: ' + foundAPIs.join(', ') + '<br>These may indicate partial AI support');
+      }
+      
+      // Check 4: Capabilities (if API exists)
+      if (typeof window.ai !== 'undefined' && window.ai.languageModel) {
+        try {
+          if (window.ai.languageModel.capabilities) {
+            const caps = await window.ai.languageModel.capabilities();
+            addCheck('AI Capabilities', 'pass', 
+              `Available: ${caps.available}<br>` +
+              `Default Temperature: ${caps.defaultTemperature}<br>` +
+              `Default Top K: ${caps.defaultTopK}<br>` +
+              `Max Top K: ${caps.maxTopK}`
+            );
+            
+            if (caps.available === 'after-download') {
+              addCheck('Model Status', 'warn', 
+                'Model is downloading. Check chrome://components/ for progress');
+              issues.push('model_downloading');
+            } else if (caps.available === 'no') {
+              addCheck('Model Status', 'fail', 
+                'Model is not available on this device');
+              issues.push('model_unavailable');
+            } else if (caps.available === 'readily') {
+              addCheck('Model Status', 'pass', 
+                'Model is ready and available for use');
+            }
+          } else {
+            addCheck('AI Capabilities', 'warn', 
+              'capabilities() method not available - trying session creation');
+            
+            // Try creating a session
+            try {
+              const session = await window.ai.languageModel.create();
+              addCheck('Session Creation Test', 'pass', 
+                'Successfully created AI session');
+              session.destroy();
+            } catch (e) {
+              addCheck('Session Creation Test', 'fail', 
+                `Failed to create session: ${e.message}`);
+              issues.push('session_creation_failed');
+            }
+          }
+        } catch (e) {
+          addCheck('AI Capabilities Check', 'fail', 
+            `Error checking capabilities: ${e.message}`);
+          issues.push('capabilities_check_failed');
+        }
+      }
+      
+      // Check 5: User Agent
+      addCheck('Browser Info', 'pass', 
+        `User Agent: ${navigator.userAgent}<br>` +
+        `Platform: ${navigator.platform}`
+      );
+      
+      // Check 6: Location/Origin
+      addCheck('Page Origin', 'pass', 
+        `Protocol: ${window.location.protocol}<br>` +
+        `Host: ${window.location.host || 'file://'}<br>` +
+        `Origin: ${window.location.origin}`
+      );
+      
+      // Generate fix instructions
+      generateFixInstructions(issues);
+    }
+    
+    function generateFixInstructions(issues) {
+      if (issues.length === 0 && typeof window.ai !== 'undefined' && window.ai.languageModel) {
+        fixInstructions.innerHTML = `
+          <p style="color: #4ec9b0; font-weight: bold;">✅ All checks passed! Chrome AI should be working.</p>
+          <p>If you're still seeing issues in your app, check the browser console for errors.</p>
+        `;
+        return;
+      }
+      
+      let instructions = '<ol style="margin: 10px 0; padding-left: 20px;">';
+      
+      if (issues.includes('window_ai_missing') || issues.includes('language_model_missing')) {
+        instructions += `
+          <li><strong>Enable Chrome AI flags:</strong>
+            <ul style="margin: 10px 0;">
+              <li>Go to <code>chrome://flags/#optimization-guide-on-device-model</code></li>
+              <li>Set to <strong>"Enabled BypassPerfRequirement"</strong></li>
+              <li>Go to <code>chrome://flags/#prompt-api-for-gemini-nano</code></li>
+              <li>Set to <strong>"Enabled"</strong></li>
+              <li><strong>Restart Chrome completely</strong> (quit all windows)</li>
+            </ul>
+          </li>
+        `;
+      }
+      
+      if (issues.includes('model_downloading')) {
+        instructions += `
+          <li><strong>Wait for model download:</strong>
+            <ul style="margin: 10px 0;">
+              <li>Check progress at <code>chrome://components/</code></li>
+              <li>Look for "Optimization Guide On Device Model"</li>
+              <li>Wait for status to show version number (not "Checking for update")</li>
+            </ul>
+          </li>
+        `;
+      }
+      
+      instructions += `
+        <li><strong>Verify Chrome version:</strong>
+          <ul style="margin: 10px 0;">
+            <li>Go to <code>chrome://version</code></li>
+            <li>Ensure version is 127 or later (preferably 128+)</li>
+            <li>Update Chrome if needed</li>
+          </ul>
+        </li>
+      `;
+      
+      instructions += `
+        <li><strong>Check on-device status:</strong>
+          <ul style="margin: 10px 0;">
+            <li>Go to <code>chrome://on-device-internals/</code></li>
+            <li>Verify model shows as "Ready"</li>
+            <li>If not ready, try triggering download via flags</li>
+          </ul>
+        </li>
+      `;
+      
+      instructions += `
+        <li><strong>Alternative: Try Developer Console Test</strong>
+          <button onclick="copyConsoleTest()">Copy Console Test Code</button>
+          <div class="code" style="margin-top: 10px; font-size: 12px;">
+console.log('Testing Chrome AI...');<br>
+console.log('window.ai:', window.ai);<br>
+console.log('window.ai.languageModel:', window.ai?.languageModel);<br>
+(async () => {<br>
+&nbsp;&nbsp;try {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;const session = await window.ai.languageModel.create();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;console.log('✅ Session created successfully');<br>
+&nbsp;&nbsp;&nbsp;&nbsp;const response = await session.prompt('Say hi in one word');<br>
+&nbsp;&nbsp;&nbsp;&nbsp;console.log('✅ AI Response:', response);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;session.destroy();<br>
+&nbsp;&nbsp;} catch (e) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;console.error('❌ Error:', e);<br>
+&nbsp;&nbsp;}<br>
+})();
+          </div>
+        </li>
+      `;
+      
+      instructions += '</ol>';
+      
+      if (issues.includes('model_unavailable')) {
+        instructions += `
+          <p style="color: #f48771; margin-top: 20px;">
+            ⚠️ <strong>Important:</strong> The model may not be available on your device due to 
+            hardware/system requirements. Some devices may not support on-device AI.
+          </p>
+        `;
+      }
+      
+      fixInstructions.innerHTML = instructions;
+    }
+    
+    function copyConsoleTest() {
+      const code = `console.log('Testing Chrome AI...');
+console.log('window.ai:', window.ai);
+console.log('window.ai.languageModel:', window.ai?.languageModel);
+(async () => {
+  try {
+    const session = await window.ai.languageModel.create();
+    console.log('✅ Session created successfully');
+    const response = await session.prompt('Say hi in one word');
+    console.log('✅ AI Response:', response);
+    session.destroy();
+  } catch (e) {
+    console.error('❌ Error:', e);
+  }
+})();`;
+      
+      navigator.clipboard.writeText(code).then(() => {
+        alert('Code copied! Paste it in the browser DevTools console (F12)');
+      });
+    }
+    
+    // Run diagnostics on load
+    runDiagnostics();
+  </script>
+</body>
+</html>

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chrome AI Download Status</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      max-width: 700px;
+      margin: 50px auto;
+      padding: 20px;
+      background: #1a1a2e;
+      color: #eee;
+    }
+    .container {
+      background: #16213e;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    }
+    h1 {
+      color: #4ecca3;
+      margin-top: 0;
+    }
+    .status-box {
+      background: #0f3460;
+      padding: 25px;
+      border-radius: 8px;
+      margin: 20px 0;
+      border-left: 4px solid #4ecca3;
+    }
+    .status-box.downloading {
+      border-left-color: #ffd700;
+    }
+    .status-box.ready {
+      border-left-color: #4ecca3;
+    }
+    .status-box.error {
+      border-left-color: #e94560;
+    }
+    .status-text {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .progress {
+      margin: 15px 0;
+      font-size: 14px;
+      opacity: 0.8;
+    }
+    button {
+      background: #4ecca3;
+      color: #16213e;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      margin: 10px 5px 10px 0;
+    }
+    button:hover {
+      background: #5ff5b1;
+    }
+    .info {
+      background: #0f3460;
+      padding: 15px;
+      border-radius: 6px;
+      margin: 20px 0;
+      font-size: 14px;
+    }
+    .spinner {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 3px solid #333;
+      border-top: 3px solid #4ecca3;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-left: 10px;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .code {
+      background: #000;
+      padding: 15px;
+      border-radius: 6px;
+      margin: 15px 0;
+      font-family: 'Monaco', monospace;
+      font-size: 13px;
+      overflow-x: auto;
+    }
+    a {
+      color: #4ecca3;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📥 Chrome AI Download Monitor</h1>
+    
+    <div id="status-box" class="status-box downloading">
+      <div class="status-text">
+        <span id="status-icon">⏳</span>
+        <span id="status-text">Checking status...</span>
+        <span class="spinner" id="spinner"></span>
+      </div>
+      <div class="progress" id="details"></div>
+    </div>
+
+    <div class="info">
+      <strong>What's happening?</strong><br>
+      Chrome is downloading the Gemini Nano model (~1.5-2GB) in the background.<br>
+      This page auto-checks every 3 seconds.
+    </div>
+
+    <button onclick="checkNow()">Check Now</button>
+    <button onclick="openComponents()">Open chrome://components/</button>
+    <button onclick="runTest()">Test AI</button>
+
+    <div class="info">
+      <strong>Typical Timeline:</strong><br>
+      • Fast connection: 2-5 minutes<br>
+      • Slow connection: 5-10 minutes<br>
+      • Very slow: 10-20 minutes
+    </div>
+
+    <div id="test-result" style="display: none;" class="status-box ready">
+      <div class="status-text">🎉 AI Response:</div>
+      <div class="code" id="ai-response"></div>
+    </div>
+  </div>
+
+  <script>
+    let checkInterval;
+    
+    async function checkStatus() {
+      const statusIcon = document.getElementById('status-icon');
+      const statusText = document.getElementById('status-text');
+      const details = document.getElementById('details');
+      const statusBox = document.getElementById('status-box');
+      const spinner = document.getElementById('spinner');
+      
+      try {
+        // Check new API (Chrome Canary/131+)
+        if (typeof LanguageModel !== 'undefined') {
+          const status = await LanguageModel.availability();
+          
+          switch (status) {
+            case 'available':
+              statusIcon.textContent = '✅';
+              statusText.textContent = 'Model Ready!';
+              statusBox.className = 'status-box ready';
+              spinner.style.display = 'none';
+              details.innerHTML = 'The AI model is downloaded and ready to use.<br><strong>Click "Test AI" to try it!</strong>';
+              
+              // Stop checking
+              if (checkInterval) {
+                clearInterval(checkInterval);
+              }
+              
+              // Play sound or notification
+              playReadySound();
+              break;
+              
+            case 'downloading':
+              statusIcon.textContent = '⏳';
+              statusText.textContent = 'Downloading Model...';
+              statusBox.className = 'status-box downloading';
+              spinner.style.display = 'inline-block';
+              details.innerHTML = `
+                Model is being downloaded in the background.<br>
+                <small>Check progress at <a href="chrome://components/" target="_blank">chrome://components/</a></small><br>
+                <small>Last checked: ${new Date().toLocaleTimeString()}</small>
+              `;
+              break;
+              
+            case 'downloadable':
+              statusIcon.textContent = '💤';
+              statusText.textContent = 'Download Not Started';
+              statusBox.className = 'status-box downloading';
+              spinner.style.display = 'none';
+              details.innerHTML = `
+                Model can be downloaded but hasn't started yet.<br>
+                <button onclick="triggerDownload()">Trigger Download</button>
+              `;
+              break;
+              
+            case 'no':
+              statusIcon.textContent = '❌';
+              statusText.textContent = 'Not Available';
+              statusBox.className = 'status-box error';
+              spinner.style.display = 'none';
+              details.innerHTML = 'Model is not available on this device. Check system requirements.';
+              
+              if (checkInterval) {
+                clearInterval(checkInterval);
+              }
+              break;
+          }
+        }
+        // Old API (Chrome 127-130)
+        else if (window.ai?.languageModel) {
+          if (window.ai.languageModel.capabilities) {
+            const caps = await window.ai.languageModel.capabilities();
+            
+            if (caps.available === 'readily') {
+              statusIcon.textContent = '✅';
+              statusText.textContent = 'Model Ready!';
+              statusBox.className = 'status-box ready';
+              spinner.style.display = 'none';
+              details.innerHTML = 'The AI model is ready to use (old API).<br><strong>Click "Test AI" to try it!</strong>';
+              
+              if (checkInterval) {
+                clearInterval(checkInterval);
+              }
+            } else if (caps.available === 'after-download') {
+              statusIcon.textContent = '⏳';
+              statusText.textContent = 'Downloading...';
+              statusBox.className = 'status-box downloading';
+              spinner.style.display = 'inline-block';
+              details.innerHTML = `Model downloading...<br><small>Last checked: ${new Date().toLocaleTimeString()}</small>`;
+            }
+          }
+        } else {
+          throw new Error('No Chrome AI API found');
+        }
+      } catch (error) {
+        statusIcon.textContent = '❌';
+        statusText.textContent = 'Error';
+        statusBox.className = 'status-box error';
+        spinner.style.display = 'none';
+        details.innerHTML = error.message;
+      }
+    }
+    
+    async function triggerDownload() {
+      try {
+        const session = await LanguageModel.create();
+        alert('Download triggered! Refresh this page in 60 seconds.');
+        session.destroy();
+      } catch (e) {
+        alert('Download started in background. Check chrome://components/');
+      }
+    }
+    
+    async function runTest() {
+      const testResult = document.getElementById('test-result');
+      const aiResponse = document.getElementById('ai-response');
+      
+      testResult.style.display = 'block';
+      aiResponse.textContent = 'Thinking...';
+      
+      try {
+        let session;
+        if (typeof LanguageModel !== 'undefined') {
+          session = await LanguageModel.create({
+            systemPrompt: "You are a helpful assistant."
+          });
+        } else if (window.ai?.languageModel) {
+          session = await window.ai.languageModel.create();
+        } else {
+          throw new Error('No AI API available');
+        }
+        
+        const response = await session.prompt('Say "Hello from Chrome AI!" in a creative way.');
+        aiResponse.textContent = response;
+        session.destroy();
+      } catch (error) {
+        aiResponse.textContent = 'Error: ' + error.message;
+      }
+    }
+    
+    function checkNow() {
+      checkStatus();
+    }
+    
+    function openComponents() {
+      window.open('chrome://components/', '_blank');
+    }
+    
+    function playReadySound() {
+      // Optional: play a sound when ready
+      try {
+        const audio = new Audio('data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSuBzvLZiTYIGWi763ebTRAMT6fk77RgGwU7k9jxy3krBSJ0xe/glEILElyx6OyrWBgLRJzd8rtiHAUrgM/z2Yk2CBlou+t3m00QDE+n5O+0YBsFO5PY8ct5KwUidMXv4JRCCxJcsejsq1gYC0Sc3fK7YhwFK4DP89mJNggZaLvrd5tNEAxPp+TvtGAbBTuT2PHLeSsFInTF7+CUQgsSXLHo7KtYGAtEnN3yu2IcBSuAz/PZiTYIGWi763ebTRAMT6fk77RgGwU7k9jxy3krBSJ0xe/glEILElyx6OyrWBgLRJzd8rtiHAUrgM/z2Yk2CBlou+t3m00QDE+n5O+0YBsFO5PY8ct5KwUidMXv4JRCCxJcsejsq1gYC0Sc3fK7YhwFK4DP89mJNggZaLvrd5tNEAxPp+TvtGAbBTuT2PHLeSsFInTF7+CUQgsSXLHo7KtYGAtEnN3yu2IcBSuAz/PZiTYIGWi763ebTRAMT6fk77RgGwU7k9jxy3krBSJ0xe/glEILElyx6OyrWBgLRJzd8rtiHAUrgM/z2Yk2CBlou+t3m00QDE+n5O+0YBsFO5PY8ct5KwUidMXv4JRCCxJcsejsq1gYC0Sc3fK7YhwFK4DP89mJNggZaLvrd5tNEAxPp+TvtGAbBTuT2PHLeSsFInTF7+CUQgsSXLHo7KtYGAtEnN3yu2IcBSuAz/PZiTYIGWi763ebTRAMT6fk77RgGwU7k9jxy3krBSJ0xe/glEILElyx6OyrWBgLRJzd8rtiHAUrgM/z2Yk2CBlou+t3m00QDE+n5O+0YBsFO5PY8ct5KwUidMXv4JRCCxJcsejsq1gYC0Sc3fK7YhwFK4DP89mJNggZaLvrd5tNEAxPp+TvtGAbBTuT2PHLeSsFInTF7+CUQgsSXLHo7KtYGAtEnN3yu2IcBSuAz/PZiTYIGWi763ebTRAMT6fk77RgGwU7k9jxy3krBSJ0xe/glEILElyx6OyrWBgLRJzd8rtiHAUrgM/z2Yk2CBlou+t3m00QDE+n5O+0YBsFO5PY8ct5KwUidMXv4JRCCxJcsejsq1gYC0Sc3fK7Yw==');
+        audio.play();
+      } catch (e) {}
+    }
+    
+    // Start checking immediately
+    checkStatus();
+    
+    // Check every 3 seconds
+    checkInterval = setInterval(checkStatus, 3000);
+  </script>
+</body>
+</html>

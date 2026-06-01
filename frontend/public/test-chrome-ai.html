@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chrome AI Test</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+    }
+    .container {
+      background: white;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #333;
+      margin-bottom: 10px;
+    }
+    .status {
+      padding: 15px;
+      border-radius: 8px;
+      margin: 20px 0;
+      font-weight: 500;
+    }
+    .status.checking {
+      background: #fff3cd;
+      color: #856404;
+      border: 1px solid #ffeeba;
+    }
+    .status.success {
+      background: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+    .status.error {
+      background: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
+    .test-section {
+      margin: 30px 0;
+      padding: 20px;
+      background: #f8f9fa;
+      border-radius: 8px;
+    }
+    button {
+      background: #667eea;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+    button:hover:not(:disabled) {
+      background: #5568d3;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+    }
+    button:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+    input {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid #e0e0e0;
+      border-radius: 6px;
+      font-size: 16px;
+      margin: 10px 0;
+      box-sizing: border-box;
+    }
+    input:focus {
+      outline: none;
+      border-color: #667eea;
+    }
+    .response {
+      margin-top: 20px;
+      padding: 15px;
+      background: white;
+      border-left: 4px solid #667eea;
+      border-radius: 4px;
+      white-space: pre-wrap;
+      display: none;
+    }
+    .response.show {
+      display: block;
+    }
+    .info {
+      background: #e7f3ff;
+      padding: 15px;
+      border-radius: 6px;
+      margin: 20px 0;
+      border-left: 4px solid #2196F3;
+    }
+    .info h3 {
+      margin-top: 0;
+      color: #1976D2;
+    }
+    .spinner {
+      border: 3px solid #f3f3f3;
+      border-top: 3px solid #667eea;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      animation: spin 1s linear infinite;
+      display: inline-block;
+      margin-left: 10px;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🤖 Chrome AI Availability Test</h1>
+    <p>This page tests if Chrome's built-in AI (Gemini Nano) is available and working.</p>
+    
+    <div id="status" class="status checking">
+      <span id="status-text">🔍 Checking Chrome AI availability...</span>
+      <div class="spinner"></div>
+    </div>
+
+    <div class="info">
+      <h3>📋 Requirements</h3>
+      <ul>
+        <li>Chrome version 127 or later</li>
+        <li>Flags enabled at <code>chrome://flags</code>:
+          <ul>
+            <li><code>optimization-guide-on-device-model</code> → Enabled BypassPerfRequirement</li>
+            <li><code>prompt-api-for-gemini-nano</code> → Enabled</li>
+          </ul>
+        </li>
+        <li>Model downloaded at <code>chrome://components/</code></li>
+      </ul>
+    </div>
+
+    <div class="test-section" style="display: none;" id="test-section">
+      <h3>✨ Test the AI</h3>
+      <input 
+        type="text" 
+        id="prompt-input" 
+        placeholder="Ask anything... (e.g., 'What is JavaScript?')"
+        value="Explain how to use local AI in one sentence."
+      />
+      <button id="test-button">Send Prompt</button>
+      <div id="response" class="response"></div>
+    </div>
+
+    <div class="info">
+      <h3>🔧 Troubleshooting</h3>
+      <p>If AI is not available:</p>
+      <ol>
+        <li>Check Chrome version at <code>chrome://version</code></li>
+        <li>Enable required flags at <code>chrome://flags</code></li>
+        <li>Check model status at <code>chrome://components/</code></li>
+        <li>Restart Chrome completely</li>
+      </ol>
+    </div>
+  </div>
+
+  <script>
+    let aiSession = null;
+
+    async function checkAIAvailability() {
+      const statusDiv = document.getElementById('status');
+      const statusText = document.getElementById('status-text');
+      const testSection = document.getElementById('test-section');
+
+      try {
+        let isReady = false;
+        let useNewAPI = false;
+        
+        // Try new API first (Chrome Canary/131+)
+        if (typeof LanguageModel !== 'undefined') {
+          try {
+            const status = await LanguageModel.availability();
+            useNewAPI = true;
+            
+            if (status === 'available') {
+              isReady = true;
+            } else if (status === 'downloading') {
+              statusDiv.className = 'status checking';
+              statusText.innerHTML = '⏳ Model is downloading. Check progress at <a href="chrome://components/" target="_blank">chrome://components/</a><br>This may take 2-10 minutes.';
+              return;
+            } else if (status === 'downloadable') {
+              throw new Error('Model is downloadable but not yet downloading. Trigger download by calling LanguageModel.create()');
+            } else {
+              throw new Error('Model not available on this device (status: ' + status + ')');
+            }
+          } catch (e) {
+            throw new Error('New API error: ' + e.message);
+          }
+        }
+        // Fall back to old API (Chrome 127-130)
+        else if (window.ai && window.ai.languageModel) {
+          if (window.ai.languageModel.capabilities) {
+            const capabilities = await window.ai.languageModel.capabilities();
+            isReady = capabilities.available === 'readily';
+            
+            if (capabilities.available === 'after-download') {
+              statusDiv.className = 'status checking';
+              statusText.innerHTML = '⏳ Model is downloading. Check progress at <a href="chrome://components/" target="_blank">chrome://components/</a>';
+              return;
+            }
+          } else {
+            // Try to create a session to verify
+            const testSession = await window.ai.languageModel.create();
+            isReady = true;
+            testSession.destroy();
+          }
+        } else {
+          throw new Error('Chrome AI API not found. Please ensure you are using Chrome 127+ or Canary with AI flags enabled.');
+        }
+
+        if (isReady) {
+          // Create persistent session with appropriate API
+          if (useNewAPI) {
+            aiSession = await LanguageModel.create({
+              systemPrompt: "You are a helpful AI assistant."
+            });
+          } else {
+            aiSession = await window.ai.languageModel.create();
+          }
+          
+          statusDiv.className = 'status success';
+          statusText.textContent = '✅ Chrome AI is available and ready to use!';
+          testSection.style.display = 'block';
+          
+          // Add event listener for test button
+          document.getElementById('test-button').addEventListener('click', testPrompt);
+          document.getElementById('prompt-input').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') testPrompt();
+          });
+        } else {
+          throw new Error('AI is not readily available');
+        }
+
+      } catch (error) {
+        statusDiv.className = 'status error';
+        statusText.innerHTML = '❌ ' + error.message;
+        console.error('AI Check Error:', error);
+      }
+    }
+
+    async function testPrompt() {
+      const button = document.getElementById('test-button');
+      const input = document.getElementById('prompt-input');
+      const responseDiv = document.getElementById('response');
+      const prompt = input.value.trim();
+
+      if (!prompt) {
+        alert('Please enter a prompt');
+        return;
+      }
+
+      try {
+        button.disabled = true;
+        button.innerHTML = 'Thinking...<div class="spinner"></div>';
+        responseDiv.className = 'response';
+        responseDiv.textContent = '';
+
+        const result = await aiSession.prompt(prompt);
+        
+        responseDiv.className = 'response show';
+        responseDiv.textContent = result;
+        
+        button.disabled = false;
+        button.textContent = 'Send Prompt';
+      } catch (error) {
+        responseDiv.className = 'response show';
+        responseDiv.textContent = '❌ Error: ' + error.message;
+        button.disabled = false;
+        button.textContent = 'Send Prompt';
+        console.error('Prompt Error:', error);
+      }
+    }
+
+    // Clean up session when page unloads
+    window.addEventListener('beforeunload', () => {
+      if (aiSession) {
+        aiSession.destroy();
+      }
+    });
+
+    // Run check when page loads
+    checkAIAvailability();
+  </script>
+</body>
+</html>

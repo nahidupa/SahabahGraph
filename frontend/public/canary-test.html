@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chrome Canary AI Quick Test</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+    }
+    .container {
+      background: white;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    }
+    h1 { color: #333; margin-top: 0; }
+    .status {
+      padding: 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+      font-size: 18px;
+      font-weight: 500;
+    }
+    .success { background: #d4edda; color: #155724; border: 2px solid #c3e6cb; }
+    .error { background: #f8d7da; color: #721c24; border: 2px solid #f5c6cb; }
+    .testing { background: #fff3cd; color: #856404; border: 2px solid #ffeeba; }
+    .code {
+      background: #f5f5f5;
+      padding: 15px;
+      border-radius: 6px;
+      margin: 15px 0;
+      font-family: 'Monaco', 'Courier New', monospace;
+      font-size: 14px;
+      overflow-x: auto;
+    }
+    button {
+      background: #667eea;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      margin: 10px 5px 10px 0;
+    }
+    button:hover { background: #5568d3; }
+    button:disabled { background: #ccc; cursor: not-allowed; }
+    .test-box {
+      background: #f8f9fa;
+      padding: 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+    .response {
+      background: white;
+      padding: 15px;
+      border-left: 4px solid #667eea;
+      border-radius: 4px;
+      margin-top: 15px;
+      white-space: pre-wrap;
+    }
+    .step {
+      margin: 15px 0;
+      padding-left: 30px;
+      position: relative;
+    }
+    .step::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #28a745;
+      font-weight: bold;
+      font-size: 20px;
+    }
+    .step.pending::before { content: '○'; color: #ccc; }
+    .step.error::before { content: '✗'; color: #dc3545; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🧪 Chrome Canary AI Quick Test</h1>
+    
+    <div id="status" class="status testing">
+      <span id="status-text">⏳ Initializing test...</span>
+    </div>
+
+    <div class="test-box">
+      <h3>Test Progress:</h3>
+      <div id="step1" class="step pending">Step 1: Check window.ai</div>
+      <div id="step2" class="step pending">Step 2: Check languageModel API</div>
+      <div id="step3" class="step pending">Step 3: Check capabilities</div>
+      <div id="step4" class="step pending">Step 4: Create session</div>
+      <div id="step5" class="step pending">Step 5: Test prompt</div>
+    </div>
+
+    <div id="details" class="code" style="display: none;"></div>
+
+    <div class="test-box" style="display: none;" id="success-box">
+      <h3>🎉 Success! Try These:</h3>
+      <button onclick="testSimple()">Test Simple Prompt</button>
+      <button onclick="testStreaming()">Test Streaming</button>
+      <button onclick="openMainApp()">Open SahabahGraph</button>
+      <div id="demo-response"></div>
+    </div>
+
+    <div class="test-box" id="setup-instructions">
+      <h3>📋 Chrome Canary Setup (if test fails):</h3>
+      <ol>
+        <li>Go to: <code>chrome://flags/#optimization-guide-on-device-model</code>
+          <br>Set to: <strong>Enabled BypassPerfRequirement</strong></li>
+        <li>Go to: <code>chrome://flags/#prompt-api-for-gemini-nano</code>
+          <br>Set to: <strong>Enabled</strong></li>
+        <li>Click <strong>Relaunch</strong></li>
+        <li>Wait 30 seconds, then refresh this page</li>
+      </ol>
+    </div>
+
+    <div class="code">
+      <strong>Quick Manual Test (paste in DevTools console):</strong><br><br>
+      window.ai?.languageModel ? 'API Available ✅' : 'API Missing ❌'
+    </div>
+  </div>
+
+  <script>
+    let aiSession = null;
+    const steps = ['step1', 'step2', 'step3', 'step4', 'step5'];
+    
+    function updateStep(stepId, status, detail = '') {
+      const el = document.getElementById(stepId);
+      el.className = `step ${status}`;
+      if (detail) el.title = detail;
+    }
+
+    function showDetails(text) {
+      const details = document.getElementById('details');
+      details.style.display = 'block';
+      details.textContent = text;
+    }
+
+    async function runTests() {
+      const statusDiv = document.getElementById('status');
+      const statusText = document.getElementById('status-text');
+      const successBox = document.getElementById('success-box');
+      
+      let details = '=== Chrome AI Test Results ===\n\n';
+      
+      try {
+        // Step 1: Check window.ai
+        details += 'Step 1: Checking window.ai...\n';
+        if (typeof window.ai === 'undefined') {
+          throw new Error('window.ai is undefined');
+        }
+        updateStep('step1', 'success');
+        details += '✅ window.ai exists\n\n';
+        
+        // Step 2: Check languageModel
+        details += 'Step 2: Checking window.ai.languageModel...\n';
+        if (!window.ai.languageModel) {
+          throw new Error('window.ai.languageModel is undefined');
+        }
+        updateStep('step2', 'success');
+        details += '✅ languageModel API found\n\n';
+        
+        // Step 3: Check capabilities
+        details += 'Step 3: Checking capabilities...\n';
+        let isReady = false;
+        if (window.ai.languageModel.capabilities) {
+          const caps = await window.ai.languageModel.capabilities();
+          details += `Available: ${caps.available}\n`;
+          details += `Temperature: ${caps.defaultTemperature}\n`;
+          details += `TopK: ${caps.defaultTopK}/${caps.maxTopK}\n`;
+          
+          if (caps.available === 'readily') {
+            isReady = true;
+            updateStep('step3', 'success');
+            details += '✅ Model is ready\n\n';
+          } else if (caps.available === 'after-download') {
+            throw new Error('Model is downloading. Check chrome://components/');
+          } else {
+            throw new Error('Model not available on this device');
+          }
+        } else {
+          details += 'ℹ️ capabilities() not available, trying session...\n';
+          updateStep('step3', 'success');
+          details += '\n';
+        }
+        
+        // Step 4: Create session
+        details += 'Step 4: Creating AI session...\n';
+        aiSession = await window.ai.languageModel.create();
+        updateStep('step4', 'success');
+        details += '✅ Session created successfully\n\n';
+        
+        // Step 5: Test prompt
+        details += 'Step 5: Testing prompt...\n';
+        const response = await aiSession.prompt('Say "Hello from Chrome AI" in exactly 5 words');
+        updateStep('step5', 'success');
+        details += `✅ AI Response: "${response}"\n\n`;
+        
+        // Success!
+        details += '==================================\n';
+        details += '🎉 ALL TESTS PASSED!\n';
+        details += 'Chrome AI is working perfectly.\n';
+        details += '==================================\n';
+        
+        statusDiv.className = 'status success';
+        statusText.textContent = '✅ Chrome AI is working perfectly!';
+        successBox.style.display = 'block';
+        
+      } catch (error) {
+        details += '\n❌ ERROR: ' + error.message + '\n';
+        details += '\nStack: ' + error.stack + '\n';
+        
+        // Mark failed step
+        const failedStep = steps.find(s => 
+          document.getElementById(s).className.includes('pending')
+        );
+        if (failedStep) updateStep(failedStep, 'error', error.message);
+        
+        statusDiv.className = 'status error';
+        statusText.textContent = '❌ Test Failed: ' + error.message;
+      }
+      
+      showDetails(details);
+    }
+
+    async function testSimple() {
+      if (!aiSession) return;
+      
+      const responseDiv = document.getElementById('demo-response');
+      responseDiv.innerHTML = '<div class="response">⏳ Thinking...</div>';
+      
+      try {
+        const result = await aiSession.prompt('Explain what AI is in one simple sentence.');
+        responseDiv.innerHTML = `<div class="response"><strong>AI says:</strong><br>${result}</div>`;
+      } catch (e) {
+        responseDiv.innerHTML = `<div class="response">Error: ${e.message}</div>`;
+      }
+    }
+
+    async function testStreaming() {
+      if (!aiSession) return;
+      
+      const responseDiv = document.getElementById('demo-response');
+      responseDiv.innerHTML = '<div class="response" id="stream-response"></div>';
+      const streamDiv = document.getElementById('stream-response');
+      
+      try {
+        const stream = aiSession.promptStreaming('Count from 1 to 5 with words: one, two, three, four, five');
+        const reader = stream.getReader();
+        
+        let text = '';
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+          text += value;
+          streamDiv.textContent = text;
+        }
+      } catch (e) {
+        streamDiv.textContent = 'Streaming not available or error: ' + e.message;
+      }
+    }
+
+    function openMainApp() {
+      window.location.href = 'http://localhost:5173';
+    }
+
+    // Auto-run tests on load
+    window.addEventListener('load', () => {
+      setTimeout(runTests, 500);
+    });
+
+    // Cleanup on unload
+    window.addEventListener('beforeunload', () => {
+      if (aiSession) {
+        aiSession.destroy();
+      }
+    });
+  </script>
+</body>
+</html>

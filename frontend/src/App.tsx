@@ -11,6 +11,7 @@ import PoliticalView from './components/Political/PoliticalView';
 import SahabahDetail from './components/DetailPanel/SahabahDetail';
 import PathSummary from './components/Graph/PathSummary';
 import OnboardingTour from './components/Tour/OnboardingTour';
+import AIChatPanel from './components/AIChat/AIChatPanelEnhanced';
 import './i18n/config';
 import { useTranslation } from 'react-i18next';
 import { ToggleButton, ToggleButtonGroup, Box as MuiBox } from '@mui/material';
@@ -575,6 +576,54 @@ const App: React.FC = () => {
         />
       )}
       <OnboardingTour run={runTour} onFinish={handleTourFinish} />
+      <AIChatPanel 
+        onClearCanvas={removeAllNodes}
+        onFocusNode={(nodeName) => {
+          const node = data?.nodes.find(n => n.name_en.toLowerCase() === nodeName.toLowerCase());
+          if (node) {
+            setSelectedNode(node);
+            // Focus on node in cytoscape
+            setTimeout(() => {
+              if (cyRef.current) {
+                const cyNode = cyRef.current.$(`#${node.id}`);
+                if (cyNode.length > 0) {
+                  cyRef.current.center(cyNode);
+                  cyRef.current.zoom({
+                    level: 2,
+                    position: cyNode.position()
+                  });
+                }
+              }
+            }, 100);
+          }
+        }}
+        onAddNode={addNodeToGraph}
+        onFilterNodes={(criteria) => {
+          // Apply filters via search for now
+          if (criteria.name) {
+            setSearchTerm(criteria.name);
+          }
+        }}
+        onSwitchView={(view) => setViewMode(view)}
+        onZoomIn={() => {
+          if (cyRef.current) {
+            cyRef.current.zoom(cyRef.current.zoom() * 1.2);
+          }
+        }}
+        onZoomOut={() => {
+          if (cyRef.current) {
+            cyRef.current.zoom(cyRef.current.zoom() * 0.8);
+          }
+        }}
+        onResetZoom={() => {
+          if (cyRef.current) {
+            cyRef.current.fit();
+          }
+        }}
+        onSearchChange={setSearchTerm}
+        allNodes={data?.nodes || []}
+        cyRef={cyRef}
+      />
     </MainLayout>
   );
 };

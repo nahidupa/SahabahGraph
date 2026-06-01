@@ -40,6 +40,7 @@ The application provides three primary viewing modes:
 - **Timeline Visualization**: Birth/death dates and historical events plotted chronologically
 - **4-Language Support**: English, Arabic, Bengali, German (i18n via i18next)
 - **Material-UI Components**: Professional, accessible UI with dark/light theme support
+- **AI Chat Assistant** (NEW): Chrome built-in AI (Gemini Nano) powered chat for exploring the graph and answering questions about Sahabah
 
 #### Testing & Validation
 - **Playwright E2E Tests**: Graph loading, sidebar navigation, detail panel interactions
@@ -115,6 +116,21 @@ Governance history explorer featuring:
   - Battle participations
   - Political appointments
 
+### AI Chat Assistant (New)
+Interactive AI-powered help using Chrome's built-in Gemini Nano:
+- **Floating Chat Panel**: Accessible from any view via chat button in bottom-right
+- **Local Processing**: All AI queries run entirely in your browser (privacy-first)
+- **Contextual Assistance**: AI understands the SahabahGraph domain and can help with:
+  - Questions about specific Sahabah and their relationships
+  - Historical context and battle information
+  - Navigation guidance through the graph
+  - Explaining relationships and lineages
+- **No API Keys Required**: Uses Chrome's native AI (requires Chrome 127+ with flags enabled)
+- **Session Memory**: Chat history persists during your session
+
+For setup instructions, see [frontend/CHROME_AI_GUIDE.md](frontend/CHROME_AI_GUIDE.md).  
+To test if Chrome AI is available in your browser, open: [test-chrome-ai.html](frontend/public/test-chrome-ai.html)
+
 ## File Structure
 
 ```
@@ -125,6 +141,7 @@ SahabahGraph/
 │   │   │   ├── Graph/          # Graph visualization
 │   │   │   ├── Timeline/       # Timeline view
 │   │   │   ├── Political/      # Political/governance view (NEW)
+│   │   │   ├── AIChat/         # AI chat panel (NEW)
 │   │   │   ├── DetailPanel/    # Entity detail display
 │   │   │   ├── Sidebar/        # Search and navigation
 │   │   │   └── Layout/         # Main layout
@@ -132,8 +149,11 @@ SahabahGraph/
 │   │   ├── App.tsx             # Main application
 │   │   ├── i18n/               # Internationalization
 │   │   └── main.tsx            # Entry point
-│   ├── public/data/            # Static data files
+│   ├── public/
+│   │   ├── data/               # Static data files
+│   │   └── test-chrome-ai.html # AI availability test page (NEW)
 │   ├── tests/                  # E2E tests (Playwright)
+│   ├── CHROME_AI_GUIDE.md      # Chrome AI setup guide (NEW)
 │   └── package.json
 ├── data-pipeline/              # Data processing
 │   ├── sahabah.csv            # Person registry (206+ entries)
