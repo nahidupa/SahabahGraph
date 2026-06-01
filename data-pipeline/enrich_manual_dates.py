@@ -1,10 +1,27 @@
+#!/usr/bin/env python3
+"""
+Enrich Sahabah Data with Manually Curated Dates
+
+This script adds historically verified birth and death dates for prominent Sahabah
+and Islamic figures. Dates are curated from reliable historical sources and only
+applied when existing dates are missing or zero.
+
+Usage:
+    python3 enrich_manual_dates.py
+
+Note:
+    - Dates are in Hijri years (negative values indicate Before Hijra)
+    - Only updates missing (empty or '0') date fields
+    - Source references: Classical Islamic biographical literature
+"""
+
 import csv
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SAHABAH_CSV = ROOT / "data-pipeline" / "sahabah.csv"
 
-# Curated dates based on historical sources
+# Curated dates based on historical sources (birth_year, death_year)
 MANUAL_DATES = {
     "Abdullah ibn Mas'ud": (-28, 32),
     "Abu Hurairah": (-21, 59),
@@ -32,26 +49,51 @@ MANUAL_DATES = {
 }
 
 def main():
-    with open(SAHABAH_CSV, 'r') as f:
+    """Update missing dates with manually curated historical data"""
+    print("Loading sahabah data...")
+    with open(SAHABAH_CSV, 'r', encoding='utf-8') as f:
         rows = list(csv.DictReader(f))
 
-    updated = 0
+    updated_count = 0
+    updated_names = []
+
     for row in rows:
         name = row['name_en']
         if name in MANUAL_DATES:
-            b, d = MANUAL_DATES[name]
-            if not row['birth_year_hijri'] or row['birth_year_hijri'] == '0':
-                row['birth_year_hijri'] = str(b)
-                updated += 1
-            if not row['death_year_hijri'] or row['death_year_hijri'] == '0':
-                row['death_year_hijri'] = str(d)
-                updated += 1
+            birth_year, death_year = MANUAL_DATES[name]
+            updated_this_row = False
 
-    with open(SAHABAH_CSV, 'w', newline='') as f:
+            # Update birth year if missing or zero
+            if not row['birth_year_hijri'] or row['birth_year_hijri'] == '0':
+                row['birth_year_hijri'] = str(birth_year)
+                updated_count += 1
+                updated_this_row = True
+
+            # Update death year if missing or zero
+            if not row['death_year_hijri'] or row['death_year_hijri'] == '0':
+                row['death_year_hijri'] = str(death_year)
+                updated_count += 1
+                updated_this_row = True
+
+            if updated_this_row:
+                updated_names.append(f"  ✓ {name} ({birth_year} - {death_year} AH)")
+
+    # Write updated data back
+    print(f"\nWriting updates to {SAHABAH_CSV.name}...")
+    with open(SAHABAH_CSV, 'w', encoding='utf-8', newline='') as f:
         writer = csv.DictWriter(f, fieldnames=rows[0].keys())
         writer.writeheader()
         writer.writerows(rows)
-    print(f"Manually updated {updated} date fields.")
+
+    # Summary
+    print("\n" + "=" * 60)
+    print("SUMMARY")
+    print("=" * 60)
+    print(f"Updated {updated_count} date fields for {len(updated_names)} figures:")
+    for name_info in updated_names:
+        print(name_info)
+    print("\n✅ Manual date enrichment complete!")
+
 
 if __name__ == "__main__":
     main()
