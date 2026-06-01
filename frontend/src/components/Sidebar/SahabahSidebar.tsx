@@ -107,7 +107,7 @@ const SahabahSidebar: React.FC<SahabahSidebarProps> = ({
 
       <Box sx={{ p: 2, bgcolor: 'background.paper', borderBottom: '1px solid', borderColor: 'divider' }}>
         <FormControl fullWidth size="small" sx={{ mb: 2 }}>
-          <InputLabel id="language-select-label">{t('language')}</InputLabel>
+          <InputLabel id="language-select-label" aria-label={t('language')}>{t('language')}</InputLabel>
           <Select
             labelId="language-select-label"
             value={i18n.language.split('-')[0]}
@@ -158,7 +158,7 @@ const SahabahSidebar: React.FC<SahabahSidebarProps> = ({
           >
             {tribes.map(tribe => (
               <MenuItem key={tribe} value={tribe}>
-                {tribe === 'All' ? t('all_tribes') : tribe}
+                {tribe === 'All' ? t('all_tribes') : t(`tribes.${tribe}`, { defaultValue: tribe })}
               </MenuItem>
             ))}
           </Select>
@@ -179,7 +179,7 @@ const SahabahSidebar: React.FC<SahabahSidebarProps> = ({
               <IconButton
                 size="small"
                 onClick={() => onAddNode(node)}
-                title={t('add_to_graph')}
+                title={t('add_to_graph')} aria-label={t('add_to_graph')}
                 sx={{ ml: 1 }}
               >
                 <AddIcon fontSize="small" />

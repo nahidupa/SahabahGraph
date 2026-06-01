@@ -2,6 +2,7 @@ import React, { useMemo } from 'react';
 import { Box, Typography, Paper, Tooltip } from '@mui/material';
 import type { Sahabi } from '../../types';
 import { useTranslation } from 'react-i18next';
+import { formatHijriYear } from '../../utils/localization';
 
 interface TimelineViewProps {
   nodes: Sahabi[];
@@ -55,7 +56,7 @@ const TimelineView: React.FC<TimelineViewProps> = ({ nodes, onSelectNode, select
               <Box key={year} sx={{ position: 'absolute', left: `${left}%`, transform: 'translateX(-50%)' }}>
                 <Box sx={{ height: 10, width: 2, bgcolor: 'text.secondary', mx: 'auto' }} />
                 <Typography variant="caption" color="textSecondary">
-                  {year < 0 ? `${Math.abs(year)} BH` : `${year} AH`}
+                  {formatHijriYear(year, t)}
                 </Typography>
               </Box>
             );
@@ -87,7 +88,7 @@ const TimelineView: React.FC<TimelineViewProps> = ({ nodes, onSelectNode, select
                   transition: 'all 0.2s'
                 }}
               >
-                <Tooltip title={`${i18n.language.startsWith('ar') && node.name_ar ? node.name_ar : node.name_en} (${node.birth_year_hijri} - ${node.death_year_hijri} ${t('ah')})`}>
+                <Tooltip title={`${i18n.language.startsWith('ar') && node.name_ar ? node.name_ar : node.name_en} (${formatHijriYear(node.birth_year_hijri || 0, t)} - ${formatHijriYear(node.death_year_hijri || 0, t)})`}>
                   <Paper
                     className="bar"
                     elevation={isSelected ? 4 : 1}

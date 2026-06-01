@@ -28,7 +28,7 @@ export const getTheme = (direction: 'ltr' | 'rtl') => createTheme({
     borderRadius: 8,
   },
   typography: {
-    fontFamily: direction === 'rtl' ? 'Amiri, Arial, sans-serif' : '"Inter", "Roboto", "Helvetica", "Arial", sans-serif',
+    fontFamily: direction === 'rtl' ? 'Amiri, "Noto Sans Arabic", Arial, sans-serif' : '"Inter", "Roboto", "Helvetica", "Arial", sans-serif',
     h5: {
       fontWeight: 700,
     },
