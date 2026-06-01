@@ -30,9 +30,9 @@ test.describe('SahabahGraph E2E Tests', () => {
   });
 
   test('Adding a node from sidebar to graph', async ({ page }) => {
-    // Initially only 1 node (Muhammad PBUH)
+    // Initially 5 nodes (Muhammad PBUH and 4 family members)
     let nodeCount = await page.evaluate(() => (window as any).cy.nodes().length);
-    expect(nodeCount).toBe(1);
+    expect(nodeCount).toBe(5);
 
     // Click "Add to Graph" in the Abu Bakr list item.
     const abuBakrItem = page
@@ -41,10 +41,10 @@ test.describe('SahabahGraph E2E Tests', () => {
       .first();
     await abuBakrItem.getByRole('button', { name: 'Add to Graph' }).click();
 
-    // Verify graph now has 2 nodes
-    await page.waitForFunction(() => window.cy.nodes().length === 2);
+    // Verify graph now has 6 nodes
+    await page.waitForFunction(() => window.cy.nodes().length === 6);
     nodeCount = await page.evaluate(() => window.cy.nodes().length);
-    expect(nodeCount).toBe(2);
+    expect(nodeCount).toBe(6);
   });
 
   test('Expanding relationships from Detail Panel', async ({ page }) => {
