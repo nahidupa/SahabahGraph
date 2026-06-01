@@ -59,7 +59,7 @@ def export_to_json(sahabah_data, relationships_data):
             'name_ar': person['name_ar'],
             'kunyah': person.get('kunyah', ''),
             'laqab': person.get('laqab', ''),
-            'gender': person.get('gender', ''),
+            'gender': person.get('gender', '').lower(),
             'is_prophet': person.get('is_prophet', '').lower() == 'true',
             'node_type': person.get('node_type', ''),
             'prominence': person.get('prominence', ''),
@@ -79,6 +79,7 @@ def export_to_json(sahabah_data, relationships_data):
             'has_teachers': person.get('has_teachers', '').lower() == 'true',
             'has_students': person.get('has_students', '').lower() == 'true',
             'has_battles': person.get('has_battles', '').lower() == 'true',
+            'has_participants': person.get('has_participants', '').lower() == 'true',
         }
         nodes.append(node)
     

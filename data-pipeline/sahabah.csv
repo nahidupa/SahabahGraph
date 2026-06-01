@@ -267,50 +267,50 @@ id,name_ar,name_en,kunyah,laqab,gender,is_prophet,node_type,prominence,biography
 1022,,Ruqayyah bint Muhammad,,,female,False,Sahabi,SAHABI,Wife of Uthman ibn Affan.,Fact-Check Report,,,,,False,False,False,False,False,False,False,False,False,False,False
 1023,أبو طالب بن عبد المطلب,Abu Talib ibn Abd al-Muttalib,Abu Ali,,male,False,Sahabi,SAHABI,The father of Ali ibn Abi Talib and guardian of Muhammad (PBUH).,Historical Reference,Quraish,Banu Hashim,-78,-10,False,True,False,False,False,False,False,False,False,False,False
 1024,,Umm Ruman bint Amir,,,female,False,Sahabi,SAHABI,Mother of Aisha and Umm Kulthum bint Abi Bakr.,Fact-Check Report,,,,,False,True,False,False,False,False,False,False,False,False,False
-1025,Uthman Abu Quhafa,Uthman Abu Quhafa,,,M,False,PoliticalFigure,2,Pre-Islamic father,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
-1026,Salma (Umm al-Khair),Salma (Umm al-Khair),,,F,False,PoliticalFigure,1,Pre-Islamic mother,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
-1027,Al-Khattab ibn Nufayl,Al-Khattab ibn Nufayl,,,M,False,PoliticalFigure,2,Pre-Islamic father,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
-1028,Hantamah bint Hisham,Hantamah bint Hisham,,,F,False,PoliticalFigure,1,Pre-Islamic mother,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
-1029,Affan ibn Abi al-As,Affan ibn Abi al-As,,,M,False,PoliticalFigure,2,Pre-Islamic father,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
-1030,Arwa bint Kurayz,Arwa bint Kurayz,,,F,False,PoliticalFigure,1,Pre-Islamic mother,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
-1031,Ubaydullah ibn Uthman,Ubaydullah ibn Uthman,,,M,False,PoliticalFigure,2,Pre-Islamic father,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
-1032,Salma bint Wuhayb,Salma bint Wuhayb,,,F,False,PoliticalFigure,1,Pre-Islamic mother,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
-1033,Al-Awwam ibn Khuwaylid,Al-Awwam ibn Khuwaylid,,,M,False,PoliticalFigure,2,Pre-Islamic father,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
-1034,Safiyyah bint Abd al-Muttalib,Safiyyah bint Abd al-Muttalib,,,F,False,PoliticalFigure,1,Pre-Islamic mother,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
-1035,Awf ibn Abd Harith,Awf ibn Abd Harith,,,M,False,PoliticalFigure,2,Pre-Islamic father,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
-1036,Umm Kulthum al-Ansariyya,Umm Kulthum al-Ansariyya,,,F,False,PoliticalFigure,1,Pre-Islamic mother,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
-1037,Abi Waqqas Malik,Abi Waqqas Malik,,,M,False,PoliticalFigure,2,Pre-Islamic father,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
-1038,Hamimah bint Sufyan,Hamimah bint Sufyan,,,F,False,PoliticalFigure,1,Pre-Islamic mother,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
-1039,Zayd ibn Amr ibn Nufayl,Zayd ibn Amr ibn Nufayl,,,M,False,PoliticalFigure,2,Pre-Islamic father,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
-1040,Safiyyah bint Umayyah,Safiyyah bint Umayyah,,,F,False,PoliticalFigure,1,Pre-Islamic mother,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
-1041,Abdullah ibn al-Jarrah,Abdullah ibn al-Jarrah,,,M,False,PoliticalFigure,2,Pre-Islamic father,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
-1042,Umayya bint Abdullah,Umayya bint Abdullah,,,F,False,PoliticalFigure,1,Pre-Islamic mother,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
-1043,Khuwaylid ibn Asad,Khuwaylid ibn Asad,,,M,False,PoliticalFigure,2,Pre-Islamic father,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
-1044,Fatima bint Za'idah,Fatima bint Za'idah,,,F,False,PoliticalFigure,1,Pre-Islamic mother,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
-1045,Hala bint Whayb,Hala bint Whayb,,,F,False,PoliticalFigure,1,Pre-Islamic mother,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
-1046,Nuwaylah,Nuwaylah,,,F,False,PoliticalFigure,1,Pre-Islamic mother,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
-1047,Harithah ibn Sharahil,Harithah ibn Sharahil,,,M,False,PoliticalFigure,2,Pre-Islamic father,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
-1048,Su'da,Su'da,,,F,False,PoliticalFigure,1,Pre-Islamic mother,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
-1049,Thabit ibn Dahdah,Thabit ibn Dahdah,,,M,False,PoliticalFigure,2,Pre-Islamic father,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
-1050,Layla bint Abd al-Muttalib,Layla bint Abd al-Muttalib,,,F,False,PoliticalFigure,1,Pre-Islamic mother,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
-1051,Yasir ibn Amir,Yasir ibn Amir,,,M,False,PoliticalFigure,2,Pre-Islamic father,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
-1052,Sumayya bint Khayyat,Sumayya bint Khayyat,,,F,False,PoliticalFigure,1,Pre-Islamic mother,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
-1053,Mu'adh ibn an-Nu'man,Mu'adh ibn an-Nu'man,,,M,False,PoliticalFigure,2,Pre-Islamic father,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
-1054,Kab'ah bint Abd Harith,Kab'ah bint Abd Harith,,,F,False,PoliticalFigure,1,Pre-Islamic mother,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
-1055,al-Samit ibn Qays,al-Samit ibn Qays,,,M,False,PoliticalFigure,2,Pre-Islamic father,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
-1056,Umama bint Abdullah,Umama bint Abdullah,,,F,False,PoliticalFigure,1,Pre-Islamic mother,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
-1057,Umayya ibn Khalaf,Umayya ibn Khalaf,,,M,False,PoliticalFigure,2,Pre-Islamic father,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
-1058,Safinah bint al-Harith,Safinah bint al-Harith,,,F,False,PoliticalFigure,1,Pre-Islamic mother,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
-1059,Harb ibn Umayya,Harb ibn Umayya,,,M,False,PoliticalFigure,2,Pre-Islamic father,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
-1060,Safiyyah bint Hajaj,Safiyyah bint Hajaj,,,F,False,PoliticalFigure,1,Pre-Islamic mother,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
-1061,عبد الله بن عبد المطلب,Abdullah ibn Abd al-Muttalib,,,M,False,PoliticalFigure,3,Father of Prophet Muhammad,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
-1062,آمنة بنت وهب,Aminah bint Wahb,,,F,False,PoliticalFigure,3,Mother of Prophet Muhammad,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
-1063,جحش بن رئاب,Jahsh ibn Riyab,,,M,False,PoliticalFigure,2,Pre-Islamic father,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
-1064,أميمة بنت عبد المطلب,Umayma bint Abd al-Muttalib,,,F,False,PoliticalFigure,2,Pre-Islamic mother,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
-1065,الحارث بن حزن,al-Harith ibn Hazn,,,M,False,PoliticalFigure,2,Pre-Islamic father,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
-1066,هند بنت عوف,Hind bint Awf,,,F,False,PoliticalFigure,2,Pre-Islamic mother,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
-1067,Hamamah,Hamamah,,,male,False,PoliticalFigure,1,Pre-Islamic parent,Sahabah genealogy,,,0,0,False,True,False,False,False,False,False,False,False,False,False
-1068,Al-Walid ibn al-Mughira,Al-Walid ibn al-Mughira,,,female,False,PoliticalFigure,1,Pre-Islamic parent,Sahabah genealogy,,,0,0,False,True,False,False,False,False,False,False,False,False,False
+1025,Uthman Abu Quhafa,Uthman Abu Quhafa,,,male,False,PoliticalFigure,2,Pre-Islamic father,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
+1026,Salma (Umm al-Khair),Salma (Umm al-Khair),,,female,False,PoliticalFigure,1,Pre-Islamic mother,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
+1027,Al-Khattab ibn Nufayl,Al-Khattab ibn Nufayl,,,male,False,PoliticalFigure,2,Pre-Islamic father,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
+1028,Hantamah bint Hisham,Hantamah bint Hisham,,,female,False,PoliticalFigure,1,Pre-Islamic mother,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
+1029,Affan ibn Abi al-As,Affan ibn Abi al-As,,,male,False,PoliticalFigure,2,Pre-Islamic father,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
+1030,Arwa bint Kurayz,Arwa bint Kurayz,,,female,False,PoliticalFigure,1,Pre-Islamic mother,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
+1031,Ubaydullah ibn Uthman,Ubaydullah ibn Uthman,,,male,False,PoliticalFigure,2,Pre-Islamic father,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
+1032,Salma bint Wuhayb,Salma bint Wuhayb,,,female,False,PoliticalFigure,1,Pre-Islamic mother,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
+1033,Al-Awwam ibn Khuwaylid,Al-Awwam ibn Khuwaylid,,,male,False,PoliticalFigure,2,Pre-Islamic father,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
+1034,Safiyyah bint Abd al-Muttalib,Safiyyah bint Abd al-Muttalib,,,female,False,PoliticalFigure,1,Pre-Islamic mother,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
+1035,Awf ibn Abd Harith,Awf ibn Abd Harith,,,male,False,PoliticalFigure,2,Pre-Islamic father,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
+1036,Umm Kulthum al-Ansariyya,Umm Kulthum al-Ansariyya,,,female,False,PoliticalFigure,1,Pre-Islamic mother,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
+1037,Abi Waqqas Malik,Abi Waqqas Malik,,,male,False,PoliticalFigure,2,Pre-Islamic father,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
+1038,Hamimah bint Sufyan,Hamimah bint Sufyan,,,female,False,PoliticalFigure,1,Pre-Islamic mother,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
+1039,Zayd ibn Amr ibn Nufayl,Zayd ibn Amr ibn Nufayl,,,male,False,PoliticalFigure,2,Pre-Islamic father,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
+1040,Safiyyah bint Umayyah,Safiyyah bint Umayyah,,,female,False,PoliticalFigure,1,Pre-Islamic mother,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
+1041,Abdullah ibn al-Jarrah,Abdullah ibn al-Jarrah,,,male,False,PoliticalFigure,2,Pre-Islamic father,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
+1042,Umayya bint Abdullah,Umayya bint Abdullah,,,female,False,PoliticalFigure,1,Pre-Islamic mother,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
+1043,Khuwaylid ibn Asad,Khuwaylid ibn Asad,,,male,False,PoliticalFigure,2,Pre-Islamic father,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
+1044,Fatima bint Za'idah,Fatima bint Za'idah,,,female,False,PoliticalFigure,1,Pre-Islamic mother,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
+1045,Hala bint Whayb,Hala bint Whayb,,,female,False,PoliticalFigure,1,Pre-Islamic mother,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
+1046,Nuwaylah,Nuwaylah,,,female,False,PoliticalFigure,1,Pre-Islamic mother,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
+1047,Harithah ibn Sharahil,Harithah ibn Sharahil,,,male,False,PoliticalFigure,2,Pre-Islamic father,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
+1048,Su'da,Su'da,,,female,False,PoliticalFigure,1,Pre-Islamic mother,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
+1049,Thabit ibn Dahdah,Thabit ibn Dahdah,,,male,False,PoliticalFigure,2,Pre-Islamic father,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
+1050,Layla bint Abd al-Muttalib,Layla bint Abd al-Muttalib,,,female,False,PoliticalFigure,1,Pre-Islamic mother,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
+1051,Yasir ibn Amir,Yasir ibn Amir,,,male,False,PoliticalFigure,2,Pre-Islamic father,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
+1052,Sumayya bint Khayyat,Sumayya bint Khayyat,,,female,False,PoliticalFigure,1,Pre-Islamic mother,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
+1053,Mu'adh ibn an-Nu'man,Mu'adh ibn an-Nu'man,,,male,False,PoliticalFigure,2,Pre-Islamic father,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
+1054,Kab'ah bint Abd Harith,Kab'ah bint Abd Harith,,,female,False,PoliticalFigure,1,Pre-Islamic mother,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
+1055,al-Samit ibn Qays,al-Samit ibn Qays,,,male,False,PoliticalFigure,2,Pre-Islamic father,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
+1056,Umama bint Abdullah,Umama bint Abdullah,,,female,False,PoliticalFigure,1,Pre-Islamic mother,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
+1057,Umayya ibn Khalaf,Umayya ibn Khalaf,,,male,False,PoliticalFigure,2,Pre-Islamic father,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
+1058,Safinah bint al-Harith,Safinah bint al-Harith,,,female,False,PoliticalFigure,1,Pre-Islamic mother,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
+1059,Harb ibn Umayya,Harb ibn Umayya,,,male,False,PoliticalFigure,2,Pre-Islamic father,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
+1060,Safiyyah bint Hajaj,Safiyyah bint Hajaj,,,female,False,PoliticalFigure,1,Pre-Islamic mother,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
+1061,عبد الله بن عبد المطلب,Abdullah ibn Abd al-Muttalib,,,male,False,PoliticalFigure,3,Father of Prophet Muhammad,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
+1062,آمنة بنت وهب,Aminah bint Wahb,,,female,False,PoliticalFigure,3,Mother of Prophet Muhammad,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
+1063,جحش بن رئاب,Jahsh ibn Riyab,,,male,False,PoliticalFigure,2,Pre-Islamic father,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
+1064,أميمة بنت عبد المطلب,Umayma bint Abd al-Muttalib,,,female,False,PoliticalFigure,2,Pre-Islamic mother,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
+1065,الحارث بن حزن,al-Harith ibn Hazn,,,male,False,PoliticalFigure,2,Pre-Islamic father,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
+1066,هند بنت عوف,Hind bint Awf,,,female,False,PoliticalFigure,2,Pre-Islamic mother,Al-Isabah,,,0,0,False,True,False,False,False,False,False,False,False,False,False
+1067,Hamamah,Hamamah,,,female,False,PoliticalFigure,1,Pre-Islamic parent,Sahabah genealogy,,,0,0,False,True,False,False,False,False,False,False,False,False,False
+1068,Al-Walid ibn al-Mughira,Al-Walid ibn al-Mughira,,,male,False,PoliticalFigure,1,Pre-Islamic parent,Sahabah genealogy,,,0,0,False,True,False,False,False,False,False,False,False,False,False
 1069,Lubabah bint al-Harith,Lubabah bint al-Harith,,,female,False,PoliticalFigure,1,Pre-Islamic parent,Sahabah genealogy,,,0,0,False,True,False,False,False,False,False,False,False,False,False
 1070,Fatima bint Asad,Fatima bint Asad,,,female,False,PoliticalFigure,1,Pre-Islamic parent,Sahabah genealogy,,,0,0,False,True,False,False,False,False,False,False,False,False,False
 1071,Mas'ud ibn Ghafil,Mas'ud ibn Ghafil,,,male,False,PoliticalFigure,1,Pre-Islamic parent,Sahabah genealogy,,,0,0,False,True,False,False,False,False,False,False,False,False,False
@@ -321,12 +321,12 @@ id,name_ar,name_en,kunyah,laqab,gender,is_prophet,node_type,prominence,biography
 1076,Jabal ibn Amr,Jabal ibn Amr,,,male,False,PoliticalFigure,1,Pre-Islamic parent,Sahabah genealogy,,,0,0,False,True,False,False,False,False,False,False,False,False,False
 1077,Ka'b ibn Qays,Ka'b ibn Qays,,,male,False,PoliticalFigure,1,Pre-Islamic parent,Sahabah genealogy,,,0,0,False,True,False,False,False,False,False,False,False,False,False
 1078,Sahla bint Kharijah,Sahla bint Kharijah,,,female,False,PoliticalFigure,1,Pre-Islamic parent,Sahabah genealogy,,,0,0,False,True,False,False,False,False,False,False,False,False,False
-1079,Junadah ibn Junada,Junadah ibn Junada,,,female,False,PoliticalFigure,1,Pre-Islamic parent,Sahabah genealogy,,,0,0,False,True,False,False,False,False,False,False,False,False,False
+1079,Junadah ibn Junada,Junadah ibn Junada,,,male,False,PoliticalFigure,1,Pre-Islamic parent,Sahabah genealogy,,,0,0,False,True,False,False,False,False,False,False,False,False,False
 1080,Ramlah,Ramlah,,,male,False,PoliticalFigure,1,Pre-Islamic parent,Sahabah genealogy,,,0,0,False,True,False,False,False,False,False,False,False,False,False
 1081,Amr ibn Tha'labah,Amr ibn Tha'labah,,,male,False,PoliticalFigure,1,Pre-Islamic parent,Sahabah genealogy,,,0,0,False,True,False,False,False,False,False,False,False,False,False
-1082,Duba'ah,Duba'ah,,,male,False,PoliticalFigure,1,Pre-Islamic parent,Sahabah genealogy,,,0,0,False,True,False,False,False,False,False,False,False,False,False
+1082,Duba'ah,Duba'ah,,,female,False,PoliticalFigure,1,Pre-Islamic parent,Sahabah genealogy,,,0,0,False,True,False,False,False,False,False,False,False,False,False
 1083,al-Yaman ibn Jabir,al-Yaman ibn Jabir,,,male,False,PoliticalFigure,1,Pre-Islamic parent,Sahabah genealogy,,,0,0,False,True,False,False,False,False,False,False,False,False,False
-1084,al-Ruba',al-Ruba',,,male,False,PoliticalFigure,1,Pre-Islamic parent,Sahabah genealogy,,,0,0,False,True,False,False,False,False,False,False,False,False,False
+1084,al-Ruba',al-Ruba',,,female,False,PoliticalFigure,1,Pre-Islamic parent,Sahabah genealogy,,,0,0,False,True,False,False,False,False,False,False,False,False,False
 1085,Al-Aas ibn Wa'il,Al-Aas ibn Wa'il,,,male,False,PoliticalFigure,1,Pre-Islamic parent,Sahabah genealogy,,,0,0,False,True,False,False,False,False,False,False,False,False,False
 1086,Salma bint Harmalah,Salma bint Harmalah,,,female,False,PoliticalFigure,1,Pre-Islamic parent,Sahabah genealogy,,,0,0,False,True,False,False,False,False,False,False,False,False,False
 1087,Mazun ibn Habib,Mazun ibn Habib,,,male,False,PoliticalFigure,1,Pre-Islamic parent,Sahabah genealogy,,,0,0,False,True,False,False,False,False,False,False,False,False,False
@@ -334,11 +334,11 @@ id,name_ar,name_en,kunyah,laqab,gender,is_prophet,node_type,prominence,biography
 1089,Ubadah ibn Dulaym,Ubadah ibn Dulaym,,,male,False,PoliticalFigure,1,Pre-Islamic parent,Sahabah genealogy,,,0,0,False,True,False,False,False,False,False,False,False,False,False
 1090,Amra bint Mas'ud,Amra bint Mas'ud,,,female,False,PoliticalFigure,1,Pre-Islamic parent,Sahabah genealogy,,,0,0,False,True,False,False,False,False,False,False,False,False,False
 1091,Khalid ibn Zayd,Khalid ibn Zayd,,,male,False,PoliticalFigure,1,Pre-Islamic parent,Sahabah genealogy,,,0,0,False,True,False,False,False,False,False,False,False,False,False
-1092,Umm Umarah,Umm Umarah,,,male,False,PoliticalFigure,1,Pre-Islamic parent,Sahabah genealogy,,,0,0,False,True,False,False,False,False,False,False,False,False,False
+1092,Umm Umarah,Umm Umarah,,,female,False,PoliticalFigure,1,Pre-Islamic parent,Sahabah genealogy,,,0,0,False,True,False,False,False,False,False,False,False,False,False
 1093,Malik ibn al-Nadr,Malik ibn al-Nadr,,,male,False,PoliticalFigure,1,Pre-Islamic parent,Sahabah genealogy,,,0,0,False,True,False,False,False,False,False,False,False,False,False
 1094,Umayr ibn Hashim,Umayr ibn Hashim,,,male,False,PoliticalFigure,1,Pre-Islamic parent,Sahabah genealogy,,,0,0,False,True,False,False,False,False,False,False,False,False,False
 1095,Khunasa bint Malik,Khunasa bint Malik,,,female,False,PoliticalFigure,1,Pre-Islamic parent,Sahabah genealogy,,,0,0,False,True,False,False,False,False,False,False,False,False,False
-1096,Abu Umayya ibn al-Mughira,Abu Umayya ibn al-Mughira,,,female,False,PoliticalFigure,1,Pre-Islamic parent,Sahabah genealogy,,,0,0,False,True,False,False,False,False,False,False,False,False,False
+1096,Abu Umayya ibn al-Mughira,Abu Umayya ibn al-Mughira,,,male,False,PoliticalFigure,1,Pre-Islamic parent,Sahabah genealogy,,,0,0,False,True,False,False,False,False,False,False,False,False,False
 1097,Atikah bint Amir,Atikah bint Amir,,,female,False,PoliticalFigure,1,Pre-Islamic parent,Sahabah genealogy,,,0,0,False,True,False,False,False,False,False,False,False,False,False
 1098,Huyayy ibn Akhtab,Huyayy ibn Akhtab,,,male,False,PoliticalFigure,1,Pre-Islamic parent,Sahabah genealogy,,,0,0,False,True,False,False,False,False,False,False,False,False,False
 1099,Barrah bint Samawal,Barrah bint Samawal,,,female,False,PoliticalFigure,1,Pre-Islamic parent,Sahabah genealogy,,,0,0,False,True,False,False,False,False,False,False,False,False,False

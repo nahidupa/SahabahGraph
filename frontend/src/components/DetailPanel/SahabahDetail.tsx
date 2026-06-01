@@ -10,9 +10,6 @@ import {
   Paper
 } from '@mui/material';
 import {
-  Star as StarIcon,
-  Person as PersonIcon,
-  Female as FemaleIcon,
   Add as AddIcon,
   ChevronLeft as ChevronLeftIcon,
   ChevronRight as ChevronRightIcon,
@@ -222,13 +219,21 @@ const SahabahDetail: React.FC<SahabahDetailProps> = ({
             <Box sx={{ display: 'flex', alignItems: 'center', mb: 2, mt: 2 }}>
               <Avatar
                 sx={{
-                  bgcolor: selectedNode.node_type === 'Battle' ? '#795548' : (selectedNode.is_prophet === "True" ? '#ffd700' : (selectedNode.gender === 'male' ? '#2196f3' : '#e91e63')),
+                  bgcolor: selectedNode.node_type === 'Battle' ? '#795548' :
+                          (selectedNode.is_prophet === true || selectedNode.is_prophet === "True" ? '#ffd700' :
+                          (selectedNode.node_type === 'PoliticalFigure' && ['1', '2', '3'].includes(selectedNode.prominence || '') ? '#666' :
+                          (selectedNode.gender?.toLowerCase().startsWith('m') ? '#2196f3' : '#e91e63'))),
                   marginInlineEnd: 2,
                   width: 56,
-                  height: 56
+                  height: 56,
+                  fontSize: '2rem',
+                  fontWeight: 'bold',
+                  color: '#fff'
                 }}
               >
-                {selectedNode.node_type === 'Battle' ? <BattleIcon fontSize="large" /> : (selectedNode.is_prophet === "True" ? <StarIcon fontSize="large" /> : (selectedNode.gender === 'male' ? <PersonIcon fontSize="large" /> : <FemaleIcon fontSize="large" />))}
+                {selectedNode.node_type === 'Battle' ? <BattleIcon fontSize="large" /> :
+                (selectedNode.is_prophet === true || selectedNode.is_prophet === "True" ? '★' :
+                (selectedNode.gender?.toLowerCase().startsWith('m') ? '♂' : '♀'))}
               </Avatar>
               <Box>
                 <Typography variant="h5" sx={{ fontWeight: 'bold' }}>{i18n.language.startsWith("ar") && selectedNode.name_ar ? selectedNode.name_ar : selectedNode.name_en}</Typography>
