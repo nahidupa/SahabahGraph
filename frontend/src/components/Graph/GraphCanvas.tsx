@@ -68,6 +68,32 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [cyRef, onDeleteSelectedNodes]);
 
+  // Apply layout when elements change
+  useEffect(() => {
+    const cy = cyRef.current;
+    if (!cy || elements.length === 0) return;
+
+    // Run layout with animation for better visual experience
+    const layout = cy.layout({
+      name: 'cose',
+      animate: true,
+      animationDuration: 500,
+      fit: true,
+      padding: 50,
+      nodeRepulsion: 8000,
+      idealEdgeLength: 100,
+      edgeElasticity: 100,
+      nestingFactor: 5,
+      gravity: 80,
+      numIter: 1000,
+      initialTemp: 200,
+      coolingFactor: 0.95,
+      minTemp: 1.0
+    });
+    
+    layout.run();
+  }, [elements, cyRef]);
+
   const isMultiSelectGesture = (evt: cytoscape.EventObject): boolean => {
     const originalEvent = evt.originalEvent as MouseEvent | KeyboardEvent | undefined;
     return Boolean(
@@ -100,11 +126,18 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
         'label': 'data(label)',
         'background-color': '#666',
         'color': '#000',
-        'text-valign': 'center',
+        'text-valign': 'bottom',
         'text-halign': 'center',
-        'font-size': '10px',
-        'width': '40px',
-        'height': '40px',
+        'text-margin-y': 8,
+        'font-size': '9px',
+        'width': '50px',
+        'height': '50px',
+        'text-wrap': 'wrap',
+        'text-max-width': '100px',
+        'text-background-color': 'rgba(255, 255, 255, 0.9)',
+        'text-background-opacity': 1,
+        'text-background-padding': '2px',
+        'text-background-shape': 'roundrectangle',
       }
     },
     {
@@ -115,21 +148,46 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
         'color': '#000',
         'width': '80px',
         'height': '80px',
-        'font-size': '30px',
+        'font-size': '40px',
         'text-valign': 'center',
-        'label': '★'
+        'text-margin-y': 0,
+        'label': '★',
+        'text-background-opacity': 0,
       }
     },
     {
       selector: 'node[gender = "male"][is_prophet = "false"]',
       style: {
         'background-color': '#2196f3',
+        'background-image': (ele: any) => {
+          // Create text as "image" content centered in node
+          return 'data:image/svg+xml;utf8,' + encodeURIComponent(
+            `<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50">
+              <text x="25" y="35" font-size="28" fill="white" text-anchor="middle" font-family="Arial">♂</text>
+            </svg>`
+          );
+        },
+        'background-width': '50px',
+        'background-height': '50px',
+        'width': '50px',
+        'height': '50px',
       }
     },
     {
       selector: 'node[gender = "female"]',
       style: {
         'background-color': '#e91e63',
+        'background-image': (ele: any) => {
+          return 'data:image/svg+xml;utf8,' + encodeURIComponent(
+            `<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50">
+              <text x="25" y="35" font-size="28" fill="white" text-anchor="middle" font-family="Arial">♀</text>
+            </svg>`
+          );
+        },
+        'background-width': '50px',
+        'background-height': '50px',
+        'width': '50px',
+        'height': '50px',
       }
     },
     {

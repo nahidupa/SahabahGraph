@@ -153,47 +153,91 @@ const App: React.FC = () => {
         setData(combinedData);
         setPoliticalData(loadedPoliticalData);
 
-        const prophet = nodes.find((n) => n.id === 0);
-        if (prophet) {
-          const familyLinks = combinedData.links
-            .filter((l) => (String(l.source) === '0' || String(l.target) === '0') && l.category === 'family')
-            .slice(0, 4);
+        // Load the Prophet and 4 major Sahabah with their immediate family network
+        const majorSahabahIds = [0, 1, 2, 3, 4];
+        const majorSahabah = majorSahabahIds
+          .map(id => nodes.find((n) => n.id === id))
+          .filter((n): n is Sahabi => n !== undefined);
 
-          const initialElements: cytoscape.ElementDefinition[] = [
-            {
+        if (majorSahabah.length > 0) {
+          const initialElements: cytoscape.ElementDefinition[] = [];
+          const addedNodeIds = new Set<string>();
+
+          // Add the Prophet and 4 major Sahabah nodes
+          majorSahabah.forEach((sahabi) => {
+            const isProphet = sahabi.id === 0;
+            const nodeId = sahabi.id.toString();
+            initialElements.push({
               data: {
-                ...prophet,
-                id: prophet.id.toString(),
-                label: '★',
-                fullName: prophet.name_en,
-                originalId: prophet.id,
+                ...sahabi,
+                id: nodeId,
+                label: isProphet ? '★' : sahabi.name_en,
+                fullName: sahabi.name_en,
+                originalId: sahabi.id,
               },
-            },
-          ];
-
-          familyLinks.forEach((link) => {
-            const otherId = String(link.source) === '0' ? link.target : link.source;
-            const otherNode = nodes.find((n) => String(n.id) === String(otherId));
-            if (otherNode) {
-              initialElements.push({
-                data: {
-                  ...otherNode,
-                  id: otherNode.id.toString(),
-                  label: otherNode.name_en,
-                  fullName: otherNode.name_en,
-                  originalId: otherNode.id,
-                },
-              });
-              initialElements.push({
-                data: {
-                  id: `e${link.source}-${link.target}`,
-                  source: link.source.toString(),
-                  target: link.target.toString(),
-                  label: link.type,
-                },
-              });
-            }
+            });
+            addedNodeIds.add(nodeId);
           });
+
+          // Find all family relationships connected to the major Sahabah
+          const majorSahabahIdStrings = majorSahabahIds.map(id => id.toString());
+          const familyLinks = combinedData.links.filter(
+            (link) =>
+              link.category === 'family' &&
+              (majorSahabahIdStrings.includes(String(link.source)) ||
+               majorSahabahIdStrings.includes(String(link.target)))
+          );
+
+          // Add connected family members
+          familyLinks.forEach((link) => {
+            const sourceId = link.source.toString();
+            const targetId = link.target.toString();
+
+            // Add source node if not already added
+            if (!addedNodeIds.has(sourceId)) {
+              const sourceNode = nodes.find((n) => String(n.id) === sourceId);
+              if (sourceNode) {
+                initialElements.push({
+                  data: {
+                    ...sourceNode,
+                    id: sourceId,
+                    label: sourceNode.name_en,
+                    fullName: sourceNode.name_en,
+                    originalId: sourceNode.id,
+                  },
+                });
+                addedNodeIds.add(sourceId);
+              }
+            }
+
+            // Add target node if not already added
+            if (!addedNodeIds.has(targetId)) {
+              const targetNode = nodes.find((n) => String(n.id) === targetId);
+              if (targetNode) {
+                initialElements.push({
+                  data: {
+                    ...targetNode,
+                    id: targetId,
+                    label: targetNode.name_en,
+                    fullName: targetNode.name_en,
+                    originalId: targetNode.id,
+                  },
+                });
+                addedNodeIds.add(targetId);
+              }
+            }
+
+            // Add the edge
+            initialElements.push({
+              data: {
+                id: `e${sourceId}-${targetId}`,
+                source: sourceId,
+                target: targetId,
+                label: link.type,
+              },
+            });
+          });
+
           setElements(initialElements);
         } else if (nodes.length > 0) {
           const firstNode = nodes[0];
