@@ -159,7 +159,7 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
       selector: 'node[gender = "male"][is_prophet = "false"]',
       style: {
         'background-color': '#2196f3',
-        'background-image': (ele: any) => {
+        'background-image': () => {
           // Create text as "image" content centered in node
           return 'data:image/svg+xml;utf8,' + encodeURIComponent(
             `<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50">
@@ -177,7 +177,7 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
       selector: 'node[gender = "female"]',
       style: {
         'background-color': '#e91e63',
-        'background-image': (ele: any) => {
+        'background-image': () => {
           return 'data:image/svg+xml;utf8,' + encodeURIComponent(
             `<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50">
               <text x="25" y="35" font-size="28" fill="white" text-anchor="middle" font-family="Arial">♀</text>

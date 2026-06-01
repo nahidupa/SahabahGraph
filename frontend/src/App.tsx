@@ -157,7 +157,7 @@ const App: React.FC = () => {
         const majorSahabahIds = [0, 1, 2, 3, 4];
         const majorSahabah = majorSahabahIds
           .map(id => nodes.find((n) => n.id === id))
-          .filter((n): n is Sahabi => n !== undefined);
+          .filter((n) => n !== undefined) as Sahabi[];
 
         if (majorSahabah.length > 0) {
           const initialElements: cytoscape.ElementDefinition[] = [];
