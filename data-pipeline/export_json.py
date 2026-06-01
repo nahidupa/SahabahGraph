@@ -59,7 +59,7 @@ def export_to_json(sahabah_data, relationships_data):
             'name_ar': person['name_ar'],
             'kunyah': person.get('kunyah', ''),
             'laqab': person.get('laqab', ''),
-            'gender': person.get('gender', '').lower(),
+            'gender': 'male' if person.get('gender', '').upper() == 'M' else ('female' if person.get('gender', '').upper() == 'F' else person.get('gender', '').lower()),
             'is_prophet': person.get('is_prophet', '').lower() == 'true',
             'node_type': person.get('node_type', ''),
             'prominence': person.get('prominence', ''),
