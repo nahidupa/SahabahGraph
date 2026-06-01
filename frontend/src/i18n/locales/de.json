@@ -40,5 +40,7 @@
     "teacher": "Lehrer",
     "companion": "Gefährte",
     "peer": "Gleichgestellter"
-  }
+  },
+  "no_results_found": "Keine Ergebnisse gefunden, die Ihren Kriterien entsprechen.",
+  "clear_search": "Suche löschen"
 }
