@@ -96,7 +96,7 @@ def get_next_id(nodes):
     return max(int(node_id) for node_id in nodes.keys()) + 1
 
 
-def create_parent_node(node_id, parent_name, gender='M'):
+def create_parent_node(node_id, parent_name, gender='male'):
     """Create a new parent node"""
     return {
         'id': str(node_id),
@@ -179,7 +179,7 @@ def main():
                 next_id = get_next_id(nodes) if not new_nodes_needed else max(new_nodes_needed.keys()) + 1
 
                 # Guess gender from name (simple heuristic)
-                gender = 'F' if parent_name.endswith('a') or 'bint' in parent_name.lower() else 'M'
+                gender = 'female' if parent_name.endswith('a') or 'bint' in parent_name.lower() else 'male'
 
                 new_parent = create_parent_node(next_id, parent_name, gender)
                 new_nodes_needed[next_id] = new_parent
