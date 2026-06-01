@@ -204,7 +204,7 @@ const SahabahSidebar: React.FC<SahabahSidebarProps> = ({
               <ListItemText
                 primary={
                   <Typography variant="body1" sx={{ fontWeight: 600 }}>
-                    {i18n.language.startsWith('ar') && node.name_ar ? node.name_ar : node.name_en}
+                    {(i18n.language.startsWith('ar') && node.name_ar) ? node.name_ar : (i18n.language.startsWith('bn') && node.name_bn) ? node.name_bn : (i18n.language.startsWith('de') && node.name_de) ? node.name_de : node.name_en}
                   </Typography>
                 }
                 secondary={

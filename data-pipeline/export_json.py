@@ -1,9 +1,4 @@
 #!/usr/bin/env python3
-"""
-Export updated sahabah.csv and relationships.csv to frontend JSON format
-Used after CSV updates to sync with frontend application
-"""
-
 import csv
 import json
 from pathlib import Path
@@ -16,47 +11,31 @@ OUTPUT_JSON = "../frontend/public/data/sahabah_data.json"
 POLITICAL_JSON = "../frontend/public/data/political_terms.json"
 
 def load_data():
-    """Load CSV files"""
-    sahabah_data = []
-    relationships_data = []
-    cities_data = []
-    terms_data = []
-    
+    sahabah_data, relationships_data, cities_data, terms_data = [], [], [], []
     with open(SAHABAH_CSV, 'r', encoding='utf-8') as f:
-        reader = csv.DictReader(f)
-        sahabah_data = list(reader)
-    
+        sahabah_data = list(csv.DictReader(f))
     with open(RELATIONSHIPS_CSV, 'r', encoding='utf-8') as f:
-        reader = csv.DictReader(f)
-        relationships_data = list(reader)
-
+        relationships_data = list(csv.DictReader(f))
     if Path(CITIES_CSV).exists():
         with open(CITIES_CSV, 'r', encoding='utf-8') as f:
-            reader = csv.DictReader(f)
-            cities_data = list(reader)
-
+            cities_data = list(csv.DictReader(f))
     if Path(GOVERNOR_TERMS_CSV).exists():
         with open(GOVERNOR_TERMS_CSV, 'r', encoding='utf-8') as f:
-            reader = csv.DictReader(f)
-            terms_data = list(reader)
-    
+            terms_data = list(csv.DictReader(f))
     return sahabah_data, relationships_data, cities_data, terms_data
 
 def export_to_json(sahabah_data, relationships_data):
-    """Export to frontend JSON format"""
-    
-    # Create nodes from sahabah data
     nodes = []
     person_id_map = {}
-    
     for person in sahabah_data:
         person_id = int(person['id'])
         person_id_map[person_id] = len(nodes)
-        
         node = {
             'id': str(person_id),
             'name_en': person['name_en'],
             'name_ar': person['name_ar'],
+            'name_bn': person.get('name_bn', ''),
+            'name_de': person.get('name_de', ''),
             'kunyah': person.get('kunyah', ''),
             'laqab': person.get('laqab', ''),
             'gender': 'male' if person.get('gender', '').upper() == 'M' else ('female' if person.get('gender', '').upper() == 'F' else person.get('gender', '').lower()),
@@ -64,6 +43,8 @@ def export_to_json(sahabah_data, relationships_data):
             'node_type': person.get('node_type', ''),
             'prominence': person.get('prominence', ''),
             'biography_short': person.get('biography_short', ''),
+            'biography_bn': person.get('biography_bn', ''),
+            'biography_de': person.get('biography_de', ''),
             'biography_source': person.get('biography_source', ''),
             'tribe': person.get('tribe', ''),
             'clan': person.get('clan', ''),
@@ -83,121 +64,53 @@ def export_to_json(sahabah_data, relationships_data):
         }
         nodes.append(node)
     
-    # Create links from relationships
     links = []
     for rel in relationships_data:
-        source_id = int(rel['source_id'])
-        target_id = int(rel['target_id'])
-        
-        if source_id in person_id_map and target_id in person_id_map:
-            link = {
-                'source': source_id,
-                'target': target_id,
-                'source_id': source_id,
-                'target_id': target_id,
-                'type': rel['type'],
-                'category': rel.get('category', '')
-            }
-            links.append(link)
-    
+        try:
+            source_id = int(rel['source_id'])
+            target_id = int(rel['target_id'])
+            if source_id in person_id_map and target_id in person_id_map:
+                links.append({
+                    'source': source_id, 'target': target_id,
+                    'source_id': source_id, 'target_id': target_id,
+                    'type': rel['type'], 'category': rel.get('category', '')
+                })
+        except: pass
     return {'nodes': nodes, 'links': links}
 
 def export_political_to_json(cities_data, terms_data):
-    """Export to political terms JSON format"""
     cities = []
     for city in cities_data:
         cities.append({
-            'id': city['city_id'],
-            'name_ar': city['city_name_ar'],
-            'name_en': city['city_name_en'],
-            'lat': float(city['lat']),
-            'lng': float(city['lng']),
-            'x': int(city['map_x']),
-            'y': int(city['map_y'])
+            'id': city['city_id'], 'name_ar': city['city_name_ar'], 'name_en': city['city_name_en'],
+            'lat': float(city['lat']), 'lng': float(city['lng']), 'x': int(city['map_x']), 'y': int(city['map_y'])
         })
-
     terms = []
     for term in terms_data:
         terms.append({
-            'id': term['term_id'],
-            'city_id': term['city_id'],
-            'governor_name': term['governor_name'],
+            'id': term['term_id'], 'city_id': term['city_id'], 'governor_name': term['governor_name'],
             'governor_id': int(term['governor_id']) if term['governor_id'] else None,
-            'caliph_name': term['caliph_name'],
-            'caliph_id': int(term['caliph_id']) if term['caliph_id'] else None,
+            'caliph_name': term['caliph_name'], 'caliph_id': int(term['caliph_id']) if term['caliph_id'] else None,
             'start_year_ce': int(term['start_year_ce']) if term['start_year_ce'] else 0,
             'end_year_ce': int(term['end_year_ce']) if term['end_year_ce'] else 0,
             'start_year_hijri': int(term['start_year_hijri']) if term['start_year_hijri'] else 0,
             'end_year_hijri': int(term['end_year_hijri']) if term['end_year_hijri'] else 0,
-            'termination': term['termination_type'],
-            'notes': term['notes'],
-            'source_ref': term['source_ref'],
+            'termination': term['termination_type'], 'notes': term['notes'], 'source_ref': term['source_ref'],
             'vacancy': not term['governor_name']
         })
-
     return {'cities': cities, 'terms': terms}
 
 def main():
-    print("=" * 70)
-    print("EXPORTING TO FRONTEND JSON")
-    print("=" * 70)
-    
-    print("\n📂 Loading CSV data...")
     sahabah_data, relationships_data, cities_data, terms_data = load_data()
-    print(f"✓ Loaded {len(sahabah_data)} people")
-    print(f"✓ Loaded {len(relationships_data)} relationships")
-    print(f"✓ Loaded {len(cities_data)} cities")
-    print(f"✓ Loaded {len(terms_data)} governor terms")
-    
-    print("\n📦 Exporting Sahabah to JSON...")
     graph_data = export_to_json(sahabah_data, relationships_data)
-    
-    # Create output directory if needed
     output_path = Path(OUTPUT_JSON)
     output_path.parent.mkdir(parents=True, exist_ok=True)
-    
-    # Save JSON
     with open(OUTPUT_JSON, 'w', encoding='utf-8') as f:
         json.dump(graph_data, f, ensure_ascii=False, indent=2)
-    
-    print(f"✓ Exported {len(graph_data['nodes'])} nodes")
-    print(f"✓ Exported {len(graph_data['links'])} links")
-
     if cities_data or terms_data:
-        print("\n📦 Exporting Political Data to JSON...")
         political_data = export_political_to_json(cities_data, terms_data)
-
-        # Save JSON
         with open(POLITICAL_JSON, 'w', encoding='utf-8') as f:
             json.dump(political_data, f, ensure_ascii=False, indent=2)
+    print("Export complete.")
 
-        print(f"✓ Exported {len(political_data['cities'])} cities")
-        print(f"✓ Exported {len(political_data['terms'])} terms")
-    
-    # Print statistics
-    print("\n" + "=" * 70)
-    print("📊 EXPORT STATISTICS")
-    print("=" * 70)
-    
-    rel_types = {}
-    for link in graph_data['links']:
-        rel_type = link['type']
-        rel_types[rel_type] = rel_types.get(rel_type, 0) + 1
-    
-    print("\nRelationship Types:")
-    for rel_type in sorted(rel_types.keys()):
-        print(f"  • {rel_type}: {rel_types[rel_type]}")
-    
-    node_types = {}
-    for node in graph_data['nodes']:
-        node_type = node['node_type']
-        node_types[node_type] = node_types.get(node_type, 0) + 1
-    
-    print("\nNode Types:")
-    for node_type in sorted(node_types.keys()):
-        print(f"  • {node_type}: {node_types[node_type]}")
-    
-    print(f"\n✅ Successfully exported to: {OUTPUT_JSON}")
-
-if __name__ == '__main__':
-    main()
+if __name__ == '__main__': main()
