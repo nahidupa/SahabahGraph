@@ -153,9 +153,13 @@ const App: React.FC = () => {
         setData(combinedData);
         setPoliticalData(loadedPoliticalData);
 
-        const prophet = nodes.find((n) => n.id === 0) ?? nodes[0];
+        const prophet = nodes.find((n) => n.id === 0);
         if (prophet) {
-          setElements([
+          const familyLinks = combinedData.links
+            .filter((l) => (String(l.source) === '0' || String(l.target) === '0') && l.category === 'family')
+            .slice(0, 4);
+
+          const initialElements: cytoscape.ElementDefinition[] = [
             {
               data: {
                 ...prophet,
@@ -163,6 +167,44 @@ const App: React.FC = () => {
                 label: '★',
                 fullName: prophet.name_en,
                 originalId: prophet.id,
+              },
+            },
+          ];
+
+          familyLinks.forEach((link) => {
+            const otherId = String(link.source) === '0' ? link.target : link.source;
+            const otherNode = nodes.find((n) => String(n.id) === String(otherId));
+            if (otherNode) {
+              initialElements.push({
+                data: {
+                  ...otherNode,
+                  id: otherNode.id.toString(),
+                  label: otherNode.name_en,
+                  fullName: otherNode.name_en,
+                  originalId: otherNode.id,
+                },
+              });
+              initialElements.push({
+                data: {
+                  id: `e${link.source}-${link.target}`,
+                  source: link.source.toString(),
+                  target: link.target.toString(),
+                  label: link.type,
+                },
+              });
+            }
+          });
+          setElements(initialElements);
+        } else if (nodes.length > 0) {
+          const firstNode = nodes[0];
+          setElements([
+            {
+              data: {
+                ...firstNode,
+                id: firstNode.id.toString(),
+                label: firstNode.name_en,
+                fullName: firstNode.name_en,
+                originalId: firstNode.id,
               },
             },
           ]);
