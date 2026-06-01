@@ -6,7 +6,8 @@ import {
   ZoomOut as ZoomOutIcon,
   RestartAlt as ResetIcon,
   Download as DownloadIcon,
-  Image as ImageIcon
+  Image as ImageIcon,
+  DeleteSweep as DeleteSweepIcon
 } from '@mui/icons-material';
 import CytoscapeComponent from 'react-cytoscapejs';
 import cytoscape from 'cytoscape';
@@ -23,6 +24,7 @@ interface GraphCanvasProps {
   onShowConnections?: () => void;
   showConnectionsActive?: boolean;
   onDeleteSelectedNodes?: (nodeIds: string[]) => void;
+  onRemoveAll?: () => void;
 }
 
 if (typeof cytoscape('core', 'svg') !== 'function') {
@@ -35,7 +37,8 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
   cyRef,
   onShowConnections,
   showConnectionsActive,
-  onDeleteSelectedNodes
+  onDeleteSelectedNodes,
+  onRemoveAll
 }) => {
   const { t } = useTranslation();
 
@@ -340,6 +343,12 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
         </Tooltip>
         <Tooltip title={t('reset_layout')}>
           <IconButton onClick={handleReset}><ResetIcon /></IconButton>
+        </Tooltip>
+        <Divider orientation="vertical" flexItem />
+        <Tooltip title={t('remove_all')}>
+          <IconButton onClick={onRemoveAll} color="error">
+            <DeleteSweepIcon />
+          </IconButton>
         </Tooltip>
         <Divider orientation="vertical" flexItem />
         <Tooltip title={t('export_png')}>

@@ -325,6 +325,14 @@ const App: React.FC = () => {
     cyRef.current?.elements().removeClass('highlighted');
   };
 
+  const removeAllNodes = () => {
+    setElements([]);
+    setSelectedNode(null);
+    setAllPaths([]);
+    setCurrentPathIndex(0);
+    cyRef.current?.elements().removeClass('highlighted');
+  };
+
   const expandRelationships = (nodeId: number | string, categoryOrType: string) => {
     if (!data) return;
     const rels = data.links.filter(l =>
@@ -502,6 +510,7 @@ const App: React.FC = () => {
           cyRef={cyRef}
           onShowConnections={handleShowConnections}
           onDeleteSelectedNodes={removeNodesFromGraph}
+          onRemoveAll={removeAllNodes}
         />
       ) : viewMode === 'timeline' ? (
         <TimelineView

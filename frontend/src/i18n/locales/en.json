@@ -13,6 +13,7 @@
   "zoom_in": "Zoom In",
   "zoom_out": "Zoom Out",
   "reset_layout": "Reset Layout",
+  "remove_all": "Remove All",
   "export_failed": "Failed to export the graph. Please try again.",
   "biography": "Biography",
   "bio_placeholder": "This section could contain a brief biography or historical notes about {{name}}.",
