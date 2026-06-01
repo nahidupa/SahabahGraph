@@ -45,9 +45,9 @@ const normalizeNodeId = (value: unknown): number => {
   return Number.isFinite(parsed) ? parsed : -1;
 };
 
-const normalizeProphetFlag = (value: unknown): 'true' | 'false' => {
-  if (typeof value === 'boolean') return value ? 'true' : 'false';
-  return String(value).toLowerCase() === 'true' ? 'true' : 'false';
+const normalizeProphetFlag = (value: unknown): boolean => {
+  if (typeof value === 'boolean') return value;
+  return String(value).toLowerCase() === 'true';
 };
 
 const loadGraphData = async (): Promise<GraphData> => {
@@ -131,7 +131,7 @@ const App: React.FC = () => {
           ? apolloData.sahabis.map((s: any) => ({
               ...s,
               id: normalizeNodeId(s.id),
-              is_prophet: s.is_prophet ? 'true' : 'false',
+              is_prophet: Boolean(s.is_prophet),
             }))
           : [];
 

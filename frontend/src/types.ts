@@ -5,7 +5,7 @@ export interface Sahabi {
   kunyah?: string;
   laqab?: string;
   gender: 'male' | 'female';
-  is_prophet: string; // "True" or "False" from JSON
+  is_prophet: boolean;
   node_type?: 'Sahabi' | 'Battle' | 'PoliticalFigure';
   prominence?: string;
   biography_short?: string;

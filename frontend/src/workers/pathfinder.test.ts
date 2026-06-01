@@ -5,10 +5,10 @@ import type { GraphData } from '../types';
 describe('pathfinder logic', () => {
   const mockData: GraphData = {
     nodes: [
-      { id: 1, name_en: 'A', gender: 'male', is_prophet: 'False' },
-      { id: 2, name_en: 'B', gender: 'male', is_prophet: 'False' },
-      { id: 3, name_en: 'C', gender: 'male', is_prophet: 'False' },
-      { id: 4, name_en: 'D', gender: 'male', is_prophet: 'False' },
+      { id: 1, name_en: 'A', gender: 'male', is_prophet: false },
+      { id: 2, name_en: 'B', gender: 'male', is_prophet: false },
+      { id: 3, name_en: 'C', gender: 'male', is_prophet: false },
+      { id: 4, name_en: 'D', gender: 'male', is_prophet: false },
     ],
     links: [
       { source: 1, target: 2, type: 'SON_OF', category: 'family' },
@@ -29,10 +29,10 @@ describe('pathfinder logic', () => {
   it('returns multiple paths if they have the same weight', () => {
      const data: GraphData = {
         nodes: [
-            { id: 1, name_en: 'A', gender: 'male', is_prophet: 'False' },
-            { id: 2, name_en: 'B', gender: 'male', is_prophet: 'False' },
-            { id: 3, name_en: 'C', gender: 'male', is_prophet: 'False' },
-            { id: 4, name_en: 'D', gender: 'male', is_prophet: 'False' },
+            { id: 1, name_en: 'A', gender: 'male', is_prophet: false },
+            { id: 2, name_en: 'B', gender: 'male', is_prophet: false },
+            { id: 3, name_en: 'C', gender: 'male', is_prophet: false },
+            { id: 4, name_en: 'D', gender: 'male', is_prophet: false },
         ],
         links: [
           { source: 1, target: 2, type: 'SON_OF', category: 'family' }, // 1

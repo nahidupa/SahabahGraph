@@ -220,7 +220,7 @@ const SahabahDetail: React.FC<SahabahDetailProps> = ({
               <Avatar
                 sx={{
                   bgcolor: selectedNode.node_type === 'Battle' ? '#795548' :
-                          (selectedNode.is_prophet === true || selectedNode.is_prophet === "True" ? '#ffd700' :
+                          (selectedNode.is_prophet ? '#ffd700' :
                           (selectedNode.node_type === 'PoliticalFigure' && ['1', '2', '3'].includes(selectedNode.prominence || '') ? '#666' :
                           (selectedNode.gender?.toLowerCase().startsWith('m') ? '#2196f3' : '#e91e63'))),
                   marginInlineEnd: 2,
@@ -232,7 +232,7 @@ const SahabahDetail: React.FC<SahabahDetailProps> = ({
                 }}
               >
                 {selectedNode.node_type === 'Battle' ? <BattleIcon fontSize="large" /> :
-                (selectedNode.is_prophet === true || selectedNode.is_prophet === "True" ? '★' :
+                (selectedNode.is_prophet ? '★' :
                 (selectedNode.gender?.toLowerCase().startsWith('m') ? '♂' : '♀'))}
               </Avatar>
               <Box>

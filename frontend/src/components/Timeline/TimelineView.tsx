@@ -156,7 +156,7 @@ const TimelineView: React.FC<TimelineViewProps> = ({ nodes, onSelectNode, select
                             left: `${left}%`,
                             width: `${Math.max(width, 0.5)}%`,
                             height: '100%',
-                            bgcolor: node.is_prophet === 'True' ? '#ffd700' : (node.gender === 'male' ? '#2196f3' : '#e91e63'),
+                            bgcolor: node.is_prophet ? '#ffd700' : (node.gender === 'male' ? '#2196f3' : '#e91e63'),
                             opacity: isEstimated ? 0.4 : 1,
                             border: isSelected ? '2px solid black' : 'none',
                             borderRadius: 1,
@@ -166,7 +166,7 @@ const TimelineView: React.FC<TimelineViewProps> = ({ nodes, onSelectNode, select
                             overflow: 'hidden'
                           }}
                         >
-                          <Typography variant="caption" sx={{ color: node.is_prophet === 'True' ? 'black' : 'white', fontWeight: 'bold', whiteSpace: 'nowrap' }}>
+                          <Typography variant="caption" sx={{ color: node.is_prophet ? 'black' : 'white', fontWeight: 'bold', whiteSpace: 'nowrap' }}>
                             {i18n.language.startsWith('ar') ? node.name_ar : node.name_en}
                           </Typography>
                         </Paper>
