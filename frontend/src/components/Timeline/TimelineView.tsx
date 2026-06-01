@@ -2,6 +2,7 @@ import React, { useMemo, useState, useEffect } from 'react';
 import { Box, Typography, Paper, Tooltip, Chip, Tab, Tabs } from '@mui/material';
 import type { Sahabi, PoliticalData } from '../../types';
 import { useTranslation } from 'react-i18next';
+import { formatHijriYear } from '../../utils/localization';
 
 interface TimelineViewProps {
   nodes: Sahabi[];
@@ -87,7 +88,7 @@ const TimelineView: React.FC<TimelineViewProps> = ({ nodes, onSelectNode, select
               <Box key={year} sx={{ position: 'absolute', left: `${left}%`, transform: 'translateX(-50%)' }}>
                 <Box sx={{ height: 10, width: 2, bgcolor: 'text.secondary', mx: 'auto' }} />
                 <Typography variant="caption" color="textSecondary" sx={{ fontWeight: 'bold' }}>
-                  {year < 0 ? `${Math.abs(year)} BH` : `${year} AH`}
+                  {formatHijriYear(year, t)}
                 </Typography>
               </Box>
             );
@@ -101,10 +102,11 @@ const TimelineView: React.FC<TimelineViewProps> = ({ nodes, onSelectNode, select
               <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap', minHeight: 40 }}>
                 {battleNodes.map(battle => {
                   const left = ((battle.birth_year_hijri! - minYear) / range) * 100;
+                  const displayName = i18n.language.startsWith('ar') && battle.name_ar ? battle.name_ar : battle.name_en;
                   return (
-                    <Tooltip key={battle.id} title={`${battle.name_en} (${battle.birth_year_hijri} AH)`}>
+                    <Tooltip key={battle.id} title={`${displayName} (${formatHijriYear(battle.birth_year_hijri!, t)})`}>
                       <Chip
-                        label={i18n.language.startsWith('ar') ? battle.name_ar : battle.name_en}
+                        label={displayName}
                         onClick={() => onSelectNode(battle)}
                         sx={{
                           position: 'absolute',
@@ -146,7 +148,7 @@ const TimelineView: React.FC<TimelineViewProps> = ({ nodes, onSelectNode, select
                         '&:hover .bar': { opacity: 0.9, filter: 'brightness(1.05)' }
                       }}
                     >
-                      <Tooltip title={`${node.name_en} (${node.birth_year_hijri || '?'} - ${node.death_year_hijri || '?'} AH)`}>
+                      <Tooltip title={`${i18n.language.startsWith('ar') && node.name_ar ? node.name_ar : node.name_en} (${node.birth_year_hijri ? formatHijriYear(node.birth_year_hijri, t) : '?'} - ${node.death_year_hijri ? formatHijriYear(node.death_year_hijri, t) : '?'})`}>
                         <Paper
                           className="bar"
                           sx={{

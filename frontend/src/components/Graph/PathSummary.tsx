@@ -2,6 +2,7 @@ import React from 'react';
 import { Paper, Typography, Box, IconButton, Stack } from '@mui/material';
 import { Close as CloseIcon, ArrowForward as ArrowIcon, ArrowBack as ArrowBackIcon, ChevronLeft, ChevronRight } from '@mui/icons-material';
 import { useTranslation } from 'react-i18next';
+import { formatNumber } from '../../utils/localization';
 import type { GraphData } from '../../types';
 
 interface PathSummaryProps {
@@ -69,7 +70,7 @@ const PathSummary: React.FC<PathSummaryProps> = ({
           {totalPaths > 1 && (
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
               <IconButton size="small" onClick={onPrev}><ChevronLeft fontSize="small" /></IconButton>
-              <Typography variant="caption">{currentPathIndex + 1} / {totalPaths}</Typography>
+              <Typography variant="caption">{formatNumber(currentPathIndex + 1)} / {formatNumber(totalPaths)}</Typography>
               <IconButton size="small" onClick={onNext}><ChevronRight fontSize="small" /></IconButton>
             </Box>
           )}

@@ -14,6 +14,7 @@ import {
 } from '@mui/material';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import { useTranslation } from 'react-i18next';
+import { formatNumber, formatHijriYear, formatCEYear } from '../../utils/localization';
 import type { GovernorTerm, PoliticalCity, Sahabi } from '../../types';
 
 interface PoliticalViewProps {
@@ -96,7 +97,7 @@ const PoliticalView: React.FC<PoliticalViewProps> = ({
       <Paper sx={{ flex: 1.2, p: 2, display: 'flex', flexDirection: 'column', gap: 2 }}>
         <Stack direction="row" spacing={2} sx={{ alignItems: 'center', justifyContent: 'space-between' }}>
           <Typography variant="h6" sx={{ fontWeight: 700 }}>
-            {t('city_map', { defaultValue: 'City Map' })}
+            {t('city_map')}
           </Typography>
           <Chip label="Umayyad MVP" color="primary" size="small" />
         </Stack>
@@ -116,7 +117,7 @@ const PoliticalView: React.FC<PoliticalViewProps> = ({
         >
           <Box sx={{ position: 'absolute', top: 8, left: 8, px: 1, py: 0.5, bgcolor: 'rgba(255,255,255,0.88)', borderRadius: 1 }}>
             <Typography variant="caption" sx={{ fontWeight: 600 }}>
-              Eastern Mediterranean (schematic)
+              {t('schematic_map', { defaultValue: 'Eastern Mediterranean (schematic)' })}
             </Typography>
           </Box>
 
@@ -170,19 +171,19 @@ const PoliticalView: React.FC<PoliticalViewProps> = ({
                     size="small"
                     color="primary"
                     variant="outlined"
-                    label={t('total_terms', { defaultValue: 'Terms' }) + `: ${selectedCityStats.totalTerms}`}
+                    label={t('total_terms') + ': ' + formatNumber(selectedCityStats.totalTerms)}
                   />
                   <Chip
                     size="small"
                     color="secondary"
                     variant="outlined"
-                    label={t('governors', { defaultValue: 'Governors' }) + `: ${selectedCityStats.governors}`}
+                    label={t('governors') + ': ' + formatNumber(selectedCityStats.governors)}
                   />
                   {selectedCityStats.firstYear !== null && selectedCityStats.lastYear !== null && (
                     <Chip
                       size="small"
                       variant="outlined"
-                      label={`${selectedCityStats.firstYear}–${selectedCityStats.lastYear} CE`}
+                      label={`${formatCEYear(selectedCityStats.firstYear, t)} – ${formatCEYear(selectedCityStats.lastYear, t)}`}
                     />
                   )}
                 </Stack>
@@ -194,15 +195,15 @@ const PoliticalView: React.FC<PoliticalViewProps> = ({
 
       <Paper sx={{ flex: 1, p: 2, display: 'flex', flexDirection: 'column', gap: 2, overflow: 'hidden' }}>
         <Typography variant="h6" sx={{ fontWeight: 700 }}>
-          {t('governor_terms', { defaultValue: 'Governor Terms' })}
+          {t('governor_terms')}
         </Typography>
 
         <Stack direction="row" spacing={1}>
           <FormControl fullWidth size="small">
-            <InputLabel>{t('city', { defaultValue: 'City' })}</InputLabel>
+            <InputLabel>{t('city')}</InputLabel>
             <Select
               value={selectedCityId}
-              label={t('city', { defaultValue: 'City' })}
+              label={t('city')}
               onChange={(e) => setSelectedCityId(e.target.value)}
             >
               {cities.map((city) => (
@@ -214,15 +215,15 @@ const PoliticalView: React.FC<PoliticalViewProps> = ({
           </FormControl>
 
           <FormControl fullWidth size="small">
-            <InputLabel>{t('caliph_filter', { defaultValue: 'Caliph' })}</InputLabel>
+            <InputLabel>{t('caliph_filter')}</InputLabel>
             <Select
               value={selectedCaliph}
-              label={t('caliph_filter', { defaultValue: 'Caliph' })}
+              label={t('caliph_filter')}
               onChange={(e) => setSelectedCaliph(e.target.value)}
             >
               {caliphs.map((caliph) => (
                 <MenuItem key={caliph} value={caliph}>
-                  {caliph === 'all' ? t('all_caliphs', { defaultValue: 'All Caliphs' }) : caliph}
+                  {caliph === 'all' ? t('all_caliphs') : caliph}
                 </MenuItem>
               ))}
             </Select>
@@ -234,7 +235,7 @@ const PoliticalView: React.FC<PoliticalViewProps> = ({
         <Box sx={{ overflow: 'auto', pr: 1 }}>
           {filteredTerms.length === 0 ? (
             <Typography variant="body2" color="text.secondary">
-              {t('no_governor_terms', { defaultValue: 'No governor terms found for this filter.' })}
+              {t('no_governor_terms')}
             </Typography>
           ) : (
             <Stack spacing={1.5}>
@@ -253,22 +254,22 @@ const PoliticalView: React.FC<PoliticalViewProps> = ({
                   >
                     <Stack direction="row" spacing={1} sx={{ alignItems: 'center', justifyContent: 'space-between' }}>
                       <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
-                        {term.vacancy ? 'Vacancy / No Governor' : (term.governor_name ?? 'Unknown')}
+                        {term.vacancy ? t('vacancy') : (term.governor_name ?? t('unknown'))}
                       </Typography>
                       <Chip
                         size="small"
-                        label={`${term.start_year_ce}–${term.end_year_ce} CE`}
+                        label={`${formatCEYear(term.start_year_ce, t)} – ${formatCEYear(term.end_year_ce, t)}`}
                         color="default"
                         variant="outlined"
                       />
                     </Stack>
 
                     <Typography variant="caption" color="text.secondary" sx={{ display: 'block', mt: 0.5 }}>
-                      {term.start_year_hijri}–{term.end_year_hijri} AH • {term.caliph_name}
+                      {formatHijriYear(term.start_year_hijri, t)} – {formatHijriYear(term.end_year_hijri, t)} • {t('caliphs.' + term.caliph_name, { defaultValue: term.caliph_name })}
                     </Typography>
 
                     <Typography variant="caption" sx={{ display: 'block', mt: 0.5 }}>
-                      {t('termination', { defaultValue: 'Termination' })}: {term.termination}
+                      {t('termination')}: {t('terminations.' + term.termination, { defaultValue: term.termination })}
                     </Typography>
 
                     {term.notes && (
@@ -289,7 +290,7 @@ const PoliticalView: React.FC<PoliticalViewProps> = ({
                               if (governorNode) onSelectGovernor(governorNode);
                             }}
                           >
-                            {t('show_in_details', { defaultValue: 'Show In Details' })}
+                            {t('show_in_details')}
                           </Button>
                           <Button
                             size="small"
@@ -300,7 +301,7 @@ const PoliticalView: React.FC<PoliticalViewProps> = ({
                               if (governorNode) onLinkGovernor(governorNode);
                             }}
                           >
-                            {t('show_in_graph', { defaultValue: 'Show In Graph' })}
+                            {t('show_in_graph')}
                           </Button>
                         </>
                       )}

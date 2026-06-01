@@ -26,6 +26,7 @@ import {
 } from '@mui/icons-material';
 import { useTranslation } from 'react-i18next';
 import type { Sahabi, Relationship } from '../../types';
+import { formatNumber, formatHijriYear } from "../../utils/localization";
 
 interface SahabahDetailProps {
   selectedNode: Sahabi | null;
@@ -230,7 +231,7 @@ const SahabahDetail: React.FC<SahabahDetailProps> = ({
                 {selectedNode.node_type === 'Battle' ? <BattleIcon fontSize="large" /> : (selectedNode.is_prophet === "True" ? <StarIcon fontSize="large" /> : (selectedNode.gender === 'male' ? <PersonIcon fontSize="large" /> : <FemaleIcon fontSize="large" />))}
               </Avatar>
               <Box>
-                <Typography variant="h5" sx={{ fontWeight: 'bold' }}>{selectedNode.name_en}</Typography>
+                <Typography variant="h5" sx={{ fontWeight: 'bold' }}>{i18n.language.startsWith("ar") && selectedNode.name_ar ? selectedNode.name_ar : selectedNode.name_en}</Typography>
                 {selectedNode.name_ar && <Typography variant="h6" color="primary" sx={{ fontStyle: 'italic' }}>{selectedNode.name_ar}</Typography>}
                 {selectedNode.kunyah && <Typography variant="subtitle2" color="text.secondary">{t('kunyah')}: {selectedNode.kunyah}</Typography>}
                 <Typography variant="subtitle1" color="text.secondary">{selectedNode.laqab}</Typography>
@@ -253,7 +254,7 @@ const SahabahDetail: React.FC<SahabahDetailProps> = ({
                       <TribeIcon fontSize="small" color="action" sx={{ mr: 1 }} />
                       <Box>
                         <Typography variant="caption" color="text.secondary">{t('tribe')}</Typography>
-                        <Typography variant="body2">{selectedNode.tribe}</Typography>
+                        <Typography variant="body2">{t(`tribes.${selectedNode.tribe}`, { defaultValue: selectedNode.tribe })}</Typography>
                       </Box>
                     </Box>
                   )}
@@ -262,7 +263,7 @@ const SahabahDetail: React.FC<SahabahDetailProps> = ({
                       <ClanIcon fontSize="small" color="action" sx={{ mr: 1 }} />
                       <Box>
                         <Typography variant="caption" color="text.secondary">{t('clan')}</Typography>
-                        <Typography variant="body2">{selectedNode.clan}</Typography>
+                        <Typography variant="body2">{t(`clans.${selectedNode.clan}`, { defaultValue: selectedNode.clan })}</Typography>
                       </Box>
                     </Box>
                   )}
@@ -270,9 +271,9 @@ const SahabahDetail: React.FC<SahabahDetailProps> = ({
                     <Box sx={{ display: 'flex', alignItems: 'center' }}>
                       <DateIcon fontSize="small" color="action" sx={{ mr: 1 }} />
                       <Box>
-                        <Typography variant="caption" color="text.secondary">{t('born')} / {t('died')} ({t('ah')})</Typography>
+                        <Typography variant="caption" color="text.secondary">{t('born')} / {t('died')}</Typography>
                         <Typography variant="body2">
-                          {selectedNode.birth_year_hijri !== 0 ? selectedNode.birth_year_hijri : '?'} - {selectedNode.death_year_hijri !== 0 ? selectedNode.death_year_hijri : '?'}
+                          {formatHijriYear(selectedNode.birth_year_hijri || 0, t)} - {formatHijriYear(selectedNode.death_year_hijri || 0, t)}
                         </Typography>
                       </Box>
                     </Box>
@@ -304,7 +305,7 @@ const SahabahDetail: React.FC<SahabahDetailProps> = ({
             </Box>
 
             <Typography variant="subtitle2" color="text.secondary" sx={{ mb: 1 }}>
-              {t('relationship_types', { defaultValue: 'Relationship Types' })}
+              {t('relationship_types')}
             </Typography>
             <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mb: 3 }}>
               {availableRelationshipTypes.length > 0 ? (
@@ -325,7 +326,7 @@ const SahabahDetail: React.FC<SahabahDetailProps> = ({
             </Box>
 
             <Typography variant="subtitle2" color="text.secondary" sx={{ mb: 1 }}>
-              {t('relationship_availability', { defaultValue: 'Available Expansions' })}
+              {t('relationship_availability')}
             </Typography>
             <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mb: 3 }}>
               {relationshipAvailability.some((item) => item.enabled) ? (
@@ -335,7 +336,7 @@ const SahabahDetail: React.FC<SahabahDetailProps> = ({
                     <Chip
                       key={item.key}
                       label={t('expand_relation_flag', {
-                        label: item.label,
+                        label: t(`relationships.${item.relationType}`, { defaultValue: item.label }),
                         defaultValue: 'Expand {{label}}',
                       })}
                       onClick={() => onExpand(selectedNode.id, item.relationType)}
@@ -375,13 +376,13 @@ const SahabahDetail: React.FC<SahabahDetailProps> = ({
                   return (
                     <Box sx={{ mt: 2, pt: 2, borderTop: '1px solid', borderColor: 'divider' }}>
                       <Typography variant="caption" color="text.secondary" sx={{ display: 'block', mb: 1 }}>
-                        {t('graph_profile', { defaultValue: 'Graph Relations' })}
+                        {t('graph_profile')}
                       </Typography>
                       <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
                         {graphFacts.map((fact) => (
                           <Chip
                             key={fact.type}
-                            label={`${fact.label}: ${fact.count}`}
+                            label={`${t('categories.' + fact.type.toLowerCase())}: ${formatNumber(fact.count)}`}
                             size="small"
                             variant="outlined"
                             color={
@@ -403,10 +404,10 @@ const SahabahDetail: React.FC<SahabahDetailProps> = ({
             {selectedNode.node_type === 'Battle' && (
               <>
                  <Typography variant="subtitle1" gutterBottom color="primary">
-                   {t('participants', { defaultValue: 'Participants' })}
+                   {t('participants')}
                  </Typography>
                  <Typography variant="body2" color="text.secondary">
-                    {t('participants_desc', { defaultValue: 'Sahabah who participated in this battle.' })}
+                    {t('participants_desc')}
                  </Typography>
               </>
             )}

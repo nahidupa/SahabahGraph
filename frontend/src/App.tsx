@@ -107,7 +107,7 @@ const loadPoliticalData = async (): Promise<PoliticalData> => {
 };
 
 const App: React.FC = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { data: apolloData } = useQuery(GET_SAHABAH);
   const [data, setData] = useState<GraphData | null>(null);
   const [politicalData, setPoliticalData] = useState<PoliticalData>({ cities: [], terms: [] });
@@ -167,12 +167,13 @@ const App: React.FC = () => {
           majorSahabah.forEach((sahabi) => {
             const isProphet = sahabi.id === 0;
             const nodeId = sahabi.id.toString();
+            const displayName = i18n.language.startsWith('ar') && sahabi.name_ar ? sahabi.name_ar : sahabi.name_en;
             initialElements.push({
               data: {
                 ...sahabi,
                 id: nodeId,
-                label: isProphet ? '★' : sahabi.name_en,
-                fullName: sahabi.name_en,
+                label: isProphet ? '★' : displayName,
+                fullName: displayName,
                 originalId: sahabi.id,
               },
             });
@@ -197,12 +198,13 @@ const App: React.FC = () => {
             if (!addedNodeIds.has(sourceId)) {
               const sourceNode = nodes.find((n) => String(n.id) === sourceId);
               if (sourceNode) {
+                const displayName = i18n.language.startsWith('ar') && sourceNode.name_ar ? sourceNode.name_ar : sourceNode.name_en;
                 initialElements.push({
                   data: {
                     ...sourceNode,
                     id: sourceId,
-                    label: sourceNode.name_en,
-                    fullName: sourceNode.name_en,
+                    label: displayName,
+                    fullName: displayName,
                     originalId: sourceNode.id,
                   },
                 });
@@ -214,12 +216,13 @@ const App: React.FC = () => {
             if (!addedNodeIds.has(targetId)) {
               const targetNode = nodes.find((n) => String(n.id) === targetId);
               if (targetNode) {
+                const displayName = i18n.language.startsWith('ar') && targetNode.name_ar ? targetNode.name_ar : targetNode.name_en;
                 initialElements.push({
                   data: {
                     ...targetNode,
                     id: targetId,
-                    label: targetNode.name_en,
-                    fullName: targetNode.name_en,
+                    label: displayName,
+                    fullName: displayName,
                     originalId: targetNode.id,
                   },
                 });
@@ -241,13 +244,14 @@ const App: React.FC = () => {
           setElements(initialElements);
         } else if (nodes.length > 0) {
           const firstNode = nodes[0];
+          const displayName = i18n.language.startsWith('ar') && firstNode.name_ar ? firstNode.name_ar : firstNode.name_en;
           setElements([
             {
               data: {
                 ...firstNode,
                 id: firstNode.id.toString(),
-                label: firstNode.name_en,
-                fullName: firstNode.name_en,
+                label: displayName,
+                fullName: displayName,
                 originalId: firstNode.id,
               },
             },
@@ -292,7 +296,7 @@ const App: React.FC = () => {
       return [
         ...prev,
         {
-          data: { ...node, id: node.id.toString(), label: node.name_en, originalId: node.id },
+          data: { ...node, id: node.id.toString(), label: (i18n.language.startsWith('ar') && node.name_ar ? node.name_ar : node.name_en), originalId: node.id },
           position: center,
         },
       ];
@@ -348,7 +352,7 @@ const App: React.FC = () => {
         data: {
           ...selectedGraphNode,
           id: selectedGraphNode.id.toString(),
-          label: selectedGraphNode.name_en,
+          label: (i18n.language.startsWith('ar') && selectedGraphNode.name_ar ? selectedGraphNode.name_ar : selectedGraphNode.name_en),
           originalId: selectedGraphNode.id,
         },
       });
@@ -358,7 +362,7 @@ const App: React.FC = () => {
       const otherId = String(rel.source) === String(nodeId) ? rel.target : rel.source;
       const otherNode = data.nodes.find(n => String(n.id) === String(otherId));
       if (otherNode) {
-        newElements.push({ data: { ...otherNode, id: otherNode.id.toString(), label: otherNode.name_en, originalId: otherNode.id } });
+        newElements.push({ data: { ...otherNode, id: otherNode.id.toString(), label: (i18n.language.startsWith('ar') && otherNode.name_ar ? otherNode.name_ar : otherNode.name_en), originalId: otherNode.id } });
         newElements.push({
           data: {
             id: `e${rel.source}-${rel.target}`,
@@ -424,7 +428,7 @@ const App: React.FC = () => {
             const nodeId = p[i];
             const node = data?.nodes.find(n => n.id.toString() === nodeId);
             if (node) {
-              newElements.push({ data: { ...node, id: node.id.toString(), label: node.name_en, originalId: node.id } });
+              newElements.push({ data: { ...node, id: node.id.toString(), label: (i18n.language.startsWith('ar') && node.name_ar ? node.name_ar : node.name_en), originalId: node.id } });
             }
 
             if (i < p.length - 1) {
@@ -498,7 +502,7 @@ const App: React.FC = () => {
           </ToggleButton>
           <ToggleButton value="political">
             <PublicIcon sx={{ mr: 1 }} />
-            {t('political_view', { defaultValue: 'Political View' })}
+            {t('political_view')}
           </ToggleButton>
         </ToggleButtonGroup>
       </MuiBox>
