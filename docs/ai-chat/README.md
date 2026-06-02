@@ -13,6 +13,7 @@ This directory contains documentation for the Chrome AI-powered chat feature in 
 - **[CHROME_AI_CAPABILITIES.md](./CHROME_AI_CAPABILITIES.md)** - Complete list of AI capabilities (15+ use cases)
 - **[AI_UI_CONTROL.md](./AI_UI_CONTROL.md)** - Natural language UI control architecture
 - **[AI_COMMANDS_GUIDE.md](./AI_COMMANDS_GUIDE.md)** - User guide for AI commands
+- **[SUPPORTED_COMMANDS.md](./SUPPORTED_COMMANDS.md)** - Complete command reference (what IS and ISN'T supported)
 
 ## 🚀 Quick Start
 
@@ -22,6 +23,7 @@ This directory contains documentation for the Chrome AI-powered chat feature in 
    - "Show Abu Bakr"
    - "Add Ali to graph"
    - "Switch to timeline view"
+   - "Add all Ashara Mubashshara" (multi-command)
 3. **Ask Questions**: "Who was Abu Bakr?" or "Tell me about the Battle of Badr"
 
 ## 🤖 Powered By
@@ -33,6 +35,13 @@ This directory contains documentation for the Chrome AI-powered chat feature in 
 ## 📝 Implementation
 
 The AI chat panel is located at: `frontend/src/components/AIChat/AIChatPanelEnhanced.tsx`
+
+## 🧪 Testing
+
+A comprehensive test suite validates JSON parsing and error handling:
+- **[README_TESTS.md](../../frontend/src/components/AIChat/README_TESTS.md)** - Test suite documentation
+- **Test Page**: http://localhost:5173/test-parser.html (18+ test cases)
+- Tests cover: valid commands, malformed JSON, text responses, edge cases
 
 ## 🔗 Related
 

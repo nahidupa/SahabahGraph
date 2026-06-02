@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Chat Flow Test - SahabahGraph</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+    h1 {
+      color: #1976d2;
+      margin-bottom: 10px;
+    }
+    .status {
+      padding: 15px;
+      border-radius: 8px;
+      margin: 20px 0;
+      font-weight: 500;
+    }
+    .status.checking {
+      background: #fff3cd;
+      border: 2px solid #ffc107;
+      color: #856404;
+    }
+    .status.available {
+      background: #d4edda;
+      border: 2px solid #28a745;
+      color: #155724;
+    }
+    .status.unavailable {
+      background: #f8d7da;
+      border: 2px solid #dc3545;
+      color: #721c24;
+    }
+    .test-section {
+      background: white;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .test-case {
+      padding: 15px;
+      margin: 10px 0;
+      border-left: 4px solid #1976d2;
+      background: #f8f9fa;
+    }
+    .test-case h3 {
+      margin: 0 0 10px 0;
+      color: #1976d2;
+    }
+    .test-case .command {
+      background: #e3f2fd;
+      padding: 10px;
+      border-radius: 4px;
+      font-family: monospace;
+      margin: 10px 0;
+    }
+    .test-case .expected {
+      color: #666;
+      font-size: 14px;
+      margin-top: 5px;
+    }
+    button {
+      background: #1976d2;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 10px 10px 10px 0;
+    }
+    button:hover {
+      background: #1565c0;
+    }
+    button:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+    .instructions {
+      background: #e3f2fd;
+      padding: 15px;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+    .instructions ol {
+      margin: 10px 0;
+      padding-left: 20px;
+    }
+    .instructions li {
+      margin: 8px 0;
+    }
+    code {
+      background: #f5f5f5;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+  <h1>🧪 AI Chat Flow Test - SahabahGraph</h1>
+  <p>Manual E2E testing for Chrome AI integration</p>
+
+  <div id="ai-status" class="status checking">
+    🔍 Checking Chrome AI availability...
+  </div>
+
+  <div class="instructions">
+    <h3>📋 Testing Instructions:</h3>
+    <ol>
+      <li>Make sure you're using <strong>Chrome Canary</strong></li>
+      <li>Ensure Gemini Nano model is downloaded (<code>chrome://on-device-internals/</code>)</li>
+      <li>Open the main app: <button onclick="window.open('http://localhost:5173', '_blank')">Open SahabahGraph</button></li>
+      <li>Test each scenario below by sending the command to the AI chat</li>
+      <li>Verify the expected behavior matches what you see</li>
+    </ol>
+  </div>
+
+  <div class="test-section">
+    <h2>Test Scenarios</h2>
+
+    <div class="test-case">
+      <h3>1. Open AI Chat Panel</h3>
+      <div class="expected">
+        ✓ Blue FAB button visible in bottom-right corner<br>
+        ✓ Click opens chat panel with "SahabahGraph Assistant" header<br>
+        ✓ Input field says "Ask about Sahabah or command the graph..."
+      </div>
+    </div>
+
+    <div class="test-case">
+      <h3>2. Simple Clear Command</h3>
+      <div class="command">clear the canvas</div>
+      <div class="expected">
+        ✓ AI responds with JSON command (you'll see it execute)<br>
+        ✓ Graph canvas clears<br>
+        ✓ No visible nodes remain
+      </div>
+    </div>
+
+    <div class="test-case">
+      <h3>3. Add Single Person</h3>
+      <div class="command">show me Abu Bakr</div>
+      <div class="expected">
+        ✓ AI returns add command<br>
+        ✓ Abu Bakr node appears on graph<br>
+        ✓ Node is highlighted/focused
+      </div>
+    </div>
+
+    <div class="test-case">
+      <h3>4. Add Multiple People</h3>
+      <div class="command">add Umar and Ali to the graph</div>
+      <div class="expected">
+        ✓ AI returns multi-add command<br>
+        ✓ Both Umar ibn al-Khattab and Ali ibn Abi Talib appear<br>
+        ✓ Relationship connections visible if they exist
+      </div>
+    </div>
+
+    <div class="test-case">
+      <h3>5. Focus Command</h3>
+      <div class="command">focus on Uthman</div>
+      <div class="expected">
+        ✓ AI returns focus command<br>
+        ✓ Uthman ibn Affan node is highlighted<br>
+        ✓ Camera zooms/centers on that node
+      </div>
+    </div>
+
+    <div class="test-case">
+      <h3>6. Q&A - Historical Information</h3>
+      <div class="command">Who was Abu Bakr?</div>
+      <div class="expected">
+        ✓ AI responds with TEXT (not JSON command)<br>
+        ✓ Response mentions: First Caliph, companion of Prophet<br>
+        ✓ Response uses SahabahGraph Assistant identity
+      </div>
+    </div>
+
+    <div class="test-case">
+      <h3>7. Q&A - Battle Information</h3>
+      <div class="command">Tell me about the Battle of Badr</div>
+      <div class="expected">
+        ✓ AI responds with historical facts<br>
+        ✓ Mentions year 624 CE<br>
+        ✓ Contextually relevant to SahabahGraph data
+      </div>
+    </div>
+
+    <div class="test-case">
+      <h3>8. AI Identity Check</h3>
+      <div class="command">What can you do?</div>
+      <div class="expected">
+        ✓ AI identifies as "SahabahGraph Assistant"<br>
+        ✓ Lists capabilities: clear, add, focus, search, zoom, view<br>
+        ✓ Does NOT say "I am created by OpenAI"
+      </div>
+    </div>
+
+    <div class="test-case">
+      <h3>9. Unsupported Command</h3>
+      <div class="command">draw a circle</div>
+      <div class="expected">
+        ✓ Error message shown (not crash)<br>
+        ✓ Suggests alternative like "add" command<br>
+        ✓ Chat remains functional
+      </div>
+    </div>
+
+    <div class="test-case">
+      <h3>10. Multi-Command</h3>
+      <div class="command">clear the graph then add Muhammad and Abu Bakr</div>
+      <div class="expected">
+        ✓ AI returns JSON with multiple actions<br>
+        ✓ Canvas clears first<br>
+        ✓ Then both nodes appear<br>
+        ✓ Executes in sequence
+      </div>
+    </div>
+
+    <div class="test-case">
+      <h3>11. Parser Edge Cases (Internal)</h3>
+      <div class="expected">
+        <strong>Check browser console for:</strong><br>
+        ✓ No JSON parse errors<br>
+        ✓ Parser steps show (🔍, ✅, etc.)<br>
+        ✓ Nested JSON with brackets/braces handles correctly<br>
+        ✓ Markdown wrapped responses unwrap properly
+      </div>
+    </div>
+  </div>
+
+  <div class="test-section">
+    <h2>📊 Test Results</h2>
+    <p>Use the browser console (F12) to monitor:</p>
+    <ul>
+      <li>🔍 Parser extraction steps</li>
+      <li>✅ Successful command execution</li>
+      <li>⚠️ Warnings for edge cases</li>
+      <li>❌ Error handling</li>
+    </ul>
+  </div>
+
+  <script>
+    // Check Chrome AI availability
+    async function checkAI() {
+      const statusEl = document.getElementById('ai-status');
+      
+      try {
+        // Try new API first (Chrome Canary 131+)
+        if (typeof window.LanguageModel !== 'undefined') {
+          const availability = await window.LanguageModel.availability();
+          if (availability === 'available') {
+            statusEl.className = 'status available';
+            statusEl.innerHTML = '✅ Chrome AI is AVAILABLE - You can proceed with testing!';
+            return true;
+          } else if (availability === 'downloading') {
+            statusEl.className = 'status checking';
+            statusEl.innerHTML = '⏳ Chrome AI model is DOWNLOADING - Wait a moment...';
+            setTimeout(checkAI, 5000); // Recheck in 5 seconds
+            return false;
+          }
+        }
+        
+        // Try old API (Chrome 127-130)
+        if (window.ai && window.ai.languageModel) {
+          const status = await window.ai.languageModel.availability();
+          if (status === 'available') {
+            statusEl.className = 'status available';
+            statusEl.innerHTML = '✅ Chrome AI is AVAILABLE (old API) - You can proceed with testing!';
+            return true;
+          }
+        }
+        
+        // Not available
+        statusEl.className = 'status unavailable';
+        statusEl.innerHTML = `
+          ❌ Chrome AI is NOT AVAILABLE<br>
+          <br>
+          <strong>Setup Required:</strong><br>
+          1. Use Chrome Canary (not stable Chrome)<br>
+          2. Go to chrome://flags and enable:<br>
+          &nbsp;&nbsp;&nbsp;• Prompt API for Gemini Nano<br>
+          &nbsp;&nbsp;&nbsp;• Enables optimization guide on device<br>
+          3. Visit chrome://on-device-internals/ and download model<br>
+          4. Restart browser<br>
+          <br>
+          See: <a href="https://developer.chrome.com/docs/ai/built-in" target="_blank">Chrome Built-in AI Setup Guide</a>
+        `;
+        return false;
+        
+      } catch (error) {
+        console.error('AI check error:', error);
+        statusEl.className = 'status unavailable';
+        statusEl.innerHTML = '❌ Chrome AI check failed: ' + error.message;
+        return false;
+      }
+    }
+
+    // Run check on page load
+    checkAI();
+  </script>
+</body>
+</html>

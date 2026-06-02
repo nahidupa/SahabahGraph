@@ -136,6 +136,35 @@ const App: React.FC = () => {
   const [currentPathIndex, setCurrentPathIndex] = useState(0);
   const cyRef = useRef<Core | null>(null);
 
+  // Calculate graph statistics for AI context
+  const graphStats = useMemo(() => {
+    if (!data) return undefined;
+    
+    const prominentFigures = data.nodes
+      .filter(n => ['PROPHET', 'ASHARA_MUBASHSHARA', 'BADRI'].includes(n.prominence || ''))
+      .map(n => n.name_en)
+      .slice(0, 10); // Top 10 prominent figures
+    
+    return {
+      totalNodes: data.nodes.length,
+      totalRelationships: data.links.length,
+      prominentFigures,
+    };
+  }, [data]);
+
+  // Get currently displayed nodes from the graph
+  const selectedGraphNodes = useMemo(() => {
+    if (!data || elements.length === 0) return [];
+    
+    const displayedNodeIds = new Set(
+      elements
+        .filter(el => el.group === 'nodes')
+        .map(el => String(el.data.id))
+    );
+    
+    return data.nodes.filter(node => displayedNodeIds.has(String(node.id)));
+  }, [data, elements]);
+
   useEffect(() => {
     let isMounted = true;
 
@@ -623,6 +652,9 @@ const App: React.FC = () => {
         onSearchChange={setSearchTerm}
         allNodes={data?.nodes || []}
         cyRef={cyRef}
+        currentView={viewMode}
+        selectedNodes={selectedGraphNodes}
+        graphStats={graphStats}
       />
     </MainLayout>
   );

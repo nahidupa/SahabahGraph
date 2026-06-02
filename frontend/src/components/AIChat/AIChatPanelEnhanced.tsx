@@ -47,6 +47,14 @@ interface AIChatPanelProps {
   // Data access
   allNodes?: Sahabi[];
   cyRef?: React.MutableRefObject<any>;
+  // Application context
+  currentView?: 'graph' | 'timeline' | 'political';
+  selectedNodes?: Sahabi[];
+  graphStats?: {
+    totalNodes: number;
+    totalRelationships: number;
+    prominentFigures: string[];
+  };
 }
 
 // Chrome AI API type declarations - supports both old and new APIs
@@ -74,7 +82,7 @@ declare global {
       destroy: () => void;
     }>;
   }
-  const LanguageModel: LanguageModelConstructor;
+  var LanguageModel: LanguageModelConstructor;
 }
 
 // Unified AI Helper - works with both old and new APIs
@@ -134,6 +142,9 @@ const AIChatPanel: React.FC<AIChatPanelProps> = ({
   onResetZoom,
   onSearchChange,
   allNodes = [],
+  currentView = 'graph',
+  selectedNodes = [],
+  graphStats,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
@@ -164,35 +175,81 @@ const AIChatPanel: React.FC<AIChatPanelProps> = ({
     const initSession = async () => {
       if (isOpen && isAIAvailable && !aiSession) {
         try {
-          const systemPrompt = `You are an AI assistant for SahabahGraph.
+          // Build context-aware system prompt
+          const totalPeople = graphStats?.totalNodes || allNodes.length;
+          const prominentNames = graphStats?.prominentFigures || [
+            'Abu Bakr', 'Umar ibn al-Khattab', 'Uthman ibn Affan', 'Ali ibn Abi Talib',
+            'Khalid ibn al-Walid', 'Muawiya I', 'Aisha bint Abi Bakr'
+          ];
+          
+          const currentGraphContext = selectedNodes.length > 0 
+            ? `Currently viewing: ${selectedNodes.map(n => n.name_en).join(', ')}`
+            : 'No nodes selected yet';
+          
+          const systemPrompt = `You are the SahabahGraph Assistant - an AI guide specialized in early Islamic history.
 
-For UI commands, respond with ONLY JSON (no extra text):
-{"type":"command","actions":[{"action":"NAME","params":{}}]}
+# YOUR ROLE
+You answer questions about early Islamic history. Commands like "clear", "add Abu Bakr", "search Badr" are handled automatically by the application, so you NEVER need to generate JSON or execute commands - just focus on answering historical questions.
 
-Available commands:
-1. clear - Clear canvas
-   {"type":"command","actions":[{"action":"clear","params":{}}]}
+# KNOWLEDGE BASE
+- **${totalPeople} historical figures**: Sahabah (Companions), Ashara Mubashshara, Umayyad governors (660-683 CE)
+- **8 major battles**: Badr, Uhud, Trench, Khaibar, Mu'tah, Hunayn, Yarmouk, Qadisiyyah
+- **6 major cities**: Medina, Mecca, Damascus, Kufa, Basra, Fustat
+- **Relationships**: family, mentorship, battles, companionship, governance
 
-2. focus - Show/focus on person
-   {"type":"command","actions":[{"action":"focus","params":{"name":"Abu Bakr"}}]}
+# PROMINENT FIGURES
+${prominentNames.slice(0, 7).join(' • ')}
 
-3. add - Add person to graph
-   {"type":"command","actions":[{"action":"add","params":{"name":"Umar ibn al-Khattab"}}]}
+# CURRENT STATE
+- View: ${currentView === 'graph' ? 'Interactive Graph' : currentView === 'timeline' ? 'Timeline View' : 'Political View'}
+- ${currentGraphContext}
+- Database: ${totalPeople} people, ${graphStats?.totalRelationships || '140+'} relationships
 
-4. search - Search for people
-   {"type":"command","actions":[{"action":"search","params":{"term":"Badr"}}]}
+# ANSWERING QUESTIONS
+Provide factual, respectful answers using Islamic honorifics (ﷺ for Prophet, رضي الله عنه for Companions).
 
-5. view - Switch views (graph/timeline/political)
-   {"type":"command","actions":[{"action":"view","params":{"view":"timeline"}}]}
+Examples:
 
-6. zoom - Zoom control (in/out/reset)
-   {"type":"command","actions":[{"action":"zoom","params":{"direction":"in"}}]}
+"Who was Abu Bakr?"
+→ "Abu Bakr as-Siddiq (رضي الله عنه) was the first Caliph and closest companion of Prophet Muhammad (ﷺ). Key facts:
+• Full name: Abdullah ibn Abi Quhafa
+• Title: As-Siddiq (The Truthful)
+• Father of Aisha (wife of the Prophet)
+• First adult male to accept Islam
+• Caliph: 632-634 CE
+• Participated in Badr, Uhud, and other battles
 
-Extract names from user input. Examples:
-- "show abu bakr" → params:{"name":"Abu Bakr"}
-- "add umar" → params:{"name":"Umar"}
+Would you like to see him on the graph? Just type 'add Abu Bakr'"
 
-For questions, respond with normal text.`;
+"How are Umar and Ali related?"
+→ "Umar ibn al-Khattab (رضي الله عنه) and Ali ibn Abi Talib (رضي الله عنه) had multiple connections:
+
+**Family:** Ali married Umar's daughter Umm Kulthum (father-in-law / son-in-law)
+**Companionship:** Both were among the Ashara Mubashshara (10 promised Paradise), fought together at Badr, Uhud, etc.
+**Political:** Umar was 2nd Caliph (634-644 CE), Ali was 4th Caliph (656-661 CE)
+
+Want to visualize this? Type 'add Umar and Ali'"
+
+"What can you do?"
+→ "I answer questions about ${totalPeople} historical figures from early Islam! Ask about:
+• Biographies (Who was X?)
+• Relationships (How are X and Y related?)
+• Battles (Tell me about Badr)
+• Governorships (Who ruled Damascus?)
+
+Commands like 'clear', 'add Abu Bakr', 'search Badr' work automatically - just type them naturally!"
+
+# GUIDELINES
+- **Respectful**: Use Islamic honorifics appropriately
+- **Accurate**: Only state known facts; acknowledge limitations
+- **Educational**: Provide context, dates, relationships
+- **Concise**: Keep answers focused but informative
+- **Helpful**: Suggest graph commands when relevant ("Want to see them? Type 'add X'")
+- **Scope**: Limit answers to Sahabah and early Umayyad period (up to 683 CE)
+
+If asked about modern topics or later Islamic history: "My knowledge covers the Sahabah and early Umayyad period (up to 683 CE)"
+
+REMEMBER: You ONLY answer questions. Commands are handled automatically - never generate JSON.`;
 
           const session = await aiHelper.createSession(systemPrompt);
           setAISession(session);
@@ -201,22 +258,26 @@ For questions, respond with normal text.`;
           setMessages([
             {
               role: 'assistant',
-              content: `Hello! I'm your AI assistant powered by Chrome's Gemini Nano. 🤖
+              content: `As-salamu alaykum! I'm the **SahabahGraph Assistant** 🕌
 
-**Commands I understand:**
-• "Clear the canvas"
-• "Show Abu Bakr" / "Focus on Umar"
-• "Add Ali to graph"
-• "Search for Badr"
-• "Switch to timeline view"
-• "Zoom in" / "Zoom out" / "Reset zoom"
+I specialize in early Islamic history and can help you explore **${totalPeople} historical figures**, including:
+• The Ashara Mubashshara (10 promised Paradise)
+• Participants in 8 major battles
+• Umayyad governors (660-683 CE)
 
-**Questions I can answer:**
+**Ask me anything:**
 • "Who was Abu Bakr?"
 • "Tell me about the Battle of Badr"
-• "What happened in Medina?"
+• "How are Umar and Ali related?"
 
-Try a command or ask me anything!`,
+**Or control the graph:**
+• "Show me Abu Bakr"
+• "Add Ali to the graph"
+• "Switch to timeline view"
+
+Current view: **${currentView}** | ${currentGraphContext}
+
+What would you like to explore?`,
               timestamp: new Date(),
             },
           ]);
@@ -235,215 +296,270 @@ Try a command or ask me anything!`,
         setAISession(null);
       }
     };
-  }, [isOpen, isAIAvailable, aiHelper]);
+  }, [isOpen, isAIAvailable, aiHelper, currentView, graphStats, selectedNodes.length]);
 
   // Scroll to bottom when new messages arrive
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
-  // Parse and execute commands
-  const executeCommands = async (commands: UICommand[]): Promise<string> => {
-    const results: string[] = [];
+  // Client-side command parser - NO AI needed for simple commands
+  const parseUserInput = (input: string): { 
+    type: 'command' | 'question'; 
+    command?: { action: string; params: Record<string, any> };
+  } => {
+    const lower = input.toLowerCase().trim();
     
-    console.log(`🎯 Executing ${commands.length} command(s):`, commands);
-    
-    for (const cmd of commands) {
-      try {
-        console.log(`⚙️ Processing command:`, cmd);
-        
-        // Handle both string and object formats (AI sometimes returns strings)
-        let actionName: string;
-        let params: Record<string, any> = {};
-        
-        if (typeof cmd === 'string') {
-          // AI returned string instead of object
-          actionName = cmd;
-          console.log(`⚠️ Command is string, converting: "${cmd}"`);
-        } else if (typeof cmd === 'object' && cmd.action) {
-          // Proper object format
-          actionName = cmd.action;
-          params = cmd.params || {};
-        } else {
-          console.error('❌ Invalid command format:', cmd);
-          results.push(`❌ Invalid command format`);
-          continue;
-        }
-        
-        // Normalize action name (handle variations like "clear_canvas" vs "clear")
-        const action = actionName.toLowerCase().replace(/_/g, '').replace(/screen/g, 'canvas');
-        
-        console.log(`🔄 Normalized action: "${actionName}" → "${action}"`);
-        
-        switch (action) {
-          case 'clear':
-          case 'clearcanvas':
-            if (onClearCanvas) {
-              onClearCanvas();
-              results.push('✅ Canvas cleared');
-            } else {
-              results.push('⚠️ Clear canvas capability not available yet');
-            }
-            break;
-            
-          case 'focus':
-          case 'focusnode':
-          case 'show':
-            if (!onFocusNode) {
-              results.push('⚠️ Focus capability not available yet');
-              break;
-            }
-            if (params?.name) {
-              const searchName = params.name.toLowerCase();
-              const node = allNodes.find(n => 
-                n.name_en.toLowerCase().includes(searchName) ||
-                n.name_ar?.includes(params.name) ||
-                // Try exact match first
-                n.name_en.toLowerCase() === searchName
-              );
-              if (node) {
-                onFocusNode(node.name_en);
-                results.push(`✅ Focused on ${node.name_en}`);
-              } else {
-                // Suggest similar names
-                const similar = allNodes
-                  .filter(n => n.name_en.toLowerCase().includes(searchName.split(' ')[0]))
-                  .slice(0, 3)
-                  .map(n => n.name_en);
-                
-                if (similar.length > 0) {
-                  results.push(`❌ "${params.name}" not found. Did you mean: ${similar.join(', ')}?`);
-                } else {
-                  results.push(`❌ Person "${params.name}" not found in database`);
-                }
-              }
-            } else {
-              results.push(`⚠️ Please specify a person's name (e.g., "show Abu Bakr")`);
-            }
-            break;
-            
-          case 'add':
-          case 'addnode':
-            if (!onAddNode) {
-              results.push('⚠️ Add node capability not available yet');
-              break;
-            }
-            if (params?.name) {
-              const searchName = params.name.toLowerCase();
-              const node = allNodes.find(n => 
-                n.name_en.toLowerCase().includes(searchName) ||
-                n.name_ar?.includes(params.name) ||
-                n.name_en.toLowerCase() === searchName
-              );
-              if (node) {
-                onAddNode(node);
-                results.push(`✅ Added ${node.name_en} to graph`);
-              } else {
-                // Suggest similar names
-                const similar = allNodes
-                  .filter(n => n.name_en.toLowerCase().includes(searchName.split(' ')[0]))
-                  .slice(0, 3)
-                  .map(n => n.name_en);
-                
-                if (similar.length > 0) {
-                  results.push(`❌ "${params.name}" not found. Did you mean: ${similar.join(', ')}?`);
-                } else {
-                  results.push(`❌ Person "${params.name}" not found in database`);
-                }
-              }
-            } else {
-              results.push(`⚠️ Please specify a person's name (e.g., "add Abu Bakr")`);
-            }
-            break;
-            
-          case 'search':
-          case 'searchnodes':
-            if (!onSearchChange) {
-              results.push('⚠️ Search capability not available yet');
-              break;
-            }
-            if (params?.term) {
-              onSearchChange(params.term);
-              const found = allNodes.filter(n => 
-                n.name_en.toLowerCase().includes(params.term.toLowerCase()) ||
-                n.name_ar?.includes(params.term)
-              ).length;
-              results.push(`✅ Searching for "${params.term}" (${found} results)`);
-            } else {
-              results.push(`⚠️ Please specify a search term (e.g., "search Badr")`);
-            }
-            break;
-            
-          case 'filter':
-          case 'filternodes':
-            if (!onFilterNodes) {
-              results.push('⚠️ Filter capability not available yet');
-              break;
-            }
-            if (params) {
-              onFilterNodes(params);
-              results.push(`✅ Applied filters`);
-            } else {
-              results.push(`⚠️ Please specify filter criteria`);
-            }
-            break;
-            
-          case 'view':
-          case 'switchview':
-            if (!onSwitchView) {
-              results.push('⚠️ View switching capability not available yet');
-              break;
-            }
-            if (params?.view) {
-              const validViews = ['graph', 'timeline', 'political'];
-              if (validViews.includes(params.view.toLowerCase())) {
-                onSwitchView(params.view.toLowerCase());
-                results.push(`✅ Switched to ${params.view} view`);
-              } else {
-                results.push(`⚠️ Invalid view. Use: graph, timeline, or political`);
-              }
-            } else {
-              results.push(`⚠️ Please specify a view (graph, timeline, or political)`);
-            }
-            break;
-            
-          case 'zoom':
-          case 'zoomin':
-          case 'zoomout':
-          case 'resetzoom':
-          case 'resetview':
-            if (!onZoomIn && !onZoomOut && !onResetZoom) {
-              results.push('⚠️ Zoom capability not available yet');
-              break;
-            }
-            const direction = params?.direction || 'reset';
-            if (direction === 'in' || action === 'zoomin') {
-              onZoomIn?.();
-              results.push(`✅ Zoomed in`);
-            } else if (direction === 'out' || action === 'zoomout') {
-              onZoomOut?.();
-              results.push(`✅ Zoomed out`);
-            } else {
-              onResetZoom?.();
-              results.push(`✅ Reset zoom`);
-            }
-            break;
-            
-          default:
-            results.push(`⚠️ Command "${actionName}" not supported yet. Available: clear, focus, add, search, view, zoom`);
-        }
-      } catch (error) {
-        console.error('❌ Command execution error:', error);
-        const errorMsg = error instanceof Error ? error.message : 'Unknown error';
-        results.push(`❌ Error: ${errorMsg}`);
-      }
+    // 1. CLEAR commands
+    if (/^(clear|reset)(\s+(the\s+)?(canvas|graph|screen))?$/i.test(lower)) {
+      return { type: 'command', command: { action: 'clear', params: {} } };
     }
     
-    return results.join('\n');
+    // 2. SHOW/ADD single person commands
+    const showMatch = input.match(/^(show|add|display|i want to see)\s+(?:me\s+)?(.+?)$/i);
+    if (showMatch && !lower.includes(' all ')) {
+      return { 
+        type: 'command', 
+        command: { action: 'add', params: { name: showMatch[2].trim() } } 
+      };
+    }
+    
+    // 3. SEARCH commands - "all X" patterns or explicit search
+    const allMatch = input.match(/^(?:add|show|find)\s+all\s+(?:involved in|at|from|in|of|the)?\s*(.+)$/i);
+    if (allMatch) {
+      return { 
+        type: 'command', 
+        command: { action: 'search', params: { term: allMatch[1].trim() } } 
+      };
+    }
+    
+    const searchMatch = input.match(/^(?:search|find)\s+(?:for\s+)?(.+)$/i);
+    if (searchMatch) {
+      return { 
+        type: 'command', 
+        command: { action: 'search', params: { term: searchMatch[1].trim() } } 
+      };
+    }
+    
+    // 4. ZOOM commands
+    if (/^zoom\s+(in|out)$/i.test(lower)) {
+      const direction = lower.includes('in') ? 'in' : 'out';
+      return { type: 'command', command: { action: 'zoom', params: { direction } } };
+    }
+    
+    // 5. VIEW commands
+    const viewMatch = input.match(/^(?:switch to|show|view)\s+(timeline|political|graph)(?:\s+view)?$/i);
+    if (viewMatch) {
+      return { 
+        type: 'command', 
+        command: { action: 'view', params: { view: viewMatch[1].toLowerCase() } } 
+      };
+    }
+    
+    // 6. FOCUS commands
+    const focusMatch = input.match(/^(?:focus|highlight)\s+(?:on\s+)?(.+)$/i);
+    if (focusMatch) {
+      return { 
+        type: 'command', 
+        command: { action: 'focus', params: { name: focusMatch[1].trim() } } 
+      };
+    }
+    
+    // 7. EXPAND RELATIONSHIP commands
+    // Patterns: "expand relationship between X and Y", "show relationship X and Y", "expand X and Y"
+    const expandBetween = input.match(/^(?:expand|show)\s+(?:relationship|relation|connection)?\s*(?:between|of)?\s+(.+?)\s+(?:and|with)\s+(.+)$/i);
+    if (expandBetween) {
+      return {
+        type: 'command',
+        command: { 
+          action: 'expand', 
+          params: { 
+            person1: expandBetween[1].trim(), 
+            person2: expandBetween[2].trim() 
+          } 
+        }
+      };
+    }
+    
+    // Pattern: "expand their relationship" (uses currently selected nodes)
+    if (/^expand\s+(?:their|the)?\s*relationship/i.test(lower)) {
+      return {
+        type: 'command',
+        command: { action: 'expand', params: { useCurrent: true } }
+      };
+    }
+    
+    // Everything else is a question for the AI
+    return { type: 'question' };
+  };
+
+  // Execute a single command (no AI involved)
+  const executeCommand = async (command: { action: string; params: Record<string, any> }): Promise<string> => {
+    const { action, params } = command;
+    
+    console.log(`🎯 Executing command:`, action, params);
+    
+    switch (action) {
+      case 'clear':
+        if (onClearCanvas) {
+          onClearCanvas();
+          return '✅ Canvas cleared';
+        }
+        return '⚠️ Clear canvas capability not available';
+        
+      case 'add':
+      case 'focus': {
+        const handler = action === 'add' ? onAddNode : onFocusNode;
+        if (!handler) {
+          return `⚠️ ${action === 'add' ? 'Add' : 'Focus'} capability not available`;
+        }
+        
+        if (!params.name) {
+          return `⚠️ Please specify a person's name`;
+        }
+        
+        const searchName = params.name.toLowerCase();
+        const node = allNodes.find(n => 
+          n.name_en.toLowerCase().includes(searchName) ||
+          n.name_ar?.includes(params.name) ||
+          n.name_en.toLowerCase() === searchName
+        );
+        
+        if (node) {
+          if (action === 'add') {
+            onAddNode!(node);
+            return `✅ Added ${node.name_en} to graph`;
+          } else {
+            onFocusNode!(node.name_en);
+            return `✅ Focused on ${node.name_en}`;
+          }
+        } else {
+          const similar = allNodes
+            .filter(n => n.name_en.toLowerCase().includes(searchName.split(' ')[0]))
+            .slice(0, 3)
+            .map(n => n.name_en);
+          
+          if (similar.length > 0) {
+            return `❌ "${params.name}" not found. Did you mean: ${similar.join(', ')}?`;
+          }
+          return `❌ Person "${params.name}" not found in database`;
+        }
+      }
+      
+      case 'search':
+        if (!onSearchChange) {
+          return '⚠️ Search capability not available';
+        }
+        if (!params.term) {
+          return '⚠️ Please specify a search term';
+        }
+        onSearchChange(params.term);
+        const found = allNodes.filter(n => 
+          n.name_en.toLowerCase().includes(params.term.toLowerCase()) ||
+          n.name_ar?.includes(params.term)
+        ).length;
+        return `✅ Searching for "${params.term}" (${found} results)`;
+        
+      case 'view':
+        if (!onSwitchView) {
+          return '⚠️ View switching capability not available';
+        }
+        if (!params.view) {
+          return '⚠️ Please specify a view (graph, timeline, or political)';
+        }
+        const validViews = ['graph', 'timeline', 'political'];
+        if (!validViews.includes(params.view)) {
+          return `⚠️ Invalid view. Use: ${validViews.join(', ')}`;
+        }
+        onSwitchView(params.view);
+        return `✅ Switched to ${params.view} view`;
+        
+      case 'zoom':
+        const direction = params.direction || 'reset';
+        if (direction === 'in' && onZoomIn) {
+          onZoomIn();
+          return '✅ Zoomed in';
+        } else if (direction === 'out' && onZoomOut) {
+          onZoomOut();
+          return '✅ Zoomed out';
+        } else if (onResetZoom) {
+          onResetZoom();
+          return '✅ Reset zoom';
+        }
+        return '⚠️ Zoom capability not available';
+        
+      case 'expand': {
+        if (!onAddNode) {
+          return '⚠️ Add node capability not available';
+        }
+        
+        // Handle "expand their relationship" (uses current selection)
+        if (params.useCurrent) {
+          if (selectedNodes.length < 2) {
+            return '⚠️ Please select at least 2 people first, or specify names like "expand Abu Bakr and Umar"';
+          }
+          return `ℹ️ Relationships between ${selectedNodes.map(n => n.name_en).join(', ')} are already shown automatically as connecting lines.
+
+The graph displays all relationships from the database:
+• Family (parent, spouse, sibling)
+• Battles fought together
+• Companionship
+• Governance
+
+To see MORE related people, try "add [person name]"`;
+        }
+        
+        // Handle "expand X and Y" - add both people if not already on graph
+        const { person1, person2 } = params;
+        if (!person1 || !person2) {
+          return '⚠️ Please specify two people (e.g., "expand Abu Bakr and Umar")';
+        }
+        
+        const searchName1 = person1.toLowerCase();
+        const searchName2 = person2.toLowerCase();
+        
+        const node1 = allNodes.find(n => 
+          n.name_en.toLowerCase().includes(searchName1) ||
+          n.name_ar?.includes(person1)
+        );
+        const node2 = allNodes.find(n => 
+          n.name_en.toLowerCase().includes(searchName2) ||
+          n.name_ar?.includes(person2)
+        );
+        
+        if (!node1 && !node2) {
+          return `❌ Neither "${person1}" nor "${person2}" found in database`;
+        }
+        
+        if (!node1) {
+          return `❌ "${person1}" not found in database`;
+        }
+        
+        if (!node2) {
+          return `❌ "${person2}" not found in database`;
+        }
+        
+        // Add both nodes
+        onAddNode(node1);
+        onAddNode(node2);
+        
+        return `✅ Added ${node1.name_en} and ${node2.name_en} to the graph.
+
+Their relationships are now visible as connecting lines:
+• Family relationships
+• Shared battles
+• Companionship connections
+
+The graph automatically displays all relationships from the database!`;
+      }
+        
+      default:
+        return `❌ Unknown command: ${action}`;
+    }
   };
 
   const handleSendMessage = async () => {
-    if (!inputValue.trim() || !aiSession || isLoading) return;
+    if (!inputValue.trim() || isLoading) return;
 
     const userMessage: Message = {
       role: 'user',
@@ -457,88 +573,53 @@ Try a command or ask me anything!`,
     setIsLoading(true);
 
     try {
-      // Enhanced prompt that helps AI decide between command and question
-      const enhancedPrompt = `User: "${currentInput}"
-
-If UI command → respond ONLY with JSON:
-{"type":"command","actions":[{"action":"NAME","params":{...}}]}
-
-If question → respond with helpful text.
-
-Extract person names carefully:
-- "show abu bakr" → {"action":"focus","params":{"name":"Abu Bakr"}}
-- "add umar ibn khattab" → {"action":"add","params":{"name":"Umar ibn al-Khattab"}}
-
-Response:`;
+      // Parse user input with client-side regex (deterministic, no AI needed)
+      const parsed = parseUserInput(currentInput);
       
-      const response = await aiSession.prompt(enhancedPrompt);
-      
-      console.log('🤖 AI Raw Response:', response);
-      
-      // Try to parse as JSON command
-      let isCommand = false;
-      let commandResult = '';
-      
-      // Clean the response (remove markdown code blocks if present)
-      let cleanResponse = response.trim();
-      if (cleanResponse.startsWith('```json')) {
-        cleanResponse = cleanResponse.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();
-      } else if (cleanResponse.startsWith('```')) {
-        cleanResponse = cleanResponse.replace(/```\n?/g, '').trim();
-      }
-      
-      console.log('🧹 Cleaned Response:', cleanResponse);
-      
-      // Try parsing, removing extra } at the end if needed
-      let parsed = null;
-      let attempts = [cleanResponse];
-      
-      // If it ends with multiple }, try removing them one by one
-      if (cleanResponse.endsWith('}}')) {
-        attempts.push(cleanResponse.slice(0, -1)); // Remove last }
-        attempts.push(cleanResponse.slice(0, -2)); // Remove last 2 }
-      }
-      
-      for (const attempt of attempts) {
-        try {
-          parsed = JSON.parse(attempt);
-          console.log('✅ Parsed JSON:', parsed);
-          break;
-        } catch (e) {
-          console.log(`❌ Parse attempt failed for: ${attempt.substring(0, 50)}...`);
-        }
-      }
-      
-      if (parsed && parsed.type === 'command' && Array.isArray(parsed.actions)) {
-        isCommand = true;
-        console.log('🎮 Executing commands:', parsed.actions);
-        commandResult = await executeCommands(parsed.actions);
-        console.log('✅ Command result:', commandResult);
-      } else if (!parsed) {
-        console.log('ℹ️ No valid JSON found, treating as text response');
-      }
-      
-      if (isCommand && commandResult) {
-        // Show command execution result
-        const commandMessage: Message = {
+      if (parsed.type === 'command' && parsed.command) {
+        // Execute command directly - NO AI INVOLVED
+        console.log('🎯 Detected command:', parsed.command);
+        const result = await executeCommand(parsed.command);
+        
+        const resultMessage: Message = {
           role: 'assistant',
-          content: commandResult,
+          content: result,
           timestamp: new Date(),
           isCommand: true,
-          commandResult,
+          commandResult: result,
         };
-        setMessages((prev) => [...prev, commandMessage]);
+        setMessages((prev) => [...prev, resultMessage]);
+        
       } else {
-        // Regular Q&A response
-        const assistantMessage: Message = {
+        // It's a question - ask the AI
+        console.log('❓ Detected question, asking AI...');
+        
+        if (!aiSession) {
+          const errorMessage: Message = {
+            role: 'assistant',
+            content: 'AI session not available. Please try reopening the chat panel.',
+            timestamp: new Date(),
+          };
+          setMessages((prev) => [...prev, errorMessage]);
+          return;
+        }
+        
+        // Simple prompt for Q&A only
+        const response = await aiSession.prompt(`User question: "${currentInput}"
+
+Answer this question about early Islamic history. Be informative and respectful.
+
+If the question mentions people in the database, offer to add them to the graph at the end.`);
+        
+        const aiMessage: Message = {
           role: 'assistant',
           content: response,
           timestamp: new Date(),
         };
-        setMessages((prev) => [...prev, assistantMessage]);
+        setMessages((prev) => [...prev, aiMessage]);
       }
     } catch (error) {
-      console.error('AI Error:', error);
+      console.error('Error processing message:', error);
       const errorMessage: Message = {
         role: 'assistant',
         content: 'Sorry, I encountered an error processing your request. Please try again.',
