@@ -27,3 +27,6 @@
     3.  `validate_data.py`: Ensures data integrity, checking for broken links, date inconsistencies, and missing term data.
 - **Handling Dates**: Pre-Hijri dates are represented as negative integers. Validation logic must account for this to correctly check birth/death order and parent-child age gaps.
 - **Graph Expansion**: The UI uses `has_*` boolean flags on nodes to determine if expansion buttons should be enabled, improving performance by avoiding unnecessary link searches in the frontend.
+## 2024-05-22 - Onboarding Tour UI Fix
+**Learning:** Tooltips rendered inside containers with 'overflow: hidden' can be clipped. Moving them to a higher level in the component tree avoids this. React-Joyride's beacon can be disabled with 'disableBeacon: true' to show tooltips directly, and persistence should be handled by marking 'seen' status on both completion and manual closure (ACTIONS.CLOSE).
+**Action:** Relocated OnboardingTour to a top-level 'tour' prop in MainLayout and updated callback logic.

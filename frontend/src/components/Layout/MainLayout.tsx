@@ -21,9 +21,10 @@ interface MainLayoutProps {
   children: React.ReactNode;
   sidebar: React.ReactNode;
   detailPanel: React.ReactNode;
+  tour?: React.ReactNode;
 }
 
-const MainLayout: React.FC<MainLayoutProps> = ({ children, sidebar, detailPanel }) => {
+const MainLayout: React.FC<MainLayoutProps> = ({ children, sidebar, detailPanel, tour }) => {
   const { i18n } = useTranslation();
   const direction = i18n.dir();
   const theme = getTheme(direction);
@@ -32,6 +33,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children, sidebar, detailPanel 
     <CacheProvider value={direction === 'rtl' ? cacheRtl : cacheLtr}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
+        {tour}
         <Box
           sx={{
             display: 'flex',

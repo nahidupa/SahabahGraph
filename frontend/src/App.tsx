@@ -513,6 +513,7 @@ const App: React.FC = () => {
 
   return (
     <MainLayout
+      tour={<OnboardingTour run={runTour} onFinish={handleTourFinish} />}
       sidebar={
         <SahabahSidebar
           onStartTour={startTour}
@@ -604,7 +605,6 @@ const App: React.FC = () => {
           }}
         />
       )}
-      <OnboardingTour run={runTour} onFinish={handleTourFinish} />
       <AIChatPanel 
         onClearCanvas={removeAllNodes}
         onFocusNode={(nodeName) => {
