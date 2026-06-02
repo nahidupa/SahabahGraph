@@ -18,7 +18,7 @@ const OnboardingTour: React.FC<OnboardingTourProps> = ({ run, onFinish }) => {
       target: '#tour-sidebar',
       title: t('tour.sidebar_title'),
       content: t('tour.sidebar_content'),
-      placement: 'bottom',
+      placement: 'right-start',
       skipBeacon: true,
     },
     {
@@ -77,6 +77,9 @@ const OnboardingTour: React.FC<OnboardingTourProps> = ({ run, onFinish }) => {
       scrollToFirstStep
       onEvent={handleJoyrideEvent}
       overlayClickAction={false}
+      spotlightClicks={false}
+      hideCloseButton={false}
+      disableScrolling={false}
       locale={{
         back: t('tour.back'),
         close: t('tour.last'),
@@ -92,14 +95,17 @@ const OnboardingTour: React.FC<OnboardingTourProps> = ({ run, onFinish }) => {
           backgroundColor: theme.palette.background.paper,
           textColor: theme.palette.text.primary,
           arrowColor: theme.palette.background.paper,
-          width: 360,
+          width: 320,
         },
         tooltipContainer: {
           textAlign: direction === 'rtl' ? 'right' : 'left',
           direction: direction,
         },
         tooltip: {
-          maxWidth: 360,
+          maxWidth: 320,
+        },
+        overlay: {
+          backgroundColor: 'rgba(0, 0, 0, 0.5)',
         },
       }}
     />
