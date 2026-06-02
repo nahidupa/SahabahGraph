@@ -65,3 +65,18 @@
 - Added `spotlightClicks={false}`, `hideCloseButton={false}`, `disableScrolling={false}`
 - Added semi-transparent overlay styling `rgba(0, 0, 0, 0.5)`
 **Result:** Tour now appears reliably on first visit after a brief loading period, with proper positioning at top-right of sidebar.
+
+## 2026-06-02 - Prophet Node Star Rendering (Type Mismatch Bug)
+**Problem:** Prophet Muhammad (PBUH) node was rendering as a gray circle instead of a gold star. When clearing canvas and re-adding the Prophet from sidebar, it stayed gray instead of becoming a star.
+**Root Cause:** Cytoscape.js CSS selector type mismatch:
+- Data has `is_prophet: true` (boolean)
+- GraphCanvas.tsx selector: `node[is_prophet = "true"]` (string comparison)
+- Boolean `true` !== string `"true"` → selector never matched → Prophet styling not applied
+**Solution:** Convert `is_prophet` to string in ALL node creation paths:
+1. `addNodeToGraph` - sidebar + button (was missing, caused re-add bug)
+2. Initial load - 3 places where nodes are created
+3. `expandRelationships` - 2 places (selected node + related nodes)  
+4. `handleShowConnections` - pathfinding results
+Add `is_prophet: String(node.is_prophet)` when creating Cytoscape element data.
+**Lesson:** Cytoscape attribute selectors perform strict type matching. Always convert boolean/number attributes to strings when using them in selectors.
+**Result:** Prophet node now consistently renders as ⭐ gold star (80px, #ffd700) regardless of how it's added to the canvas.
