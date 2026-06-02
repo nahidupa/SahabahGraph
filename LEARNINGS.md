@@ -50,3 +50,18 @@
 - Prioritized Prophet's family relationships over others
 - Added logic to only include edges when both nodes are present
 **Result:** Clean, focused initial view with 8-10 nodes showing the most important figures and their key relationships. Users can expand to explore more through the detail panel.
+
+## 2026-06-02 - Tour Timing Fix (Critical)
+**Problem:** Tour was not appearing on first visit - "initially nothing show up". The tour component was trying to target DOM elements (like `#tour-sidebar`) before they were rendered, causing the tour to fail silently.
+**Root Cause:** Tour's `run` state was set to `true` immediately on mount when `!localStorage.getItem('hasSeenTour')`, but graph data was still loading asynchronously.
+**Solution:** Implemented data-driven tour initialization:
+1. Added `dataLoaded` state that tracks when graph initialization completes
+2. Tour only starts via `useEffect` after `dataLoaded === true` AND `!hasSeenTour`
+3. Added 500ms delay after data loads to ensure DOM is fully ready
+4. Set `dataLoaded = true` after `setElements()` completes
+**Tour Positioning Improvements:**
+- Changed placement from `'right'` → `'bottom'` → `'right-start'` for better positioning
+- Reduced tooltip width to 320px (from 360px) for narrower footprint
+- Added `spotlightClicks={false}`, `hideCloseButton={false}`, `disableScrolling={false}`
+- Added semi-transparent overlay styling `rgba(0, 0, 0, 0.5)`
+**Result:** Tour now appears reliably on first visit after a brief loading period, with proper positioning at top-right of sidebar.
