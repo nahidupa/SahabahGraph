@@ -10344,7 +10344,7 @@
       "name_de": "",
       "kunyah": "",
       "laqab": "",
-      "gender": "male",
+      "gender": "female",
       "is_prophet": false,
       "node_type": "PoliticalFigure",
       "prominence": "1",
@@ -22035,22 +22035,6 @@
       "category": "biological"
     },
     {
-      "source": 316,
-      "target": 36,
-      "source_id": 316,
-      "target_id": 36,
-      "type": "PARENT_OF",
-      "category": "biological"
-    },
-    {
-      "source": 317,
-      "target": 36,
-      "source_id": 317,
-      "target_id": 36,
-      "type": "PARENT_OF",
-      "category": "biological"
-    },
-    {
       "source": 318,
       "target": 39,
       "source_id": 318,
@@ -22327,22 +22311,6 @@
       "target": 34,
       "source_id": 317,
       "target_id": 34,
-      "type": "PARENT_OF",
-      "category": "biological"
-    },
-    {
-      "source": 318,
-      "target": 36,
-      "source_id": 318,
-      "target_id": 36,
-      "type": "PARENT_OF",
-      "category": "biological"
-    },
-    {
-      "source": 319,
-      "target": 36,
-      "source_id": 319,
-      "target_id": 36,
       "type": "PARENT_OF",
       "category": "biological"
     },
@@ -22688,7 +22656,7 @@
       "source_id": 322,
       "target_id": 36,
       "type": "PARENT_OF",
-      "category": "family"
+      "category": "biological"
     },
     {
       "source": 323,
@@ -22696,7 +22664,7 @@
       "source_id": 323,
       "target_id": 36,
       "type": "PARENT_OF",
-      "category": "family"
+      "category": "biological"
     },
     {
       "source": 324,
@@ -23555,22 +23523,6 @@
       "category": "family"
     },
     {
-      "source": 36,
-      "target": 316,
-      "source_id": 36,
-      "target_id": 316,
-      "type": "SON_OF",
-      "category": "family"
-    },
-    {
-      "source": 36,
-      "target": 317,
-      "source_id": 36,
-      "target_id": 317,
-      "type": "SON_OF",
-      "category": "family"
-    },
-    {
       "source": 39,
       "target": 318,
       "source_id": 39,
@@ -23847,22 +23799,6 @@
       "target": 317,
       "source_id": 34,
       "target_id": 317,
-      "type": "SON_OF",
-      "category": "family"
-    },
-    {
-      "source": 36,
-      "target": 318,
-      "source_id": 36,
-      "target_id": 318,
-      "type": "SON_OF",
-      "category": "family"
-    },
-    {
-      "source": 36,
-      "target": 319,
-      "source_id": 36,
-      "target_id": 319,
       "type": "SON_OF",
       "category": "family"
     },
