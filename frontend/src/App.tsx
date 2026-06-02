@@ -109,12 +109,8 @@ const loadPoliticalData = async (): Promise<PoliticalData> => {
 };
 
 const App: React.FC = () => {
-  const [runTour, setRunTour] = useState(() => {
-    if (typeof window !== 'undefined') {
-      return !localStorage.getItem('hasSeenTour');
-    }
-    return false;
-  });
+  const [dataLoaded, setDataLoaded] = useState(false);
+  const [runTour, setRunTour] = useState(false);
 
   const handleTourFinish = () => {
     localStorage.setItem('hasSeenTour', 'true');
@@ -124,6 +120,17 @@ const App: React.FC = () => {
   const startTour = () => {
     setRunTour(true);
   };
+
+  // Check if user should see tour after data is loaded
+  useEffect(() => {
+    if (dataLoaded && !localStorage.getItem('hasSeenTour')) {
+      // Small delay to ensure DOM is fully ready
+      const timer = setTimeout(() => {
+        setRunTour(true);
+      }, 500);
+      return () => clearTimeout(timer);
+    }
+  }, [dataLoaded]);
   const { t, i18n } = useTranslation();
   const { data: apolloData } = useQuery(GET_SAHABAH);
   const [data, setData] = useState<GraphData | null>(null);
@@ -303,6 +310,7 @@ const App: React.FC = () => {
           }
 
           setElements(initialElements);
+          setDataLoaded(true); // Mark data as loaded for tour
         } else if (nodes.length > 0) {
           const firstNode = nodes[0];
           const displayName = i18n.language.startsWith('ar') && firstNode.name_ar ? firstNode.name_ar : firstNode.name_en;
@@ -317,6 +325,7 @@ const App: React.FC = () => {
               },
             },
           ]);
+          setDataLoaded(true); // Mark data as loaded for tour
         }
       } catch (error) {
         console.error('Failed to initialize graph data', error);
