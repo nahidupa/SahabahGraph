@@ -80,3 +80,36 @@
 Add `is_prophet: String(node.is_prophet)` when creating Cytoscape element data.
 **Lesson:** Cytoscape attribute selectors perform strict type matching. Always convert boolean/number attributes to strings when using them in selectors.
 **Result:** Prophet node now consistently renders as ⭐ gold star (80px, #ffd700) regardless of how it's added to the canvas.
+
+## 2026-06-02 - Canvas State Persistence with localStorage
+**Problem:** Users modify the canvas (add/remove nodes, arrange layout), but changes disappear on page refresh. Each reload resets to default initial view, losing all work.
+**Requirements:**
+- Save canvas state automatically when user makes changes
+- Restore saved state on page reload
+- Preserve node positions (not just which nodes, but their layout)
+- Clear saved state when user explicitly clears canvas
+- Debounce saves to avoid performance issues
+**Solution:** Implement localStorage persistence with smart save/restore:
+1. **Auto-save on change:** useEffect monitors `elements` state, saves to localStorage after 500ms debounce
+2. **Position preservation:** Extract positions from Cytoscape instance before saving
+3. **Restore on load:** Check localStorage before loading default data in `initializeData()`
+4. **Clear on reset:** `removeAllNodes()` and `removeNodesFromGraph()` clear localStorage when canvas emptied
+5. **Fallback:** If localStorage empty or corrupted, fall back to default initial load
+**Implementation Details:**
+- Storage key: `'sahabahgraph_canvas_state'`
+- Save trigger: elements array changes AND dataLoaded is true
+- Saved data: Full Cytoscape element definitions including positions
+- Debounce: 500ms delay prevents excessive writes during rapid changes
+**Edge Cases Handled:**
+- First visit: No localStorage → load default initial view
+- Corrupted data: Try/catch with fallback to default
+- All nodes removed: Clear localStorage (empty canvas shouldn't persist)
+- Position updates: Pull latest positions from Cytoscape before save
+**User Experience:**
+- Transparent: No UI changes, just works in background
+- Add nodes → refresh → nodes still there
+- Arrange graph → refresh → layout preserved
+- Clear canvas (trash icon) → localStorage cleared
+- AI command "clear" → also clears localStorage
+**Lesson:** localStorage is ideal for persisting UI state, but requires careful error handling and debouncing. Always save both data AND positions for graph visualizations.
+**Result:** Canvas modifications now persist across browser sessions automatically, dramatically improving UX for exploratory workflows.
