@@ -30,3 +30,14 @@
 ## 2024-05-22 - Onboarding Tour UI Fix
 **Learning:** Tooltips rendered inside containers with 'overflow: hidden' can be clipped. Moving them to a higher level in the component tree avoids this. React-Joyride's beacon can be disabled with 'disableBeacon: true' to show tooltips directly, and persistence should be handled by marking 'seen' status on both completion and manual closure (ACTIONS.CLOSE).
 **Action:** Relocated OnboardingTour to a top-level 'tour' prop in MainLayout and updated callback logic.
+
+## 2026-06-02 - React-Joyride v3 Migration
+**Problem:** Build failed in CI/CD with TypeScript errors after merging PR #32 tour improvements. The @types/react-joyride package was a stub - react-joyride v3.1.0 provides built-in TypeScript definitions.
+**Breaking Changes in v3:**
+- `disableBeacon` → `skipBeacon`
+- `callback` prop → `onEvent` prop
+- `CallBackProps` type → `EventData` type
+- `disableOverlayClose` prop → `overlayClickAction: false`
+- Callback signature changed from `(data: CallBackProps) => void` to `(data: EventData) => void`
+**Solution:** Removed @types/react-joyride package, updated OnboardingTour.tsx to use v3 API with correct property names and types.
+**Result:** Build passes, all tests green, deployment successful.

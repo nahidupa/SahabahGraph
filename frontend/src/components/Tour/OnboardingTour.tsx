@@ -1,5 +1,5 @@
 import React from 'react';
-import { Joyride, STATUS, ACTIONS, type Step, type CallBackProps } from 'react-joyride';
+import { Joyride, STATUS, ACTIONS, type Step, type EventData } from 'react-joyride';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '@mui/material/styles';
 
@@ -19,50 +19,50 @@ const OnboardingTour: React.FC<OnboardingTourProps> = ({ run, onFinish }) => {
       title: t('tour.sidebar_title'),
       content: t('tour.sidebar_content'),
       placement: 'right',
-      disableBeacon: true,
+      skipBeacon: true,
     },
     {
       target: '#tour-search',
       title: t('tour.search_title'),
       content: t('tour.search_content'),
       placement: 'bottom',
-      disableBeacon: true,
+      skipBeacon: true,
     },
     {
       target: '#tour-view-toggler',
       title: t('tour.view_toggler_title'),
       content: t('tour.view_toggler_content'),
       placement: 'bottom',
-      disableBeacon: true,
+      skipBeacon: true,
     },
     {
       target: '#tour-graph-canvas',
       title: t('tour.graph_canvas_title'),
       content: t('tour.graph_canvas_content'),
       placement: 'center',
-      disableBeacon: true,
+      skipBeacon: true,
     },
     {
       target: '#tour-graph-controls',
       title: t('tour.graph_controls_title'),
       content: t('tour.graph_controls_content'),
       placement: 'top',
-      disableBeacon: true,
+      skipBeacon: true,
     },
     {
       target: '#tour-detail-panel',
       title: t('tour.detail_panel_title'),
       content: t('tour.detail_panel_content'),
       placement: 'left',
-      disableBeacon: true,
+      skipBeacon: true,
     },
   ];
 
-  const handleJoyrideCallback = (data: CallBackProps) => {
+  const handleJoyrideEvent = (data: EventData) => {
     const { status, action } = data;
-    const finishedStatuses: string[] = [STATUS.FINISHED, STATUS.SKIPPED];
 
-    if (finishedStatuses.includes(status) || action === ACTIONS.CLOSE) {
+    // Handle tour completion
+    if (status === STATUS.FINISHED || status === STATUS.SKIPPED || action === ACTIONS.CLOSE) {
       onFinish();
     }
   };
@@ -75,8 +75,8 @@ const OnboardingTour: React.FC<OnboardingTourProps> = ({ run, onFinish }) => {
       showProgress
       showSkipButton
       scrollToFirstStep
-      callback={handleJoyrideCallback}
-      disableOverlayClose
+      onEvent={handleJoyrideEvent}
+      overlayClickAction={false}
       locale={{
         back: t('tour.back'),
         close: t('tour.last'),
