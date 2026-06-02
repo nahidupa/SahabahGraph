@@ -10,7 +10,7 @@ import {
   Paper
 } from '@mui/material';
 import {
-  Add as AddIcon,
+  UnfoldMore as ExpandIcon,
   ChevronLeft as ChevronLeftIcon,
   ChevronRight as ChevronRightIcon,
   Security as BattleIcon,
@@ -298,7 +298,7 @@ const SahabahDetail: React.FC<SahabahDetailProps> = ({
                     key={cat}
                     label={t(`categories.${cat.toLowerCase()}`, { defaultValue: cat.charAt(0).toUpperCase() + cat.slice(1) })}
                     onClick={() => onExpand(selectedNode.id, cat)}
-                    icon={<AddIcon />}
+                    icon={<ExpandIcon />}
                     color="primary"
                     variant="outlined"
                     clickable
@@ -319,7 +319,7 @@ const SahabahDetail: React.FC<SahabahDetailProps> = ({
                     key={type}
                     label={t(`relationships.${type}`, { defaultValue: type })}
                     onClick={() => onExpand(selectedNode.id, type)}
-                    icon={<AddIcon />}
+                    icon={<ExpandIcon />}
                     color="secondary"
                     variant="outlined"
                     clickable
@@ -345,7 +345,7 @@ const SahabahDetail: React.FC<SahabahDetailProps> = ({
                         defaultValue: 'Expand {{label}}',
                       })}
                       onClick={() => onExpand(selectedNode.id, item.relationType)}
-                      icon={<AddIcon />}
+                      icon={<ExpandIcon />}
                       color="success"
                       variant="outlined"
                       clickable
