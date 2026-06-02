@@ -21963,9 +21963,9 @@
       "category": "biological"
     },
     {
-      "source": 307,
+      "source": 393,
       "target": 23,
-      "source_id": 307,
+      "source_id": 393,
       "target_id": 23,
       "type": "PARENT_OF",
       "category": "biological"
@@ -22007,14 +22007,6 @@
       "target": 32,
       "source_id": 312,
       "target_id": 32,
-      "type": "PARENT_OF",
-      "category": "biological"
-    },
-    {
-      "source": 313,
-      "target": 33,
-      "source_id": 313,
-      "target_id": 33,
       "type": "PARENT_OF",
       "category": "biological"
     },
@@ -22283,14 +22275,6 @@
       "category": "biological"
     },
     {
-      "source": 309,
-      "target": 23,
-      "source_id": 309,
-      "target_id": 23,
-      "type": "PARENT_OF",
-      "category": "biological"
-    },
-    {
       "source": 310,
       "target": 28,
       "source_id": 310,
@@ -22311,14 +22295,6 @@
       "target": 29,
       "source_id": 312,
       "target_id": 29,
-      "type": "PARENT_OF",
-      "category": "biological"
-    },
-    {
-      "source": 313,
-      "target": 32,
-      "source_id": 313,
-      "target_id": 32,
       "type": "PARENT_OF",
       "category": "biological"
     },
@@ -22639,14 +22615,6 @@
       "target": 19,
       "source_id": 312,
       "target_id": 19,
-      "type": "PARENT_OF",
-      "category": "family"
-    },
-    {
-      "source": 313,
-      "target": 23,
-      "source_id": 313,
-      "target_id": 23,
       "type": "PARENT_OF",
       "category": "family"
     },
@@ -23523,14 +23491,6 @@
       "category": "family"
     },
     {
-      "source": 23,
-      "target": 307,
-      "source_id": 23,
-      "target_id": 307,
-      "type": "SON_OF",
-      "category": "family"
-    },
-    {
       "source": 28,
       "target": 308,
       "source_id": 28,
@@ -23567,14 +23527,6 @@
       "target": 312,
       "source_id": 32,
       "target_id": 312,
-      "type": "SON_OF",
-      "category": "family"
-    },
-    {
-      "source": 33,
-      "target": 313,
-      "source_id": 33,
-      "target_id": 313,
       "type": "SON_OF",
       "category": "family"
     },
@@ -23843,14 +23795,6 @@
       "category": "family"
     },
     {
-      "source": 23,
-      "target": 309,
-      "source_id": 23,
-      "target_id": 309,
-      "type": "SON_OF",
-      "category": "family"
-    },
-    {
       "source": 28,
       "target": 310,
       "source_id": 28,
@@ -23871,14 +23815,6 @@
       "target": 312,
       "source_id": 29,
       "target_id": 312,
-      "type": "SON_OF",
-      "category": "family"
-    },
-    {
-      "source": 32,
-      "target": 313,
-      "source_id": 32,
-      "target_id": 313,
       "type": "SON_OF",
       "category": "family"
     },
@@ -24204,9 +24140,9 @@
     },
     {
       "source": 23,
-      "target": 313,
+      "target": 393,
       "source_id": 23,
-      "target_id": 313,
+      "target_id": 393,
       "type": "SON_OF",
       "category": "family"
     },
