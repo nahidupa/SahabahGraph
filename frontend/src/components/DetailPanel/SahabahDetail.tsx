@@ -74,14 +74,12 @@ const SahabahDetail: React.FC<SahabahDetailProps> = ({
 }) => {
   const { t, i18n } = useTranslation();
   const [collapsed, setCollapsed] = useState(false);
-  const [avatarKey, setAvatarKey] = useState(0);
 
-  // Force avatar re-render when selectedNode changes
+  // Log when selectedNode changes (for debugging)
   useEffect(() => {
     if (selectedNode) {
       console.log('👤 Avatar update - Selected node changed:', selectedNode.name_en, 'ID:', selectedNode.id, 'Type:', selectedNode.node_type, 'Gender:', selectedNode.gender, 'Prophet:', selectedNode.is_prophet);
     }
-    setAvatarKey(prev => prev + 1);
   }, [selectedNode?.id]);
 
   // Helper to normalize is_prophet field
@@ -253,7 +251,7 @@ const SahabahDetail: React.FC<SahabahDetailProps> = ({
           <>
             <Box sx={{ display: 'flex', alignItems: 'center', mb: 2, mt: 2 }}>
               <Avatar
-                key={`avatar-${selectedNode.id}-${avatarKey}`}
+                key={`avatar-${selectedNode.id}`}
                 sx={{
                   bgcolor: avatarProps?.bgcolor || '#666',
                   marginInlineEnd: 2,

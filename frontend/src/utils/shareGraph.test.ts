@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { encodeGraphState, decodeGraphState, generateShareUrl, readShareUrl } from './shareGraph';
+import { encodeGraphState, decodeGraphState, generateShareUrl } from './shareGraph';
 
 describe('shareGraph utilities', () => {
   describe('encodeGraphState', () => {
