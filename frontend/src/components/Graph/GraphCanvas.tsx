@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback, useRef } from 'react';
-import { Box, Paper, IconButton, Tooltip, Divider } from '@mui/material';
+import { Box, Paper, IconButton, Tooltip, Divider, Menu, MenuItem, ListItemText, ListItemIcon } from '@mui/material';
 import {
   Route as RouteIcon,
   ZoomIn as ZoomInIcon,
@@ -9,7 +9,9 @@ import {
   Image as ImageIcon,
   DeleteSweep as DeleteSweepIcon,
   Share as ShareIcon,
-  TouchApp as TouchAppIcon
+  TouchApp as TouchAppIcon,
+  AccountTree as LayoutIcon,
+  Check as CheckIcon
 } from '@mui/icons-material';
 import CytoscapeComponent from 'react-cytoscapejs';
 import cytoscape from 'cytoscape';
@@ -46,8 +48,19 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
 }) => {
   const { t } = useTranslation();
   const [multiSelectMode, setMultiSelectMode] = useState(false);
+  const [layoutType, setLayoutType] = useState<string>('cose');
+  const [layoutAnchorEl, setLayoutAnchorEl] = useState<null | HTMLElement>(null);
   const multiSelectModeRef = useRef(false);
   const selectNodeRef = useRef<((cy: Core, evt: cytoscape.EventObject) => void) | null>(null);
+
+  const layouts = [
+    { value: 'cose', label: 'Force-Directed (COSE)', description: 'Physics-based, automatic spacing' },
+    { value: 'breadthfirst', label: 'Tree/Hierarchy', description: 'Top-down tree structure' },
+    { value: 'circle', label: 'Circle', description: 'Nodes arranged in a circle' },
+    { value: 'concentric', label: 'Concentric', description: 'Concentric circles by importance' },
+    { value: 'grid', label: 'Grid', description: 'Nodes in a grid pattern' },
+    { value: 'random', label: 'Random', description: 'Random positioning' }
+  ];
   const onNodeClickRef = useRef(onNodeClick);
   const selectedNodeIdsRef = useRef<string[]>([]); // Track selected node IDs across re-renders
 
@@ -120,22 +133,47 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
     console.log('💾 Preserving selection before layout:', selectedIds);
 
     // Run layout with animation for better visual experience
-    const layout = cy.layout({
-      name: 'cose',
+    const layoutConfig: any = {
+      name: layoutType,
       animate: true,
       animationDuration: 500,
       fit: true,
-      padding: 50,
-      nodeRepulsion: 8000,
-      idealEdgeLength: 100,
-      edgeElasticity: 100,
-      nestingFactor: 5,
-      gravity: 80,
-      numIter: 1000,
-      initialTemp: 200,
-      coolingFactor: 0.95,
-      minTemp: 1.0
-    });
+      padding: 50
+    };
+
+    // Add layout-specific options
+    if (layoutType === 'cose') {
+      Object.assign(layoutConfig, {
+        nodeRepulsion: 8000,
+        idealEdgeLength: 100,
+        edgeElasticity: 100,
+        nestingFactor: 5,
+        gravity: 80,
+        numIter: 1000,
+        initialTemp: 200,
+        coolingFactor: 0.95,
+        minTemp: 1.0
+      });
+    } else if (layoutType === 'breadthfirst') {
+      Object.assign(layoutConfig, {
+        directed: true,
+        spacingFactor: 1.5,
+        avoidOverlap: true
+      });
+    } else if (layoutType === 'concentric') {
+      Object.assign(layoutConfig, {
+        concentric: (node: cytoscape.NodeSingular) => node.degree(),
+        levelWidth: () => 2,
+        minNodeSpacing: 50
+      });
+    } else if (layoutType === 'grid') {
+      Object.assign(layoutConfig, {
+        avoidOverlap: true,
+        avoidOverlapPadding: 10
+      });
+    }
+
+    const layout = cy.layout(layoutConfig);
     
     // After layout completes, restore selections
     layout.on('layoutstop', () => {
@@ -167,7 +205,7 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
     });
     
     layout.run();
-  }, [elements, cyRef]);
+  }, [elements, cyRef, layoutType]);
 
   // Restore selections whenever elements change (after layout)
   useEffect(() => {
@@ -625,6 +663,44 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
             <RouteIcon />
           </IconButton>
         </Tooltip>
+        <Divider orientation="vertical" flexItem />
+        <Tooltip title={t('change_layout', { defaultValue: 'Change Layout' })}>
+          <IconButton
+            onClick={(e) => setLayoutAnchorEl(e.currentTarget)}
+            color={layoutAnchorEl ? 'primary' : 'default'}
+          >
+            <LayoutIcon />
+          </IconButton>
+        </Tooltip>
+        <Menu
+          anchorEl={layoutAnchorEl}
+          open={Boolean(layoutAnchorEl)}
+          onClose={() => setLayoutAnchorEl(null)}
+          anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+          transformOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+        >
+          {layouts.map((layout) => (
+            <MenuItem
+              key={layout.value}
+              onClick={() => {
+                setLayoutType(layout.value);
+                setLayoutAnchorEl(null);
+              }}
+              selected={layoutType === layout.value}
+            >
+              {layoutType === layout.value && (
+                <ListItemIcon>
+                  <CheckIcon fontSize="small" />
+                </ListItemIcon>
+              )}
+              <ListItemText
+                primary={layout.label}
+                secondary={layout.description}
+                sx={{ pl: layoutType === layout.value ? 0 : 4 }}
+              />
+            </MenuItem>
+          ))}
+        </Menu>
         <Divider orientation="vertical" flexItem />
         <Tooltip title={t('zoom_in')}>
           <IconButton id="tour-zoom-in" onClick={handleZoomIn}><ZoomInIcon /></IconButton>
