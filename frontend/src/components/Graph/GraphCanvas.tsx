@@ -7,7 +7,8 @@ import {
   RestartAlt as ResetIcon,
   Download as DownloadIcon,
   Image as ImageIcon,
-  DeleteSweep as DeleteSweepIcon
+  DeleteSweep as DeleteSweepIcon,
+  Share as ShareIcon
 } from '@mui/icons-material';
 import CytoscapeComponent from 'react-cytoscapejs';
 import cytoscape from 'cytoscape';
@@ -25,6 +26,7 @@ interface GraphCanvasProps {
   showConnectionsActive?: boolean;
   onDeleteSelectedNodes?: (nodeIds: string[]) => void;
   onRemoveAll?: () => void;
+  onShare?: () => void;
 }
 
 if (typeof cytoscape('core', 'svg') !== 'function') {
@@ -38,7 +40,8 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
   onShowConnections,
   showConnectionsActive,
   onDeleteSelectedNodes,
-  onRemoveAll
+  onRemoveAll,
+  onShare
 }) => {
   const { t } = useTranslation();
 
@@ -382,6 +385,16 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
         <Tooltip title={t('export_svg')}>
           <IconButton onClick={handleExportSVG}><DownloadIcon /></IconButton>
         </Tooltip>
+        {onShare && (
+          <>
+            <Divider orientation="vertical" flexItem />
+            <Tooltip title={t('share_graph', { defaultValue: 'Share Graph' })}>
+              <IconButton onClick={onShare} color="primary">
+                <ShareIcon />
+              </IconButton>
+            </Tooltip>
+          </>
+        )}
       </Paper>
 
     </Box>

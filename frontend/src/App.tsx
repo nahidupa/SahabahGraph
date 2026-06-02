@@ -14,8 +14,9 @@ import OnboardingTour from './components/Tour/OnboardingTour';
 import AIChatPanel from './components/AIChat/AIChatPanelEnhanced';
 import './i18n/config';
 import { useTranslation } from 'react-i18next';
-import { ToggleButton, ToggleButtonGroup, Box as MuiBox } from '@mui/material';
+import { ToggleButton, ToggleButtonGroup, Box as MuiBox, Snackbar } from '@mui/material';
 import { AccountTree as GraphIcon, ViewTimeline as TimelineIcon, Public as PublicIcon } from '@mui/icons-material';
+import { generateShareUrl, readShareUrl, copyToClipboard } from './utils/shareGraph';
 
 const GET_SAHABAH = gql`
   query GetSahabah {
@@ -113,6 +114,8 @@ const CANVAS_STATE_KEY = 'sahabahgraph_canvas_state';
 const App: React.FC = () => {
   const [dataLoaded, setDataLoaded] = useState(false);
   const [runTour, setRunTour] = useState(false);
+  const [shareSnackbarOpen, setShareSnackbarOpen] = useState(false);
+  const [shareMessage, setShareMessage] = useState('');
 
   const handleTourFinish = () => {
     localStorage.setItem('hasSeenTour', 'true');
@@ -237,7 +240,61 @@ const App: React.FC = () => {
         setData(combinedData);
         setPoliticalData(loadedPoliticalData);
 
-        // Try to restore from localStorage first
+        // Check if there's a shared graph in URL first
+        const sharedNodeIds = readShareUrl();
+        if (sharedNodeIds && sharedNodeIds.length > 0) {
+          // Load the shared graph state
+          const sharedNodes = sharedNodeIds
+            .map(id => nodes.find(n => n.id === id))
+            .filter(n => n !== undefined) as Sahabi[];
+          
+          if (sharedNodes.length > 0) {
+            const initialElements: cytoscape.ElementDefinition[] = [];
+            const addedNodeIds = new Set<string>();
+            
+            // Add all shared nodes
+            sharedNodes.forEach((sahabi) => {
+              const isProphet = sahabi.id === 0;
+              const nodeId = sahabi.id.toString();
+              const displayName = i18n.language.startsWith('ar') && sahabi.name_ar ? sahabi.name_ar : sahabi.name_en;
+              initialElements.push({
+                data: {
+                  ...sahabi,
+                  id: nodeId,
+                  label: isProphet ? '★' : displayName,
+                  fullName: displayName,
+                  originalId: sahabi.id,
+                  is_prophet: String(sahabi.is_prophet),
+                },
+              });
+              addedNodeIds.add(nodeId);
+            });
+            
+            // Add edges between shared nodes
+            const sharedIdStrings = sharedNodeIds.map(id => id.toString());
+            combinedData.links
+              .filter(link => 
+                sharedIdStrings.includes(String(link.source)) && 
+                sharedIdStrings.includes(String(link.target))
+              )
+              .forEach(link => {
+                initialElements.push({
+                  data: {
+                    id: `e${link.source}-${link.target}`,
+                    source: link.source.toString(),
+                    target: link.target.toString(),
+                    label: link.type,
+                  },
+                });
+              });
+            
+            setElements(initialElements);
+            setDataLoaded(true);
+            return;
+          }
+        }
+
+        // Try to restore from localStorage if no shared URL
         const savedCanvasState = localStorage.getItem(CANVAS_STATE_KEY);
         if (savedCanvasState) {
           try {
@@ -595,6 +652,30 @@ const App: React.FC = () => {
     };
   };
 
+  const handleShare = async () => {
+    // Get currently displayed node IDs (nodes don't have source/target properties)
+    const displayedNodeIds = elements
+      .filter(el => !el.data.source && !el.data.target && el.data.originalId !== undefined)
+      .map(el => el.data.originalId as number)
+      .sort((a, b) => a - b);
+
+    if (displayedNodeIds.length === 0) {
+      setShareMessage(t('no_nodes_to_share', { defaultValue: 'No nodes to share. Add some nodes first!' }));
+      setShareSnackbarOpen(true);
+      return;
+    }
+
+    const shareUrl = generateShareUrl(displayedNodeIds);
+    const success = await copyToClipboard(shareUrl);
+
+    if (success) {
+      setShareMessage(t('share_link_copied', { defaultValue: 'Share link copied to clipboard!' }));
+    } else {
+      setShareMessage(t('share_link_failed', { defaultValue: 'Failed to copy link. Please copy manually: ' + shareUrl }));
+    }
+    setShareSnackbarOpen(true);
+  };
+
   return (
     <MainLayout
       tour={<OnboardingTour run={runTour} onFinish={handleTourFinish} />}
@@ -647,6 +728,7 @@ const App: React.FC = () => {
           onShowConnections={handleShowConnections}
           onDeleteSelectedNodes={removeNodesFromGraph}
           onRemoveAll={removeAllNodes}
+          onShare={handleShare}
         />
       ) : viewMode === 'timeline' ? (
         <TimelineView
@@ -739,6 +821,13 @@ const App: React.FC = () => {
         currentView={viewMode}
         selectedNodes={selectedGraphNodes}
         graphStats={graphStats}
+      />
+      <Snackbar
+        open={shareSnackbarOpen}
+        autoHideDuration={4000}
+        onClose={() => setShareSnackbarOpen(false)}
+        message={shareMessage}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
       />
     </MainLayout>
   );
