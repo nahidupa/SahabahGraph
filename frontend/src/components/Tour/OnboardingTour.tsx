@@ -18,7 +18,7 @@ const OnboardingTour: React.FC<OnboardingTourProps> = ({ run, onFinish }) => {
       target: '#tour-sidebar',
       title: t('tour.sidebar_title'),
       content: t('tour.sidebar_content'),
-      placement: 'right',
+      placement: 'bottom',
       skipBeacon: true,
     },
     {
@@ -92,10 +92,14 @@ const OnboardingTour: React.FC<OnboardingTourProps> = ({ run, onFinish }) => {
           backgroundColor: theme.palette.background.paper,
           textColor: theme.palette.text.primary,
           arrowColor: theme.palette.background.paper,
+          width: 360,
         },
         tooltipContainer: {
           textAlign: direction === 'rtl' ? 'right' : 'left',
           direction: direction,
+        },
+        tooltip: {
+          maxWidth: 360,
         },
       }}
     />
