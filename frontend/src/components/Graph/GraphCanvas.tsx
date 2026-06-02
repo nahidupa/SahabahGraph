@@ -198,6 +198,15 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
       style: {
         'shape': 'diamond',
         'background-color': '#795548',
+        'background-image': () => {
+          return 'data:image/svg+xml;utf8,' + encodeURIComponent(
+            `<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60">
+              <text x="30" y="40" font-size="32" fill="white" text-anchor="middle" font-family="Arial">🛡️</text>
+            </svg>`
+          );
+        },
+        'background-width': '60px',
+        'background-height': '60px',
         'color': '#fff',
         'width': '60px',
         'height': '60px',
