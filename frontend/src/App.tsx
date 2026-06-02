@@ -108,6 +108,8 @@ const loadPoliticalData = async (): Promise<PoliticalData> => {
   return { cities: [], terms: [] };
 };
 
+const CANVAS_STATE_KEY = 'sahabahgraph_canvas_state';
+
 const App: React.FC = () => {
   const [dataLoaded, setDataLoaded] = useState(false);
   const [runTour, setRunTour] = useState(false);
@@ -142,6 +144,35 @@ const App: React.FC = () => {
   const [allPaths, setAllPaths] = useState<string[][]>([]);
   const [currentPathIndex, setCurrentPathIndex] = useState(0);
   const cyRef = useRef<Core | null>(null);
+  const saveTimeoutRef = useRef<number | null>(null);
+
+  // Save canvas state to localStorage when elements change
+  useEffect(() => {
+    if (elements.length > 0 && dataLoaded) {
+      // Debounce saves to avoid excessive writes
+      if (saveTimeoutRef.current) {
+        clearTimeout(saveTimeoutRef.current);
+      }
+      saveTimeoutRef.current = setTimeout(() => {
+        try {
+          // Get positions from Cytoscape if available
+          const elementsWithPositions = elements.map(el => {
+            if (cyRef.current && el.data.id && !el.data.source && !el.data.target) {
+              const node = cyRef.current.$(`#${el.data.id}`);
+              if (node.length > 0) {
+                const pos = node.position();
+                return { ...el, position: pos };
+              }
+            }
+            return el;
+          });
+          localStorage.setItem(CANVAS_STATE_KEY, JSON.stringify(elementsWithPositions));
+        } catch (error) {
+          console.error('Failed to save canvas state:', error);
+        }
+      }, 500);
+    }
+  }, [elements, dataLoaded]);
 
   // Calculate graph statistics for AI context
   const graphStats = useMemo(() => {
@@ -205,6 +236,22 @@ const App: React.FC = () => {
 
         setData(combinedData);
         setPoliticalData(loadedPoliticalData);
+
+        // Try to restore from localStorage first
+        const savedCanvasState = localStorage.getItem(CANVAS_STATE_KEY);
+        if (savedCanvasState) {
+          try {
+            const savedElements = JSON.parse(savedCanvasState);
+            if (Array.isArray(savedElements) && savedElements.length > 0) {
+              setElements(savedElements);
+              setDataLoaded(true);
+              return;
+            }
+          } catch (error) {
+            console.error('Failed to restore canvas state:', error);
+            localStorage.removeItem(CANVAS_STATE_KEY);
+          }
+        }
 
         // Load a balanced initial network: Prophet + top 2-3 Sahabah + limited family members (max 10 nodes)
         const coreIds = [0, 1, 2]; // Prophet, Abu Bakr, Umar
@@ -381,8 +428,8 @@ const App: React.FC = () => {
     if (nodeIds.length === 0) return;
     const removableNodeIds = new Set(nodeIds);
 
-    setElements((prev) =>
-      prev.filter((el) => {
+    setElements((prev) => {
+      const filtered = prev.filter((el) => {
         const elId = String(el.data.id ?? '');
         const source = String(el.data.source ?? '');
         const target = String(el.data.target ?? '');
@@ -391,8 +438,15 @@ const App: React.FC = () => {
         if (source && removableNodeIds.has(source)) return false;
         if (target && removableNodeIds.has(target)) return false;
         return true;
-      })
-    );
+      });
+      
+      // Clear localStorage if all nodes removed
+      if (filtered.length === 0) {
+        localStorage.removeItem(CANVAS_STATE_KEY);
+      }
+      
+      return filtered;
+    });
 
     if (selectedNode && removableNodeIds.has(String(selectedNode.id))) {
       setSelectedNode(null);
@@ -409,6 +463,7 @@ const App: React.FC = () => {
     setAllPaths([]);
     setCurrentPathIndex(0);
     cyRef.current?.elements().removeClass('highlighted');
+    localStorage.removeItem(CANVAS_STATE_KEY);
   };
 
   const expandRelationships = (nodeId: number | string, categoryOrType: string) => {
