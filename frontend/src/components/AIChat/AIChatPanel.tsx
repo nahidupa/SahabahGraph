@@ -49,7 +49,7 @@ declare global {
       destroy: () => void;
     }>;
   }
-  const LanguageModel: LanguageModelConstructor;
+  var LanguageModel: LanguageModelConstructor;
 }
 
 // Unified AI Helper - works with both old and new APIs
@@ -300,9 +300,9 @@ const AIChatPanel: React.FC = () => {
               </Box>
             )}
 
-            {isAIAvailable === false && (
+            {(isAIAvailable !== null && !isAIAvailable) && (
               <Alert severity="warning">
-                Chrome's built-in AI is not available. Please ensure you're using Chrome 127+ with AI features enabled.
+                Chrome&apos;s built-in AI is not available. Please ensure you&apos;re using Chrome 127+ with AI features enabled.
               </Alert>
             )}
 

@@ -28,10 +28,10 @@ interface Message {
   commandResult?: string;
 }
 
-interface UICommand {
-  action: string;
-  params?: Record<string, any>;
-}
+// interface UICommand {
+//   action: string;
+//   params?: Record<string, any>;
+// }
 
 interface AIChatPanelProps {
   // Graph control callbacks
@@ -135,7 +135,7 @@ const AIChatPanel: React.FC<AIChatPanelProps> = ({
   onClearCanvas,
   onFocusNode,
   onAddNode,
-  onFilterNodes,
+  // onFilterNodes,
   onSwitchView,
   onZoomIn,
   onZoomOut,
