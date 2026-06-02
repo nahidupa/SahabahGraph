@@ -145,5 +145,24 @@
     "TermEnded": "Term Ended",
     "VacancyAfterRevolt": "Vacancy after Revolt"
   },
-  "schematic_map": "Eastern Mediterranean (schematic)"
+  "schematic_map": "Eastern Mediterranean (schematic)",
+  "tour": {
+    "skip": "Skip",
+    "next": "Next",
+    "back": "Back",
+    "last": "Finish",
+    "sidebar_title": "Sahabah Sidebar",
+    "sidebar_content": "Search and explore the Sahabah. You can filter by tribe and see their basic information.",
+    "search_title": "Search",
+    "search_content": "Type here to find specific Sahabah by name, kunyah, or laqab.",
+    "view_toggler_title": "Switch Views",
+    "view_toggler_content": "Switch between the Relationship Graph, the Timeline view, and the Political map.",
+    "graph_canvas_title": "Interactive Graph",
+    "graph_canvas_content": "Interact with the nodes. You can drag them around and click to see more details.",
+    "graph_controls_title": "Graph Controls",
+    "graph_controls_content": "Use these tools to zoom, reset the layout, or export the graph as an image.",
+    "detail_panel_title": "Detailed Information",
+    "detail_panel_content": "When you select a node, you can see their full biography and expand their relationships here.",
+    "help_button": "Tour"
+  }
 }

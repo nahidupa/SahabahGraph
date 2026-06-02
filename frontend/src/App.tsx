@@ -10,6 +10,7 @@ import TimelineView from './components/Timeline/TimelineView';
 import PoliticalView from './components/Political/PoliticalView';
 import SahabahDetail from './components/DetailPanel/SahabahDetail';
 import PathSummary from './components/Graph/PathSummary';
+import OnboardingTour from './components/Tour/OnboardingTour';
 import './i18n/config';
 import { useTranslation } from 'react-i18next';
 import { ToggleButton, ToggleButtonGroup, Box as MuiBox } from '@mui/material';
@@ -107,6 +108,21 @@ const loadPoliticalData = async (): Promise<PoliticalData> => {
 };
 
 const App: React.FC = () => {
+  const [runTour, setRunTour] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return !localStorage.getItem('hasSeenTour');
+    }
+    return false;
+  });
+
+  const handleTourFinish = () => {
+    localStorage.setItem('hasSeenTour', 'true');
+    setRunTour(false);
+  };
+
+  const startTour = () => {
+    setRunTour(true);
+  };
   const { t, i18n } = useTranslation();
   const { data: apolloData } = useQuery(GET_SAHABAH);
   const [data, setData] = useState<GraphData | null>(null);
@@ -469,6 +485,7 @@ const App: React.FC = () => {
     <MainLayout
       sidebar={
         <SahabahSidebar
+          onStartTour={startTour}
           nodes={filteredNodes}
           onAddNode={addNodeToGraph}
           onSelectNode={setSelectedNode}
@@ -485,7 +502,7 @@ const App: React.FC = () => {
       }
     >
       <MuiBox sx={{ position: 'absolute', top: 10, left: '50%', transform: 'translateX(-50%)', zIndex: 1100 }}>
-        <ToggleButtonGroup
+        <ToggleButtonGroup id="tour-view-toggler"
           value={viewMode}
           exclusive
           onChange={(_, newMode) => newMode && setViewMode(newMode)}
@@ -557,6 +574,7 @@ const App: React.FC = () => {
           }}
         />
       )}
+      <OnboardingTour run={runTour} onFinish={handleTourFinish} />
     </MainLayout>
   );
 };

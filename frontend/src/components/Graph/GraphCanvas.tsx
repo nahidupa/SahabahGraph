@@ -292,7 +292,7 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
   };
 
   return (
-    <Box sx={{ width: '100%', height: '100%', position: 'relative' }}>
+    <Box id="tour-graph-canvas" sx={{ width: '100%', height: '100%', position: 'relative' }}>
       <CytoscapeComponent
         elements={elements}
         style={{ width: '100%', height: '100%' }}
@@ -315,6 +315,7 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
       />
 
       <Paper
+        id="tour-graph-controls"
         sx={{
           position: 'absolute',
           bottom: 20,
