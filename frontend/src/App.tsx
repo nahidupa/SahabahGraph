@@ -229,6 +229,7 @@ const App: React.FC = () => {
                 label: isProphet ? '★' : displayName,
                 fullName: displayName,
                 originalId: sahabi.id,
+                is_prophet: String(sahabi.is_prophet),
               },
             });
             addedNodeIds.add(nodeId);
@@ -272,6 +273,7 @@ const App: React.FC = () => {
                     label: displayName,
                     fullName: displayName,
                     originalId: sourceNode.id,
+                    is_prophet: String(sourceNode.is_prophet),
                   },
                 });
                 addedNodeIds.add(sourceId);
@@ -290,6 +292,7 @@ const App: React.FC = () => {
                     label: displayName,
                     fullName: displayName,
                     originalId: targetNode.id,
+                    is_prophet: String(targetNode.is_prophet),
                   },
                 });
                 addedNodeIds.add(targetId);
@@ -322,6 +325,7 @@ const App: React.FC = () => {
                 label: displayName,
                 fullName: displayName,
                 originalId: firstNode.id,
+                is_prophet: String(firstNode.is_prophet),
               },
             },
           ]);
@@ -366,7 +370,7 @@ const App: React.FC = () => {
       return [
         ...prev,
         {
-          data: { ...node, id: node.id.toString(), label: (i18n.language.startsWith('ar') && node.name_ar ? node.name_ar : node.name_en), originalId: node.id },
+          data: { ...node, id: node.id.toString(), label: (i18n.language.startsWith('ar') && node.name_ar ? node.name_ar : node.name_en), originalId: node.id, is_prophet: String(node.is_prophet) },
           position: center,
         },
       ];
@@ -424,6 +428,7 @@ const App: React.FC = () => {
           id: selectedGraphNode.id.toString(),
           label: (i18n.language.startsWith('ar') && selectedGraphNode.name_ar ? selectedGraphNode.name_ar : selectedGraphNode.name_en),
           originalId: selectedGraphNode.id,
+          is_prophet: String(selectedGraphNode.is_prophet),
         },
       });
     }
@@ -432,7 +437,7 @@ const App: React.FC = () => {
       const otherId = String(rel.source) === String(nodeId) ? rel.target : rel.source;
       const otherNode = data.nodes.find(n => String(n.id) === String(otherId));
       if (otherNode) {
-        newElements.push({ data: { ...otherNode, id: otherNode.id.toString(), label: (i18n.language.startsWith('ar') && otherNode.name_ar ? otherNode.name_ar : otherNode.name_en), originalId: otherNode.id } });
+        newElements.push({ data: { ...otherNode, id: otherNode.id.toString(), label: (i18n.language.startsWith('ar') && otherNode.name_ar ? otherNode.name_ar : otherNode.name_en), originalId: otherNode.id, is_prophet: String(otherNode.is_prophet) } });
         newElements.push({
           data: {
             id: `e${rel.source}-${rel.target}`,
@@ -498,7 +503,7 @@ const App: React.FC = () => {
             const nodeId = p[i];
             const node = data?.nodes.find(n => n.id.toString() === nodeId);
             if (node) {
-              newElements.push({ data: { ...node, id: node.id.toString(), label: (i18n.language.startsWith('ar') && node.name_ar ? node.name_ar : node.name_en), originalId: node.id } });
+              newElements.push({ data: { ...node, id: node.id.toString(), label: (i18n.language.startsWith('ar') && node.name_ar ? node.name_ar : node.name_en), originalId: node.id, is_prophet: String(node.is_prophet) } });
             }
 
             if (i < p.length - 1) {
