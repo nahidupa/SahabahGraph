@@ -41,3 +41,12 @@
 - Callback signature changed from `(data: CallBackProps) => void` to `(data: EventData) => void`
 **Solution:** Removed @types/react-joyride package, updated OnboardingTour.tsx to use v3 API with correct property names and types.
 **Result:** Build passes, all tests green, deployment successful.
+
+## 2026-06-02 - Initial Graph Load Optimization
+**Problem:** App was loading Prophet + 4 major Sahabah + ALL their family members on initial load, resulting in 20-30+ nodes displayed at once. This created visual clutter and poor first impression.
+**Solution:** Implemented balanced initial load strategy:
+- Reduced core nodes from 5 to 3 (Prophet, Abu Bakr, Umar)
+- Added node limit of 10 maximum for initial display
+- Prioritized Prophet's family relationships over others
+- Added logic to only include edges when both nodes are present
+**Result:** Clean, focused initial view with 8-10 nodes showing the most important figures and their key relationships. Users can expand to explore more through the detail panel.

@@ -199,18 +199,19 @@ const App: React.FC = () => {
         setData(combinedData);
         setPoliticalData(loadedPoliticalData);
 
-        // Load the Prophet and 4 major Sahabah with their immediate family network
-        const majorSahabahIds = [0, 1, 2, 3, 4];
-        const majorSahabah = majorSahabahIds
+        // Load a balanced initial network: Prophet + top 2-3 Sahabah + limited family members (max 10 nodes)
+        const coreIds = [0, 1, 2]; // Prophet, Abu Bakr, Umar
+        const coreNodes = coreIds
           .map(id => nodes.find((n) => n.id === id))
           .filter((n) => n !== undefined) as Sahabi[];
 
-        if (majorSahabah.length > 0) {
+        if (coreNodes.length > 0) {
           const initialElements: cytoscape.ElementDefinition[] = [];
           const addedNodeIds = new Set<string>();
+          const MAX_INITIAL_NODES = 10;
 
-          // Add the Prophet and 4 major Sahabah nodes
-          majorSahabah.forEach((sahabi) => {
+          // Add core nodes (Prophet + key companions)
+          coreNodes.forEach((sahabi) => {
             const isProphet = sahabi.id === 0;
             const nodeId = sahabi.id.toString();
             const displayName = i18n.language.startsWith('ar') && sahabi.name_ar ? sahabi.name_ar : sahabi.name_en;
@@ -226,22 +227,34 @@ const App: React.FC = () => {
             addedNodeIds.add(nodeId);
           });
 
-          // Find all family relationships connected to the major Sahabah
-          const majorSahabahIdStrings = majorSahabahIds.map(id => id.toString());
+          // Find immediate family relationships (prioritize Prophet's family)
+          const coreIdStrings = coreIds.map(id => id.toString());
           const familyLinks = combinedData.links.filter(
             (link) =>
               link.category === 'family' &&
-              (majorSahabahIdStrings.includes(String(link.source)) ||
-               majorSahabahIdStrings.includes(String(link.target)))
+              (coreIdStrings.includes(String(link.source)) ||
+               coreIdStrings.includes(String(link.target)))
           );
 
-          // Add connected family members
-          familyLinks.forEach((link) => {
+          // Prioritize Prophet's family, then others - but limit to max nodes
+          const prophetLinks = familyLinks.filter(link => 
+            String(link.source) === '0' || String(link.target) === '0'
+          );
+          const otherLinks = familyLinks.filter(link => 
+            String(link.source) !== '0' && String(link.target) !== '0'
+          );
+          const prioritizedLinks = [...prophetLinks, ...otherLinks];
+
+          // Add family members until we reach the node limit
+          for (const link of prioritizedLinks) {
+            // Stop if we've reached the maximum nodes
+            if (addedNodeIds.size >= MAX_INITIAL_NODES) break;
+
             const sourceId = link.source.toString();
             const targetId = link.target.toString();
 
-            // Add source node if not already added
-            if (!addedNodeIds.has(sourceId)) {
+            // Add source node if not already added and under limit
+            if (!addedNodeIds.has(sourceId) && addedNodeIds.size < MAX_INITIAL_NODES) {
               const sourceNode = nodes.find((n) => String(n.id) === sourceId);
               if (sourceNode) {
                 const displayName = i18n.language.startsWith('ar') && sourceNode.name_ar ? sourceNode.name_ar : sourceNode.name_en;
@@ -258,8 +271,8 @@ const App: React.FC = () => {
               }
             }
 
-            // Add target node if not already added
-            if (!addedNodeIds.has(targetId)) {
+            // Add target node if not already added and under limit
+            if (!addedNodeIds.has(targetId) && addedNodeIds.size < MAX_INITIAL_NODES) {
               const targetNode = nodes.find((n) => String(n.id) === targetId);
               if (targetNode) {
                 const displayName = i18n.language.startsWith('ar') && targetNode.name_ar ? targetNode.name_ar : targetNode.name_en;
@@ -276,16 +289,18 @@ const App: React.FC = () => {
               }
             }
 
-            // Add the edge
-            initialElements.push({
-              data: {
-                id: `e${sourceId}-${targetId}`,
-                source: sourceId,
-                target: targetId,
-                label: link.type,
-              },
-            });
-          });
+            // Only add the edge if both nodes are present
+            if (addedNodeIds.has(sourceId) && addedNodeIds.has(targetId)) {
+              initialElements.push({
+                data: {
+                  id: `e${sourceId}-${targetId}`,
+                  source: sourceId,
+                  target: targetId,
+                  label: link.type,
+                },
+              });
+            }
+          }
 
           setElements(initialElements);
         } else if (nodes.length > 0) {
