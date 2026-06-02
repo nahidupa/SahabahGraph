@@ -277,6 +277,7 @@ const AIChatPanel: React.FC = () => {
               size="small"
               onClick={() => setIsOpen(false)}
               sx={{ color: 'inherit' }}
+              aria-label="close"
             >
               <CloseIcon />
             </IconButton>
@@ -380,6 +381,7 @@ const AIChatPanel: React.FC = () => {
                 color="primary"
                 onClick={handleSendMessage}
                 disabled={!inputValue.trim() || !isAIAvailable || isLoading}
+                aria-label="send"
               >
                 <SendIcon />
               </IconButton>
