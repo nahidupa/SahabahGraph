@@ -18,14 +18,14 @@ const OnboardingTour: React.FC<OnboardingTourProps> = ({ run, onFinish }) => {
       target: '#tour-sidebar',
       title: t('tour.sidebar_title'),
       content: t('tour.sidebar_content'),
-      placement: 'right-start',
+      placement: 'right',
       skipBeacon: true,
     },
     {
       target: '#tour-search',
       title: t('tour.search_title'),
       content: t('tour.search_content'),
-      placement: 'bottom',
+      placement: 'right-start',
       skipBeacon: true,
     },
     {
