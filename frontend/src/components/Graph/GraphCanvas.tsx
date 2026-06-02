@@ -17,9 +17,24 @@ import CytoscapeComponent from 'react-cytoscapejs';
 import cytoscape from 'cytoscape';
 // @ts-expect-error - cytoscape-svg lacks official type definitions
 import svg from 'cytoscape-svg';
+// @ts-expect-error - layout extensions lack official type definitions
+import dagre from 'cytoscape-dagre';
+// @ts-expect-error - layout extensions lack official type definitions
+import klay from 'cytoscape-klay';
+// @ts-expect-error - layout extensions lack official type definitions
+import cola from 'cytoscape-cola';
+// @ts-expect-error - layout extensions lack official type definitions
+import euler from 'cytoscape-euler';
 import type { Core } from 'cytoscape';
 import type { Sahabi } from '../../types';
 import { useTranslation } from 'react-i18next';
+
+// Register Cytoscape extensions
+cytoscape.use(svg);
+cytoscape.use(dagre);
+cytoscape.use(klay);
+cytoscape.use(cola);
+cytoscape.use(euler);
 
 interface GraphCanvasProps {
   elements: cytoscape.ElementDefinition[];
@@ -30,10 +45,6 @@ interface GraphCanvasProps {
   onDeleteSelectedNodes?: (nodeIds: string[]) => void;
   onRemoveAll?: () => void;
   onShare?: () => void;
-}
-
-if (typeof cytoscape('core', 'svg') !== 'function') {
-  cytoscape.use(svg);
 }
 
 const GraphCanvas: React.FC<GraphCanvasProps> = ({
@@ -59,7 +70,11 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
     { value: 'circle', label: 'Circle', description: 'Nodes arranged in a circle' },
     { value: 'concentric', label: 'Concentric', description: 'Concentric circles by importance' },
     { value: 'grid', label: 'Grid', description: 'Nodes in a grid pattern' },
-    { value: 'random', label: 'Random', description: 'Random positioning' }
+    { value: 'random', label: 'Random', description: 'Random positioning' },
+    { value: 'dagre', label: 'Dagre', description: 'Directed graph layout (requires extension)' },
+    { value: 'klay', label: 'KLay', description: 'Advanced hierarchical layout (requires extension)' },
+    { value: 'cola', label: 'Cola', description: 'Constraint-based layout (requires extension)' },
+    { value: 'euler', label: 'Euler', description: 'Force-directed with compound nodes (requires extension)' }
   ];
   const onNodeClickRef = useRef(onNodeClick);
   const selectedNodeIdsRef = useRef<string[]>([]); // Track selected node IDs across re-renders
@@ -170,6 +185,32 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
       Object.assign(layoutConfig, {
         avoidOverlap: true,
         avoidOverlapPadding: 10
+      });
+    } else if (layoutType === 'dagre') {
+      Object.assign(layoutConfig, {
+        rankDir: 'TB',
+        nodeSep: 50,
+        rankSep: 100
+      });
+    } else if (layoutType === 'klay') {
+      Object.assign(layoutConfig, {
+        direction: 'DOWN',
+        spacing: 50,
+        thoroughness: 7
+      });
+    } else if (layoutType === 'cola') {
+      Object.assign(layoutConfig, {
+        avoidOverlap: true,
+        nodeSpacing: 50,
+        edgeLength: 100
+      });
+    } else if (layoutType === 'euler') {
+      Object.assign(layoutConfig, {
+        springLength: 100,
+        springCoeff: 0.0008,
+        mass: 4,
+        gravity: -1.2,
+        pull: 0.001
       });
     }
 
