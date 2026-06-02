@@ -276,7 +276,7 @@ async function mockParseAIResponse(response: string): Promise<{
     try {
       parsed = JSON.parse(attempt);
       break;
-    } catch (e) {
+    } catch {
       // Continue to next attempt
     }
   }

@@ -202,8 +202,8 @@ test('should show AI identity when asked', async ({ page }) => {
     const text = (await lastMessage.textContent())?.toLowerCase() || '';
     
     // Should contain "sahabah" or "graph" but NOT "openai"
-    const mentionsSahabah = text.includes('sahabah') || text.includes('graph');
-    const mentionsOpenAI = text.includes('openai');
+    // const mentionsSahabah = text.includes('sahabah') || text.includes('graph');
+    // const mentionsOpenAI = text.includes('openai');
     
     // Note: This might fail if AI hasn't loaded or misbehaves
     // So we'll just check it doesn't crash

@@ -446,7 +446,7 @@ What would you like to explore?`,
         }
       }
       
-      case 'search':
+      case 'search': {
         if (!onSearchChange) {
           return '⚠️ Search capability not available';
         }
@@ -459,8 +459,9 @@ What would you like to explore?`,
           n.name_ar?.includes(params.term)
         ).length;
         return `✅ Searching for "${params.term}" (${found} results)`;
+      }
         
-      case 'view':
+      case 'view': {
         if (!onSwitchView) {
           return '⚠️ View switching capability not available';
         }
@@ -473,8 +474,9 @@ What would you like to explore?`,
         }
         onSwitchView(params.view);
         return `✅ Switched to ${params.view} view`;
+      }
         
-      case 'zoom':
+      case 'zoom': {
         const direction = params.direction || 'reset';
         if (direction === 'in' && onZoomIn) {
           onZoomIn();
@@ -487,6 +489,7 @@ What would you like to explore?`,
           return '✅ Reset zoom';
         }
         return '⚠️ Zoom capability not available';
+      }
         
       case 'expand': {
         if (!onAddNode) {
