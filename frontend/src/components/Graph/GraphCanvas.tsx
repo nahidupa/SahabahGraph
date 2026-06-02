@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback, useRef } from 'react';
 import { Box, Paper, IconButton, Tooltip, Divider } from '@mui/material';
 import {
   Route as RouteIcon,
@@ -46,10 +46,39 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
 }) => {
   const { t } = useTranslation();
   const [multiSelectMode, setMultiSelectMode] = useState(false);
+  const multiSelectModeRef = useRef(false);
+  const selectNodeRef = useRef<((cy: Core, evt: cytoscape.EventObject) => void) | null>(null);
+  const onNodeClickRef = useRef(onNodeClick);
+  const selectedNodeIdsRef = useRef<string[]>([]); // Track selected node IDs across re-renders
 
-  // Debug multiSelectMode changes
+  // Keep refs in sync
   useEffect(() => {
+    onNodeClickRef.current = onNodeClick;
+  }, [onNodeClick]);
+
+  // Keep ref in sync with state
+  useEffect(() => {
+    multiSelectModeRef.current = multiSelectMode;
     console.log('Multi-select mode changed to:', multiSelectMode);
+    
+    // When disabling multi-select, clear the stored selections
+    // so auto-restoration doesn't keep them alive
+    if (!multiSelectMode) {
+      selectedNodeIdsRef.current = [];
+      console.log('🧹 Cleared selectedNodeIdsRef (multi-select mode disabled)');
+      
+      // Also clear any selections and their visual styles from the graph
+      const cy = cyRef.current;
+      if (cy) {
+        const selectedNodes = cy.$(':selected');
+        selectedNodes.forEach((n) => {
+          n.unselect();
+          // Remove inline border styles
+          n.removeStyle('border-width border-color border-style');
+        });
+        console.log('🧹 Cleared', selectedNodes.length, 'selections when disabling multi-select');
+      }
+    }
   }, [multiSelectMode]);
 
   useEffect(() => {
@@ -86,6 +115,10 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
     const cy = cyRef.current;
     if (!cy || elements.length === 0) return;
 
+    // Save currently selected node IDs BEFORE layout
+    const selectedIds = cy.$('node:selected').map((node) => node.id());
+    console.log('💾 Preserving selection before layout:', selectedIds);
+
     // Run layout with animation for better visual experience
     const layout = cy.layout({
       name: 'cose',
@@ -104,38 +137,227 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
       minTemp: 1.0
     });
     
+    // After layout completes, restore selections
+    layout.on('layoutstop', () => {
+      selectedIds.forEach((id) => {
+        const node = cy.$(`#${id}`);
+        if (node.length > 0) {
+          node.select();
+        }
+      });
+      if (selectedIds.length > 0) {
+        console.log('♻️ Restored selection after layout:', selectedIds);
+        // Force style update to ensure overlay appears
+        cy.style().update();
+        
+        // Also apply inline styles
+        selectedIds.forEach((id) => {
+          const node = cy.$(`#${id}`);
+          if (node.length > 0) {
+            node.style('border-width', '4px');
+            node.style('border-color', '#2e7d32');
+            node.style('border-style', 'solid');
+          }
+        });
+        cy.forceRender();
+      }
+      
+      // Update the ref with current selections
+      selectedNodeIdsRef.current = selectedIds;
+    });
+    
     layout.run();
   }, [elements, cyRef]);
 
-  const isMultiSelectGesture = (evt: cytoscape.EventObject): boolean => {
+  // Restore selections whenever elements change (after layout)
+  useEffect(() => {
+    const cy = cyRef.current;
+    if (!cy) return;
+    
+    console.log('🔍 Restoration useEffect triggered. Elements count:', elements.length);
+    
+    // Delay restoration to let layout finish first
+    const timer = setTimeout(() => {
+      if (selectedNodeIdsRef.current.length > 0) {
+        console.log('🔄 Restoring selections from ref:', selectedNodeIdsRef.current);
+        selectedNodeIdsRef.current.forEach((id) => {
+          const node = cy.$(`#${id}`);
+          if (node.length > 0 && !node.selected()) {
+            node.select();
+            // Apply inline styles too
+            node.style('border-width', '4px');
+            node.style('border-color', '#2e7d32');
+            node.style('border-style', 'solid');
+          }
+        });
+        cy.forceRender();
+        console.log('✅ Selections restored, current count:', cy.$('node:selected').length);
+      }
+    }, 600); // After layout animation (500ms) + buffer
+    
+    return () => clearTimeout(timer);
+  }, [elements, cyRef]);
+
+  // ADDITIONAL: Continuously monitor and restore selections every 100ms in multi-select mode
+  useEffect(() => {
+    if (!multiSelectMode) return;
+    
+    const cy = cyRef.current;
+    if (!cy) return;
+    
+    const intervalId = setInterval(() => {
+      if (selectedNodeIdsRef.current.length > 0) {
+        const currentSelectedCount = cy.$('node:selected').length;
+        const expectedCount = selectedNodeIdsRef.current.length;
+        
+        if (currentSelectedCount !== expectedCount) {
+          console.log('⚠️ Selection mismatch detected! Expected:', expectedCount, 'Current:', currentSelectedCount);
+          console.log('🔧 Auto-restoring selections...');
+          
+          // Restore selections
+          selectedNodeIdsRef.current.forEach((id) => {
+            const node = cy.$(`#${id}`);
+            if (node.length > 0 && !node.selected()) {
+              node.select();
+              node.style('border-width', '4px');
+              node.style('border-color', '#2e7d32');
+              node.style('border-style', 'solid');
+            }
+          });
+          cy.forceRender();
+          console.log('✅ Auto-restored. Current count:', cy.$('node:selected').length);
+        }
+      }
+    }, 100); // Check every 100ms
+    
+    return () => clearInterval(intervalId);
+  }, [multiSelectMode, cyRef]);
+
+  const isMultiSelectGesture = useCallback((evt: cytoscape.EventObject): boolean => {
     const originalEvent = evt.originalEvent as MouseEvent | KeyboardEvent | undefined;
     return Boolean(
-      multiSelectMode || (originalEvent && (originalEvent.ctrlKey || originalEvent.metaKey || originalEvent.shiftKey))
+      multiSelectModeRef.current || (originalEvent && (originalEvent.ctrlKey || originalEvent.metaKey || originalEvent.shiftKey))
     );
-  };
+  }, []); // No dependencies - uses ref which is always current
 
-  const selectNode = (cy: Core, evt: cytoscape.EventObject) => {
+  const selectNode = useCallback((cy: Core, evt: cytoscape.EventObject) => {
     const node = evt.target;
     const isMulti = isMultiSelectGesture(evt);
-    console.log('🖱️ Node clicked. Multi-select active?', isMulti, '(multiSelectMode:', multiSelectMode, ')');
+    
+    console.log('========== NODE CLICKED ==========');
+    console.log('Node ID:', node.id());
+    console.log('Node label:', node.data('label'));
+    console.log('isMulti from gesture:', isMulti);
+    console.log('multiSelectModeRef.current:', multiSelectModeRef.current);
+    console.log('node.selected() BEFORE:', node.selected());
     
     if (isMulti) {
       if (node.selected()) {
         node.unselect();
-        console.log('➖ Node deselected');
+        console.log('➖ Node DESELECTED (multi-select ON)');
       } else {
         node.select();
-        console.log('➕ Node selected');
+        console.log('➕ Node SELECTED (multi-select ON)');
       }
+      console.log('node.selected() AFTER:', node.selected());
+      console.log('Total selected nodes:', cy.$('node:selected').length);
+      console.log('NOT calling onNodeClick (multi-select mode)');
+      
+      // Get all currently selected nodes BEFORE any async operations
+      const selectedNodes = cy.$('node:selected');
+      selectedNodes.forEach((n) => {
+        console.log('   - Selected node:', n.id(), n.data('label'));
+      });
+      
+      // Store selected node IDs in ref for persistence across re-renders
+      selectedNodeIdsRef.current = selectedNodes.map((n) => n.id());
+      console.log('💾 Stored selected IDs in ref:', selectedNodeIdsRef.current);
+      
+      // Force Cytoscape to re-render ALL selected nodes with their border styles
+      // Apply styles IMMEDIATELY (no setTimeout) to avoid race conditions
+      selectedNodes.forEach((n) => {
+        n.style('border-width', '4px');
+        n.style('border-color', '#2e7d32');
+        n.style('border-style', 'solid');
+      });
+      console.log('🎨 Forced visual style update on', selectedNodes.length, 'selected nodes');
+      
+      // Force a redraw
+      cy.forceRender();
+      
+      // In multi-select mode, don't call onNodeClick to avoid triggering parent re-renders
+      // that might interfere with selection state
     } else {
       cy.$(':selected').not(node).unselect();
       node.select();
       console.log('🔄 Single select (cleared others)');
+      console.log('Total selected nodes:', cy.$('node:selected').length);
+      
+      // Only call onNodeClick in single-select mode, using ref
+      const nodeData = node.data();
+      if (onNodeClickRef.current) {
+        console.log('Calling onNodeClick');
+        onNodeClickRef.current(nodeData as unknown as Sahabi);
+      }
     }
+    
+    // Force Cytoscape to update the visual styles after selection change
+    // This ensures the green border appears immediately
+    cy.style().update();
+    
+    console.log('==================================');
+  }, [isMultiSelectGesture]); // Removed onNodeClick dependency - uses ref instead
 
-    const nodeData = node.data();
-    onNodeClick(nodeData as unknown as Sahabi);
-  };
+  // Store selectNode in ref so it's accessible in event handlers
+  useEffect(() => {
+    selectNodeRef.current = selectNode;
+    
+    // Re-attach event listeners when selectNode changes and cy is ready
+    const cy = cyRef.current;
+    if (!cy) return;
+
+    // Remove old listeners
+    cy.removeListener('tap', 'node');
+    cy.removeListener('cxttap', 'node');
+    cy.removeListener('tap'); // Remove background tap listeners too
+
+    // Attach new listeners with current selectNode via ref
+    cy.on('tap', 'node', (evt: cytoscape.EventObject) => {
+      if (selectNodeRef.current) {
+        selectNodeRef.current(cy, evt);
+      }
+    });
+
+    // On macOS, Ctrl+click can be emitted as context-tap. Handle it as multi-select.
+    cy.on('cxttap', 'node', (evt: cytoscape.EventObject) => {
+      evt.originalEvent?.preventDefault?.();
+      if (selectNodeRef.current) {
+        selectNodeRef.current(cy, evt);
+      }
+    });
+
+    // Prevent background taps from clearing selections in multi-select mode
+    cy.on('tap', (evt: cytoscape.EventObject) => {
+      // Only handle background taps (when target is the core, not a node)
+      if (evt.target === cy) {
+        if (multiSelectModeRef.current) {
+          // In multi-select mode, don't clear selections when clicking background
+          evt.stopPropagation();
+          console.log('🚫 Background tap - preserving selections in multi-select mode');
+        } else {
+          // In single-select mode, clear all selections when clicking background
+          const selectedNodes = cy.$(':selected');
+          selectedNodes.forEach((n) => {
+            n.unselect();
+            // Remove inline border styles that were applied
+            n.removeStyle('border-width border-color border-style');
+          });
+          selectedNodeIdsRef.current = []; // Clear the ref too!
+          console.log('🧹 Background tap - cleared all selections (single-select mode)');
+        }
+      }
+    });
+  }, [selectNode]);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const stylesheet: any[] = [
@@ -248,6 +470,7 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
       style: {
         'border-width': '4px',
         'border-color': '#2e7d32',
+        'border-style': 'solid',
       }
     },
     {
@@ -340,16 +563,15 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
         cy={(cy: Core) => {
           cyRef.current = cy;
           window.cy = cy;
-
-          cy.on('tap', 'node', (evt: cytoscape.EventObject) => {
-            selectNode(cy, evt);
-          });
-
-          // On macOS, Ctrl+click can be emitted as context-tap. Handle it as multi-select.
-          cy.on('cxttap', 'node', (evt: cytoscape.EventObject) => {
-            evt.originalEvent?.preventDefault?.();
-            selectNode(cy, evt);
-          });
+          
+          // ENABLE selection (false means selectable)
+          cy.autounselectify(false);
+          
+          // Enable box selection for multi-select via drag
+          cy.boxSelectionEnabled(true);
+          
+          // Log for debugging
+          console.log('✅ Cytoscape initialized - selection ENABLED');
         }}
         layout={{ name: 'cose' }}
       />
