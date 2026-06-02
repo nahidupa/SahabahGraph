@@ -187,7 +187,7 @@ const SahabahDetail: React.FC<SahabahDetailProps> = ({
   }
 
   return (
-    <Drawer
+    <Drawer id="tour-detail-panel"
       variant="permanent"
       anchor={i18n.dir() === 'rtl' ? 'left' : 'right'}
       sx={{

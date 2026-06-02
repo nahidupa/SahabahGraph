@@ -18,6 +18,7 @@ import {
   type SelectChangeEvent
 } from '@mui/material';
 import {
+  Help as HelpIcon,
   Search as SearchIcon,
   Add as AddIcon,
   ChevronLeft as ChevronLeftIcon,
@@ -35,6 +36,7 @@ interface SahabahSidebarProps {
   onSelectNode: (node: Sahabi) => void;
   searchTerm: string;
   onSearchChange: (term: string) => void;
+  onStartTour: () => void;
 }
 
 const SahabahSidebar: React.FC<SahabahSidebarProps> = ({
@@ -42,7 +44,8 @@ const SahabahSidebar: React.FC<SahabahSidebarProps> = ({
   onAddNode,
   onSelectNode,
   searchTerm,
-  onSearchChange
+  onSearchChange,
+  onStartTour
 }) => {
   const { t, i18n } = useTranslation();
   const [collapsed, setCollapsed] = useState(false);
@@ -82,7 +85,7 @@ const SahabahSidebar: React.FC<SahabahSidebarProps> = ({
   }
 
   return (
-    <Drawer
+    <Drawer id="tour-sidebar"
       variant="permanent"
       sx={{
         width: 300,
@@ -99,7 +102,12 @@ const SahabahSidebar: React.FC<SahabahSidebarProps> = ({
       }}
     >
       <Box sx={{ p: 2, display: 'flex', justifyContent: 'space-between', alignItems: 'center', bgcolor: 'primary.main', color: 'primary.contrastText' }}>
-        <Typography variant="h6" sx={{ fontWeight: 'bold' }}>{t('app_name')}</Typography>
+        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+          <Typography variant="h6" sx={{ fontWeight: 'bold' }}>{t('app_name')}</Typography>
+          <IconButton size="small" onClick={onStartTour} sx={{ color: 'inherit', ml: 1 }} title={t('tour.help_button')}>
+            <HelpIcon fontSize="small" />
+          </IconButton>
+        </Box>
         <IconButton onClick={() => setCollapsed(true)} sx={{ color: 'inherit' }}>
           {i18n.dir() === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
         </IconButton>
@@ -122,7 +130,7 @@ const SahabahSidebar: React.FC<SahabahSidebarProps> = ({
           </Select>
         </FormControl>
 
-        <TextField
+        <TextField id="tour-search"
           fullWidth
           size="small"
           placeholder={t('search_placeholder')}
