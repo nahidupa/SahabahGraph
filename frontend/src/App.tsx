@@ -652,6 +652,31 @@ const App: React.FC = () => {
     };
   };
 
+  const handleSelectNode = (node: Sahabi) => {
+    // Set selected node for detail panel
+    setSelectedNode(node);
+    
+    // If node is already in the graph, focus on it
+    setTimeout(() => {
+      if (cyRef.current && viewMode === 'graph') {
+        const cyNode = cyRef.current.$(`#${node.id}`);
+        if (cyNode.length > 0) {
+          // Node exists in graph, center on it
+          cyRef.current.center(cyNode);
+          cyRef.current.zoom({
+            level: 2,
+            position: cyNode.position()
+          });
+          // Highlight the node briefly
+          cyNode.addClass('highlighted');
+          setTimeout(() => {
+            cyNode.removeClass('highlighted');
+          }, 2000);
+        }
+      }
+    }, 100);
+  };
+
   const handleShare = async () => {
     // Get currently displayed node IDs (nodes don't have source/target properties)
     const displayedNodeIds = elements
@@ -684,7 +709,7 @@ const App: React.FC = () => {
           onStartTour={startTour}
           nodes={filteredNodes}
           onAddNode={addNodeToGraph}
-          onSelectNode={setSelectedNode}
+          onSelectNode={handleSelectNode}
           searchTerm={searchTerm}
           onSearchChange={setSearchTerm}
         />
@@ -733,7 +758,7 @@ const App: React.FC = () => {
       ) : viewMode === 'timeline' ? (
         <TimelineView
           nodes={data?.nodes || []}
-          onSelectNode={setSelectedNode}
+          onSelectNode={handleSelectNode}
           selectedNode={selectedNode}
         />
       ) : (
@@ -741,10 +766,10 @@ const App: React.FC = () => {
           cities={politicalData.cities}
           terms={politicalData.terms}
           nodes={data?.nodes || []}
-          onSelectGovernor={setSelectedNode}
+          onSelectGovernor={handleSelectNode}
           onLinkGovernor={(node) => {
             addNodeToGraph(node);
-            setSelectedNode(node);
+            handleSelectNode(node);
             setViewMode('graph');
           }}
         />

@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import {
   Box,
   Drawer,
@@ -74,6 +74,36 @@ const SahabahDetail: React.FC<SahabahDetailProps> = ({
 }) => {
   const { t, i18n } = useTranslation();
   const [collapsed, setCollapsed] = useState(false);
+  const [avatarKey, setAvatarKey] = useState(0);
+
+  // Force avatar re-render when selectedNode changes
+  useEffect(() => {
+    if (selectedNode) {
+      console.log('👤 Avatar update - Selected node changed:', selectedNode.name_en, 'ID:', selectedNode.id, 'Type:', selectedNode.node_type, 'Gender:', selectedNode.gender, 'Prophet:', selectedNode.is_prophet);
+    }
+    setAvatarKey(prev => prev + 1);
+  }, [selectedNode?.id]);
+
+  // Compute avatar props based on selectedNode
+  const avatarProps = useMemo(() => {
+    if (!selectedNode) return null;
+    
+    // Properly check boolean/string is_prophet field
+    const isProphet = selectedNode.is_prophet === true || selectedNode.is_prophet === 'true' || selectedNode.is_prophet === 'True';
+    
+    const bgcolor = selectedNode.node_type === 'Battle' ? '#795548' :
+                   (isProphet ? '#ffd700' :
+                   (selectedNode.node_type === 'PoliticalFigure' && ['1', '2', '3'].includes(selectedNode.prominence || '') ? '#666' :
+                   (selectedNode.gender?.toLowerCase().startsWith('m') ? '#2196f3' : '#e91e63')));
+    
+    const icon = selectedNode.node_type === 'Battle' ? <BattleIcon fontSize="large" /> :
+                (isProphet ? '★' :
+                (selectedNode.gender?.toLowerCase().startsWith('m') ? '♂' : '♀'));
+    
+    console.log('🎨 Avatar computed - Name:', selectedNode.name_en, 'Prophet?', isProphet, 'Color:', bgcolor, 'Icon type:', typeof icon === 'string' ? `'${icon}'` : 'BattleIcon');
+    
+    return { bgcolor, icon };
+  }, [selectedNode?.id, selectedNode?.node_type, selectedNode?.is_prophet, selectedNode?.gender]);
 
   // Dynamically determine available relationship categories for the selected node
   const availableCategories = useMemo(() => {
@@ -218,22 +248,19 @@ const SahabahDetail: React.FC<SahabahDetailProps> = ({
           <>
             <Box sx={{ display: 'flex', alignItems: 'center', mb: 2, mt: 2 }}>
               <Avatar
+                key={`avatar-${selectedNode.id}-${avatarKey}`}
                 sx={{
-                  bgcolor: selectedNode.node_type === 'Battle' ? '#795548' :
-                          (selectedNode.is_prophet ? '#ffd700' :
-                          (selectedNode.node_type === 'PoliticalFigure' && ['1', '2', '3'].includes(selectedNode.prominence || '') ? '#666' :
-                          (selectedNode.gender?.toLowerCase().startsWith('m') ? '#2196f3' : '#e91e63'))),
+                  bgcolor: avatarProps?.bgcolor || '#666',
                   marginInlineEnd: 2,
                   width: 56,
                   height: 56,
                   fontSize: '2rem',
                   fontWeight: 'bold',
-                  color: '#fff'
+                  color: '#fff',
+                  transition: 'background-color 0.3s ease'
                 }}
               >
-                {selectedNode.node_type === 'Battle' ? <BattleIcon fontSize="large" /> :
-                (selectedNode.is_prophet ? '★' :
-                (selectedNode.gender?.toLowerCase().startsWith('m') ? '♂' : '♀'))}
+                {avatarProps?.icon}
               </Avatar>
               <Box>
                 <Typography variant="h5" sx={{ fontWeight: 'bold' }}>{(i18n.language.startsWith("ar") && selectedNode.name_ar) ? selectedNode.name_ar : (i18n.language.startsWith("bn") && selectedNode.name_bn) ? selectedNode.name_bn : (i18n.language.startsWith("de") && selectedNode.name_de) ? selectedNode.name_de : selectedNode.name_en}</Typography>

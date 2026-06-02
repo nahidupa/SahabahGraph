@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Box, Paper, IconButton, Tooltip, Divider } from '@mui/material';
 import {
   Route as RouteIcon,
@@ -8,7 +8,8 @@ import {
   Download as DownloadIcon,
   Image as ImageIcon,
   DeleteSweep as DeleteSweepIcon,
-  Share as ShareIcon
+  Share as ShareIcon,
+  TouchApp as TouchAppIcon
 } from '@mui/icons-material';
 import CytoscapeComponent from 'react-cytoscapejs';
 import cytoscape from 'cytoscape';
@@ -44,6 +45,12 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
   onShare
 }) => {
   const { t } = useTranslation();
+  const [multiSelectMode, setMultiSelectMode] = useState(false);
+
+  // Debug multiSelectMode changes
+  useEffect(() => {
+    console.log('Multi-select mode changed to:', multiSelectMode);
+  }, [multiSelectMode]);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -103,21 +110,27 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
   const isMultiSelectGesture = (evt: cytoscape.EventObject): boolean => {
     const originalEvent = evt.originalEvent as MouseEvent | KeyboardEvent | undefined;
     return Boolean(
-      originalEvent && (originalEvent.ctrlKey || originalEvent.metaKey || originalEvent.shiftKey)
+      multiSelectMode || (originalEvent && (originalEvent.ctrlKey || originalEvent.metaKey || originalEvent.shiftKey))
     );
   };
 
   const selectNode = (cy: Core, evt: cytoscape.EventObject) => {
     const node = evt.target;
-    if (isMultiSelectGesture(evt)) {
+    const isMulti = isMultiSelectGesture(evt);
+    console.log('🖱️ Node clicked. Multi-select active?', isMulti, '(multiSelectMode:', multiSelectMode, ')');
+    
+    if (isMulti) {
       if (node.selected()) {
         node.unselect();
+        console.log('➖ Node deselected');
       } else {
         node.select();
+        console.log('➕ Node selected');
       }
     } else {
       cy.$(':selected').not(node).unselect();
       node.select();
+      console.log('🔄 Single select (cleared others)');
     }
 
     const nodeData = node.data();
@@ -354,8 +367,36 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
           zIndex: 1000
         }}
       >
+        <Tooltip title={multiSelectMode ? t('multi_select_on', { defaultValue: 'Multi-Select: ON (tap to disable)' }) : t('multi_select_off', { defaultValue: 'Multi-Select: OFF (tap to enable)' })}>
+          <IconButton
+            id="tour-multi-select"
+            color={multiSelectMode ? "primary" : "default"}
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              setMultiSelectMode(prev => {
+                const newMode = !prev;
+                console.log('🔘 Multi-select button clicked! New mode:', newMode);
+                return newMode;
+              });
+            }}
+            sx={{
+              bgcolor: multiSelectMode ? 'rgba(33, 150, 243, 0.2)' : 'rgba(0, 0, 0, 0.04)',
+              '&:hover': {
+                bgcolor: multiSelectMode ? 'rgba(33, 150, 243, 0.35)' : 'rgba(0, 0, 0, 0.08)'
+              },
+              border: multiSelectMode ? '3px solid #2196f3' : '2px solid rgba(0, 0, 0, 0.12)',
+              transition: 'all 0.3s ease',
+              boxShadow: multiSelectMode ? '0 0 8px rgba(33, 150, 243, 0.4)' : 'none'
+            }}
+          >
+            <TouchAppIcon sx={{ fontSize: 28 }} />
+          </IconButton>
+        </Tooltip>
+        <Divider orientation="vertical" flexItem />
         <Tooltip title={t('show_connections')}>
           <IconButton
+            id="tour-show-connections"
             color={showConnectionsActive ? "primary" : "default"}
             onClick={onShowConnections}
           >
@@ -364,32 +405,32 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
         </Tooltip>
         <Divider orientation="vertical" flexItem />
         <Tooltip title={t('zoom_in')}>
-          <IconButton onClick={handleZoomIn}><ZoomInIcon /></IconButton>
+          <IconButton id="tour-zoom-in" onClick={handleZoomIn}><ZoomInIcon /></IconButton>
         </Tooltip>
         <Tooltip title={t('zoom_out')}>
-          <IconButton onClick={handleZoomOut}><ZoomOutIcon /></IconButton>
+          <IconButton id="tour-zoom-out" onClick={handleZoomOut}><ZoomOutIcon /></IconButton>
         </Tooltip>
         <Tooltip title={t('reset_layout')}>
-          <IconButton onClick={handleReset}><ResetIcon /></IconButton>
+          <IconButton id="tour-reset-layout" onClick={handleReset}><ResetIcon /></IconButton>
         </Tooltip>
         <Divider orientation="vertical" flexItem />
         <Tooltip title={t('remove_all')}>
-          <IconButton onClick={onRemoveAll} color="error">
+          <IconButton id="tour-remove-all" onClick={onRemoveAll} color="error">
             <DeleteSweepIcon />
           </IconButton>
         </Tooltip>
         <Divider orientation="vertical" flexItem />
         <Tooltip title={t('export_png')}>
-          <IconButton onClick={handleExportPNG}><ImageIcon /></IconButton>
+          <IconButton id="tour-export-png" onClick={handleExportPNG}><ImageIcon /></IconButton>
         </Tooltip>
         <Tooltip title={t('export_svg')}>
-          <IconButton onClick={handleExportSVG}><DownloadIcon /></IconButton>
+          <IconButton id="tour-export-svg" onClick={handleExportSVG}><DownloadIcon /></IconButton>
         </Tooltip>
         {onShare && (
           <>
             <Divider orientation="vertical" flexItem />
             <Tooltip title={t('share_graph', { defaultValue: 'Share Graph' })}>
-              <IconButton onClick={onShare} color="primary">
+              <IconButton id="tour-share" onClick={onShare} color="primary">
                 <ShareIcon />
               </IconButton>
             </Tooltip>
