@@ -111,6 +111,14 @@ const loadPoliticalData = async (): Promise<PoliticalData> => {
 
 const CANVAS_STATE_KEY = 'sahabahgraph_canvas_state';
 
+// Helper function to normalize is_prophet field (handles both boolean and string values)
+const normalizeIsProphet = (value: any): 'true' | 'false' => {
+  if (value === true || String(value).toLowerCase() === 'true') {
+    return 'true';
+  }
+  return 'false';
+};
+
 const App: React.FC = () => {
   const [dataLoaded, setDataLoaded] = useState(false);
   const [runTour, setRunTour] = useState(false);
@@ -254,17 +262,20 @@ const App: React.FC = () => {
             
             // Add all shared nodes
             sharedNodes.forEach((sahabi) => {
-              const isProphet = sahabi.id === 0;
               const nodeId = sahabi.id.toString();
               const displayName = i18n.language.startsWith('ar') && sahabi.name_ar ? sahabi.name_ar : sahabi.name_en;
+              
+              // Normalize is_prophet to lowercase "true" or "false" for Cytoscape selectors
+              const isProphetNormalized = normalizeIsProphet(sahabi.is_prophet);
+              
               initialElements.push({
                 data: {
                   ...sahabi,
                   id: nodeId,
-                  label: isProphet ? '★' : displayName,
+                  label: displayName,
                   fullName: displayName,
                   originalId: sahabi.id,
-                  is_prophet: String(sahabi.is_prophet),
+                  is_prophet: isProphetNormalized,
                 },
               });
               addedNodeIds.add(nodeId);
@@ -323,17 +334,20 @@ const App: React.FC = () => {
 
           // Add core nodes (Prophet + key companions)
           coreNodes.forEach((sahabi) => {
-            const isProphet = sahabi.id === 0;
             const nodeId = sahabi.id.toString();
             const displayName = i18n.language.startsWith('ar') && sahabi.name_ar ? sahabi.name_ar : sahabi.name_en;
+            
+            // Normalize is_prophet to lowercase "true" or "false" for Cytoscape selectors
+            const isProphetNormalized = normalizeIsProphet(sahabi.is_prophet);
+            
             initialElements.push({
               data: {
                 ...sahabi,
                 id: nodeId,
-                label: isProphet ? '★' : displayName,
+                label: displayName,
                 fullName: displayName,
                 originalId: sahabi.id,
-                is_prophet: String(sahabi.is_prophet),
+                is_prophet: isProphetNormalized,
               },
             });
             addedNodeIds.add(nodeId);
@@ -421,6 +435,10 @@ const App: React.FC = () => {
         } else if (nodes.length > 0) {
           const firstNode = nodes[0];
           const displayName = i18n.language.startsWith('ar') && firstNode.name_ar ? firstNode.name_ar : firstNode.name_en;
+          
+          // Normalize is_prophet to lowercase "true" or "false" for Cytoscape selectors
+          const isProphetNormalized = normalizeIsProphet(firstNode.is_prophet);
+          
           setElements([
             {
               data: {
@@ -429,7 +447,7 @@ const App: React.FC = () => {
                 label: displayName,
                 fullName: displayName,
                 originalId: firstNode.id,
-                is_prophet: String(firstNode.is_prophet),
+                is_prophet: isProphetNormalized,
               },
             },
           ]);
@@ -471,10 +489,20 @@ const App: React.FC = () => {
       const exists = prev.find(el => el.data.id === node.id.toString());
       if (exists) return prev;
       const center = getViewportCenter();
+      
+      // Normalize is_prophet to lowercase "true" or "false" for Cytoscape selectors
+      const isProphetNormalized = normalizeIsProphet(node.is_prophet);
+      
       return [
         ...prev,
         {
-          data: { ...node, id: node.id.toString(), label: (i18n.language.startsWith('ar') && node.name_ar ? node.name_ar : node.name_en), originalId: node.id, is_prophet: String(node.is_prophet) },
+          data: { 
+            ...node, 
+            id: node.id.toString(), 
+            label: (i18n.language.startsWith('ar') && node.name_ar ? node.name_ar : node.name_en), 
+            originalId: node.id, 
+            is_prophet: isProphetNormalized 
+          },
           position: center,
         },
       ];
@@ -534,13 +562,16 @@ const App: React.FC = () => {
 
     const selectedGraphNode = data.nodes.find((n) => String(n.id) === String(nodeId));
     if (selectedGraphNode) {
+      // Normalize is_prophet to lowercase "true" or "false" for Cytoscape selectors
+      const isProphetNormalized = normalizeIsProphet(selectedGraphNode.is_prophet);
+      
       newElements.push({
         data: {
           ...selectedGraphNode,
           id: selectedGraphNode.id.toString(),
           label: (i18n.language.startsWith('ar') && selectedGraphNode.name_ar ? selectedGraphNode.name_ar : selectedGraphNode.name_en),
           originalId: selectedGraphNode.id,
-          is_prophet: String(selectedGraphNode.is_prophet),
+          is_prophet: isProphetNormalized,
         },
       });
     }
@@ -549,7 +580,18 @@ const App: React.FC = () => {
       const otherId = String(rel.source) === String(nodeId) ? rel.target : rel.source;
       const otherNode = data.nodes.find(n => String(n.id) === String(otherId));
       if (otherNode) {
-        newElements.push({ data: { ...otherNode, id: otherNode.id.toString(), label: (i18n.language.startsWith('ar') && otherNode.name_ar ? otherNode.name_ar : otherNode.name_en), originalId: otherNode.id, is_prophet: String(otherNode.is_prophet) } });
+        // Normalize is_prophet to lowercase "true" or "false" for Cytoscape selectors
+        const isProphetNormalized = normalizeIsProphet(otherNode.is_prophet);
+        
+        newElements.push({ 
+          data: { 
+            ...otherNode, 
+            id: otherNode.id.toString(), 
+            label: (i18n.language.startsWith('ar') && otherNode.name_ar ? otherNode.name_ar : otherNode.name_en), 
+            originalId: otherNode.id, 
+            is_prophet: isProphetNormalized 
+          } 
+        });
         newElements.push({
           data: {
             id: `e${rel.source}-${rel.target}`,
@@ -615,7 +657,18 @@ const App: React.FC = () => {
             const nodeId = p[i];
             const node = data?.nodes.find(n => n.id.toString() === nodeId);
             if (node) {
-              newElements.push({ data: { ...node, id: node.id.toString(), label: (i18n.language.startsWith('ar') && node.name_ar ? node.name_ar : node.name_en), originalId: node.id, is_prophet: String(node.is_prophet) } });
+              // Normalize is_prophet to lowercase "true" or "false" for Cytoscape selectors
+              const isProphetNormalized = normalizeIsProphet(node.is_prophet);
+              
+              newElements.push({ 
+                data: { 
+                  ...node, 
+                  id: node.id.toString(), 
+                  label: (i18n.language.startsWith('ar') && node.name_ar ? node.name_ar : node.name_en), 
+                  originalId: node.id, 
+                  is_prophet: isProphetNormalized 
+                } 
+              });
             }
 
             if (i < p.length - 1) {

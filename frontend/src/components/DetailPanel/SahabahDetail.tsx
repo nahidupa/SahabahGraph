@@ -84,12 +84,17 @@ const SahabahDetail: React.FC<SahabahDetailProps> = ({
     setAvatarKey(prev => prev + 1);
   }, [selectedNode?.id]);
 
+  // Helper to normalize is_prophet field
+  const normalizeIsProphet = (value: any): boolean => {
+    return value === true || String(value).toLowerCase() === 'true';
+  };
+
   // Compute avatar props based on selectedNode
   const avatarProps = useMemo(() => {
     if (!selectedNode) return null;
     
     // Properly check boolean/string is_prophet field
-    const isProphet = selectedNode.is_prophet === true || selectedNode.is_prophet === 'true' || selectedNode.is_prophet === 'True';
+    const isProphet = normalizeIsProphet(selectedNode.is_prophet);
     
     const bgcolor = selectedNode.node_type === 'Battle' ? '#795548' :
                    (isProphet ? '#ffd700' :
