@@ -1,5 +1,5 @@
 import React from 'react';
-import { Joyride, STATUS, type Step } from 'react-joyride';
+import { Joyride, STATUS, ACTIONS, type Step, type CallBackProps } from 'react-joyride';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '@mui/material/styles';
 
@@ -19,44 +19,50 @@ const OnboardingTour: React.FC<OnboardingTourProps> = ({ run, onFinish }) => {
       title: t('tour.sidebar_title'),
       content: t('tour.sidebar_content'),
       placement: 'right',
+      disableBeacon: true,
     },
     {
       target: '#tour-search',
       title: t('tour.search_title'),
       content: t('tour.search_content'),
       placement: 'bottom',
+      disableBeacon: true,
     },
     {
       target: '#tour-view-toggler',
       title: t('tour.view_toggler_title'),
       content: t('tour.view_toggler_content'),
       placement: 'bottom',
+      disableBeacon: true,
     },
     {
       target: '#tour-graph-canvas',
       title: t('tour.graph_canvas_title'),
       content: t('tour.graph_canvas_content'),
       placement: 'center',
+      disableBeacon: true,
     },
     {
       target: '#tour-graph-controls',
       title: t('tour.graph_controls_title'),
       content: t('tour.graph_controls_content'),
       placement: 'top',
+      disableBeacon: true,
     },
     {
       target: '#tour-detail-panel',
       title: t('tour.detail_panel_title'),
       content: t('tour.detail_panel_content'),
       placement: 'left',
+      disableBeacon: true,
     },
   ];
 
-  const handleJoyrideCallback = (data: any) => {
-    const { status } = data;
+  const handleJoyrideCallback = (data: CallBackProps) => {
+    const { status, action } = data;
     const finishedStatuses: string[] = [STATUS.FINISHED, STATUS.SKIPPED];
 
-    if (finishedStatuses.includes(status)) {
+    if (finishedStatuses.includes(status) || action === ACTIONS.CLOSE) {
       onFinish();
     }
   };
@@ -70,6 +76,7 @@ const OnboardingTour: React.FC<OnboardingTourProps> = ({ run, onFinish }) => {
       showSkipButton
       scrollToFirstStep
       callback={handleJoyrideCallback}
+      disableOverlayClose
       locale={{
         back: t('tour.back'),
         close: t('tour.last'),
