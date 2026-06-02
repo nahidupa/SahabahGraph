@@ -2,3 +2,4 @@
 .env*
 # Backup files
 *.backup_*
+data-pipeline/archive/
