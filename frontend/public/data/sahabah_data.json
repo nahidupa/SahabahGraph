@@ -21067,14 +21067,6 @@
       "category": "family"
     },
     {
-      "source": 17,
-      "target": 246,
-      "source_id": 17,
-      "target_id": 246,
-      "type": "PARENT_OF",
-      "category": "family"
-    },
-    {
       "source": 116,
       "target": 219,
       "source_id": 116,
@@ -23119,14 +23111,6 @@
       "target": 6,
       "source_id": 213,
       "target_id": 6,
-      "type": "SON_OF",
-      "category": "family"
-    },
-    {
-      "source": 246,
-      "target": 17,
-      "source_id": 246,
-      "target_id": 17,
       "type": "SON_OF",
       "category": "family"
     },

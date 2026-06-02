@@ -52,7 +52,6 @@ source_id,target_id,type,category
 3,220,PARENT_OF,family
 6,214,PARENT_OF,family
 6,213,PARENT_OF,family
-17,246,PARENT_OF,family
 116,219,SIBLING_OF,family
 16,243,PARTICIPATED_IN,battles
 18,243,PARTICIPATED_IN,battles
@@ -311,7 +310,6 @@ source_id,target_id,type,category
 220,3,SON_OF,family
 214,6,SON_OF,family
 213,6,SON_OF,family
-246,17,SON_OF,family
 4,266,SON_OF,family
 25,57,SON_OF,family
 27,84,SON_OF,family
