@@ -4,7 +4,7 @@ import csv
 
 
 def validate_graph_json() -> tuple[list[str], list[str]]:
-    data_path = 'frontend/public/data/sahabah_data.json'
+    data_path = '../frontend/public/data/sahabah_data.json'
     errors: list[str] = []
     warnings: list[str] = []
 

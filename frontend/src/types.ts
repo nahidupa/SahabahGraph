@@ -1,6 +1,8 @@
 export interface Sahabi {
   id: number;
   name_ar?: string;
+  name_bn?: string;
+  name_de?: string;
   name_en: string;
   kunyah?: string;
   laqab?: string;
@@ -9,6 +11,8 @@ export interface Sahabi {
   node_type?: 'Sahabi' | 'Battle' | 'PoliticalFigure';
   prominence?: string;
   biography_short?: string;
+  biography_bn?: string;
+  biography_de?: string;
   biography_source?: string;
   tribe?: string;
   clan?: string;

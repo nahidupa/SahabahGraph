@@ -236,7 +236,7 @@ const SahabahDetail: React.FC<SahabahDetailProps> = ({
                 (selectedNode.gender?.toLowerCase().startsWith('m') ? '♂' : '♀'))}
               </Avatar>
               <Box>
-                <Typography variant="h5" sx={{ fontWeight: 'bold' }}>{i18n.language.startsWith("ar") && selectedNode.name_ar ? selectedNode.name_ar : selectedNode.name_en}</Typography>
+                <Typography variant="h5" sx={{ fontWeight: 'bold' }}>{(i18n.language.startsWith("ar") && selectedNode.name_ar) ? selectedNode.name_ar : (i18n.language.startsWith("bn") && selectedNode.name_bn) ? selectedNode.name_bn : (i18n.language.startsWith("de") && selectedNode.name_de) ? selectedNode.name_de : selectedNode.name_en}</Typography>
                 {selectedNode.name_ar && <Typography variant="h6" color="primary" sx={{ fontStyle: 'italic' }}>{selectedNode.name_ar}</Typography>}
                 {selectedNode.kunyah && <Typography variant="subtitle2" color="text.secondary">{t('kunyah')}: {selectedNode.kunyah}</Typography>}
                 <Typography variant="subtitle1" color="text.secondary">{selectedNode.laqab}</Typography>
@@ -364,7 +364,7 @@ const SahabahDetail: React.FC<SahabahDetailProps> = ({
                 </Typography>
               </Box>
               <Typography variant="body2" sx={{ mb: 2 }}>
-                {selectedNode.biography_short || t('bio_placeholder', { name: selectedNode.name_en })}
+                {(i18n.language.startsWith('bn') && selectedNode.biography_bn) ? selectedNode.biography_bn : (i18n.language.startsWith('de') && selectedNode.biography_de) ? selectedNode.biography_de : selectedNode.biography_short || t('bio_placeholder', { name: selectedNode.name_en })}
               </Typography>
               {selectedNode.biography_source && (
                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
