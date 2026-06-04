@@ -145,9 +145,7 @@ source_id,target_id,type,category
 286,11,PARENT_OF,biological
 287,11,PARENT_OF,biological
 288,16,PARENT_OF,biological
-463,16,PARENT_OF,biological
 289,17,PARENT_OF,biological
-463,17,PARENT_OF,biological
 290,24,PARENT_OF,biological
 291,24,PARENT_OF,biological
 292,35,PARENT_OF,biological
@@ -162,7 +160,6 @@ source_id,target_id,type,category
 301,90,PARENT_OF,biological
 302,93,PARENT_OF,biological
 303,93,PARENT_OF,biological
-54,38,PARENT_OF,biological
 18,18,PARENT_OF,biological
 304,18,PARENT_OF,biological
 305,19,PARENT_OF,biological
@@ -856,3 +853,5 @@ source_id,target_id,type,category
 201,643,PARENT_OF,family
 644,202,PARENT_OF,family
 615,203,PARENT_OF,family
+267,12,PARENT_OF,family
+267,75,PARENT_OF,family
