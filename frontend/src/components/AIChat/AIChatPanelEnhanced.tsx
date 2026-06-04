@@ -985,7 +985,7 @@ ${node2.biography_short ? `\n${node2.biography_short.substring(0, 200)}...` : ''
         if (!allNodes) return '❌ No data available';
         
         const category = params.category;
-        let result = '';
+        let result;
         
         switch (category) {
           case 'tribes': {

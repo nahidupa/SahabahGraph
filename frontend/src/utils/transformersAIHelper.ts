@@ -45,7 +45,7 @@ export class TransformersAIHelper {
             this.resolvePrompt = null;
           }
           break;
-        case 'error':
+        case 'error': {
           console.error('🔧 Helper: Got error:', error, 'suggestFallback:', suggestFallback);
           // If WebGPU OOM, append suggestion to error message
           const errorMsg = suggestFallback 
@@ -60,6 +60,7 @@ export class TransformersAIHelper {
             this.resolvePrompt = null;
           }
           break;
+        }
       }
     };
   }
