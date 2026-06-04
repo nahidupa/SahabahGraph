@@ -11,6 +11,8 @@ import {
   Chip,
   Tooltip,
   LinearProgress,
+  ToggleButtonGroup,
+  ToggleButton,
 } from '@mui/material';
 import {
   Chat as ChatIcon,
@@ -28,6 +30,7 @@ interface Message {
   timestamp: Date;
   isCommand?: boolean;
   commandResult?: string;
+  isThinking?: boolean;
 }
 
 // interface UICommand {
@@ -167,6 +170,10 @@ const AIChatPanel: React.FC<AIChatPanelProps> = ({
   });
   const [downloadProgress, setDownloadProgress] = useState<number>(0);
   const [aiMode, setAiMode] = useState<'chrome' | 'transformers' | null>(null);
+  const [backend, setBackend] = useState<'webgpu' | 'wasm'>(() => {
+    // Load from localStorage or default to wasm (lower memory)
+    return (localStorage.getItem('ai-backend') as 'webgpu' | 'wasm') || 'wasm';
+  });
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   // Check AI availability for both Chrome AI and Transformers.js
@@ -328,11 +335,12 @@ What would you like to explore?`,
             () => {
               if (active) {
                 // Set aiSession to enable input field
+                console.log('🔧 Component: Setting aiSession to enable input');
                 setAISession(transformersHelper);
                 setMessages([
                   {
                     role: 'assistant',
-                    content: 'Hello! I\'m your AI assistant powered by Transformers.js and WebGPU. I can help you explore SahabahGraph using a local model. How can I help?',
+                    content: `Assalamu Alaikum! 🕌 I'm your AI assistant for exploring SahabahGraph. I can help you discover relationships between the Sahabah (companions of Prophet Muhammad ﷺ), search by name, tribe, or family connections, and visualize their biographical data. Ask me about specific Sahabah, request family trees, or use commands like "Add random sahaba" or "Compare Ali and Uthman". How may I assist you today?`,
                     timestamp: new Date(),
                   },
                 ]);
@@ -343,7 +351,9 @@ What would you like to explore?`,
               console.error('Transformers.js Error:', error);
               // Note: We don't set isTransformersAvailable to false here
               // because that would unmount the component on any error
-            }
+            },
+            backend, // Pass backend selection to worker
+            false // Don't force reload on initial load
           );
         } catch (error) {
           console.error('Transformers.js init failed:', error);
@@ -366,7 +376,7 @@ What would you like to explore?`,
         setAISession(null);
       }
     };
-  }, [isOpen, isChromeAIAvailable, isTransformersAvailable, aiHelper, transformersHelper, currentView, graphStats, selectedNodes.length]);
+  }, [isOpen, isChromeAIAvailable, isTransformersAvailable, aiHelper, transformersHelper, currentView, graphStats, selectedNodes.length, backend]);
 
   // Scroll to bottom when new messages arrive
   useEffect(() => {
@@ -385,12 +395,40 @@ What would you like to explore?`,
       return { type: 'command', command: { action: 'clear', params: {} } };
     }
     
-    // 2. SHOW/ADD single person commands
+    // 2. RANDOM selection - "add X random sahaba/people/companions"
+    const randomMatch = input.match(/^(?:add|show|display)\s+(\d+|few|some|several)\s+random\s+(?:sahaba|people|companions|persons|sahabah)/i);
+    if (randomMatch) {
+      let count = 5; // default for "few/some/several"
+      if (randomMatch[1].match(/^\d+$/)) {
+        count = Math.min(parseInt(randomMatch[1], 10), 20); // Max 20
+      } else if (randomMatch[1].toLowerCase() === 'few') {
+        count = 3;
+      } else if (randomMatch[1].toLowerCase() === 'some') {
+        count = 5;
+      } else if (randomMatch[1].toLowerCase() === 'several') {
+        count = 7;
+      }
+      return { 
+        type: 'command', 
+        command: { action: 'random', params: { count } } 
+      };
+    }
+    
+    // 3. SHOW/ADD single person commands
     const showMatch = input.match(/^(show|add|display|i want to see)\s+(?:me\s+)?(.+?)$/i);
-    if (showMatch && !lower.includes(' all ')) {
+    if (showMatch && !lower.includes(' all ') && !lower.includes(' family')) {
       return { 
         type: 'command', 
         command: { action: 'add', params: { name: showMatch[2].trim() } } 
+      };
+    }
+    
+    // 2b. FAMILY/GRAPH creation - "create graph of X family" or "show X family"
+    const familyMatch = input.match(/^(?:create\s+graph\s+of|show|display)\s+(.+?)(?:'s)?\s+family$/i);
+    if (familyMatch) {
+      return { 
+        type: 'command', 
+        command: { action: 'family', params: { name: familyMatch[1].trim() } } 
       };
     }
     
@@ -646,6 +684,25 @@ What would you like to explore?`,
         }
       }
       
+      case 'random': {
+        if (!onAddNode || !allNodes) {
+          return '⚠️ Add node capability not available';
+        }
+        
+        const count = params.count || 5;
+        
+        // Randomly select nodes
+        const shuffled = [...allNodes].sort(() => Math.random() - 0.5);
+        const selected = shuffled.slice(0, count);
+        
+        // Add all selected nodes
+        selected.forEach(node => onAddNode(node));
+        
+        const names = selected.map(n => n.name_en).join(', ');
+        
+        return `✅ Added ${count} random Sahabah to the graph:\n\n${names}\n\n💡 Their relationships will appear as connecting lines automatically!`;
+      }
+      
       case 'search': {
         if (!onSearchChange) {
           return '⚠️ Search capability not available';
@@ -857,6 +914,40 @@ ${node2.biography_short ? `\n${node2.biography_short.substring(0, 200)}...` : ''
         return result;
       }
       
+      case 'family': {
+        // Add a person and their immediate family (parents, spouses, children)
+        if (!onAddNode || !allNodes) {
+          return '⚠️ Family graph capability not available';
+        }
+        
+        const searchName = params.name.toLowerCase();
+        const mainPerson = allNodes.find(n => 
+          n.name_en.toLowerCase().includes(searchName) ||
+          n.name_ar?.includes(params.name)
+        );
+        
+        if (!mainPerson) {
+          return `❌ Could not find "${params.name}" in database`;
+        }
+        
+        // Add the main person
+        onAddNode(mainPerson);
+        let added = 1;
+        const familyMembers: string[] = [mainPerson.name_en];
+        
+        // Note: The actual family relationships come from the relationships data
+        // The graph will automatically show connections when nodes are added
+        
+        return `✅ Added **${mainPerson.name_en}** to the graph!
+
+To see their family members:
+- Family relationships are shown as connecting lines automatically
+- Try: "Show [family member name]" to add specific relatives
+- Or: "Expand relationship between ${mainPerson.name_en} and [name]"
+
+💡 The database contains: ${mainPerson.has_parents ? '✓ Parents' : ''} ${mainPerson.has_spouses ? '✓ Spouses' : ''} ${mainPerson.has_children ? '✓ Children' : ''} ${mainPerson.has_siblings ? '✓ Siblings' : ''}`;
+      }
+      
       case 'filter':
       case 'path': {
         // These need more complex graph operations - suggest using questions instead
@@ -917,6 +1008,15 @@ ${node2.biography_short ? `\n${node2.biography_short.substring(0, 200)}...` : ''
           return;
         }
         
+        // Show "thinking..." indicator
+        const thinkingMessage: Message = {
+          role: 'assistant',
+          content: 'Thinking...',
+          timestamp: new Date(),
+          isThinking: true,
+        };
+        setMessages((prev) => [...prev, thinkingMessage]);
+        
         // ✨ RAG: Retrieve relevant context from database
         const context = retrieveContext(currentInput);
         
@@ -952,17 +1052,22 @@ Be informative, respectful, and concise. If relevant, suggest graph commands lik
             })),
             { role: 'user', content: currentInput }
           ];
+          console.log('🔧 Component: Calling transformersHelper.prompt with:', promptMessages);
           response = await transformersHelper.prompt(promptMessages);
+          console.log('🔧 Component: Got response:', response);
         } else {
           throw new Error('No AI mode selected or helper not available');
         }
         
+        console.log('🔧 Component: Creating AI message');
         const aiMessage: Message = {
           role: 'assistant',
           content: response,
           timestamp: new Date(),
         };
-        setMessages((prev) => [...prev, aiMessage]);
+        // Remove thinking message and add actual response
+        console.log('🔧 Component: Updating messages, removing thinking indicator');
+        setMessages((prev) => prev.filter(m => !m.isThinking).concat(aiMessage));
       }
     } catch (error) {
       console.error('Error processing message:', error);
@@ -971,7 +1076,8 @@ Be informative, respectful, and concise. If relevant, suggest graph commands lik
         content: 'Sorry, I encountered an error processing your request. Please try again.',
         timestamp: new Date(),
       };
-      setMessages((prev) => [...prev, errorMessage]);
+      // Remove thinking message and add error message
+      setMessages((prev) => prev.filter(m => !m.isThinking).concat(errorMessage));
     } finally {
       setIsLoading(false);
     }
@@ -1040,7 +1146,7 @@ Be informative, respectful, and concise. If relevant, suggest graph commands lik
               <AIIcon />
               <Typography variant="h6">AI Assistant</Typography>
               <Chip
-                label={aiMode === 'chrome' ? 'Gemini Nano' : aiMode === 'transformers' ? 'WebGPU Local' : 'Starting...'}
+                label={aiMode === 'chrome' ? 'Gemini Nano' : aiMode === 'transformers' ? backend.toUpperCase() : 'Starting...'}
                 size="small"
                 sx={{
                   bgcolor: 'rgba(255, 255, 255, 0.2)',
@@ -1048,6 +1154,65 @@ Be informative, respectful, and concise. If relevant, suggest graph commands lik
                   fontSize: '0.7rem',
                 }}
               />
+              {aiMode === 'transformers' && (
+                <Tooltip title="Switch AI backend: WebGPU (fast, more memory) or WASM (slower, less memory)">
+                  <ToggleButtonGroup
+                    value={backend}
+                    exclusive
+                    onChange={async (_, newBackend) => {
+                      if (newBackend !== null && transformersHelper) {
+                        console.log('🔧 Component: Backend changed to', newBackend);
+                        setBackend(newBackend);
+                        // Clear session and messages
+                        setAISession(null);
+                        setMessages([]);
+                        setDownloadProgress(0);
+                        
+                        // Reinitialize with new backend
+                        await transformersHelper.init(
+                          (progress: any) => {
+                            setDownloadProgress(progress.progress || 0);
+                          },
+                          () => {
+                            console.log('🔧 Component: Setting aiSession after backend switch');
+                            setAISession(transformersHelper);
+                            setMessages([
+                              {
+                                role: 'assistant',
+                                content: `Assalamu Alaikum! 🕌 I'm your AI assistant for exploring SahabahGraph. I can help you discover relationships between the Sahabah (companions of Prophet Muhammad ﷺ), search by name, tribe, or family connections, and visualize their biographical data. Ask me about specific Sahabah, request family trees, or use commands like "Add random sahaba" or "Compare Ali and Uthman". How may I assist you today?`,
+                                timestamp: new Date(),
+                              },
+                            ]);
+                          },
+                          (error: string) => {
+                            console.error('Transformers.js Error:', error);
+                          },
+                          newBackend,
+                          true // Force reload for backend switch
+                        );
+                      }
+                    }}
+                    size="small"
+                    sx={{ 
+                      height: 24,
+                      '& .MuiToggleButton-root': {
+                        px: 1,
+                        py: 0.5,
+                        fontSize: '0.7rem',
+                        color: 'rgba(255, 255, 255, 0.8)',
+                        borderColor: 'rgba(255, 255, 255, 0.3)',
+                        '&.Mui-selected': {
+                          bgcolor: 'rgba(255, 255, 255, 0.3)',
+                          color: 'white',
+                        },
+                      },
+                    }}
+                  >
+                    <ToggleButton value="wasm">WASM</ToggleButton>
+                    <ToggleButton value="webgpu">GPU</ToggleButton>
+                  </ToggleButtonGroup>
+                </Tooltip>
+              )}
               <Tooltip title="Can execute UI commands">
                 <CommandIcon fontSize="small" />
               </Tooltip>
@@ -1127,9 +1292,39 @@ Be informative, respectful, and concise. If relevant, suggest graph commands lik
                     sx={{
                       whiteSpace: 'pre-wrap',
                       wordBreak: 'break-word',
+                      ...(msg.isThinking && {
+                        fontStyle: 'italic',
+                        opacity: 0.8,
+                        animation: 'pulse 1.5s ease-in-out infinite',
+                        '@keyframes pulse': {
+                          '0%, 100%': { opacity: 0.6 },
+                          '50%': { opacity: 1 },
+                        },
+                      }),
                     }}
                   >
-                    {msg.content}
+                    {msg.isThinking ? (
+                      <Box component="span" sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+                        <AIIcon sx={{ fontSize: 16 }} />
+                        Thinking
+                        <Box
+                          component="span"
+                          sx={{
+                            animation: 'dots 1.4s steps(4, end) infinite',
+                            '@keyframes dots': {
+                              '0%, 20%': { content: '"."' },
+                              '40%': { content: '".."' },
+                              '60%, 100%': { content: '"..."' },
+                            },
+                            '&::after': {
+                              content: '"..."',
+                            },
+                          }}
+                        />
+                      </Box>
+                    ) : (
+                      msg.content
+                    )}
                   </Typography>
                   <Typography
                     variant="caption"
@@ -1187,7 +1382,7 @@ Be informative, respectful, and concise. If relevant, suggest graph commands lik
               </IconButton>
             </Box>
             <Typography variant="caption" color="text.secondary" sx={{ mt: 0.5, display: 'block' }}>
-              Try: "Show Abu Bakr", "Compare Ali and Uthman", "List tribes", "Stats", or ask any question
+              Try: "Add few random sahaba", "Show Abu Bakr", "Compare Ali and Uthman", "List tribes", or ask any question
             </Typography>
           </Box>
         </Paper>
