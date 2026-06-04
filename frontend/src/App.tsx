@@ -138,7 +138,7 @@ const App: React.FC = () => {
   useEffect(() => {
     if (dataLoaded && !localStorage.getItem('hasSeenTour')) {
       // Small delay to ensure DOM is fully ready
-      const timer = setTimeout(() => {
+      const timer = window.setTimeout(() => {
         setRunTour(true);
       }, 500);
       return () => clearTimeout(timer);
@@ -164,7 +164,7 @@ const App: React.FC = () => {
       if (saveTimeoutRef.current) {
         clearTimeout(saveTimeoutRef.current);
       }
-      saveTimeoutRef.current = setTimeout(() => {
+      saveTimeoutRef.current = window.setTimeout(() => {
         try {
           // Get positions from Cytoscape if available
           const elementsWithPositions = elements.map(el => {
@@ -609,7 +609,7 @@ const App: React.FC = () => {
       return [...prev, ...filteredNew];
     });
 
-    setTimeout(() => {
+    window.setTimeout(() => {
       if (cyRef.current) {
         cyRef.current.layout({ name: 'cose', animate: true }).run();
       }
@@ -698,7 +698,7 @@ const App: React.FC = () => {
           return [...prev, ...filteredNew];
         });
 
-        setTimeout(() => highlightPath(path), 200);
+        window.setTimeout(() => highlightPath(path), 200);
       } else {
         alert(t('no_path_found'));
       }
@@ -710,7 +710,7 @@ const App: React.FC = () => {
     setSelectedNode(node);
     
     // If node is already in the graph, focus on it
-    setTimeout(() => {
+    window.setTimeout(() => {
       if (cyRef.current && viewMode === 'graph') {
         const cyNode = cyRef.current.$(`#${node.id}`);
         if (cyNode.length > 0) {
@@ -722,7 +722,7 @@ const App: React.FC = () => {
           });
           // Highlight the node briefly
           cyNode.addClass('highlighted');
-          setTimeout(() => {
+          window.setTimeout(() => {
             cyNode.removeClass('highlighted');
           }, 2000);
         }
@@ -856,7 +856,7 @@ const App: React.FC = () => {
           if (node) {
             setSelectedNode(node);
             // Focus on node in cytoscape
-            setTimeout(() => {
+            window.setTimeout(() => {
               if (cyRef.current) {
                 const cyNode = cyRef.current.$(`#${node.id}`);
                 if (cyNode.length > 0) {
