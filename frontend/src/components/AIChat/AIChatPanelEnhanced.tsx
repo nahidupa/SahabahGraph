@@ -339,8 +339,10 @@ What would you like to explore?`,
               }
             },
             (error: string) => {
+              // Only log runtime errors, don't disable the whole chat
               console.error('Transformers.js Error:', error);
-              if (active) setIsTransformersAvailable(false);
+              // Note: We don't set isTransformersAvailable to false here
+              // because that would unmount the component on any error
             }
           );
         } catch (error) {
@@ -457,8 +459,138 @@ What would you like to explore?`,
       };
     }
     
+    // 8. COMPARE commands - "compare X and Y"
+    const compareMatch = input.match(/^compare\s+(.+?)\s+(?:and|with|vs|versus)\s+(.+)$/i);
+    if (compareMatch) {
+      return {
+        type: 'command',
+        command: { 
+          action: 'compare', 
+          params: { 
+            person1: compareMatch[1].trim(), 
+            person2: compareMatch[2].trim() 
+          } 
+        }
+      };
+    }
+    
+    // 9. FILTER commands - "filter by tribe/battle/prominence"
+    const filterMatch = input.match(/^(?:filter|show|list)\s+(?:by\s+)?(?:tribe|clan|prominence|battle|role)(?:\s+(.+))?$/i);
+    if (filterMatch) {
+      return {
+        type: 'command',
+        command: { action: 'filter', params: { criteria: filterMatch[1]?.trim() || 'all' } }
+      };
+    }
+    
+    // 10. STATS command - "show stats" or "statistics"
+    if (/^(?:show\s+)?(?:stats|statistics|summary)$/i.test(lower)) {
+      return { type: 'command', command: { action: 'stats', params: {} } };
+    }
+    
+    // 11. LIST commands - "list tribes", "list battles", "list all X" (accepts singular/plural)
+    const listMatch = input.match(/^list\s+(?:all\s+)?(tribes?|clans?|battles?|wives?|children|prominent)$/i);
+    if (listMatch) {
+      // Normalize to plural form
+      let category = listMatch[1].toLowerCase();
+      if (category === 'tribe') category = 'tribes';
+      if (category === 'clan') category = 'clans';
+      if (category === 'battle') category = 'battles';
+      if (category === 'wife') category = 'wives';
+      return {
+        type: 'command',
+        command: { action: 'list', params: { category } }
+      };
+    }
+    
+    // 12. PATH/CONNECTION command - "path between X and Y" or "how are X and Y connected"
+    const pathMatch = input.match(/^(?:path|connection|how\s+(?:are|is))\s+(?:between\s+)?(.+?)\s+(?:and|to|with)\s+(.+?)(?:\s+connected)?$/i);
+    if (pathMatch) {
+      return {
+        type: 'command',
+        command: { 
+          action: 'path', 
+          params: { 
+            person1: pathMatch[1].trim(), 
+            person2: pathMatch[2].trim() 
+          } 
+        }
+      };
+    }
+    
     // Everything else is a question for the AI
     return { type: 'question' };
+  };
+
+  // ============================================
+  // RAG: Retrieve relevant context from database
+  // ============================================
+  const retrieveContext = (question: string): string => {
+    if (!allNodes || allNodes.length === 0) {
+      return 'No data available.';
+    }
+
+    const lowerQuestion = question.toLowerCase();
+    let context = '';
+
+    // Extract potential names from the question
+    const relevantNodes = allNodes.filter(node => {
+      const name = node.name_en.toLowerCase();
+      return lowerQuestion.includes(name) || 
+             lowerQuestion.includes(node.kunyah?.toLowerCase() || '') ||
+             lowerQuestion.includes(node.laqab?.toLowerCase() || '');
+    });
+
+    // If specific people mentioned, provide detailed context
+    if (relevantNodes.length > 0 && relevantNodes.length <= 3) {
+      context += '📚 RELEVANT PEOPLE:\n\n';
+      relevantNodes.forEach(node => {
+        context += `**${node.name_en}** (${node.kunyah || 'N/A'})\n`;
+        context += `- Prominence: ${node.prominence}\n`;
+        if (node.tribe) context += `- Tribe: ${node.tribe}\n`;
+        if (node.clan) context += `- Clan: ${node.clan}\n`;
+        if (node.birth_year_hijri) context += `- Born: ${node.birth_year_hijri} AH\n`;
+        if (node.death_year_hijri) context += `- Died: ${node.death_year_hijri} AH\n`;
+        if (node.biography_short) {
+          context += `- Biography: ${node.biography_short.substring(0, 300)}...\n`;
+        }
+        context += '\n';
+      });
+    }
+
+    // Topic-based context retrieval
+    if (lowerQuestion.includes('battle') || lowerQuestion.includes('war') || lowerQuestion.includes('fight')) {
+      const warriors = allNodes.filter(n => n.has_battles && n.prominence !== 'MINOR');
+      context += `\n📖 ${warriors.length} prominent figures participated in battles.\n`;
+    }
+
+    if (lowerQuestion.includes('tribe') || lowerQuestion.includes('clan')) {
+      const tribes = [...new Set(allNodes.filter(n => n.tribe).map(n => n.tribe))];
+      context += `\n🏕️ Major tribes: ${tribes.slice(0, 10).join(', ')}\n`;
+    }
+
+    if (lowerQuestion.includes('wife') || lowerQuestion.includes('spouse') || lowerQuestion.includes('marriage')) {
+      const withSpouses = allNodes.filter(n => n.has_spouses);
+      context += `\n💑 ${withSpouses.length} people have recorded marriages.\n`;
+    }
+
+    if (lowerQuestion.includes('child') || lowerQuestion.includes('son') || lowerQuestion.includes('daughter')) {
+      const withChildren = allNodes.filter(n => n.has_children);
+      context += `\n👨‍👩‍👧‍👦 ${withChildren.length} people have recorded children.\n`;
+    }
+
+    // If no specific context found, provide general stats
+    if (!context) {
+      const totalNodes = allNodes.length;
+      const prophets = allNodes.filter(n => n.is_prophet).length;
+      const ashara = allNodes.filter(n => n.prominence === 'ASHARA_MUBASHSHARA').length;
+      context = `\n📊 DATABASE STATS:\n`;
+      context += `- Total Sahabah: ${totalNodes}\n`;
+      context += `- Prophets: ${prophets}\n`;
+      context += `- Ashara Mubashshara: ${ashara}\n`;
+    }
+
+    return context;
   };
 
   // Execute a single command (no AI involved)
@@ -623,6 +755,116 @@ Their relationships are now visible as connecting lines:
 
 The graph automatically displays all relationships from the database!`;
       }
+      
+      case 'compare': {
+        // Compare two people side-by-side
+        const { person1, person2 } = params;
+        if (!person1 || !person2 || !allNodes) {
+          return '⚠️ Please specify two people to compare';
+        }
+        
+        const node1 = allNodes.find(n => 
+          n.name_en.toLowerCase().includes(person1.toLowerCase())
+        );
+        const node2 = allNodes.find(n => 
+          n.name_en.toLowerCase().includes(person2.toLowerCase())
+        );
+        
+        if (!node1 || !node2) {
+          return `❌ Could not find ${!node1 ? person1 : person2} in database`;
+        }
+        
+        return `📊 **Comparison: ${node1.name_en} vs ${node2.name_en}**
+
+**${node1.name_en}**
+- Prominence: ${node1.prominence}
+- Tribe: ${node1.tribe || 'Unknown'}
+- Birth: ${node1.birth_year_hijri || 'Unknown'} AH
+- Death: ${node1.death_year_hijri || 'Unknown'} AH
+${node1.biography_short ? `\n${node1.biography_short.substring(0, 200)}...` : ''}
+
+**${node2.name_en}**
+- Prominence: ${node2.prominence}
+- Tribe: ${node2.tribe || 'Unknown'}
+- Birth: ${node2.birth_year_hijri || 'Unknown'} AH
+- Death: ${node2.death_year_hijri || 'Unknown'} AH
+${node2.biography_short ? `\n${node2.biography_short.substring(0, 200)}...` : ''}
+
+💡 Try: "Expand ${node1.name_en} and ${node2.name_en}" to see their connections`;
+      }
+      
+      case 'stats': {
+        if (!allNodes) return '❌ No data available';
+        
+        const total = allNodes.length;
+        const male = allNodes.filter(n => n.gender === 'male').length;
+        const female = allNodes.filter(n => n.gender === 'female').length;
+        const prophets = allNodes.filter(n => n.is_prophet).length;
+        const ashara = allNodes.filter(n => n.prominence === 'ASHARA_MUBASHSHARA').length;
+        const withBattles = allNodes.filter(n => n.has_battles).length;
+        const tribes = [...new Set(allNodes.filter(n => n.tribe).map(n => n.tribe))];
+        
+        return `📊 **SahabahGraph Statistics**
+
+**People**
+- Total: ${total}
+- Male: ${male} | Female: ${female}
+- Prophets: ${prophets}
+- Ashara Mubashshara: ${ashara}
+
+**Participation**
+- Fought in battles: ${withBattles}
+- Unique tribes: ${tribes.length}
+
+**Graph View**
+- Currently viewing: ${currentView}
+- Selected nodes: ${selectedNodes.length}
+- Total relationships: ${graphStats?.totalRelationships || 'N/A'}`;
+      }
+      
+      case 'list': {
+        if (!allNodes) return '❌ No data available';
+        
+        const category = params.category;
+        let result = '';
+        
+        switch (category) {
+          case 'tribes': {
+            const tribes = [...new Set(allNodes.filter(n => n.tribe).map(n => n.tribe))];
+            result = `🏕️ **Tribes (${tribes.length} total)**\n\n${tribes.slice(0, 20).join('\n')}`;
+            if (tribes.length > 20) result += `\n\n...and ${tribes.length - 20} more`;
+            break;
+          }
+          case 'clans': {
+            const clans = [...new Set(allNodes.filter(n => n.clan).map(n => n.clan))];
+            result = `🏠 **Clans (${clans.length} total)**\n\n${clans.slice(0, 20).join('\n')}`;
+            if (clans.length > 20) result += `\n\n...and ${clans.length - 20} more`;
+            break;
+          }
+          case 'prominent': {
+            const prominent = allNodes.filter(n => 
+              n.prominence === 'ASHARA_MUBASHSHARA' || 
+              n.prominence === 'MAJOR' ||
+              n.is_prophet
+            ).map(n => `${n.name_en} - ${n.prominence}`);
+            result = `⭐ **Prominent Figures (${prominent.length} total)**\n\n${prominent.slice(0, 15).join('\n')}`;
+            break;
+          }
+          default:
+            result = '⚠️ Unknown category. Try: tribes, clans, or prominent';
+        }
+        
+        return result;
+      }
+      
+      case 'filter':
+      case 'path': {
+        // These need more complex graph operations - suggest using questions instead
+        return `ℹ️ This feature requires graph analysis. Try asking me a question instead, like:
+- "Who from Banu Hashim participated in battles?"
+- "How are Abu Bakr and Umar related?"
+- "What battles did Ali participate in?"`;
+      }
         
       default:
         return `❌ Unknown command: ${action}`;
@@ -662,7 +904,7 @@ The graph automatically displays all relationships from the database!`;
         setMessages((prev) => [...prev, resultMessage]);
         
       } else {
-        // It's a question - ask the AI
+        // It's a question - ask the AI with RAG context
         console.log('❓ Detected question, asking AI...');
         
         if (!aiSession) {
@@ -675,19 +917,36 @@ The graph automatically displays all relationships from the database!`;
           return;
         }
         
+        // ✨ RAG: Retrieve relevant context from database
+        const context = retrieveContext(currentInput);
+        
         let response: string;
         
         if (aiMode === 'chrome') {
-          // Chrome AI - simple prompt
-          response = await aiSession.prompt(`User question: "${currentInput}"
+          // Chrome AI - simple prompt with RAG context
+          const enhancedPrompt = `${context}
 
-Answer this question about early Islamic history. Be informative and respectful.
+User question: "${currentInput}"
 
-If the question mentions people in the database, offer to add them to the graph at the end.`);
+Answer this question about early Islamic history. Be informative and respectful. 
+Use the context provided above if relevant. If you mention people in the database, 
+suggest adding them to the graph.`;
+          response = await aiSession.prompt(enhancedPrompt);
         } else if (aiMode === 'transformers' && transformersHelper) {
-          // Transformers.js - needs message format
+          // Transformers.js - system message + RAG context
+          const systemMessage = `You are a helpful assistant for SahabahGraph, a tool to explore early Islamic history. 
+You have access to a database of Sahabah (companions of Prophet Muhammad PBUH).
+
+${context}
+
+Be informative, respectful, and concise. If relevant, suggest graph commands like:
+- "Show Abu Bakr" - adds person to graph
+- "Search battles" - finds all battle participants  
+- "Expand relationship between X and Y" - shows connections`;
+
           const promptMessages = [
-            ...messages.filter(m => m.role !== 'system').map(m => ({
+            { role: 'system', content: systemMessage },
+            ...messages.filter(m => m.role !== 'system').slice(-4).map(m => ({
               role: m.role,
               content: m.content
             })),
@@ -928,7 +1187,7 @@ If the question mentions people in the database, offer to add them to the graph 
               </IconButton>
             </Box>
             <Typography variant="caption" color="text.secondary" sx={{ mt: 0.5, display: 'block' }}>
-              Try: "Clear canvas", "Show Abu Bakr", or ask any question
+              Try: "Show Abu Bakr", "Compare Ali and Uthman", "List tribes", "Stats", or ask any question
             </Typography>
           </Box>
         </Paper>
