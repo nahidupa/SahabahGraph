@@ -7,13 +7,23 @@ export class TransformersAIHelper {
   private resolvePrompt: ((value: string) => void) | null = null;
 
   constructor() {
-    this.initWorker();
+    // Don't initialize worker in constructor - do it lazily when init() is called
   }
 
   private initWorker() {
-    this.worker = new Worker(new URL('../workers/aiWorker.ts', import.meta.url), {
-      type: 'module'
-    });
+    if (this.worker) return; // Already initialized
+    
+    try {
+      this.worker = new Worker(new URL('../workers/aiWorker.ts', import.meta.url), {
+        type: 'module'
+      });
+    } catch (error) {
+      console.error('Failed to create AI worker:', error);
+      if (this.onError) {
+        this.onError('Failed to initialize AI worker');
+      }
+      return;
+    }
 
     this.worker.onmessage = (e) => {
       const { type, progress, result, error } = e.data;
@@ -57,7 +67,17 @@ export class TransformersAIHelper {
     this.onProgress = onProgress;
     this.onReady = onReady;
     this.onError = onError;
-    this.worker?.postMessage({ type: 'init', data: { modelId: 'onnx-community/Qwen2.5-0.5B-Instruct' } });
+    
+    // Initialize worker lazily
+    this.initWorker();
+    
+    if (!this.worker) {
+      onError('Worker initialization failed');
+      return;
+    }
+    
+    // Use smaller, faster GPT-2 model (~1MB instead of 500MB)
+    this.worker.postMessage({ type: 'init', data: { modelId: 'Xenova/gpt2' } });
   }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

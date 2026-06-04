@@ -10,6 +10,7 @@ import {
   CircularProgress,
   Chip,
   Tooltip,
+  LinearProgress,
 } from '@mui/material';
 import {
   Chat as ChatIcon,
@@ -19,6 +20,7 @@ import {
   Psychology as CommandIcon,
 } from '@mui/icons-material';
 import type { Sahabi } from '../../types';
+import { TransformersAIHelper } from '../../utils/transformersAIHelper';
 
 interface Message {
   role: 'user' | 'assistant' | 'system';
@@ -150,30 +152,54 @@ const AIChatPanel: React.FC<AIChatPanelProps> = ({
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputValue, setInputValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [isAIAvailable, setIsAIAvailable] = useState<boolean | null>(null);
+  const [isChromeAIAvailable, setIsChromeAIAvailable] = useState<boolean | null>(null);
+  const [isTransformersAvailable, setIsTransformersAvailable] = useState<boolean | null>(false); // Default to false
   const [aiSession, setAISession] = useState<any>(null);
   const [aiHelper] = useState(() => new ChromeAIHelper());
+  const [transformersHelper] = useState<TransformersAIHelper | null>(() => {
+    // Only create Transformers helper if not in development or if explicitly needed
+    try {
+      return new TransformersAIHelper();
+    } catch (error) {
+      console.warn('Transformers.js helper not available:', error);
+      return null;
+    }
+  });
+  const [downloadProgress, setDownloadProgress] = useState<number>(0);
+  const [aiMode, setAiMode] = useState<'chrome' | 'transformers' | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  // Check if Chrome AI is available - works with both old and new APIs
+  // Check AI availability for both Chrome AI and Transformers.js
   useEffect(() => {
     const checkAIAvailability = async () => {
       try {
-        const available = await aiHelper.checkAvailability();
-        setIsAIAvailable(available);
+        const chromeAvailable = await aiHelper.checkAvailability();
+        setIsChromeAIAvailable(chromeAvailable);
       } catch (error) {
-        console.error('Chrome AI check failed:', error);
-        setIsAIAvailable(false);
+        console.error('Chrome AI availability check failed:', error);
+        setIsChromeAIAvailable(false);
+      }
+      
+      try {
+        const webGPUSupported = transformersHelper ? await transformersHelper.checkWebGPUSupport() : false;
+        setIsTransformersAvailable(webGPUSupported);
+      } catch (error) {
+        console.error('Transformers.js availability check failed:', error);
+        setIsTransformersAvailable(false);
       }
     };
 
     checkAIAvailability();
-  }, [aiHelper]);
+  }, [aiHelper, transformersHelper]);
 
   // Initialize AI session when panel opens
   useEffect(() => {
+    let active = true;
     const initSession = async () => {
-      if (isOpen && isAIAvailable && !aiSession) {
+      if (!isOpen) return;
+      
+      // Try Chrome AI first
+      if (isChromeAIAvailable && !aiSession) {
         try {
           // Build context-aware system prompt
           const totalPeople = graphStats?.totalNodes || allNodes.length;
@@ -252,7 +278,12 @@ If asked about modern topics or later Islamic history: "My knowledge covers the 
 REMEMBER: You ONLY answer questions. Commands are handled automatically - never generate JSON.`;
 
           const session = await aiHelper.createSession(systemPrompt);
+          if (!active) {
+            if (session.destroy) session.destroy();
+            return;
+          }
           setAISession(session);
+          setAiMode('chrome');
           
           // Welcome message
           setMessages([
@@ -282,7 +313,37 @@ What would you like to explore?`,
             },
           ]);
         } catch (error) {
-          console.error('Failed to create AI session:', error);
+          console.error('Chrome AI init failed:', error);
+        }
+      }
+      
+      // Fall back to Transformers.js if Chrome AI not available
+      else if (isTransformersAvailable && transformersHelper && !aiSession) {
+        try {
+          setAiMode('transformers');
+          await transformersHelper.init(
+            (progress: any) => {
+              setDownloadProgress(progress.progress || 0);
+            },
+            () => {
+              if (active) {
+                setMessages([
+                  {
+                    role: 'assistant',
+                    content: 'Hello! I\'m your AI assistant powered by Transformers.js and WebGPU. I can help you explore SahabahGraph using a local model. How can I help?',
+                    timestamp: new Date(),
+                  },
+                ]);
+              }
+            },
+            (error: string) => {
+              console.error('Transformers.js Error:', error);
+              if (active) setIsTransformersAvailable(false);
+            }
+          );
+        } catch (error) {
+          console.error('Transformers.js init failed:', error);
+          if (active) setIsTransformersAvailable(false);
         }
       }
     };
@@ -291,12 +352,17 @@ What would you like to explore?`,
 
     // Cleanup session when panel closes
     return () => {
+      active = false;
       if (!isOpen && aiSession) {
-        aiSession.destroy();
+        if (aiMode === 'chrome' && aiSession.destroy) {
+          aiSession.destroy();
+        }
+        // We don't destroy transformersHelper worker here to keep it cached if they reopen,
+        // but set aiSession to null so they get a fresh welcome
         setAISession(null);
       }
     };
-  }, [isOpen, isAIAvailable, aiHelper, currentView, graphStats, selectedNodes.length]);
+  }, [isOpen, isChromeAIAvailable, isTransformersAvailable, aiHelper, transformersHelper, currentView, graphStats, selectedNodes.length]);
 
   // Scroll to bottom when new messages arrive
   useEffect(() => {
@@ -607,12 +673,28 @@ The graph automatically displays all relationships from the database!`;
           return;
         }
         
-        // Simple prompt for Q&A only
-        const response = await aiSession.prompt(`User question: "${currentInput}"
+        let response: string;
+        
+        if (aiMode === 'chrome') {
+          // Chrome AI - simple prompt
+          response = await aiSession.prompt(`User question: "${currentInput}"
 
 Answer this question about early Islamic history. Be informative and respectful.
 
 If the question mentions people in the database, offer to add them to the graph at the end.`);
+        } else if (aiMode === 'transformers' && transformersHelper) {
+          // Transformers.js - needs message format
+          const promptMessages = [
+            ...messages.filter(m => m.role !== 'system').map(m => ({
+              role: m.role,
+              content: m.content
+            })),
+            { role: 'user', content: currentInput }
+          ];
+          response = await transformersHelper.prompt(promptMessages);
+        } else {
+          throw new Error('No AI mode selected or helper not available');
+        }
         
         const aiMessage: Message = {
           role: 'assistant',
@@ -641,8 +723,8 @@ If the question mentions people in the database, offer to add them to the graph 
     }
   };
 
-  // Don't show the FAB if AI is not available
-  if (isAIAvailable === false) {
+  // Don't show the FAB if BOTH AI options are unavailable
+  if (isChromeAIAvailable === false && isTransformersAvailable === false) {
     return null;
   }
 
@@ -697,7 +779,7 @@ If the question mentions people in the database, offer to add them to the graph 
               <AIIcon />
               <Typography variant="h6">AI Assistant</Typography>
               <Chip
-                label="Gemini Nano"
+                label={aiMode === 'chrome' ? 'Gemini Nano' : aiMode === 'transformers' ? 'WebGPU Local' : 'Starting...'}
                 size="small"
                 sx={{
                   bgcolor: 'rgba(255, 255, 255, 0.2)',
@@ -730,9 +812,19 @@ If the question mentions people in the database, offer to add them to the graph 
               gap: 2,
             }}
           >
-            {isAIAvailable === null && (
+            {(isChromeAIAvailable === null && isTransformersAvailable === null) && (
               <Box sx={{ display: 'flex', justifyContent: 'center', p: 2 }}>
                 <CircularProgress size={24} />
+              </Box>
+            )}
+            
+            {/* Download progress for Transformers.js */}
+            {aiMode === 'transformers' && downloadProgress > 0 && downloadProgress < 100 && (
+              <Box sx={{ p: 2 }}>
+                <Typography variant="body2" gutterBottom>
+                  Downloading AI model... {downloadProgress.toFixed(0)}%
+                </Typography>
+                <LinearProgress variant="determinate" value={downloadProgress} />
               </Box>
             )}
 

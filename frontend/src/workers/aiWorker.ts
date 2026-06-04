@@ -10,13 +10,26 @@ async function init(modelId: string) {
   if (!generator) {
     self.postMessage({ type: 'status', message: 'Loading model...' });
 
-    generator = await pipeline('text-generation', modelId, {
-      device: 'webgpu', // Try WebGPU first
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      progress_callback: (progress: any) => {
-        self.postMessage({ type: 'progress', progress });
-      },
-    });
+    try {
+      // Try WebGPU first, fall back to WASM if not available
+      generator = await pipeline('text-generation', modelId, {
+        device: 'webgpu',
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        progress_callback: (progress: any) => {
+          self.postMessage({ type: 'progress', progress });
+        },
+      });
+    } catch (webgpuError) {
+      console.warn('WebGPU failed, falling back to WASM:', webgpuError);
+      // Fallback to CPU/WASM if WebGPU fails
+      generator = await pipeline('text-generation', modelId, {
+        device: 'wasm',
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        progress_callback: (progress: any) => {
+          self.postMessage({ type: 'progress', progress });
+        },
+      });
+    }
 
     self.postMessage({ type: 'ready' });
   }
@@ -27,7 +40,8 @@ self.onmessage = async (e: MessageEvent) => {
 
   if (type === 'init') {
     try {
-      await init(data.modelId || 'onnx-community/Qwen2.5-0.5B-Instruct');
+      // Use smaller, faster model (GPT-2 ~1MB instead of Qwen 500MB)
+      await init(data.modelId || 'Xenova/gpt2');
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       self.postMessage({ type: 'error', error: error.message });

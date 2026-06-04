@@ -6,5 +6,11 @@ export default defineConfig({
   plugins: [react()],
   base: process.env.GITHUB_ACTIONS === 'true'
     ? `/${process.env.GITHUB_REPOSITORY?.split('/')[1] ?? ''}/`
-    : '/'
+    : '/',
+  optimizeDeps: {
+    exclude: ['@huggingface/transformers']
+  },
+  worker: {
+    format: 'es'
+  }
 })
