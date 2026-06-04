@@ -327,6 +327,8 @@ What would you like to explore?`,
             },
             () => {
               if (active) {
+                // Set aiSession to enable input field
+                setAISession(transformersHelper);
                 setMessages([
                   {
                     role: 'assistant',
