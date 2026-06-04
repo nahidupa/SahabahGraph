@@ -5,7 +5,7 @@ describe('Parent Relationships Integrity', () => {
   const data = sahabahData as any;
 
   it('should have all required parent relationships in the graph', () => {
-    const nodes = new Map(data.nodes.map((n: any) => [n.id, n]));
+    const nodes = new Map(data.nodes.map((n: any) => [String(n.id), n]));
     const links = data.links;
 
     // All required parent-child relationships: (parent_id, child_id)
@@ -16,11 +16,11 @@ describe('Parent Relationships Integrity', () => {
       { parent: '0', child: '22', parentName: 'Muhammad (PBUH)', childName: 'Umm Kulthum bint Muhammad' },
       { parent: '1', child: '12', parentName: 'Abu Bakr as-Siddiq', childName: 'Aisha bint Abi Bakr' },
       { parent: '1', child: '75', parentName: 'Abu Bakr as-Siddiq', childName: 'Umm Kulthum bint Abi Bakr' },
-      { parent: '1024', child: '12', parentName: 'Umm Ruman bint Amir', childName: 'Aisha bint Abi Bakr' },
-      { parent: '1024', child: '75', parentName: 'Umm Ruman bint Amir', childName: 'Umm Kulthum bint Abi Bakr' },
+      { parent: '267', child: '12', parentName: 'Umm Ruman bint Amir', childName: 'Aisha bint Abi Bakr' },
+      { parent: '267', child: '75', parentName: 'Umm Ruman bint Amir', childName: 'Umm Kulthum bint Abi Bakr' },
       { parent: '4', child: '14', parentName: 'Ali ibn Abi Talib', childName: 'Hasan ibn Ali' },
       { parent: '4', child: '15', parentName: 'Ali ibn Abi Talib', childName: 'Husayn ibn Ali' },
-      { parent: '1023', child: '4', parentName: 'Abu Talib ibn Abd al-Muttalib', childName: 'Ali ibn Abi Talib' },
+      { parent: '266', child: '4', parentName: 'Abu Talib ibn Abd al-Muttalib', childName: 'Ali ibn Abi Talib' },
       { parent: '6', child: '117', parentName: 'Zubayr ibn al-Awwam', childName: 'Abdullah ibn al-Zubayr' },
       { parent: '17', child: '173', parentName: 'Abbas ibn Abd al-Muttalib', childName: 'Fadl ibn Abbas' },
       { parent: '24', child: '25', parentName: 'Zayd ibn Harithah', childName: 'Usama ibn Zayd' },
@@ -56,8 +56,8 @@ describe('Parent Relationships Integrity', () => {
 
       const linkExists = links.some(
         (link: any) =>
-          link.source === Number(rel.parent) &&
-          link.target === Number(rel.child) &&
+          String(link.source) === rel.parent &&
+          String(link.target) === rel.child &&
           link.type === 'PARENT_OF'
       );
 
@@ -106,7 +106,7 @@ describe('Parent Relationships Integrity', () => {
   });
 
   it('should have valid parent-child relationship ages', () => {
-    const nodes = new Map(data.nodes.map((n: any) => [n.id, n]));
+    const nodes = new Map(data.nodes.map((n: any) => [String(n.id), n]));
     const parentLinks = data.links.filter((l: any) => l.type === 'PARENT_OF');
 
     const ageIssues: string[] = [];

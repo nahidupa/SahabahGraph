@@ -21795,25 +21795,9 @@
       "category": "biological"
     },
     {
-      "source": 463,
-      "target": 16,
-      "source_id": 463,
-      "target_id": 16,
-      "type": "PARENT_OF",
-      "category": "biological"
-    },
-    {
       "source": 289,
       "target": 17,
       "source_id": 289,
-      "target_id": 17,
-      "type": "PARENT_OF",
-      "category": "biological"
-    },
-    {
-      "source": 463,
-      "target": 17,
-      "source_id": 463,
       "target_id": 17,
       "type": "PARENT_OF",
       "category": "biological"
@@ -21927,14 +21911,6 @@
       "target": 93,
       "source_id": 303,
       "target_id": 93,
-      "type": "PARENT_OF",
-      "category": "biological"
-    },
-    {
-      "source": 54,
-      "target": 38,
-      "source_id": 54,
-      "target_id": 38,
       "type": "PARENT_OF",
       "category": "biological"
     },
@@ -27391,6 +27367,22 @@
       "target": 203,
       "source_id": 615,
       "target_id": 203,
+      "type": "PARENT_OF",
+      "category": "family"
+    },
+    {
+      "source": 267,
+      "target": 12,
+      "source_id": 267,
+      "target_id": 12,
+      "type": "PARENT_OF",
+      "category": "family"
+    },
+    {
+      "source": 267,
+      "target": 75,
+      "source_id": 267,
+      "target_id": 75,
       "type": "PARENT_OF",
       "category": "family"
     }

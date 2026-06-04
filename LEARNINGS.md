@@ -113,3 +113,8 @@ Add `is_prophet: String(node.is_prophet)` when creating Cytoscape element data.
 - AI command "clear" → also clears localStorage
 **Lesson:** localStorage is ideal for persisting UI state, but requires careful error handling and debouncing. Always save both data AND positions for graph visualizations.
 **Result:** Canvas modifications now persist across browser sessions automatically, dramatically improving UX for exploratory workflows.
+
+## Browser-based AI and RAG (June 2024)
+- **Transformers.js & WebGPU**: Successfully integrated Transformers.js as a fallback for Chrome's built-in Gemini Nano. Using WebWorkers is essential for performance.
+- **Client-Side RAG**: For datasets under 1MB, simple keyword-based retrieval on pre-loaded JSON bundles provides a fast and "zero-cost" RAG solution without needing a vector DB.
+- **Data Integrity Tests**: Unit tests in Vitest that validate static JSON data bundles are effective for catching regression in data pipelines.
