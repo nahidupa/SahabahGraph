@@ -414,7 +414,22 @@ What would you like to explore?`,
       };
     }
     
-    // 3. SHOW/ADD single person commands
+    // 3. ADD/SHOW RELATIONSHIP - "add relation/relationship with/between X and Y"
+    const addRelationMatch = input.match(/^(?:add|show|display)\s+(?:relation|relationship|connection)\s+(?:with|between|of)\s+(.+?)\s+(?:and|with)\s+(.+)$/i);
+    if (addRelationMatch) {
+      return {
+        type: 'command',
+        command: { 
+          action: 'expand', 
+          params: { 
+            person1: addRelationMatch[1].trim(), 
+            person2: addRelationMatch[2].trim() 
+          } 
+        }
+      };
+    }
+    
+    // 3b. SHOW/ADD single person commands
     const showMatch = input.match(/^(show|add|display|i want to see)\s+(?:me\s+)?(.+?)$/i);
     if (showMatch && !lower.includes(' all ') && !lower.includes(' family')) {
       return { 
@@ -1382,7 +1397,7 @@ Be informative, respectful, and concise. If relevant, suggest graph commands lik
               </IconButton>
             </Box>
             <Typography variant="caption" color="text.secondary" sx={{ mt: 0.5, display: 'block' }}>
-              Try: "Add few random sahaba", "Show Abu Bakr", "Compare Ali and Uthman", "List tribes", or ask any question
+              Try: "Add few random sahaba", "Add relation with Ali and Uthman", "Compare Abu Bakr and Umar", "List tribes"
             </Typography>
           </Box>
         </Paper>
