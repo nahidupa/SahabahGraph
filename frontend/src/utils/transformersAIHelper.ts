@@ -26,7 +26,7 @@ export class TransformersAIHelper {
     }
 
     this.worker.onmessage = (e) => {
-      const { type, progress, result, error } = e.data;
+      const { type, progress, result, error, suggestFallback } = e.data;
 
       console.log('🔧 Helper: Received message from worker:', type, e.data);
 
@@ -46,10 +46,17 @@ export class TransformersAIHelper {
           }
           break;
         case 'error':
-          console.error('🔧 Helper: Got error:', error);
-          if (this.onError) this.onError(error);
+          console.error('🔧 Helper: Got error:', error, 'suggestFallback:', suggestFallback);
+          // If WebGPU OOM, append suggestion to error message
+          const errorMsg = suggestFallback 
+            ? `${error}\n\n⚠️ WebGPU ran out of memory. The system will automatically switch to WASM mode (slower but uses less memory).`
+            : error;
+          if (this.onError) {
+            console.log('🔧 Helper: Calling onError with suggestFallback=', suggestFallback);
+            this.onError(errorMsg, suggestFallback);
+          }
           if (this.resolvePrompt) {
-            this.resolvePrompt('Error: ' + error);
+            this.resolvePrompt('Error: ' + errorMsg);
             this.resolvePrompt = null;
           }
           break;
@@ -68,7 +75,7 @@ export class TransformersAIHelper {
   }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  init(onProgress: (progress: any) => void, onReady: () => void, onError: (error: string) => void, backend: 'webgpu' | 'wasm' = 'wasm', forceReload: boolean = false) {
+  init(onProgress: (progress: any) => void, onReady: () => void, onError: (error: string, suggestFallback?: boolean) => void, backend: 'webgpu' | 'wasm' = 'wasm', forceReload: boolean = false) {
     this.onProgress = onProgress;
     this.onReady = onReady;
     this.onError = onError;

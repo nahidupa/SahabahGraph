@@ -7,31 +7,51 @@ env.allowLocalModels = false;
 let generator: any = null;
 
 async function init(modelId: string, backend: 'webgpu' | 'wasm' = 'wasm', forceReload: boolean = false) {
-  // Force reload if backend changed or explicitly requested
-  if (forceReload && generator) {
-    console.log('🔧 Worker: Force reloading model for backend switch');
-    generator = null;
-  }
-  
-  if (!generator) {
-    self.postMessage({ type: 'status', message: `Loading model (${backend.toUpperCase()})...` });
-
-    const config: any = {
-      device: backend,
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      progress_callback: (progress: any) => {
-        self.postMessage({ type: 'progress', progress });
-      },
-    };
-
-    // Use 8-bit quantization for WASM to save memory
-    if (backend === 'wasm') {
-      config.dtype = 'q8';
+  try {
+    // Force reload if backend changed or explicitly requested
+    if (forceReload || generator) {
+      console.log('🔧 Worker: Cleaning up previous model (forceReload=', forceReload, ')');
+      // Dispose of old generator to free memory
+      if (generator && generator.dispose) {
+        try {
+          generator.dispose();
+        } catch (e) {
+          console.log('🔧 Worker: Error disposing generator:', e);
+        }
+      }
+      generator = null;
     }
+    
+    if (!generator) {
+      self.postMessage({ type: 'status', message: `Loading model (${backend.toUpperCase()})...` });
 
-    generator = await pipeline('text-generation', modelId, config);
+      const config: any = {
+        device: backend,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        progress_callback: (progress: any) => {
+          self.postMessage({ type: 'progress', progress });
+        },
+      };
 
-    self.postMessage({ type: 'ready' });
+      // Use quantization to reduce memory usage
+      // WebGPU: Use 4-bit quantization for lower memory (still faster than WASM)
+      //         Note: Even with q4, some systems may still run out of memory
+      //         The system will automatically fallback to WASM if WebGPU OOM occurs
+      // WASM: Use 4-bit quantization (aggressive compression for maximum memory savings)
+      //       This is slower but should fit on most systems
+      config.dtype = 'q4'; // 4-bit quantization for both backends to minimize memory
+
+      console.log('🔧 Worker: Creating pipeline with config:', config);
+      generator = await pipeline('text-generation', modelId, config);
+      console.log('🔧 Worker: Pipeline created successfully');
+
+      self.postMessage({ type: 'ready' });
+    }
+  } catch (error: any) {
+    // Clean up on error
+    console.log('🔧 Worker: Error during init, cleaning up generator');
+    generator = null;
+    throw error; // Re-throw to be caught by caller
   }
 }
 
@@ -43,10 +63,31 @@ self.onmessage = async (e: MessageEvent) => {
       // Use Qwen2.5-0.5B-Instruct - small but capable chat model
       const backend = data.backend || 'wasm';
       const forceReload = data.forceReload || false;
+      
+      console.log('🔧 Worker: Init requested with backend=', backend, 'forceReload=', forceReload);
+      
       await init(data.modelId || 'onnx-community/Qwen2.5-0.5B-Instruct', backend, forceReload);
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
-      self.postMessage({ type: 'error', error: error.message });
+      const errorText = error.message || error.toString() || '';
+      const isOOM = errorText.includes('bad_alloc') || errorText.includes('OOM') || errorText.includes('out of memory');
+      
+      console.log('🔧 Worker: Init error caught, errorText=', errorText, 'isOOM=', isOOM, 'backend=', data.backend);
+      
+      // Ensure generator is cleaned up after error
+      generator = null;
+      
+      // If WebGPU fails with OOM, suggest fallback to WASM
+      if (isOOM && data.backend === 'webgpu') {
+        console.log('🔧 Worker: Sending OOM error with suggestFallback=true');
+        self.postMessage({ 
+          type: 'error', 
+          error: errorText,
+          suggestFallback: true // Signal to UI that WASM fallback is recommended
+        });
+      } else {
+        self.postMessage({ type: 'error', error: errorText });
+      }
     }
   } else if (type === 'generate') {
     if (!generator) {
@@ -55,7 +96,7 @@ self.onmessage = async (e: MessageEvent) => {
     }
 
     try {
-      const { messages, max_new_tokens = 128 } = data; // Reduced to save memory
+      const { messages, max_new_tokens = 64 } = data; // Reduced to 64 to save memory
 
       console.log('🔧 Worker: Generating response...', { messages, max_new_tokens });
 
@@ -101,5 +142,18 @@ self.onmessage = async (e: MessageEvent) => {
       console.error('🔧 Worker: Generation error:', error);
       self.postMessage({ type: 'error', error: error.message || 'Generation failed' });
     }
+  } else if (type === 'dispose') {
+    // Dispose of the model to free memory
+    console.log('🔧 Worker: Dispose requested');
+    if (generator && generator.dispose) {
+      try {
+        generator.dispose();
+        console.log('🔧 Worker: Generator disposed successfully');
+      } catch (e) {
+        console.log('🔧 Worker: Error disposing generator:', e);
+      }
+    }
+    generator = null;
+    self.postMessage({ type: 'disposed' });
   }
 };

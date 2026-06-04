@@ -172,7 +172,10 @@ const AIChatPanel: React.FC<AIChatPanelProps> = ({
   const [aiMode, setAiMode] = useState<'chrome' | 'transformers' | null>(null);
   const [backend, setBackend] = useState<'webgpu' | 'wasm'>(() => {
     // Load from localStorage or default to wasm (lower memory)
-    return (localStorage.getItem('ai-backend') as 'webgpu' | 'wasm') || 'wasm';
+    const saved = localStorage.getItem('ai-backend') as 'webgpu' | 'wasm';
+    const selected = saved || 'wasm';
+    console.log('🔧 Component: Loading backend from localStorage:', saved, '→ using:', selected);
+    return selected;
   });
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
@@ -198,6 +201,12 @@ const AIChatPanel: React.FC<AIChatPanelProps> = ({
 
     checkAIAvailability();
   }, [aiHelper, transformersHelper]);
+
+  // Save backend preference to localStorage whenever it changes
+  useEffect(() => {
+    console.log('🔧 Component: Saving backend to localStorage:', backend);
+    localStorage.setItem('ai-backend', backend);
+  }, [backend]);
 
   // Initialize AI session when panel opens
   useEffect(() => {
@@ -327,6 +336,7 @@ What would you like to explore?`,
       // Fall back to Transformers.js if Chrome AI not available
       else if (isTransformersAvailable && transformersHelper && !aiSession) {
         try {
+          console.log('🔧 Component: Initializing Transformers.js with backend:', backend);
           setAiMode('transformers');
           await transformersHelper.init(
             (progress: any) => {
@@ -346,9 +356,86 @@ What would you like to explore?`,
                 ]);
               }
             },
-            (error: string) => {
-              // Only log runtime errors, don't disable the whole chat
-              console.error('Transformers.js Error:', error);
+            (error: string, suggestFallback?: boolean) => {
+              console.error('🔧 Component: Transformers.js Error:', error, 'suggestFallback:', suggestFallback, 'current backend:', backend);
+              
+              // If WebGPU failed with OOM and we haven't already switched to WASM
+              if (suggestFallback && backend === 'webgpu') {
+                console.log('🔧 Component: WebGPU OOM detected, auto-switching to WASM');
+                setBackend('wasm');
+                // Retry with WASM
+                if (active && transformersHelper) {
+                  transformersHelper.init(
+                    (progress: any) => {
+                      setDownloadProgress(progress.progress || 0);
+                    },
+                    () => {
+                      if (active) {
+                        setAISession(transformersHelper);
+                        setMessages([
+                          {
+                            role: 'assistant',
+                            content: `Assalamu Alaikum! 🕌 I'm your AI assistant for exploring SahabahGraph (WASM mode - switched automatically due to memory constraints). I can help you discover relationships between the Sahabah (companions of Prophet Muhammad ﷺ), search by name, tribe, or family connections, and visualize their biographical data. Ask me about specific Sahabah, request family trees, or use commands like "Add random sahaba" or "Compare Ali and Uthman". How may I assist you today?`,
+                            timestamp: new Date(),
+                          },
+                        ]);
+                      }
+                    },
+                    (retryError: string) => {
+                      console.error('WASM fallback also failed:', retryError);
+                      // Show error message to user
+                      if (active) {
+                        setMessages([
+                          {
+                            role: 'assistant',
+                            content: `❌ I'm sorry, but I'm unable to load the AI model due to insufficient memory. The model requires more RAM than is currently available.
+
+⚠️ **Troubleshooting:**
+- Close other browser tabs and applications to free up memory
+- Try refreshing the page
+- The AI chat feature may not work on devices with limited RAM
+
+💡 You can still use **command-based features** without AI:
+- Type "add random sahaba" to add people to the graph
+- Type "compare Ali and Uthman" for comparisons
+- Type "list tribes" to see available data
+
+The AI natural language understanding won't work, but direct commands will still function.`,
+                            timestamp: new Date(),
+                          },
+                        ]);
+                      }
+                    },
+                    'wasm',
+                    true
+                  );
+                }
+              }
+              // If WASM also fails (non-fallback error on WASM backend)
+              else if (!suggestFallback && backend === 'wasm' && error.includes('bad_alloc')) {
+                console.error('🔧 Component: WASM also failed with OOM');
+                if (active) {
+                  setMessages([
+                    {
+                      role: 'assistant',
+                      content: `❌ I'm sorry, but I'm unable to load the AI model due to insufficient memory. The model requires more RAM than is currently available.
+
+⚠️ **Troubleshooting:**
+- Close other browser tabs and applications to free up memory
+- Try refreshing the page
+- The AI chat feature may not work on devices with limited RAM
+
+💡 You can still use **command-based features** without AI:
+- Type "add random sahaba" to add people to the graph
+- Type "compare Ali and Uthman" for comparisons
+- Type "list tribes" to see available data
+
+The AI natural language understanding won't work, but direct commands will still function.`,
+                      timestamp: new Date(),
+                    },
+                  ]);
+                }
+              }
               // Note: We don't set isTransformersAvailable to false here
               // because that would unmount the component on any error
             },
@@ -1170,7 +1257,7 @@ Be informative, respectful, and concise. If relevant, suggest graph commands lik
                 }}
               />
               {aiMode === 'transformers' && (
-                <Tooltip title="Switch AI backend: WebGPU (fast, more memory) or WASM (slower, less memory)">
+                <Tooltip title="Switch AI backend: WebGPU (fast, more memory, may auto-fallback to WASM if OOM) or WASM (slower, less memory, more stable)">
                   <ToggleButtonGroup
                     value={backend}
                     exclusive
@@ -1199,8 +1286,68 @@ Be informative, respectful, and concise. If relevant, suggest graph commands lik
                               },
                             ]);
                           },
-                          (error: string) => {
-                            console.error('Transformers.js Error:', error);
+                          (error: string, suggestFallback?: boolean) => {
+                            console.error('🔧 Component: Backend switch error:', error, 'suggestFallback:', suggestFallback, 'newBackend:', newBackend);
+                            
+                            // If WebGPU failed with OOM, auto-switch to WASM
+                            if (suggestFallback && newBackend === 'webgpu') {
+                              console.log('🔧 Component: WebGPU OOM on switch, falling back to WASM');
+                              setBackend('wasm');
+                              // Retry with WASM
+                              transformersHelper.init(
+                                (progress: any) => {
+                                  setDownloadProgress(progress.progress || 0);
+                                },
+                                () => {
+                                  setAISession(transformersHelper);
+                                  setMessages([
+                                    {
+                                      role: 'assistant',
+                                      content: `Assalamu Alaikum! 🕌 I'm your AI assistant for exploring SahabahGraph (WASM mode - switched automatically due to memory constraints). I can help you discover relationships between the Sahabah (companions of Prophet Muhammad ﷺ), search by name, tribe, or family connections, and visualize their biographical data. Ask me about specific Sahabah, request family trees, or use commands like "Add random sahaba" or "Compare Ali and Uthman". How may I assist you today?`,
+                                      timestamp: new Date(),
+                                    },
+                                  ]);
+                                },
+                                (retryError: string) => {
+                                  console.error('WASM fallback also failed:', retryError);
+                                  // Show error message to user
+                                  setMessages([
+                                    {
+                                      role: 'assistant',
+                                      content: `❌ Unable to load AI model due to insufficient memory.
+
+💡 **You can still use command-based features:**
+- "add random sahaba"
+- "compare Ali and Uthman"
+- "list tribes"
+
+Try closing other browser tabs to free up memory and refresh the page.`,
+                                      timestamp: new Date(),
+                                    },
+                                  ]);
+                                },
+                                'wasm',
+                                true
+                              );
+                            }
+                            // If WASM fails directly
+                            else if (newBackend === 'wasm' && error.includes('bad_alloc')) {
+                              console.error('🔧 Component: WASM failed with OOM');
+                              setMessages([
+                                {
+                                  role: 'assistant',
+                                  content: `❌ Unable to load AI model due to insufficient memory.
+
+💡 **You can still use command-based features:**
+- "add random sahaba"
+- "compare Ali and Uthman"  
+- "list tribes"
+
+Try closing other browser tabs to free up memory and refresh the page.`,
+                                  timestamp: new Date(),
+                                },
+                              ]);
+                            }
                           },
                           newBackend,
                           true // Force reload for backend switch
