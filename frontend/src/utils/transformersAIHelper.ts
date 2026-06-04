@@ -3,7 +3,7 @@ export class TransformersAIHelper {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private onProgress: ((progress: any) => void) | null = null;
   private onReady: (() => void) | null = null;
-  private onError: ((error: string) => void) | null = null;
+  private onError: ((error: string, suggestFallback?: boolean) => void) | null = null;
   private resolvePrompt: ((value: string) => void) | null = null;
 
   constructor() {
@@ -111,7 +111,7 @@ export class TransformersAIHelper {
       throw new Error('Worker not initialized');
     }
     
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
       this.resolvePrompt = resolve;
       
       // Add timeout to catch hanging requests
@@ -130,7 +130,8 @@ export class TransformersAIHelper {
         originalResolve(value);
       };
       
-      this.worker.postMessage({ type: 'generate', data: { messages } });
+      // Worker is guaranteed to exist here (checked above)
+      this.worker!.postMessage({ type: 'generate', data: { messages } });
       console.log('🔧 Helper: Message sent to worker');
     });
   }

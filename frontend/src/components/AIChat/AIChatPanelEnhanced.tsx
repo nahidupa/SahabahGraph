@@ -1034,8 +1034,6 @@ ${node2.biography_short ? `\n${node2.biography_short.substring(0, 200)}...` : ''
         
         // Add the main person
         onAddNode(mainPerson);
-        let added = 1;
-        const familyMembers: string[] = [mainPerson.name_en];
         
         // Note: The actual family relationships come from the relationships data
         // The graph will automatically show connections when nodes are added
