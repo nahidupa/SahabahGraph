@@ -195,6 +195,11 @@ const AIChatPanel: React.FC<AIChatPanelProps> = ({
   });
   const [downloadProgress, setDownloadProgress] = useState<number>(0);
   const [aiMode, setAiMode] = useState<'chrome' | 'transformers' | null>(null);
+  
+  // Check if running on localhost (hide config UI in production)
+  const isLocalhost = typeof window !== 'undefined' && 
+    (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1');
+  
   const [backend, setBackend] = useState<'webgpu' | 'wasm'>(() => {
     // Load from localStorage or default to wasm (lower memory)
     const saved = localStorage.getItem('ai-backend') as 'webgpu' | 'wasm';
@@ -1779,7 +1784,7 @@ These actions will be automatically executed. After stating the action, provide 
                   fontSize: '0.7rem',
                 }}
               />
-              {aiMode === 'transformers' && (
+              {aiMode === 'transformers' && isLocalhost && (
                 <Tooltip title="Switch AI backend: WebGPU (fast, more memory, may auto-fallback to WASM if OOM) or WASM (slower, less memory, more stable)">
                   <ToggleButtonGroup
                     value={backend}
@@ -2048,8 +2053,8 @@ Try closing other browser tabs to free up memory and refresh the page.`,
               borderColor: 'divider',
             }}
           >
-            {/* Model Selector - Only show for Transformers mode */}
-            {aiMode === 'transformers' && (
+            {/* Model Selector - Only show for Transformers mode on localhost */}
+            {aiMode === 'transformers' && isLocalhost && (
               <Box sx={{ mb: 1.5 }}>
                 <FormControl fullWidth size="small">
                   <InputLabel id="model-select-label">AI Model</InputLabel>
