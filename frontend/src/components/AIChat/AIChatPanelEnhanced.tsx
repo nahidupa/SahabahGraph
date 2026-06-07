@@ -13,6 +13,10 @@ import {
   LinearProgress,
   ToggleButtonGroup,
   ToggleButton,
+  Select,
+  MenuItem,
+  FormControl,
+  InputLabel,
 } from '@mui/material';
 import {
   Chat as ChatIcon,
@@ -23,6 +27,22 @@ import {
 } from '@mui/icons-material';
 import type { Sahabi } from '../../types';
 import { TransformersAIHelper } from '../../utils/transformersAIHelper';
+
+// Available AI models configuration
+const AVAILABLE_MODELS = [
+  {
+    id: 'onnx-community/Qwen2.5-0.5B-Instruct',
+    name: 'Qwen2.5 (500M)',
+    size: '~300MB',
+    description: 'Balanced - Good quality, moderate size'
+  },
+  {
+    id: 'HuggingFaceTB/SmolLM2-135M-Instruct',
+    name: 'SmolLM2 (135M)',
+    size: '~80MB',
+    description: 'Fast - Smaller, faster loading'
+  }
+] as const;
 
 interface Message {
   role: 'user' | 'assistant' | 'system';
@@ -177,6 +197,13 @@ const AIChatPanel: React.FC<AIChatPanelProps> = ({
     console.log('🔧 Component: Loading backend from localStorage:', saved, '→ using:', selected);
     return selected;
   });
+  const [selectedModel, setSelectedModel] = useState<string>(() => {
+    // Load from localStorage or default to Qwen
+    const saved = localStorage.getItem('ai-model');
+    const selected = saved || AVAILABLE_MODELS[0].id;
+    console.log('🔧 Component: Loading model from localStorage:', saved, '→ using:', selected);
+    return selected;
+  });
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   // Check AI availability for both Chrome AI and Transformers.js
@@ -207,6 +234,12 @@ const AIChatPanel: React.FC<AIChatPanelProps> = ({
     console.log('🔧 Component: Saving backend to localStorage:', backend);
     localStorage.setItem('ai-backend', backend);
   }, [backend]);
+
+  // Save model preference to localStorage whenever it changes
+  useEffect(() => {
+    console.log('🔧 Component: Saving model to localStorage:', selectedModel);
+    localStorage.setItem('ai-model', selectedModel);
+  }, [selectedModel]);
 
   // Initialize AI session when panel opens
   useEffect(() => {
@@ -336,7 +369,7 @@ What would you like to explore?`,
       // Fall back to Transformers.js if Chrome AI not available
       else if (isTransformersAvailable && transformersHelper && !aiSession) {
         try {
-          console.log('🔧 Component: Initializing Transformers.js with backend:', backend);
+          console.log('🔧 Component: Initializing Transformers.js with backend:', backend, 'model:', selectedModel);
           setAiMode('transformers');
           await transformersHelper.init(
             (progress: any) => {
@@ -357,7 +390,7 @@ What would you like to explore?`,
               }
             },
             (error: string, suggestFallback?: boolean) => {
-              console.error('🔧 Component: Transformers.js Error:', error, 'suggestFallback:', suggestFallback, 'current backend:', backend);
+              console.error('🔧 Component: Transformers.js Error:', error, 'suggestFallback:', suggestFallback, 'current backend:', backend, 'model:', selectedModel);
               
               // If WebGPU failed with OOM and we haven't already switched to WASM
               if (suggestFallback && backend === 'webgpu') {
@@ -407,7 +440,8 @@ The AI natural language understanding won't work, but direct commands will still
                       }
                     },
                     'wasm',
-                    true
+                    true,
+                    selectedModel // Pass model to fallback init
                   );
                 }
               }
@@ -440,7 +474,8 @@ The AI natural language understanding won't work, but direct commands will still
               // because that would unmount the component on any error
             },
             backend, // Pass backend selection to worker
-            false // Don't force reload on initial load
+            false, // Don't force reload on initial load
+            selectedModel // Pass selected model to worker
           );
         } catch (error) {
           console.error('Transformers.js init failed:', error);
@@ -463,7 +498,7 @@ The AI natural language understanding won't work, but direct commands will still
         setAISession(null);
       }
     };
-  }, [isOpen, isChromeAIAvailable, isTransformersAvailable, aiHelper, transformersHelper, currentView, graphStats, selectedNodes.length, backend]);
+  }, [isOpen, isChromeAIAvailable, isTransformersAvailable, aiHelper, transformersHelper, currentView, graphStats, selectedNodes.length, backend, selectedModel]);
 
   // Scroll to bottom when new messages arrive
   useEffect(() => {
@@ -1325,7 +1360,8 @@ Try closing other browser tabs to free up memory and refresh the page.`,
                                   ]);
                                 },
                                 'wasm',
-                                true
+                                true,
+                                selectedModel // Pass model to WASM fallback
                               );
                             }
                             // If WASM fails directly
@@ -1348,7 +1384,8 @@ Try closing other browser tabs to free up memory and refresh the page.`,
                             }
                           },
                           newBackend,
-                          true // Force reload for backend switch
+                          true, // Force reload for backend switch
+                          selectedModel // Pass current model
                         );
                       }
                     }}
@@ -1521,6 +1558,77 @@ Try closing other browser tabs to free up memory and refresh the page.`,
               borderColor: 'divider',
             }}
           >
+            {/* Model Selector - Only show for Transformers mode */}
+            {aiMode === 'transformers' && (
+              <Box sx={{ mb: 1.5 }}>
+                <FormControl fullWidth size="small">
+                  <InputLabel id="model-select-label">AI Model</InputLabel>
+                  <Select
+                    labelId="model-select-label"
+                    value={selectedModel}
+                    label="AI Model"
+                    onChange={async (e) => {
+                      const newModel = e.target.value;
+                      if (newModel && transformersHelper) {
+                        console.log('🔧 Component: Model changed to', newModel);
+                        setSelectedModel(newModel);
+                        // Clear session and messages
+                        setAISession(null);
+                        setMessages([]);
+                        setDownloadProgress(0);
+                        
+                        const modelInfo = AVAILABLE_MODELS.find(m => m.id === newModel);
+                        
+                        // Reinitialize with new model
+                        await transformersHelper.init(
+                          (progress: any) => {
+                            setDownloadProgress(progress.progress || 0);
+                          },
+                          () => {
+                            console.log('🔧 Component: Setting aiSession after model switch');
+                            setAISession(transformersHelper);
+                            setMessages([
+                              {
+                                role: 'assistant',
+                                content: `Assalamu Alaikum! 🕌 Switched to **${modelInfo?.name}**. How may I assist you today?`,
+                                timestamp: new Date(),
+                              },
+                            ]);
+                          },
+                          (error: string) => {
+                            console.error('🔧 Component: Model switch error:', error);
+                            setMessages([
+                              {
+                                role: 'assistant',
+                                content: `❌ Failed to load ${modelInfo?.name}. Error: ${error}`,
+                                timestamp: new Date(),
+                              },
+                            ]);
+                          },
+                          backend,
+                          true, // Force reload for model switch
+                          newModel // Pass new model
+                        );
+                      }
+                    }}
+                  >
+                    {AVAILABLE_MODELS.map(model => (
+                      <MenuItem key={model.id} value={model.id}>
+                        <Box>
+                          <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
+                            {model.name}
+                          </Typography>
+                          <Typography variant="caption" color="text.secondary">
+                            {model.description} • {model.size}
+                          </Typography>
+                        </Box>
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
+              </Box>
+            )}
+
             <Box sx={{ display: 'flex', gap: 1 }}>
               <TextField
                 fullWidth

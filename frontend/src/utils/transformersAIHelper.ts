@@ -76,7 +76,7 @@ export class TransformersAIHelper {
   }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  init(onProgress: (progress: any) => void, onReady: () => void, onError: (error: string, suggestFallback?: boolean) => void, backend: 'webgpu' | 'wasm' = 'wasm', forceReload: boolean = false) {
+  init(onProgress: (progress: any) => void, onReady: () => void, onError: (error: string, suggestFallback?: boolean) => void, backend: 'webgpu' | 'wasm' = 'wasm', forceReload: boolean = false, modelId: string = 'onnx-community/Qwen2.5-0.5B-Instruct') {
     this.onProgress = onProgress;
     this.onReady = onReady;
     this.onError = onError;
@@ -89,14 +89,13 @@ export class TransformersAIHelper {
       return;
     }
     
-    console.log(`🔧 Helper: Initializing with backend=${backend}, forceReload=${forceReload}`);
+    console.log(`🔧 Helper: Initializing with backend=${backend}, forceReload=${forceReload}, modelId=${modelId}`);
     
-    // Use Qwen2.5-0.5B-Instruct - small chat model with proper chat template support
-    // This model is ~300MB but supports conversation format properly
+    // Model ID is now configurable - passed from component
     this.worker.postMessage({ 
       type: 'init', 
       data: { 
-        modelId: 'onnx-community/Qwen2.5-0.5B-Instruct',
+        modelId,
         backend,
         forceReload 
       } 
