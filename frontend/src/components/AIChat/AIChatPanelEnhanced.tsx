@@ -30,18 +30,19 @@ import { TransformersAIHelper } from '../../utils/transformersAIHelper';
 
 // Available AI models configuration
 const AVAILABLE_MODELS = [
+    {
+    id: 'HuggingFaceTB/SmolLM2-135M-Instruct',
+    name: 'SmolLM2 (135M)',
+    size: '~80MB',
+    description: 'Fast - Smaller, faster loading'
+  },
   {
     id: 'onnx-community/Qwen2.5-0.5B-Instruct',
     name: 'Qwen2.5 (500M)',
     size: '~300MB',
     description: 'Balanced - Good quality, moderate size'
-  },
-  {
-    id: 'HuggingFaceTB/SmolLM2-135M-Instruct',
-    name: 'SmolLM2 (135M)',
-    size: '~80MB',
-    description: 'Fast - Smaller, faster loading'
   }
+
 ] as const;
 
 interface Message {
