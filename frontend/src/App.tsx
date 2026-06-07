@@ -895,6 +895,7 @@ const App: React.FC = () => {
         }}
         onSearchChange={setSearchTerm}
         allNodes={data?.nodes || []}
+        allRelationships={data?.links || []}
         cyRef={cyRef}
         currentView={viewMode}
         selectedNodes={selectedGraphNodes}

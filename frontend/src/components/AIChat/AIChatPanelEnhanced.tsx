@@ -71,6 +71,7 @@ interface AIChatPanelProps {
   onSearchChange?: (term: string) => void;
   // Data access
   allNodes?: Sahabi[];
+  allRelationships?: Array<{ source: number; target: number; type: string; category: string }>;
   cyRef?: React.MutableRefObject<any>;
   // Application context
   currentView?: 'graph' | 'timeline' | 'political';
@@ -167,6 +168,8 @@ const AIChatPanel: React.FC<AIChatPanelProps> = ({
   onResetZoom,
   onSearchChange,
   allNodes = [],
+  allRelationships = [],
+  cyRef,
   currentView = 'graph',
   selectedNodes = [],
   graphStats,
@@ -178,6 +181,7 @@ const AIChatPanel: React.FC<AIChatPanelProps> = ({
   const [isChromeAIAvailable, setIsChromeAIAvailable] = useState<boolean | null>(null);
   const [isTransformersAvailable, setIsTransformersAvailable] = useState<boolean | null>(false); // Default to false
   const [aiSession, setAISession] = useState<any>(null);
+  const [lastSuggestion, setLastSuggestion] = useState<{ action: string; params: Record<string, any> } | null>(null);
   const [aiHelper] = useState(() => new ChromeAIHelper());
   const [transformersHelper] = useState<TransformersAIHelper | null>(() => {
     // Only create Transformers helper if not in development or if explicitly needed
@@ -512,6 +516,15 @@ The AI natural language understanding won't work, but direct commands will still
   } => {
     const lower = input.toLowerCase().trim();
     
+    // 0. CONFIRMATION commands - "yes", "confirm", "ok", "sure"
+    if (/^(yes|yeah|yep|ok|okay|sure|confirm|do it|proceed)$/i.test(lower)) {
+      if (lastSuggestion) {
+        return { type: 'command', command: lastSuggestion };
+      }
+      // If no suggestion stored, treat as question
+      return { type: 'question' };
+    }
+    
     // 1. CLEAR commands
     if (/^(clear|reset)(\s+(the\s+)?(canvas|graph|screen))?$/i.test(lower)) {
       return { type: 'command', command: { action: 'clear', params: {} } };
@@ -560,8 +573,38 @@ The AI natural language understanding won't work, but direct commands will still
       };
     }
     
-    // 2b. FAMILY/GRAPH creation - "create graph of X family" or "show X family"
-    const familyMatch = input.match(/^(?:create\s+graph\s+of|show|display)\s+(.+?)(?:'s)?\s+family$/i);
+    // 2b. FAMILY commands - multiple patterns
+    
+    // Pattern 1: Specific relationship type - "expand parents of X", "show children of X", etc.
+    const familyTypeMatch = input.match(/^(?:expand|show|display)\s+(parents?|children|child|sons?|daughters?|spouses?|wives?|husband|siblings?|brothers?|sisters?)\s+of\s+(.+)$/i);
+    if (familyTypeMatch) {
+      const relationshipType = familyTypeMatch[1].trim().toLowerCase();
+      const name = familyTypeMatch[2].trim();
+      
+      // Normalize relationship types to standard forms
+      let normalizedType = relationshipType;
+      if (['parent', 'parents'].includes(relationshipType)) normalizedType = 'parents';
+      else if (['child', 'children', 'son', 'sons', 'daughter', 'daughters'].includes(relationshipType)) normalizedType = 'children';
+      else if (['spouse', 'spouses', 'wife', 'wives', 'husband'].includes(relationshipType)) normalizedType = 'spouses';
+      else if (['sibling', 'siblings', 'brother', 'brothers', 'sister', 'sisters'].includes(relationshipType)) normalizedType = 'siblings';
+      
+      return { 
+        type: 'command', 
+        command: { action: 'family', params: { name, relationshipType: normalizedType } } 
+      };
+    }
+    
+    // Pattern 2: "expand family of X", "show family of X" (all family members)
+    const familyOfMatch = input.match(/^(?:expand|show|display)\s+family\s+of\s+(.+)$/i);
+    if (familyOfMatch) {
+      return { 
+        type: 'command', 
+        command: { action: 'family', params: { name: familyOfMatch[1].trim() } } 
+      };
+    }
+    
+    // Pattern 3: "create graph of X family", "show X family", "expand X's family"
+    const familyMatch = input.match(/^(?:create\s+graph\s+of|show|display|expand)\s+(?:me\s+)?(.+?)(?:'s)?\s+family(?:\s+members?)?$/i);
     if (familyMatch) {
       return { 
         type: 'command', 
@@ -768,6 +811,61 @@ The AI natural language understanding won't work, but direct commands will still
     return context;
   };
 
+  // Parse AI responses for command intentions and execute them
+  const extractAndExecuteCommands = async (aiResponse: string): Promise<{ hasCommands: boolean; results: string[] }> => {
+    const commands: Array<{ action: string; params: Record<string, any> }> = [];
+    const results: string[] = [];
+    
+    // Pattern 1: "add X to graph" or "adding X to graph"
+    const addMatches = aiResponse.matchAll(/(?:add|adding|added)\s+([A-Z][a-z]+(?:\s+[A-Z][a-z]+)*?)(?:\s+to\s+(?:the\s+)?graph|'s|\.|,|$)/gi);
+    for (const match of addMatches) {
+      const name = match[1].trim();
+      if (name && name.length > 2 && name.length < 50) {
+        commands.push({ action: 'add', params: { name } });
+      }
+    }
+    
+    // Pattern 2: "show X" or "showing X"
+    const showMatches = aiResponse.matchAll(/(?:show|showing|displayed?)\s+([A-Z][a-z]+(?:\s+[A-Z][a-z]+)*?)(?:'s|\.|,|$)/gi);
+    for (const match of showMatches) {
+      const name = match[1].trim();
+      if (name && name.length > 2 && name.length < 50) {
+        commands.push({ action: 'add', params: { name } });
+      }
+    }
+    
+    // Pattern 3: "expand relationship between X and Y"
+    const expandMatches = aiResponse.matchAll(/(?:expand|expanded|expanding)\s+(?:relationship|relation|connection)?\s*(?:between)?\s+([A-Z][a-z]+(?:\s+[A-Z][a-z]+)*?)\s+and\s+([A-Z][a-z]+(?:\s+[A-Z][a-z]+)*?)(?:\.|,|$)/gi);
+    for (const match of expandMatches) {
+      const person1 = match[1].trim();
+      const person2 = match[2].trim();
+      if (person1 && person2) {
+        commands.push({ action: 'expand', params: { person1, person2 } });
+      }
+    }
+    
+    // Pattern 4: "search for X" or "searching X"
+    const searchMatches = aiResponse.matchAll(/(?:search|searching|searched)\s+(?:for\s+)?([a-z]+(?:\s+[a-z]+)*?)(?:\.|,|$)/gi);
+    for (const match of searchMatches) {
+      const term = match[1].trim();
+      if (term && term.length > 2) {
+        commands.push({ action: 'search', params: { term } });
+      }
+    }
+    
+    // Execute all detected commands
+    for (const command of commands) {
+      try {
+        const result = await executeCommand(command);
+        results.push(result);
+      } catch (error) {
+        console.error('Failed to execute AI command:', command, error);
+      }
+    }
+    
+    return { hasCommands: commands.length > 0, results };
+  };
+
   // Execute a single command (no AI involved)
   const executeCommand = async (command: { action: string; params: Record<string, any> }): Promise<string> => {
     const { action, params } = command;
@@ -915,39 +1013,157 @@ To see MORE related people, try "add [person name]"`;
         const searchName1 = person1.toLowerCase();
         const searchName2 = person2.toLowerCase();
         
-        const node1 = allNodes.find(n => 
-          n.name_en.toLowerCase().includes(searchName1) ||
-          n.name_ar?.includes(person1)
-        );
-        const node2 = allNodes.find(n => 
-          n.name_en.toLowerCase().includes(searchName2) ||
-          n.name_ar?.includes(person2)
-        );
+        // Fuzzy search: match by name parts (handles titles like "as-Siddiq", "al-Farooq")
+        const findNodeFuzzy = (searchTerm: string) => {
+          // First try exact match
+          let node = allNodes.find(n => 
+            n.name_en.toLowerCase() === searchTerm ||
+            n.name_ar === searchTerm
+          );
+          if (node) return node;
+          
+          // Then try partial match (any part of the name)
+          node = allNodes.find(n => 
+            n.name_en.toLowerCase().includes(searchTerm) ||
+            n.name_ar?.includes(searchTerm)
+          );
+          if (node) return node;
+          
+          // Finally try word-by-word match (handles "Abu Bakr as-Siddiq" → "Abu Bakr")
+          const searchWords = searchTerm.split(/\s+/);
+          return allNodes.find(n => {
+            const nameWords = n.name_en.toLowerCase().split(/\s+/);
+            return searchWords.some(sw => nameWords.includes(sw)) &&
+                   searchWords.length >= 2; // At least 2 words match
+          });
+        };
         
+        const node1 = findNodeFuzzy(searchName1);
+        const node2 = findNodeFuzzy(searchName2);
+        
+        // If both not found, suggest alternatives
         if (!node1 && !node2) {
+          const similar1 = allNodes.filter(n => 
+            searchName1.split(/\s+/).some((word: string) => n.name_en.toLowerCase().includes(word))
+          ).slice(0, 2);
+          const similar2 = allNodes.filter(n => 
+            searchName2.split(/\s+/).some((word: string) => n.name_en.toLowerCase().includes(word))
+          ).slice(0, 2);
+          
+          if (similar1.length > 0 && similar2.length > 0) {
+            // Store suggestion for "yes" confirmation
+            setLastSuggestion({
+              action: 'expand',
+              params: { person1: similar1[0].name_en, person2: similar2[0].name_en }
+            });
+            return `❌ Neither "${person1}" nor "${person2}" found exactly.\n\nDid you mean: **${similar1[0].name_en}** and **${similar2[0].name_en}**?\n\nType "yes" to expand their relationship.`;
+          }
           return `❌ Neither "${person1}" nor "${person2}" found in database`;
         }
         
+        // If one not found, suggest alternatives
         if (!node1) {
+          const similar = allNodes.filter(n => 
+            searchName1.split(/\s+/).some((word: string) => n.name_en.toLowerCase().includes(word))
+          ).slice(0, 3);
+          if (similar.length > 0) {
+            setLastSuggestion({
+              action: 'expand',
+              params: { person1: similar[0].name_en, person2: node2!.name_en }
+            });
+            return `❌ "${person1}" not found.\n\nDid you mean: **${similar.map(s => s.name_en).join(', ')}**?\n\nType "yes" to use ${similar[0].name_en}.`;
+          }
           return `❌ "${person1}" not found in database`;
         }
         
         if (!node2) {
+          const similar = allNodes.filter(n => 
+            searchName2.split(/\s+/).some((word: string) => n.name_en.toLowerCase().includes(word))
+          ).slice(0, 3);
+          if (similar.length > 0) {
+            setLastSuggestion({
+              action: 'expand',
+              params: { person1: node1!.name_en, person2: similar[0].name_en }
+            });
+            return `❌ "${person2}" not found.\n\nDid you mean: **${similar.map(s => s.name_en).join(', ')}**?\n\nType "yes" to use ${similar[0].name_en}.`;
+          }
           return `❌ "${person2}" not found in database`;
         }
+        
+        // Clear last suggestion since we found both
+        setLastSuggestion(null);
         
         // Add both nodes
         onAddNode(node1);
         onAddNode(node2);
         
+        // Highlight and focus on the relationship edges
+        setTimeout(() => {
+          if (cyRef?.current) {
+            const cy = cyRef.current;
+            
+            // Find nodes by ID
+            const cyNode1 = cy.getElementById(node1.id);
+            const cyNode2 = cy.getElementById(node2.id);
+            
+            if (cyNode1.length > 0 && cyNode2.length > 0) {
+              // Find all edges between these two nodes (both directions)
+              const edges = cy.edges().filter((edge: any) => {
+                const source = edge.source().id();
+                const target = edge.target().id();
+                return (source === node1.id && target === node2.id) ||
+                       (source === node2.id && target === node1.id);
+              });
+              
+              if (edges.length > 0) {
+                // Highlight the nodes and their connecting edges
+                cy.elements().removeClass('highlighted');
+                cyNode1.addClass('highlighted');
+                cyNode2.addClass('highlighted');
+                edges.addClass('highlighted');
+                
+                // Temporarily emphasize the edges
+                edges.style({
+                  'line-color': '#ff6b6b',
+                  'width': 4,
+                  'z-index': 999
+                });
+                
+                // Focus view on these nodes
+                cy.animate({
+                  fit: {
+                    eles: cyNode1.union(cyNode2).union(edges),
+                    padding: 100
+                  },
+                  duration: 500
+                });
+                
+                // Reset edge styling after 3 seconds
+                setTimeout(() => {
+                  edges.removeStyle('line-color width z-index');
+                }, 3000);
+              } else {
+                // No direct edges found, just focus on the nodes
+                cy.animate({
+                  fit: {
+                    eles: cyNode1.union(cyNode2),
+                    padding: 100
+                  },
+                  duration: 500
+                });
+              }
+            }
+          }
+        }, 300); // Small delay to ensure nodes are rendered
+        
         return `✅ Added ${node1.name_en} and ${node2.name_en} to the graph.
 
-Their relationships are now visible as connecting lines:
+🔍 Highlighting their relationships with connecting lines:
 • Family relationships
 • Shared battles
 • Companionship connections
 
-The graph automatically displays all relationships from the database!`;
+The graph will zoom to show their connections!`;
       }
       
       case 'compare': {
@@ -1052,12 +1268,14 @@ ${node2.biography_short ? `\n${node2.biography_short.substring(0, 200)}...` : ''
       }
       
       case 'family': {
-        // Add a person and their immediate family (parents, spouses, children)
-        if (!onAddNode || !allNodes) {
+        // Add a person and their family members (optionally filtered by relationship type)
+        if (!onAddNode || !allNodes || !allRelationships) {
           return '⚠️ Family graph capability not available';
         }
         
         const searchName = params.name.toLowerCase();
+        const relationshipType = params.relationshipType; // 'parents', 'children', 'spouses', 'siblings', or undefined for all
+        
         const mainPerson = allNodes.find(n => 
           n.name_en.toLowerCase().includes(searchName) ||
           n.name_ar?.includes(params.name)
@@ -1067,20 +1285,259 @@ ${node2.biography_short ? `\n${node2.biography_short.substring(0, 200)}...` : ''
           return `❌ Could not find "${params.name}" in database`;
         }
         
-        // Add the main person
+        // Add the main person first
         onAddNode(mainPerson);
         
-        // Note: The actual family relationships come from the relationships data
-        // The graph will automatically show connections when nodes are added
+        // Find all family relationships from the data
+        const mainPersonId = typeof mainPerson.id === 'string' ? parseInt(mainPerson.id, 10) : mainPerson.id;
+        const familyMembers: Sahabi[] = [];
+        const familyMemberIds = new Set<number>();
         
-        return `✅ Added **${mainPerson.name_en}** to the graph!
+        // Query allRelationships for family connections
+        allRelationships.forEach((rel) => {
+          // Check if this relationship involves the main person
+          const relSource = typeof rel.source === 'string' ? parseInt(rel.source, 10) : rel.source;
+          const relTarget = typeof rel.target === 'string' ? parseInt(rel.target, 10) : rel.target;
+          
+          const isMainPersonSource = relSource === mainPersonId;
+          const isMainPersonTarget = relTarget === mainPersonId;
+          
+          if (!isMainPersonSource && !isMainPersonTarget) {
+            return; // Not related to main person
+          }
+          
+          // Check if it's a family relationship and matches the filter (if specified)
+          let isFamilyRelation = false;
+          
+          if (relationshipType) {
+            // Filter by specific relationship type
+            switch (relationshipType) {
+              case 'parents':
+                // Main person is the child (target), related person is parent (source)
+                isFamilyRelation = rel.type === 'PARENT_OF' && isMainPersonTarget;
+                break;
+              case 'children':
+                // Main person is the parent (source), related person is child (target)
+                isFamilyRelation = rel.type === 'PARENT_OF' && isMainPersonSource;
+                break;
+              case 'spouses':
+                isFamilyRelation = rel.type === 'SPOUSE_OF';
+                break;
+              case 'siblings':
+                isFamilyRelation = rel.type === 'SIBLING_OF';
+                break;
+            }
+          } else {
+            // No filter - include all family relationships
+            isFamilyRelation = 
+              rel.type === 'PARENT_OF' ||
+              rel.type === 'SPOUSE_OF' ||
+              rel.type === 'SIBLING_OF' ||
+              rel.type === 'CHILD_OF' ||
+              rel.category === 'family';
+          }
+          
+          if (isFamilyRelation) {
+            // Get the ID of the related person
+            const relatedPersonId = isMainPersonSource ? relTarget : relSource;
+            
+            if (!familyMemberIds.has(relatedPersonId)) {
+              familyMemberIds.add(relatedPersonId);
+              
+              // Find the person in allNodes
+              const familyMember = allNodes.find(n => {
+                const nodeId = typeof n.id === 'string' ? parseInt(n.id, 10) : n.id;
+                return nodeId === relatedPersonId;
+              });
+              
+              if (familyMember) {
+                familyMembers.push(familyMember);
+              }
+            }
+          }
+        });
+        
+        // Add all family members to the graph
+        familyMembers.forEach(member => onAddNode(member));
+        
+        // Wait for nodes to be added, then add edges and highlight the family network
+        if (cyRef?.current && familyMembers.length > 0) {
+          setTimeout(() => {
+            try {
+              const cy = cyRef.current;
+              const allFamilyIds = [mainPerson.id.toString(), ...familyMembers.map(m => m.id.toString())];
+              const familyNodes = cy.nodes().filter((node: any) => 
+                allFamilyIds.includes(node.id().toString())
+              );
+              
+              // Add edge elements for family relationships that aren't already in the graph
+              const edgesToAdd: any[] = [];
+              const existingEdgeIds = new Set();
+              
+              // Get existing edges
+              cy.edges().forEach((edge: any) => {
+                existingEdgeIds.add(`${edge.data('source')}-${edge.data('target')}`);
+                existingEdgeIds.add(`${edge.data('target')}-${edge.data('source')}`);
+              });
+              
+              // Find family relationships that need edges (apply same filter as node collection)
+              allRelationships.forEach((rel) => {
+                const relSource = typeof rel.source === 'string' ? parseInt(rel.source, 10) : rel.source;
+                const relTarget = typeof rel.target === 'string' ? parseInt(rel.target, 10) : rel.target;
+                
+                const isMainPersonSource = relSource === mainPersonId;
+                const isMainPersonTarget = relTarget === mainPersonId;
+                
+                if (!isMainPersonSource && !isMainPersonTarget) {
+                  return; // Not related to main person
+                }
+                
+                // Apply same relationship type filter as node collection
+                let isFamilyRelation = false;
+                
+                if (relationshipType) {
+                  // Filter by specific relationship type
+                  switch (relationshipType) {
+                    case 'parents':
+                      isFamilyRelation = rel.type === 'PARENT_OF' && isMainPersonTarget;
+                      break;
+                    case 'children':
+                      isFamilyRelation = rel.type === 'PARENT_OF' && isMainPersonSource;
+                      break;
+                    case 'spouses':
+                      isFamilyRelation = rel.type === 'SPOUSE_OF';
+                      break;
+                    case 'siblings':
+                      isFamilyRelation = rel.type === 'SIBLING_OF';
+                      break;
+                  }
+                } else {
+                  // No filter - include all family relationships
+                  isFamilyRelation = 
+                    rel.type === 'PARENT_OF' ||
+                    rel.type === 'SPOUSE_OF' ||
+                    rel.type === 'SIBLING_OF' ||
+                    rel.type === 'CHILD_OF' ||
+                    rel.category === 'family';
+                }
+                
+                if (isFamilyRelation) {
+                  const edgeId = `${rel.source}-${rel.target}`;
+                  if (!existingEdgeIds.has(edgeId)) {
+                    edgesToAdd.push({
+                      group: 'edges',
+                      data: {
+                        id: edgeId,
+                        source: rel.source.toString(),
+                        target: rel.target.toString(),
+                        relationship_type: rel.type,
+                        category: rel.category || 'family',
+                        label: rel.type
+                      }
+                    });
+                  }
+                }
+              });
+              
+              // Add new edges to the graph
+              if (edgesToAdd.length > 0) {
+                cy.add(edgesToAdd);
+              }
+              
+              // Find all edges connecting the main person to their family members
+              const mainNode = cy.getElementById(mainPerson.id.toString());
+              const familyEdges = mainNode.connectedEdges().filter((edge: any) => {
+                const sourceId = edge.source().id();
+                const targetId = edge.target().id();
+                // Check if edge connects main person to a family member
+                return (sourceId === mainPerson.id.toString() && allFamilyIds.includes(targetId)) ||
+                       (targetId === mainPerson.id.toString() && allFamilyIds.includes(sourceId));
+              });
+              
+              if (familyNodes.length > 0) {
+                // Clear any previous highlights
+                cy.elements().removeClass('highlighted');
+                
+                // Highlight family nodes
+                familyNodes.addClass('highlighted');
+                
+                // Highlight and style family edges in green (for family relationships)
+                if (familyEdges.length > 0) {
+                  familyEdges.addClass('highlighted');
+                  familyEdges.style({
+                    'line-color': '#4caf50', // Green for family relationships
+                    'width': 4,
+                    'z-index': 999,
+                    'opacity': 1
+                  });
+                  
+                  // Zoom to show family network including edges
+                  cy.animate({
+                    fit: {
+                      eles: familyNodes.union(familyEdges),
+                      padding: 80
+                    },
+                    duration: 500
+                  });
+                  
+                  // Remove edge highlighting after 5 seconds
+                  setTimeout(() => {
+                    familyEdges.removeStyle('line-color width z-index opacity');
+                    cy.elements().removeClass('highlighted');
+                  }, 5000);
+                } else {
+                  // No edges found, just zoom to nodes
+                  cy.animate({
+                    fit: {
+                      eles: familyNodes,
+                      padding: 80
+                    },
+                    duration: 500
+                  });
+                }
+              }
+            } catch (error) {
+              console.error('Error focusing on family:', error);
+            }
+          }, 400); // Slightly longer delay to ensure nodes are fully added
+        }
+        
+        if (familyMembers.length === 0) {
+          const relationshipLabel = relationshipType 
+            ? relationshipType.charAt(0).toUpperCase() + relationshipType.slice(1)
+            : 'family members';
+            
+          return `✅ Added **${mainPerson.name_en}** to the graph.
 
-To see their family members:
-- Family relationships are shown as connecting lines automatically
-- Try: "Show [family member name]" to add specific relatives
-- Or: "Expand relationship between ${mainPerson.name_en} and [name]"
+⚠️ No ${relationshipLabel.toLowerCase()} found in the database. This could mean:
+- ${relationshipLabel} relationships haven't been added to the database yet
+- The person's ${relationshipLabel.toLowerCase()} ${relationshipLabel === 'Children' ? "aren't" : "isn't"} in the current dataset
 
-💡 The database contains: ${mainPerson.has_parents ? '✓ Parents' : ''} ${mainPerson.has_spouses ? '✓ Spouses' : ''} ${mainPerson.has_children ? '✓ Children' : ''} ${mainPerson.has_siblings ? '✓ Siblings' : ''}`;
+${mainPerson.has_parents || mainPerson.has_spouses || mainPerson.has_children ? '\n💡 Database indicates family exists but relationships may not be connected yet.' : ''}`;
+        }
+        
+        // Build relationship type label
+        let relationshipLabel: string;
+        if (relationshipType) {
+          relationshipLabel = relationshipType.charAt(0).toUpperCase() + relationshipType.slice(1);
+        } else {
+          // Build list of all included types for general family expansion
+          const familyTypes: string[] = [];
+          if (mainPerson.has_parents) familyTypes.push('Parents');
+          if (mainPerson.has_spouses) familyTypes.push('Spouses');
+          if (mainPerson.has_children) familyTypes.push('Children');
+          if (mainPerson.has_siblings) familyTypes.push('Siblings');
+          relationshipLabel = familyTypes.length > 0 ? familyTypes.join(', ') : 'Family Tree';
+        }
+        
+        return `✅ **${relationshipLabel} Expanded for ${mainPerson.name_en}**
+
+📊 Added ${familyMembers.length} ${relationshipType ? relationshipType : 'family member'}${familyMembers.length !== 1 ? 's' : ''}:
+${familyMembers.slice(0, 10).map(m => `• ${m.name_en}`).join('\n')}${familyMembers.length > 10 ? `\n• ...and ${familyMembers.length - 10} more` : ''}
+
+🔗 Relationship type${relationshipType ? '' : 's'}: ${relationshipLabel}
+
+The graph now shows all ${relationshipType ? relationshipType : 'family'} connections with colored lines! 🎨`;
       }
       
       case 'filter':
@@ -1164,8 +1621,16 @@ To see their family members:
 User question: "${currentInput}"
 
 Answer this question about early Islamic history. Be informative and respectful. 
-Use the context provided above if relevant. If you mention people in the database, 
-suggest adding them to the graph.`;
+Use the context provided above if relevant.
+
+IMPORTANT: If the user wants to see someone on the graph or explore relationships, 
+explicitly state what you're doing using these formats:
+- "Let me add Abu Bakr to the graph" or "Adding Abu Bakr to graph"
+- "Let me show Umar" or "Showing Umar"
+- "Let me expand relationship between Ali and Uthman"
+- "Let me search for battles"
+
+These actions will be automatically executed when you mention them.`;
           response = await aiSession.prompt(enhancedPrompt);
         } else if (aiMode === 'transformers' && transformersHelper) {
           // Transformers.js - system message + RAG context
@@ -1174,10 +1639,15 @@ You have access to a database of Sahabah (companions of Prophet Muhammad PBUH).
 
 ${context}
 
-Be informative, respectful, and concise. If relevant, suggest graph commands like:
-- "Show Abu Bakr" - adds person to graph
-- "Search battles" - finds all battle participants  
-- "Expand relationship between X and Y" - shows connections`;
+Be informative, respectful, and concise.
+
+IMPORTANT: When users ask to see someone or explore relationships, explicitly state your actions:
+- "Adding Abu Bakr to graph" or "Let me add Abu Bakr"
+- "Showing Umar" or "Let me show Umar"  
+- "Expanding relationship between Ali and Uthman"
+- "Searching battles" or "Let me search for battles"
+
+These actions will be automatically executed. After stating the action, provide helpful context about the person or topic.`;
 
           const promptMessages = [
             { role: 'system', content: systemMessage },
@@ -1194,15 +1664,34 @@ Be informative, respectful, and concise. If relevant, suggest graph commands lik
           throw new Error('No AI mode selected or helper not available');
         }
         
+        // Extract and execute any commands from AI response
+        const { hasCommands, results } = await extractAndExecuteCommands(response);
+        
         console.log('🔧 Component: Creating AI message');
         const aiMessage: Message = {
           role: 'assistant',
           content: response,
           timestamp: new Date(),
         };
-        // Remove thinking message and add actual response
-        console.log('🔧 Component: Updating messages, removing thinking indicator');
-        setMessages((prev) => prev.filter(m => !m.isThinking).concat(aiMessage));
+        
+        // If commands were executed, add their results as separate messages
+        if (hasCommands && results.length > 0) {
+          const commandResults = results.map(result => ({
+            role: 'assistant' as const,
+            content: result,
+            timestamp: new Date(),
+            isCommand: true,
+            commandResult: result,
+          }));
+          
+          // Remove thinking message and add AI response + command results
+          console.log('🔧 Component: Updating messages with AI response and command results');
+          setMessages((prev) => prev.filter(m => !m.isThinking).concat(aiMessage, ...commandResults));
+        } else {
+          // Remove thinking message and add actual response
+          console.log('🔧 Component: Updating messages, removing thinking indicator');
+          setMessages((prev) => prev.filter(m => !m.isThinking).concat(aiMessage));
+        }
       }
     } catch (error) {
       console.error('Error processing message:', error);
