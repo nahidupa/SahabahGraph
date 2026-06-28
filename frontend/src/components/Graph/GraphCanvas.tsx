@@ -690,19 +690,19 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
 
       <Box 
         sx={{ 
-          position: { xs: 'fixed', lg: 'relative' },
-          bottom: { xs: 0, lg: 'auto' },
-          left: { xs: 0, lg: 'auto' },
-          right: { xs: 0, lg: 'auto' },
+          position: { xs: 'fixed', xl: 'relative' },
+          bottom: { xs: 0, xl: 'auto' },
+          left: { xs: 0, xl: 'auto' },
+          right: { xs: 0, xl: 'auto' },
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          py: { xs: 1, sm: 1.5, lg: 2 },
+          py: { xs: 1, sm: 1.5, xl: 2 },
           px: 1,
-          bgcolor: { xs: 'rgba(255, 255, 255, 0.95)', lg: 'transparent' },
-          backdropFilter: { xs: 'blur(8px)', lg: 'none' },
-          borderTop: { xs: '1px solid rgba(0, 0, 0, 0.08)', lg: 'none' },
-          boxShadow: { xs: '0 -2px 10px rgba(0, 0, 0, 0.1)', lg: 'none' },
+          bgcolor: { xs: 'rgba(255, 255, 255, 0.95)', xl: 'transparent' },
+          backdropFilter: { xs: 'blur(8px)', xl: 'none' },
+          borderTop: { xs: '1px solid rgba(0, 0, 0, 0.08)', xl: 'none' },
+          boxShadow: { xs: '0 -2px 10px rgba(0, 0, 0, 0.1)', xl: 'none' },
           zIndex: 1100,
           flexShrink: 0
         }}

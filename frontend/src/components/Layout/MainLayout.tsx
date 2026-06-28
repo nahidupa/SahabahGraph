@@ -59,11 +59,11 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children, sidebar, detailPanel,
             <Box sx={{ 
               flexGrow: 1, 
               position: 'relative', 
-              overflow: { xs: 'visible', lg: 'hidden' },
+              overflow: { xs: 'visible', xl: 'hidden' },
               minHeight: 0,
               display: 'flex',
               flexDirection: 'column',
-              pb: { xs: '80px', lg: 0 }
+              pb: { xs: '80px', xl: 0 }
             }}>
               {children}
             </Box>
