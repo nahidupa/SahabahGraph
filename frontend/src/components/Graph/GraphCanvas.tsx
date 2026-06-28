@@ -666,7 +666,7 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
 
   return (
     <Box id="tour-graph-canvas" sx={{ width: '100%', height: '100%', position: 'relative', display: 'flex', flexDirection: 'column' }}>
-      <Box sx={{ flexGrow: 1, position: 'relative', overflow: 'hidden' }}>
+      <Box sx={{ flexGrow: 1, position: 'relative', overflow: 'hidden', minHeight: 0 }}>
         <CytoscapeComponent
           elements={elements}
           style={{ width: '100%', height: '100%' }}
@@ -690,13 +690,18 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
 
       <Box 
         sx={{ 
-          position: 'relative',
+          position: { xs: 'sticky', md: 'relative' },
+          bottom: { xs: 0, md: 'auto' },
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
           py: { xs: 1, sm: 1.5, md: 2 },
           px: 1,
-          bgcolor: 'transparent'
+          bgcolor: { xs: 'rgba(255, 255, 255, 0.95)', md: 'transparent' },
+          backdropFilter: { xs: 'blur(8px)', md: 'none' },
+          borderTop: { xs: '1px solid rgba(0, 0, 0, 0.08)', md: 'none' },
+          zIndex: { xs: 1001, md: 'auto' },
+          flexShrink: 0
         }}
       >
         <Paper
