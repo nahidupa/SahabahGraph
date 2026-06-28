@@ -690,17 +690,20 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
 
       <Box 
         sx={{ 
-          position: { xs: 'sticky', md: 'relative' },
-          bottom: { xs: 0, md: 'auto' },
+          position: { xs: 'fixed', lg: 'relative' },
+          bottom: { xs: 0, lg: 'auto' },
+          left: { xs: 0, lg: 'auto' },
+          right: { xs: 0, lg: 'auto' },
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          py: { xs: 1, sm: 1.5, md: 2 },
+          py: { xs: 1, sm: 1.5, lg: 2 },
           px: 1,
-          bgcolor: { xs: 'rgba(255, 255, 255, 0.95)', md: 'transparent' },
-          backdropFilter: { xs: 'blur(8px)', md: 'none' },
-          borderTop: { xs: '1px solid rgba(0, 0, 0, 0.08)', md: 'none' },
-          zIndex: { xs: 1001, md: 'auto' },
+          bgcolor: { xs: 'rgba(255, 255, 255, 0.95)', lg: 'transparent' },
+          backdropFilter: { xs: 'blur(8px)', lg: 'none' },
+          borderTop: { xs: '1px solid rgba(0, 0, 0, 0.08)', lg: 'none' },
+          boxShadow: { xs: '0 -2px 10px rgba(0, 0, 0, 0.1)', lg: 'none' },
+          zIndex: 1100,
           flexShrink: 0
         }}
       >
