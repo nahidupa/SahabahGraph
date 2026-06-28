@@ -1,24 +1,26 @@
-import React, { useEffect, useState, useRef, useMemo } from 'react';
+import React, { useEffect, useState, useRef, useMemo, lazy, Suspense } from 'react';
 import { useQuery, gql } from '@apollo/client';
 // i18n import for side-effects
 import type { Core } from 'cytoscape';
 import type { GraphData, PoliticalData, Sahabi } from './types';
 import MainLayout from './components/Layout/MainLayout';
 import SahabahSidebar from './components/Sidebar/SahabahSidebar';
-import GraphCanvas from './components/Graph/GraphCanvas';
 import TimelineView from './components/Timeline/TimelineView';
 import PoliticalView from './components/Political/PoliticalView';
 import SahabahDetail from './components/DetailPanel/SahabahDetail';
 import PathSummary from './components/Graph/PathSummary';
-import OnboardingTour from './components/Tour/OnboardingTour';
-import AIChatPanel from './components/AIChat/AIChatPanelEnhanced';
 import SkeletonLoader from './components/Loading/SkeletonLoader';
 import { useDataLoader } from './hooks/useDataLoader';
 import './i18n/config';
 import { useTranslation } from 'react-i18next';
-import { ToggleButton, ToggleButtonGroup, Box as MuiBox, Snackbar, Typography } from '@mui/material';
+import { ToggleButton, ToggleButtonGroup, Box as MuiBox, Snackbar, Typography, CircularProgress } from '@mui/material';
 import { AccountTree as GraphIcon, ViewTimeline as TimelineIcon, Public as PublicIcon } from '@mui/icons-material';
 import { generateShareUrl, readShareUrl, copyToClipboard } from './utils/shareGraph';
+
+// Lazy load heavy components to reduce initial bundle size
+const GraphCanvas = lazy(() => import('./components/Graph/GraphCanvas'));
+const OnboardingTour = lazy(() => import('./components/Tour/OnboardingTour'));
+const AIChatPanel = lazy(() => import('./components/AIChat/AIChatPanelEnhanced'));
 
 const GET_SAHABAH = gql`
   query GetSahabah {
@@ -734,7 +736,11 @@ const App: React.FC = () => {
 
   return (
     <MainLayout
-      tour={<OnboardingTour run={runTour} onFinish={handleTourFinish} />}
+      tour={
+        <Suspense fallback={null}>
+          <OnboardingTour run={runTour} onFinish={handleTourFinish} />
+        </Suspense>
+      }
       sidebar={
         <SahabahSidebar
           onStartTour={startTour}
@@ -777,15 +783,17 @@ const App: React.FC = () => {
       </MuiBox>
 
       {viewMode === 'graph' ? (
-        <GraphCanvas
-          elements={elements}
-          onNodeClick={setSelectedNode}
-          cyRef={cyRef}
-          onShowConnections={handleShowConnections}
-          onDeleteSelectedNodes={removeNodesFromGraph}
-          onRemoveAll={removeAllNodes}
-          onShare={handleShare}
-        />
+        <Suspense fallback={<SkeletonLoader variant="graph" />}>
+          <GraphCanvas
+            elements={elements}
+            onNodeClick={setSelectedNode}
+            cyRef={cyRef}
+            onShowConnections={handleShowConnections}
+            onDeleteSelectedNodes={removeNodesFromGraph}
+            onRemoveAll={removeAllNodes}
+            onShare={handleShare}
+          />
+        </Suspense>
       ) : viewMode === 'timeline' ? (
         <TimelineView
           nodes={data?.nodes || []}
@@ -805,6 +813,51 @@ const App: React.FC = () => {
           }}
         />
       )}
+      
+      {/* Lazy load AI Chat Panel */}
+      <Suspense fallback={
+        <MuiBox sx={{ position: 'fixed', bottom: 20, right: 20, zIndex: 1000 }}>
+          <CircularProgress size={24} />
+        </MuiBox>
+      }>
+        <AIChatPanel
+          allNodes={data?.nodes || []}
+          allRelationships={data?.links || []}
+          cyRef={cyRef}
+          currentView={viewMode}
+          selectedNodes={selectedGraphNodes}
+          graphStats={graphStats}
+          onClearCanvas={removeAllNodes}
+          onFocusNode={(nodeName) => {
+            const node = data?.nodes.find(n => 
+              n.name_en.toLowerCase() === nodeName.toLowerCase() ||
+              n.name_ar === nodeName
+            );
+            if (node) {
+              setSelectedNode(node);
+              window.setTimeout(() => {
+                if (cyRef.current) {
+                  const cyNode = cyRef.current.$(`#${node.id}`);
+                  if (cyNode.length > 0) {
+                    cyRef.current.center(cyNode);
+                    cyRef.current.zoom({ level: 2, position: cyNode.position() });
+                  }
+                }
+              }, 100);
+            }
+          }}
+          onAddNode={addNodeToGraph}
+          onFilterNodes={(criteria) => {
+            if (criteria.name) setSearchTerm(criteria.name);
+          }}
+          onSwitchView={(view) => setViewMode(view)}
+          onZoomIn={() => cyRef.current?.zoom(cyRef.current.zoom() * 1.2)}
+          onZoomOut={() => cyRef.current?.zoom(cyRef.current.zoom() * 0.8)}
+          onResetZoom={() => cyRef.current?.fit()}
+          onSearchChange={setSearchTerm}
+        />
+      </Suspense>
+      
       {allPaths.length > 0 && (
         <PathSummary
           path={allPaths[currentPathIndex]}
@@ -827,58 +880,7 @@ const App: React.FC = () => {
           }}
         />
       )}
-      <AIChatPanel 
-        onClearCanvas={removeAllNodes}
-        onFocusNode={(nodeName) => {
-          const node = data?.nodes.find(n => n.name_en.toLowerCase() === nodeName.toLowerCase());
-          if (node) {
-            setSelectedNode(node);
-            // Focus on node in cytoscape
-            window.setTimeout(() => {
-              if (cyRef.current) {
-                const cyNode = cyRef.current.$(`#${node.id}`);
-                if (cyNode.length > 0) {
-                  cyRef.current.center(cyNode);
-                  cyRef.current.zoom({
-                    level: 2,
-                    position: cyNode.position()
-                  });
-                }
-              }
-            }, 100);
-          }
-        }}
-        onAddNode={addNodeToGraph}
-        onFilterNodes={(criteria) => {
-          // Apply filters via search for now
-          if (criteria.name) {
-            setSearchTerm(criteria.name);
-          }
-        }}
-        onSwitchView={(view) => setViewMode(view)}
-        onZoomIn={() => {
-          if (cyRef.current) {
-            cyRef.current.zoom(cyRef.current.zoom() * 1.2);
-          }
-        }}
-        onZoomOut={() => {
-          if (cyRef.current) {
-            cyRef.current.zoom(cyRef.current.zoom() * 0.8);
-          }
-        }}
-        onResetZoom={() => {
-          if (cyRef.current) {
-            cyRef.current.fit();
-          }
-        }}
-        onSearchChange={setSearchTerm}
-        allNodes={data?.nodes || []}
-        allRelationships={data?.links || []}
-        cyRef={cyRef}
-        currentView={viewMode}
-        selectedNodes={selectedGraphNodes}
-        graphStats={graphStats}
-      />
+      
       <Snackbar
         open={shareSnackbarOpen}
         autoHideDuration={4000}

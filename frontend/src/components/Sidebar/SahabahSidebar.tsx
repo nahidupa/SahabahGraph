@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, memo, useCallback } from 'react';
 import {
   Box,
   Drawer,
@@ -70,9 +70,17 @@ const SahabahSidebar: React.FC<SahabahSidebarProps> = ({
     });
   }, [nodes, searchTerm, selectedTribe]);
 
-  const handleLanguageChange = (event: SelectChangeEvent) => {
+  const handleLanguageChange = useCallback((event: SelectChangeEvent) => {
     i18n.changeLanguage(event.target.value);
-  };
+  }, [i18n]);
+
+  const handleSearchChange = useCallback((value: string) => {
+    onSearchChange(value);
+  }, [onSearchChange]);
+
+  const handleTribeChange = useCallback((value: string) => {
+    setSelectedTribe(value);
+  }, []);
 
   if (collapsed) {
     return (
@@ -135,7 +143,7 @@ const SahabahSidebar: React.FC<SahabahSidebarProps> = ({
           size="small"
           placeholder={t('search_placeholder')}
           value={searchTerm}
-          onChange={(e) => onSearchChange(e.target.value)}
+          onChange={(e) => handleSearchChange(e.target.value)}
           sx={{ mb: 2 }}
           slotProps={{
             input: {
@@ -144,7 +152,7 @@ const SahabahSidebar: React.FC<SahabahSidebarProps> = ({
                 <InputAdornment position="end">
                   <IconButton
                     size="small"
-                    onClick={() => onSearchChange('')}
+                    onClick={() => handleSearchChange('')}
                     aria-label={t('clear_search')}
                     edge="end"
                   >
@@ -162,7 +170,7 @@ const SahabahSidebar: React.FC<SahabahSidebarProps> = ({
             labelId="tribe-select-label"
             value={selectedTribe}
             label={t('tribe')}
-            onChange={(e) => setSelectedTribe(e.target.value)}
+            onChange={(e) => handleTribeChange(e.target.value)}
           >
             {tribes.map(tribe => (
               <MenuItem key={tribe} value={tribe}>
@@ -231,4 +239,14 @@ const SahabahSidebar: React.FC<SahabahSidebarProps> = ({
   );
 };
 
-export default SahabahSidebar;
+// Memoize component to prevent unnecessary re-renders
+export default memo(SahabahSidebar, (prevProps, nextProps) => {
+  return (
+    prevProps.searchTerm === nextProps.searchTerm &&
+    prevProps.nodes.length === nextProps.nodes.length &&
+    prevProps.onAddNode === nextProps.onAddNode &&
+    prevProps.onSelectNode === nextProps.onSelectNode &&
+    prevProps.onSearchChange === nextProps.onSearchChange &&
+    prevProps.onStartTour === nextProps.onStartTour
+  );
+});
