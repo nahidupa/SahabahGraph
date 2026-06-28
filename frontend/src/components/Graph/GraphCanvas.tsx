@@ -663,9 +663,13 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
           left: '50%',
           transform: 'translateX(-50%)',
           display: 'flex',
+          flexWrap: { xs: 'wrap', sm: 'wrap', md: 'nowrap' },
           p: 0.5,
           gap: 0.5,
-          zIndex: 1000
+          zIndex: 1000,
+          maxWidth: { xs: '95%', sm: '90%', md: 'none' },
+          justifyContent: 'center',
+          boxShadow: 3
         }}
       >
         <Tooltip title={multiSelectMode ? t('multi_select_on', { defaultValue: 'Multi-Select: ON (tap to disable)' }) : t('multi_select_off', { defaultValue: 'Multi-Select: OFF (tap to enable)' })}>
