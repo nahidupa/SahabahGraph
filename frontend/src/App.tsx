@@ -12,9 +12,11 @@ import SahabahDetail from './components/DetailPanel/SahabahDetail';
 import PathSummary from './components/Graph/PathSummary';
 import OnboardingTour from './components/Tour/OnboardingTour';
 import AIChatPanel from './components/AIChat/AIChatPanelEnhanced';
+import SkeletonLoader from './components/Loading/SkeletonLoader';
+import { useDataLoader } from './hooks/useDataLoader';
 import './i18n/config';
 import { useTranslation } from 'react-i18next';
-import { ToggleButton, ToggleButtonGroup, Box as MuiBox, Snackbar } from '@mui/material';
+import { ToggleButton, ToggleButtonGroup, Box as MuiBox, Snackbar, Typography } from '@mui/material';
 import { AccountTree as GraphIcon, ViewTimeline as TimelineIcon, Public as PublicIcon } from '@mui/icons-material';
 import { generateShareUrl, readShareUrl, copyToClipboard } from './utils/shareGraph';
 
@@ -39,9 +41,9 @@ const GET_SAHABAH = gql`
   }
 `;
 
-const DATA_FILE = 'data/sahabah_data.json';
-const POLITICAL_DATA_FILE = 'data/political_terms.json';
+const CANVAS_STATE_KEY = 'sahabahgraph_canvas_state';
 
+// Helper functions
 const normalizeNodeId = (value: unknown): number => {
   if (typeof value === 'number' && Number.isFinite(value)) return value;
   const parsed = Number.parseInt(String(value), 10);
@@ -53,64 +55,6 @@ const normalizeProphetFlag = (value: unknown): boolean => {
   return String(value).toLowerCase() === 'true';
 };
 
-const loadGraphData = async (): Promise<GraphData> => {
-  const baseUrl = import.meta.env.BASE_URL || '/';
-  const normalizedBase = baseUrl.endsWith('/') ? baseUrl : `${baseUrl}/`;
-  const candidateUrls = Array.from(new Set([
-    `./${DATA_FILE}`,
-    `/${DATA_FILE}`,
-    `${normalizedBase}${DATA_FILE}`,
-  ]));
-
-  for (const url of candidateUrls) {
-    try {
-      const response = await fetch(url, { cache: 'no-store' });
-      if (!response.ok) {
-        continue;
-      }
-
-      const json = (await response.json()) as GraphData;
-      if (Array.isArray(json.nodes) && Array.isArray(json.links)) {
-        return json;
-      }
-    } catch {
-      // Try next candidate URL.
-    }
-  }
-
-  throw new Error('Unable to load sahabah graph data');
-};
-
-const loadPoliticalData = async (): Promise<PoliticalData> => {
-  const baseUrl = import.meta.env.BASE_URL || '/';
-  const normalizedBase = baseUrl.endsWith('/') ? baseUrl : `${baseUrl}/`;
-  const candidateUrls = Array.from(new Set([
-    `./${POLITICAL_DATA_FILE}`,
-    `/${POLITICAL_DATA_FILE}`,
-    `${normalizedBase}${POLITICAL_DATA_FILE}`,
-  ]));
-
-  for (const url of candidateUrls) {
-    try {
-      const response = await fetch(url, { cache: 'no-store' });
-      if (!response.ok) {
-        continue;
-      }
-
-      const json = (await response.json()) as PoliticalData;
-      if (Array.isArray(json.cities) && Array.isArray(json.terms)) {
-        return json;
-      }
-    } catch {
-      // Try next candidate URL.
-    }
-  }
-
-  return { cities: [], terms: [] };
-};
-
-const CANVAS_STATE_KEY = 'sahabahgraph_canvas_state';
-
 // Helper function to normalize is_prophet field (handles both boolean and string values)
 const normalizeIsProphet = (value: any): 'true' | 'false' => {
   if (value === true || String(value).toLowerCase() === 'true') {
@@ -120,6 +64,8 @@ const normalizeIsProphet = (value: any): 'true' | 'false' => {
 };
 
 const App: React.FC = () => {
+  // Load data using Web Worker
+  const { graphData: workerGraphData, politicalData: workerPoliticalData, isLoading: isLoadingData, error: dataError } = useDataLoader();
   const [dataLoaded, setDataLoaded] = useState(false);
   const [runTour, setRunTour] = useState(false);
   const [shareSnackbarOpen, setShareSnackbarOpen] = useState(false);
@@ -214,12 +160,14 @@ const App: React.FC = () => {
     return data.nodes.filter(node => displayedNodeIds.has(String(node.id)));
   }, [data, elements]);
 
+  // Process and initialize data from Web Worker
   useEffect(() => {
+    if (!workerGraphData || isLoadingData) return;
+    
     let isMounted = true;
 
     const initializeData = async () => {
       try {
-        const [graphData, loadedPoliticalData] = await Promise.all([loadGraphData(), loadPoliticalData()]);
         if (!isMounted) return;
 
         const apolloNodes: Sahabi[] = Array.isArray(apolloData?.sahabis)
@@ -232,21 +180,23 @@ const App: React.FC = () => {
 
         const nodes = (apolloNodes.length > 0
           ? apolloNodes.map((apolloNode) => {
-              const jsonNode = graphData.nodes.find((n) => String(n.id) === String(apolloNode.id));
+              const jsonNode = workerGraphData.nodes.find((n) => String(n.id) === String(apolloNode.id));
               return jsonNode ? { ...jsonNode, ...apolloNode } : apolloNode;
             })
-          : graphData.nodes).map((node) => ({
+          : workerGraphData.nodes).map((node) => ({
             ...node,
             id: normalizeNodeId(node.id),
             is_prophet: normalizeProphetFlag(node.is_prophet),
           }));
         const combinedData: GraphData = {
           nodes,
-          links: graphData.links,
+          links: workerGraphData.links,
         };
 
         setData(combinedData);
-        setPoliticalData(loadedPoliticalData);
+        if (workerPoliticalData) {
+          setPoliticalData(workerPoliticalData);
+        }
 
         // Check if there's a shared graph in URL first
         const sharedNodeIds = readShareUrl();
@@ -463,7 +413,7 @@ const App: React.FC = () => {
     return () => {
       isMounted = false;
     };
-  }, [apolloData]);
+  }, [workerGraphData, workerPoliticalData, apolloData, isLoadingData, i18n.language]);
 
   const filteredNodes = useMemo(() => {
     if (!data) return [];
@@ -753,6 +703,34 @@ const App: React.FC = () => {
     }
     setShareSnackbarOpen(true);
   };
+
+  // Show skeleton loader while data is loading
+  if (isLoadingData || !workerGraphData) {
+    return <SkeletonLoader variant="full" />;
+  }
+
+  // Show error state if data loading failed
+  if (dataError) {
+    return (
+      <MuiBox 
+        sx={{ 
+          display: 'flex', 
+          flexDirection: 'column',
+          alignItems: 'center', 
+          justifyContent: 'center', 
+          height: '100vh',
+          gap: 2
+        }}
+      >
+        <Typography variant="h5" color="error">
+          Failed to load data
+        </Typography>
+        <Typography variant="body1" color="text.secondary">
+          {dataError}
+        </Typography>
+      </MuiBox>
+    );
+  }
 
   return (
     <MainLayout
