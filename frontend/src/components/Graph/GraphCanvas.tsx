@@ -791,7 +791,7 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
           </>
         )}
       </Paper>
-
+      </Box>
     </Box>
   );
 };
