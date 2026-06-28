@@ -44,8 +44,19 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children, sidebar, detailPanel,
           dir={direction}
         >
           {sidebar}
-          <Box component="main" sx={{ flexGrow: 1, position: 'relative', height: '100%', overflow: 'hidden' }}>
-            {children}
+          <Box 
+            component="main" 
+            sx={{ 
+              flexGrow: 1, 
+              position: 'relative', 
+              height: '100%',
+              display: 'flex',
+              flexDirection: 'column'
+            }}
+          >
+            <Box sx={{ flexGrow: 1, position: 'relative', overflow: 'hidden' }}>
+              {children}
+            </Box>
           </Box>
           {detailPanel}
         </Box>

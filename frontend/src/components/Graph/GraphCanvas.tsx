@@ -634,44 +634,55 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
   };
 
   return (
-    <Box id="tour-graph-canvas" sx={{ width: '100%', height: '100%', position: 'relative' }}>
-      <CytoscapeComponent
-        elements={elements}
-        style={{ width: '100%', height: '100%' }}
-        stylesheet={stylesheet}
-        cy={(cy: Core) => {
-          cyRef.current = cy;
-          window.cy = cy;
-          
-          // ENABLE selection (false means selectable)
-          cy.autounselectify(false);
-          
-          // Enable box selection for multi-select via drag
-          cy.boxSelectionEnabled(true);
-          
-          // Log for debugging
-          console.log('✅ Cytoscape initialized - selection ENABLED');
-        }}
-        layout={{ name: 'cose' }}
-      />
+    <Box id="tour-graph-canvas" sx={{ width: '100%', height: '100%', position: 'relative', display: 'flex', flexDirection: 'column' }}>
+      <Box sx={{ flexGrow: 1, position: 'relative', overflow: 'hidden' }}>
+        <CytoscapeComponent
+          elements={elements}
+          style={{ width: '100%', height: '100%' }}
+          stylesheet={stylesheet}
+          cy={(cy: Core) => {
+            cyRef.current = cy;
+            window.cy = cy;
+            
+            // ENABLE selection (false means selectable)
+            cy.autounselectify(false);
+            
+            // Enable box selection for multi-select via drag
+            cy.boxSelectionEnabled(true);
+            
+            // Log for debugging
+            console.log('✅ Cytoscape initialized - selection ENABLED');
+          }}
+          layout={{ name: 'cose' }}
+        />
+      </Box>
 
-      <Paper
-        id="tour-graph-controls"
-        sx={{
-          position: 'absolute',
-          bottom: 20,
-          left: '50%',
-          transform: 'translateX(-50%)',
+      <Box 
+        sx={{ 
+          position: 'relative',
           display: 'flex',
-          flexWrap: { xs: 'wrap', sm: 'wrap', md: 'nowrap' },
-          p: 0.5,
-          gap: 0.5,
-          zIndex: 1000,
-          maxWidth: { xs: '95%', sm: '90%', md: 'none' },
           justifyContent: 'center',
-          boxShadow: 3
+          alignItems: 'center',
+          py: { xs: 1, sm: 1.5, md: 2 },
+          px: 1,
+          bgcolor: 'transparent',
+          pointerEvents: 'none'
         }}
       >
+        <Paper
+          id="tour-graph-controls"
+          sx={{
+            display: 'flex',
+            flexWrap: { xs: 'wrap', sm: 'wrap', md: 'nowrap' },
+            p: 0.5,
+            gap: 0.5,
+            zIndex: 1000,
+            maxWidth: { xs: '100%', sm: '90%', md: 'none' },
+            justifyContent: 'center',
+            boxShadow: 3,
+            pointerEvents: 'auto'
+          }}
+        >
         <Tooltip title={multiSelectMode ? t('multi_select_on', { defaultValue: 'Multi-Select: ON (tap to disable)' }) : t('multi_select_off', { defaultValue: 'Multi-Select: OFF (tap to enable)' })}>
           <IconButton
             id="tour-multi-select"
