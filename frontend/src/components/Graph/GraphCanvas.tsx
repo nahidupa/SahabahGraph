@@ -61,6 +61,7 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
   const [multiSelectMode, setMultiSelectMode] = useState(false);
   const [layoutType, setLayoutType] = useState<string>('cose');
   const [layoutAnchorEl, setLayoutAnchorEl] = useState<null | HTMLElement>(null);
+  const [selectionCount, setSelectionCount] = useState(0); // Track selection count to trigger monitoring
   const multiSelectModeRef = useRef(false);
   const selectNodeRef = useRef<((cy: Core, evt: cytoscape.EventObject) => void) | null>(null);
 
@@ -93,6 +94,7 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
     // so auto-restoration doesn't keep them alive
     if (!multiSelectMode) {
       selectedNodeIdsRef.current = [];
+      setSelectionCount(0); // Clear selection count state
       console.log('🧹 Cleared selectedNodeIdsRef (multi-select mode disabled)');
       
       // Also clear any selections and their visual styles from the graph
@@ -277,46 +279,63 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
     return () => clearTimeout(timer);
   }, [elements, cyRef]);
 
-  // ADDITIONAL: Continuously monitor and restore selections every 100ms in multi-select mode
+  // ADDITIONAL: Continuously monitor and restore selections every 100ms when multiple nodes are selected
+  // This works for BOTH toggle button multi-select AND Ctrl+click multi-select
   useEffect(() => {
-    if (!multiSelectMode) return;
-    
     const cy = cyRef.current;
     if (!cy) return;
     
+    // Only run monitoring if we have selections stored (either via toggle or Ctrl+click)
+    // Using selectionCount state to trigger re-runs when selections change
+    if (selectionCount === 0) return;
+    
+    console.log('🔄 Starting selection monitoring for', selectionCount, 'nodes');
+    
     const intervalId = setInterval(() => {
-      if (selectedNodeIdsRef.current.length > 0) {
-        const currentSelectedCount = cy.$('node:selected').length;
-        const expectedCount = selectedNodeIdsRef.current.length;
+      const currentSelectedCount = cy.$('node:selected').length;
+      const expectedCount = selectedNodeIdsRef.current.length;
+      
+      if (currentSelectedCount !== expectedCount) {
+        console.log('⚠️ Selection mismatch detected! Expected:', expectedCount, 'Current:', currentSelectedCount);
+        console.log('🔧 Auto-restoring selections (works for Ctrl+click too)...');
         
-        if (currentSelectedCount !== expectedCount) {
-          console.log('⚠️ Selection mismatch detected! Expected:', expectedCount, 'Current:', currentSelectedCount);
-          console.log('🔧 Auto-restoring selections...');
-          
-          // Restore selections
-          selectedNodeIdsRef.current.forEach((id) => {
-            const node = cy.$(`#${id}`);
-            if (node.length > 0 && !node.selected()) {
-              node.select();
-              node.style('border-width', '4px');
-              node.style('border-color', '#2e7d32');
-              node.style('border-style', 'solid');
-            }
-          });
-          cy.forceRender();
-          console.log('✅ Auto-restored. Current count:', cy.$('node:selected').length);
-        }
+        // Restore selections
+        selectedNodeIdsRef.current.forEach((id) => {
+          const node = cy.$(`#${id}`);
+          if (node.length > 0 && !node.selected()) {
+            node.select();
+            node.style('border-width', '4px');
+            node.style('border-color', '#2e7d32');
+            node.style('border-style', 'solid');
+          }
+        });
+        cy.forceRender();
+        console.log('✅ Auto-restored. Current count:', cy.$('node:selected').length);
       }
     }, 100); // Check every 100ms
     
-    return () => clearInterval(intervalId);
-  }, [multiSelectMode, cyRef]);
+    return () => {
+      console.log('🛑 Stopping selection monitoring');
+      clearInterval(intervalId);
+    };
+  }, [selectionCount]); // Re-run whenever selection count changes
 
   const isMultiSelectGesture = useCallback((evt: cytoscape.EventObject): boolean => {
     const originalEvent = evt.originalEvent as MouseEvent | KeyboardEvent | undefined;
-    return Boolean(
-      multiSelectModeRef.current || (originalEvent && (originalEvent.ctrlKey || originalEvent.metaKey || originalEvent.shiftKey))
-    );
+    const hasModifierKey = originalEvent && (originalEvent.ctrlKey || originalEvent.metaKey || originalEvent.shiftKey);
+    const result = Boolean(multiSelectModeRef.current || hasModifierKey);
+    
+    // Debug logging
+    console.log('🔍 isMultiSelectGesture check:', {
+      multiSelectMode: multiSelectModeRef.current,
+      hasOriginalEvent: !!originalEvent,
+      ctrlKey: originalEvent?.ctrlKey,
+      metaKey: originalEvent?.metaKey,
+      shiftKey: originalEvent?.shiftKey,
+      result
+    });
+    
+    return result;
   }, []); // No dependencies - uses ref which is always current
 
   const selectNode = useCallback((cy: Core, evt: cytoscape.EventObject) => {
@@ -350,6 +369,7 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
       
       // Store selected node IDs in ref for persistence across re-renders
       selectedNodeIdsRef.current = selectedNodes.map((n) => n.id());
+      setSelectionCount(selectedNodes.length); // Update state to trigger monitoring
       console.log('💾 Stored selected IDs in ref:', selectedNodeIdsRef.current);
       
       // Force Cytoscape to re-render ALL selected nodes with their border styles
@@ -369,6 +389,7 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
     } else {
       cy.$(':selected').not(node).unselect();
       node.select();
+      setSelectionCount(1); // Update state for single selection
       console.log('🔄 Single select (cleared others)');
       console.log('Total selected nodes:', cy.$('node:selected').length);
       
@@ -402,6 +423,15 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
 
     // Attach new listeners with current selectNode via ref
     cy.on('tap', 'node', (evt: cytoscape.EventObject) => {
+      // Prevent default browser behavior for Ctrl+click
+      if (evt.originalEvent) {
+        const originalEvent = evt.originalEvent as MouseEvent;
+        if (originalEvent.ctrlKey || originalEvent.metaKey) {
+          originalEvent.preventDefault();
+          originalEvent.stopPropagation();
+        }
+      }
+      
       if (selectNodeRef.current) {
         selectNodeRef.current(cy, evt);
       }
@@ -432,6 +462,7 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
             n.removeStyle('border-width border-color border-style');
           });
           selectedNodeIdsRef.current = []; // Clear the ref too!
+          setSelectionCount(0); // Clear selection count state
           console.log('🧹 Background tap - cleared all selections (single-select mode)');
         }
       }
@@ -665,8 +696,7 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
           alignItems: 'center',
           py: { xs: 1, sm: 1.5, md: 2 },
           px: 1,
-          bgcolor: 'transparent',
-          pointerEvents: 'none'
+          bgcolor: 'transparent'
         }}
       >
         <Paper
@@ -679,8 +709,7 @@ const GraphCanvas: React.FC<GraphCanvasProps> = ({
             zIndex: 1000,
             maxWidth: { xs: '100%', sm: '90%', md: 'none' },
             justifyContent: 'center',
-            boxShadow: 3,
-            pointerEvents: 'auto'
+            boxShadow: 3
           }}
         >
         <Tooltip title={multiSelectMode ? t('multi_select_on', { defaultValue: 'Multi-Select: ON (tap to disable)' }) : t('multi_select_off', { defaultValue: 'Multi-Select: OFF (tap to enable)' })}>
